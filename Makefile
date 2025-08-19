@@ -72,9 +72,22 @@ test: all
 		make -C $$s test; \
 	done
 
+check: test
 
-docs:
+docs-worktree:
+	@if [ ! -d docs/gh-pages ]; then \
+		git worktree add docs/gh-pages gh-pages -f; \
+	fi
+
+
+docs: docs-worktree
 	doxygen doxygen.cfg
+
+docs-open: docs
+	xdg-open docs/gh-pages/index.html
+
+docs-publish:
+	cd docs/gh-pages && git add . && git commit -m "Auto-generated commit from make docs-publish" && git push || true
 
 open-docs: docs
 	cd api_docs/html/ && python -m http.server 8000
