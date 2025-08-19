@@ -72,6 +72,7 @@ test: all
 		make -C $$s test; \
 	done
 
+check: test
 
 docs:
 	doxygen doxygen.cfg
