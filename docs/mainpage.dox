@@ -4,9 +4,9 @@
 
 @section intro_sec Introduction
 
-This project is a collection of common data structures and sorting algorithms implemented in C. It was developed as part of the Data Structures course at UFC (Federal University of Ceará) - Sobral, taught by Professor Jarbas Joaci de Sá in 2017.2.
+This project is a collection of common data structures and sorting algorithms implemented in C. It was developed as part of the Data Structures course at UFC (Federal University of Ceará) - Sobral, taught by Professor Jarbas Joaci de Sá in 2017.2. Source: [github.com](https://github.com/ryukinix/data-structures).
 
-The main goal of this repository is to provide a simple and clear implementation of these data structures and algorithms, as well as to serve as a learning resource for students and developers.
+The main goal of this repository is to provide a simple and clear implementation of these data structures and algorithms, as well as to serve as a learning resource for students and developers. 
 
 @section data_structures_sec Data Structures
 
