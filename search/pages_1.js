@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['data_20structures_0',['Data Structures',['../index.html',1,'Data Structures'],['../index.html#data_structures_sec',1,'Data Structures']]]
+];

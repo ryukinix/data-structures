@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['data_20structures_346',['Data Structures',['../index.html',1,'']]]
+  ['algorithms_0',['Sorting Algorithms',['../index.html#sorting_algorithms_sec',1,'']]],
+  ['author_1',['Author',['../index.html#author_sec',1,'']]]
 ];
