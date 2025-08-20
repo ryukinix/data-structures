@@ -16,6 +16,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: ssciwr/doxygen-install@v1
+
       - name: Build docs using docker
         run: make docker-docs
 
