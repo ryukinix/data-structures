@@ -6,7 +6,7 @@ endif
 
 CC= gcc
 CFLAGS = -L./../../../lib -I././../../../src -pedantic -g -Wall -Wextra
-LDFLAGS = -lds-ufc -lm -static
+LDFLAGS = -lds-lerax -lm -static
 TARGET = main
 
 all: generate-binary

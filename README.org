@@ -35,7 +35,7 @@ Estrutura de Dados, ministrada pelo professor Jarbas Joaci de Sá na UFC - Sobra
 * Versões em PDF
 
 As notas são eventualmente compiladas em PDF, você pode baixá-las
-através do último [[https://github.com/ryukinix/data-structures-ufc/releases][release]].
+através do último [[https://github.com/ryukinix/data-structures/releases][release]].
 
 * Autor
 Manoel Vilela

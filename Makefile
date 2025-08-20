@@ -2,9 +2,9 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG ?= -g
 SRCDIR = src
-LIBNAME = libds-ufc
+LIBNAME = libds-lerax
 LIBDIR = lib
-HEADER = ds-ufc.h
+HEADER = ds-lerax.h
 CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99 -fPIC
 SOURCES = $(shell find $(SRCDIR) -iname '*.c')
 BLACKLIST = "(list-iter|main|test).c|avl|*.-static.c|matrix-vector"
@@ -25,8 +25,8 @@ all: compile static shared header
 
 install: all
 	@printf $(STATUS_PREFIX); echo "INSTALLING LIB INTO: " $(LIB_TARGET)
-	cp -f $(LIBDIR)/ds-ufc.h $(INCLUDE_TARGET)
-	cp -f $(LIBDIR)/libds-ufc.a $(LIBDIR)/libds-ufc.so $(LIB_TARGET)
+	cp -f $(LIBDIR)/ds-lerax.h $(INCLUDE_TARGET)
+	cp -f $(LIBDIR)/libds-lerax.a $(LIBDIR)/libds-lerax.so $(LIB_TARGET)
 
 
 mkdir-%:
