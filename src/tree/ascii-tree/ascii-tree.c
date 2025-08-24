@@ -75,7 +75,7 @@ ASCIITree *build_ascii_tree_recursive(BinaryTree *t) {
         node->right->parent_dir = 1;
     }
 
-    sprintf(node->label, TypeFormat, t->value);
+    sprintf(node->label, BINARY_NODE_FORMAT, t->value);
     node->label_length = strlen(node->label);
 
     return node;

@@ -13,15 +13,15 @@
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 
-#ifndef Type
-#define Type int
+#ifndef BINARY_NODE_TYPE
+#define BINARY_NODE_TYPE int
 #endif
-#ifndef TypeFormat
-#define TypeFormat "%d"
+#ifndef BINARY_NODE_FORMAT
+#define BINARY_NODE_FORMAT "%d"
 #endif
 
 struct BinaryNode {
-    Type value;
+    BINARY_NODE_TYPE value;
     struct BinaryNode* left;
     struct BinaryNode* right;
 };

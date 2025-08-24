@@ -25,6 +25,10 @@
 /* Binary Search Tree DataType Definition */
 typedef struct BinaryNode BSTree;
 
+#ifndef Type
+#define Type BINARY_NODE_TYPE
+#endif
+
 #define BST_EMPTY (BSTree*) 0
 
 /* Função que cria um nó de uma Árvore */
