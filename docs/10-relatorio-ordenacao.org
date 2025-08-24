@@ -178,4 +178,4 @@ tem uma aparência constante comparado com os quadráticos.
 
 
 As tabelas dos dados coletados estão disponíveis abertamente no sítio:
-[[https://github.com/ryukinix/data-structures-ufc/tree/master/src/sort/benchmark]]
+[[https://github.com/ryukinix/data-structures/tree/master/src/sort/benchmark]]
