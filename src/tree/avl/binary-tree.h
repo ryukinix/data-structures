@@ -1,11 +1,11 @@
 /**
  * ================================================
  *
- *         Copyright 2017 Manoel Vilela
+ *         Copyright 2025 Manoel Vilela
  *
  *         Author: Manoel Vilela
  *        Contact: manoel_vilela@engineer.com
- *   Organization: UFC
+ *   Organization: ITA
  *
  * ===============================================
  */
@@ -22,6 +22,7 @@
 
 struct BinaryNode {
     BINARY_NODE_TYPE value;
+    int height;
     struct BinaryNode* left;
     struct BinaryNode* right;
 };

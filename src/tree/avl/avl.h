@@ -10,8 +10,8 @@
  * ===============================================
  */
 
-#ifndef BST_H
-#define BST_H
+#ifndef AVLT_H
+#define AVLT_H
 
 /**
  * @description
@@ -20,69 +20,69 @@
  */
 
 // definition of BinaryTree and struct node.
-#include "tree/binary-tree.h"
+
 
 /* Binary Search Tree DataType Definition */
-typedef struct BinaryNode BSTree;
-
+#include "tree/avl/binary-tree.h"
+typedef struct BinaryNode AVLTree;
 #ifndef Type
 #define Type BINARY_NODE_TYPE
 #endif
 
-#define BST_EMPTY (BSTree*) 0
+#define AVLT_EMPTY (AVLTree*) 0
 
 /* Função que cria um nó de uma Árvore */
-BSTree* bst_create_node(BSTree* left, BSTree* right, Type value);
+AVLTree* avl_create_node(Type value);
 
 /* Função que cria uma Árvore Binária de Busca Vazia. */
-BSTree* bst_create(void);
+AVLTree* avl_create(void);
 
 /* Testa se uma Árvore Binária é vazia. */
-int bst_empty(BSTree *t);
+int avl_empty(AVLTree *t);
 
 /* Função que determina se um caractere pertence à Árvore. */
-int bst_exists(BSTree *t, Type c);
+int avl_exists(AVLTree *t, Type c);
 
 /* Função que busca a sub-árvore que contém um inteiro. */
-BSTree* bst_search(BSTree *t,Type c);
+AVLTree* avl_search(AVLTree *t,Type c);
 
 /* Função que imprime os elementos de uma Árvore. */
-void bst_print(BSTree *t);
+void avl_print(AVLTree *t);
 
 /* Função que retorna a altura de uma Árvore. */
-int bst_height(BSTree *t);
+int avl_height(AVLTree *t);
 
 /* Função que insere um inteiro em uma Árvore. */
-BSTree* bst_insert(BSTree *t, Type c);
+AVLTree* avl_insert(AVLTree *t, Type c);
 
 /* Função que remove um inteiro em uma Árvore. */
-BSTree* bst_remove(BSTree *t, Type c);
+AVLTree* avl_remove(AVLTree *t, Type c);
 
 /* Libera o espaço alocado para uma Árvore. */
-void bst_free(BSTree *t);
+void avl_free(AVLTree *t);
 
 /* Imprime a árvore linearmente em pós-ordem */
-void bst_posfix(BSTree *t);
+void avl_posfix(AVLTree *t);
 
 /* Imprime a árvore linearmente em pré-ordem */
-void bst_prefix(BSTree *t);
+void avl_prefix(AVLTree *t);
 
 /* Imprime a árvore linearmente de forma simétrica */
-void bst_infix(BSTree *t);
+void avl_infix(AVLTree *t);
 
 /* Count the number of nodes */
-int bst_nodes(BSTree *t);
+int avl_nodes(AVLTree *t);
 
 /* Return the number of leafs which are prime numbers */
-int bst_leafs_primes(BSTree *t);
+int avl_leafs_primes(AVLTree *t);
 
 /* Return the number of nodes that has two children */
-int bst_two_children(BSTree *t);
+int avl_two_children(AVLTree *t);
 
 /* Return the number of nodes which have equal branch heights*/
-int bst_nodes_equal_height(BSTree *t);
+int avl_nodes_equal_height(AVLTree *t);
 
 /* Compare if t1 and t2 are equal by traversal tree search */
-int bst_equals(BSTree *t1, BSTree *t2);
+int avl_equals(AVLTree *t1, AVLTree *t2);
 
 #endif
