@@ -29,11 +29,10 @@ typedef struct BinaryNode AVLTree;
 #define Type BINARY_NODE_TYPE
 #endif
 
-
 #define AVLT_EMPTY (AVLTree*) 0
 
 /* Função que cria um nó de uma Árvore */
-AVLTree* avl_create_node(AVLTree* left, AVLTree* right, Type value);
+AVLTree* avl_create_node(Type value);
 
 /* Função que cria uma Árvore Binária de Busca Vazia. */
 AVLTree* avl_create(void);

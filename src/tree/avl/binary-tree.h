@@ -22,7 +22,7 @@
 
 struct BinaryNode {
     BINARY_NODE_TYPE value;
-    int height_diff;
+    int height;
     struct BinaryNode* left;
     struct BinaryNode* right;
 };

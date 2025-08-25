@@ -17,7 +17,61 @@
 #include "avl.h"
 #include "utils/check_alloc.h"
 
-#define MAX(a, b) a > b? a : b
+
+// New auxiliary methods
+
+static inline int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+static int height(AVLTree* node) {
+    return node ? node->height : -1;
+}
+
+AVLTree* avl_create_node(Type value) {
+    AVLTree* node = malloc(sizeof(AVLTree));
+    node->value = value;
+    node->left = NULL;
+    node->right = NULL;
+    node->height = 0;
+    return node;
+}
+
+static void update_height(AVLTree* node) {
+    node->height = max(height(node->left), height(node->right)) + 1;
+}
+
+static int get_balance(AVLTree* node) {
+    return node ? height(node->left) - height(node->right) : 0;
+}
+
+static AVLTree* rotate_right(AVLTree* y) {
+    AVLTree* x = y->left;
+    AVLTree* T2 = x->right;
+    x->right = y;
+    y->left = T2;
+    update_height(y);
+    update_height(x);
+    return x;
+}
+
+static AVLTree* rotate_left(AVLTree* x) {
+    AVLTree* y = x->right;
+    AVLTree* T2 = y->left;
+    y->left = x;
+    x->right = T2;
+    update_height(x);
+    update_height(y);
+    return y;
+}
+
+
+static AVLTree* min_value_node(AVLTree* node) {
+    AVLTree* current = node;
+    while (current->left)
+        current = current->left;
+    return current;
+}
 
 
 AVLTree* avl_create(void) {
@@ -26,15 +80,6 @@ AVLTree* avl_create(void) {
 
 int avl_empty(AVLTree *t) {
     return t == AVLT_EMPTY;
-}
-
-AVLTree* avl_create_node(AVLTree* left, AVLTree* right, Type value) {
-    AVLTree* node = (AVLTree*) malloc(sizeof(AVLTree));
-    check_alloc(node);
-    node->left = left;
-    node->right = right;
-    node->value = value;
-    return node;
 }
 
 int avl_exists(AVLTree *t, Type c) {
@@ -57,7 +102,7 @@ AVLTree* avl_search(AVLTree *t, Type c) {
 
 int avl_height(AVLTree *t) {
     if (!avl_empty(t)) {
-        return MAX(1 + avl_height(t->left), 1 + avl_height(t->right));
+        return max(1 + avl_height(t->left), 1 + avl_height(t->right));
     }
     return -1;
 }
@@ -70,46 +115,92 @@ int avl_nodes(AVLTree *t) {
     }
 }
 
-AVLTree* avl_insert(AVLTree *t, Type c) {
-    if (avl_empty(t)) {
-        t = avl_create_node(NULL, NULL, c);
-    } else if (c < t->value) {
-        t->left = avl_insert(t->left, c);
-    } else if (c > t->value) {
-        t->right = avl_insert(t->right, c);
+AVLTree* avl_insert(AVLTree* node, int value) {
+    if (!node)
+        return avl_create_node(value);
+
+    if (value < node->value)
+        node->left = avl_insert(node->left, value);
+    else if (value > node->value)
+        node->right = avl_insert(node->right, value);
+    else
+        return node; // No duplicates
+
+    update_height(node);
+
+    int balance = get_balance(node);
+
+    // Left Left Case
+    if (balance > 1 && value < node->left->value)
+        return rotate_right(node);
+
+    // Right Right Case
+    if (balance < -1 && value > node->right->value)
+        return rotate_left(node);
+
+    // Left Right Case
+    if (balance > 1 && value > node->left->value) {
+        node->left = rotate_left(node->left);
+        return rotate_right(node);
     }
-    return t;
+
+    // Right Left Case
+    if (balance < -1 && value < node->right->value) {
+        node->right = rotate_right(node->right);
+        return rotate_left(node);
+    }
+
+    return node;
 }
 
-AVLTree* avl_remove(AVLTree *t, Type c) {
-    if (!avl_empty(t)) {
-        if (c < t->value) {
-            t->left = avl_remove(t->left, c);
-        } else if (c > t->value) {
-            t->right = avl_remove(t->right, c);
-        } else {
-            AVLTree* r;
-            if (avl_empty(t->left)) {
-                r = t; t = t->right;
-                free(r);
-            } else if (avl_empty(t->right)) {
-                r = t; t = t->left;
-                free(r);
-            } else {
-                // remoção por suavlituição
-                // do elemento mais a direita da subárvore esquerda
-                r = t->left;
-                while (!avl_empty(r->right)) {
-                    r = r->right;
-                }
-                t->value = r->value;
-                r->value = c;
-                t->left = avl_remove(t->left, c);
-            }
+AVLTree* avl_remove(AVLTree* root, int value) {
+    if (!root)
+        return root;
+
+    if (value < root->value)
+        root->left = avl_remove(root->left, value);
+    else if (value > root->value)
+        root->right = avl_remove(root->right, value);
+    else {
+        // node with only one child or no child
+        if (!root->left || !root->right) {
+            AVLTree* temp = root->left ? root->left : root->right;
+            free(root);
+            return temp;
         }
+        // node with two children: get inorder successor
+        AVLTree* temp = min_value_node(root->right);
+        root->value = temp->value;
+        root->right = avl_remove(root->right, temp->value);
     }
-    return t;
+
+    update_height(root);
+
+    int balance = get_balance(root);
+
+    // Left Left Case
+    if (balance > 1 && get_balance(root->left) >= 0)
+        return rotate_right(root);
+
+    // Left Right Case
+    if (balance > 1 && get_balance(root->left) < 0) {
+        root->left = rotate_left(root->left);
+        return rotate_right(root);
+    }
+
+    // Right Right Case
+    if (balance < -1 && get_balance(root->right) <= 0)
+        return rotate_left(root);
+
+    // Right Left Case
+    if (balance < -1 && get_balance(root->right) > 0) {
+        root->right = rotate_right(root->right);
+        return rotate_left(root);
+    }
+
+    return root;
 }
+
 
 void avl_free(AVLTree *t) {
     if(!avl_empty(t)) {
