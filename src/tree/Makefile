@@ -8,8 +8,8 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS = -lm -L./ascii-tree/ -L./bst/ -lbst -lascii-tree
-LDFLAGS = -L./ascii-tree/ -L./bst/ -B static -lbst -lascii-tree -B dynamic -lm
+LDFLAGS = -lm -L./ascii-tree/ -L./avl/ -lavl -lascii-tree
+LDFLAGS = -L./ascii-tree/ -L./avl/ -B static -lavl -lascii-tree -B dynamic -lm
 MAIN = main
 INCLUDE = -I../
 
@@ -26,7 +26,7 @@ compile: $(TARGETS)
 
 deps:
 	make -C ascii-tree library
-	make -C bst library
+	make -C avl library
 
 %.o: %.c
 	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
