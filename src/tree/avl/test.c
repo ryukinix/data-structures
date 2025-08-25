@@ -20,12 +20,19 @@ void naive_tests() {
     printf("== [AVL] Manoel Naive Tests\n");
     AVLTree* t = avl_create();
     int array[N] = {10, 20, 5, 80, 50};
-
+    int heights[N] = {0, 1, 1, 2, 2};
     // insertion
     for(int i = 0; i < N; i++) {
         printf("Insert: %d\n", array[i]);
         t = avl_insert(t, array[i]);
         print_ascii_tree(t);
+        int h = avl_height(t);
+        int h_expected = heights[i];
+        if (h != h_expected) {
+            printf(":: expected height=%d, got %d\n", h_expected, h);
+            exit(1);
+
+        }
     }
 
     // infix, posfix, prefix
