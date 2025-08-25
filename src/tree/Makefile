@@ -37,6 +37,8 @@ $(MAIN_BINARY): $(TARGETS)
 main: deps $(TARGETS) $(MAIN_BINARY)
 	./$(MAIN_BINARY)
 
+run: main
+
 test:
 	@echo "Test manually with: make main"
 
