@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['binary_2dtree_2eh_0',['binary-tree.h',['../binary-tree_8h.html',1,'']]],
+  ['binary_2dtree_2eh_0',['binary-tree.h',['../avl_2binary-tree_8h.html',1,'(Global Namespace)'],['../binary-tree_8h.html',1,'(Global Namespace)']]],
   ['binarynode_1',['BinaryNode',['../structBinaryNode.html',1,'']]],
-  ['binarytree_2',['BinaryTree',['../binary-tree_8h.html#ad751efc63e8a61461b0cf65ff82906a9',1,'binary-tree.h']]],
+  ['binarytree_2',['BinaryTree',['../avl_2binary-tree_8h.html#ad751efc63e8a61461b0cf65ff82906a9',1,'binary-tree.h']]],
   ['bst_2eh_3',['bst.h',['../bst_8h.html',1,'']]],
   ['bst_5fcreate_4',['bst_create',['../bst_8h.html#a13e414452c8c3714fc29ef642b192ed8',1,'bst.h']]],
   ['bst_5fcreate_5fnode_5',['bst_create_node',['../bst_8h.html#a104386dd9635212b33e57f19ef83db63',1,'bst.h']]],

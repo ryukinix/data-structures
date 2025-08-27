@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['circle_0',['Circle',['../circle_8h.html#aba98f5b247b9d2dd064a85bd5d176563',1,'circle.h']]]
+  ['binarytree_0',['BinaryTree',['../avl_2binary-tree_8h.html#ad751efc63e8a61461b0cf65ff82906a9',1,'binary-tree.h']]],
+  ['bstree_1',['BSTree',['../bst_8h.html#a808b63f4505437f6edbd72f8f55277fa',1,'bst.h']]]
 ];

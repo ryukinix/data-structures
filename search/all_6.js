@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['left_0',['left',['../structBinaryNode.html#a23e0b6673d81d1135092969c19c97f9e',1,'BinaryNode']]],
+  ['left_0',['left',['../structBinaryNode.html#a14559f84f10a58742ee7c750bc3202dc',1,'BinaryNode']]],
   ['list_1',['List',['../list_8h.html#a99e20082d0eddef1840f9f37978efd28',1,'list.h']]],
   ['list_2dcircular_2eh_2',['list-circular.h',['../list-circular_8h.html',1,'']]],
   ['list_2ddouble_2eh_3',['list-double.h',['../list-double_8h.html',1,'']]],
