@@ -17,7 +17,7 @@
 #define N 5
 
 void naive_tests() {
-    printf("== Manoel Naive Tests\n");
+    printf("== [BST] Manoel Naive Tests\n");
     BSTree* t = bst_create();
     int array[N] = {10, 20, 5, 80, 50};
 
