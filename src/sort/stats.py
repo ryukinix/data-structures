@@ -15,6 +15,8 @@ import pandas as pd  # python-pandas dependency
 import matplotlib.pyplot as plt
 from typing import List, Dict
 
+# pip install matplotlib pandas
+
 dpi = 300
 csv_sep = ';'
 # fit best scale for each algorithm
@@ -81,6 +83,7 @@ def save_graph_algorithms(dfs: Dict[str, pd.DataFrame], prefix=''):
     ax.set_xlabel('Elementos no vetor')
     ax.xaxis.set_tick_params(rotation=0)
     ax.minorticks_on()
+    ax.ticklabel_format(style='plain', axis='x')
     ax.set_axisbelow(True)
     fname = 'sorting'
     if prefix:
@@ -120,13 +123,19 @@ def main():
         save_graph_algorithm(name, df)
 
     # save general graph
+    linear = {'radixsort'}
     nlogn = {'heapsort', 'mergesort', 'quicksort'}
+    efficient = linear | nlogn
     quadratic = {'insertionsort', 'bubblesort'}
-    df_eff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') in nlogn)
-    df_ineff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') in quadratic)
+    df_eff = dict((k, v) for k, v in dfs.items()
+                  if k.strip('.csv') in efficient)
+    df_ineff = dict((k, v) for k, v in dfs.items()
+                    if k.strip('.csv') in quadratic)
     save_graph_algorithms(dfs)
-    save_graph_algorithms(df_eff, prefix='log-linear')
-    save_graph_algorithms(df_ineff, prefix='quadratic')
+    if df_eff:
+        save_graph_algorithms(df_eff, prefix='efficient')
+    if df_ineff:
+        save_graph_algorithms(df_ineff, prefix='quadratic')
     save_graph_per_element(dfs)
 
 

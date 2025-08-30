@@ -75,5 +75,6 @@ int main(void) {
     BENCHMARK_ALGORITHM(mergesort);
     BENCHMARK_ALGORITHM(insertionsort);
     BENCHMARK_ALGORITHM(bubblesort);
+    BENCHMARK_ALGORITHM(radixsort);
     return 0;
 }
