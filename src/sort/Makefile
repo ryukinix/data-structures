@@ -8,13 +8,13 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 override CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS = -lm
-INCLUDE = -I../
+LDFLAGS = -lm -lqueue -llist
+INCLUDE = -I../ -L../queue/ -L../list/single/
 
 # targets to compile
 TEST_TARGET = test
 MAIN_TARGET = main
-TARGETS = quicksort.o bubblesort.o heapsort.o mergesort.o insertionsort.o utils.o
+TARGETS = quicksort.o bubblesort.o heapsort.o mergesort.o insertionsort.o utils.o radixsort.o
 LIBRARY_OBJS = TARGETS
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
@@ -26,15 +26,18 @@ LIBRARY_TARGET = libsort.a
 all: compile
 	@echo > /dev/null
 
+deps:
+	make clean library -C ../queue
+
 compile: $(TARGETS) $(TEST_TARGET).o $(MAIN_TARGET).o
 
 %.o: %.c
 	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
 
-$(TEST_BINARY): $(TARGETS) $(TEST_TARGET).c
+$(TEST_BINARY): deps $(TARGETS) $(TEST_TARGET).c
 	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(TARGETS) $(TEST_TARGET).c $(LDFLAGS)
 
-$(MAIN_BINARY): $(TARGETS) $(MAIN_TARGET).c
+$(MAIN_BINARY): deps $(TARGETS) $(MAIN_TARGET).c
 	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(TARGETS) $(MAIN_TARGET).c  $(LDFLAGS)
 
 test: $(TARGETS) $(TEST_BINARY)
