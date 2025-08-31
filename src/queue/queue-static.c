@@ -39,7 +39,7 @@ int queue_empty(Queue *q) {
 void queue_insert(Queue *q, int data) {
     int end;
     if (q->size == QUEUE_STATIC_MAX) {
-        printf("Exception: Insert on full queue!\n");
+        printf("Exception: Insert on full queue! size=%d\n", q->size);
         exit(EXIT_FAILURE);
     }
     end = (q->start + q->size) % QUEUE_STATIC_MAX;

@@ -14,6 +14,11 @@ from os import path
 import pandas as pd  # python-pandas dependency
 import matplotlib.pyplot as plt
 from typing import List, Dict
+from pathlib import Path
+
+benchmark = Path("benchmark")
+
+# pip install matplotlib pandas
 
 dpi = 300
 csv_sep = ';'
@@ -66,7 +71,7 @@ def save_graph_algorithm(name: str, df: List[pd.DataFrame]):
         plt.ylim(scales[name])
 
     plt.tight_layout()
-    plt.savefig(name + '.png', dpi=dpi)
+    plt.savefig(benchmark / f"{name}.png", dpi=dpi)
     plt.close(fig)
 
 
@@ -81,12 +86,13 @@ def save_graph_algorithms(dfs: Dict[str, pd.DataFrame], prefix=''):
     ax.set_xlabel('Elementos no vetor')
     ax.xaxis.set_tick_params(rotation=0)
     ax.minorticks_on()
+    ax.ticklabel_format(style='plain', axis='x')
     ax.set_axisbelow(True)
     fname = 'sorting'
     if prefix:
         fname = 'sorting-' + prefix
     plt.tight_layout()
-    plt.savefig(fname+'.png', dpi=dpi)
+    plt.savefig(benchmark / f'{fname}.png', dpi=dpi)
     plt.close(fig)
 
 
@@ -108,7 +114,7 @@ def save_graph_per_element(dfs: Dict[str, pd.DataFrame]):
         ax.minorticks_on()
         ax.set_axisbelow(True)
         plt.tight_layout()
-        plt.savefig('sorting-{}.png'.format(i), dpi=dpi)
+        plt.savefig(benchmark / 'sorting-{}.png'.format(i), dpi=dpi)
         plt.close(fig)
 
 
@@ -120,13 +126,19 @@ def main():
         save_graph_algorithm(name, df)
 
     # save general graph
+    linear = {'radixsort'}
     nlogn = {'heapsort', 'mergesort', 'quicksort'}
+    efficient = linear | nlogn
     quadratic = {'insertionsort', 'bubblesort'}
-    df_eff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') in nlogn)
-    df_ineff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') in quadratic)
+    df_eff = dict((k, v) for k, v in dfs.items()
+                  if k.strip('.csv') in efficient)
+    df_ineff = dict((k, v) for k, v in dfs.items()
+                    if k.strip('.csv') in quadratic)
     save_graph_algorithms(dfs)
-    save_graph_algorithms(df_eff, prefix='log-linear')
-    save_graph_algorithms(df_ineff, prefix='quadratic')
+    if df_eff:
+        save_graph_algorithms(df_eff, prefix='efficient')
+    if df_ineff:
+        save_graph_algorithms(df_ineff, prefix='quadratic')
     save_graph_per_element(dfs)
 
 

@@ -39,6 +39,9 @@ void quicksort(Type *v, int n);
 /* Apply the HeapSort Algorithm on the v */
 void heapsort(Type *v, int n);
 
+/* Apply the RadixSort Algorithm on the v */
+void radixsort(Type *v, int n);
+
 /*********/
 /* UTILS */
 /*********/

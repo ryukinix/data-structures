@@ -16,7 +16,7 @@
 #include "sort.h"
 
 // HACK: macro rules
-#define N 10
+#define N 15
 #define TEST(ALGORITHM)                         \
     int *v = random_vector(N);                  \
     printf("== Testing for %s: ", #ALGORITHM);  \
@@ -51,11 +51,16 @@ void test_heapsort(void) {
 
 }
 
+void test_radixsort(void) {
+    TEST(radixsort);
+}
+
 int main(void) {
     test_bubblesort();
     test_insertionsort();
     test_quicksort();
     test_mergesort();
     test_heapsort();
+    test_radixsort();
     return 0;
 }
