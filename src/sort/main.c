@@ -47,7 +47,7 @@ static double benchmark[SIZES][EXPERIMENTS+1];
 // save a csv file based on the name of algorithm like 'quicksort'
 void save_csv(char *algorithm) {
     char filename[80];
-    sprintf(filename, "%s.csv", algorithm);
+    sprintf(filename, "benchmark/%s.csv", algorithm);
     FILE *fp = fopen(filename,"w");
 
     fprintf(fp,"Elements;");

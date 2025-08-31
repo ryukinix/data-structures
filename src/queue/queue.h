@@ -16,7 +16,9 @@
 typedef struct queue Queue;
 
 #define EMPTY_QUEUE (Queue*) 0
-#define QUEUE_STATIC_MAX 10
+#ifndef QUEUE_STATIC_MAX
+#define QUEUE_STATIC_MAX 1000000
+#endif
 
 /**
  * @brief Create a new queue

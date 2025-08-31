@@ -14,6 +14,9 @@ from os import path
 import pandas as pd  # python-pandas dependency
 import matplotlib.pyplot as plt
 from typing import List, Dict
+from pathlib import Path
+
+benchmark = Path("benchmark")
 
 # pip install matplotlib pandas
 
@@ -68,7 +71,7 @@ def save_graph_algorithm(name: str, df: List[pd.DataFrame]):
         plt.ylim(scales[name])
 
     plt.tight_layout()
-    plt.savefig(name + '.png', dpi=dpi)
+    plt.savefig(benchmark / f"{name}.png", dpi=dpi)
     plt.close(fig)
 
 
@@ -89,7 +92,7 @@ def save_graph_algorithms(dfs: Dict[str, pd.DataFrame], prefix=''):
     if prefix:
         fname = 'sorting-' + prefix
     plt.tight_layout()
-    plt.savefig(fname+'.png', dpi=dpi)
+    plt.savefig(benchmark / f'{fname}.png', dpi=dpi)
     plt.close(fig)
 
 
@@ -111,7 +114,7 @@ def save_graph_per_element(dfs: Dict[str, pd.DataFrame]):
         ax.minorticks_on()
         ax.set_axisbelow(True)
         plt.tight_layout()
-        plt.savefig('sorting-{}.png'.format(i), dpi=dpi)
+        plt.savefig(benchmark / 'sorting-{}.png'.format(i), dpi=dpi)
         plt.close(fig)
 
 
