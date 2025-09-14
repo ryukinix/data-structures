@@ -1,11 +1,11 @@
 /**
  * ================================================
  *
- *         Copyright 2017 Manoel Vilela
+ *         Copyright 2017-2025 Manoel Vilela
  *
  *         Author: Manoel Vilela
  *        Contact: manoel_vilela@engineer.com
- *   Organization: UFC
+ *   Organization: UFC-ITA
  *
  * ===============================================
  */
@@ -24,56 +24,42 @@
  *     Second subarray is v[m+1..r]
  */
 void merge(Type v[], int l, int m, int r) {
-    int i, j, k; // counters
-    int n1 = m - l + 1; // first size
-    int n2 = r - m; // second size
+    int i = l;
+    int j = l;
+    int k = m + 1;
+    int n = r - l + 1;
 
-    /* temporary arrays */
-    int L[n1], R[n2];
-
-    /* copy the arrays */
-    for (i = 0; i < n1; i++) {
-        L[i] = v[l + i];
-    }
-    for (j = 0; j < n1; j++) {
-        R[j] = v[m + j + 1];
-    }
-
-    /* Merge arrays in sorted way */
-
-    i = 0;
-    j = 0;
-    k = l;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            v[k] = L[i];
-            i++;
-        } else {
-            v[k] = R[j];
-            j++;
+    Type aux[n];
+    // merge ordered elements
+    while (j <= m && k <= r) {
+        if (v[j] < v[k]) {
+            aux[i++ - l] = v[j++];
         }
-        k++;
+        else {
+            aux[i++ - l] = v[k++];
+        }
     }
 
-    /* Copy the remaining elements of L[], if there any */
-    while (i < n1) {
-        v[k] = L[i];
-        i++;
-        k++;
+    // copy lasting elements from each side
+    while (j <= m) {
+        aux[i++ - l] = v[j++];
+    }
+    while (k <= r) {
+        aux[i++ - l] = v[k++];
     }
 
-    while (j < n2) {
-        v[k] = R[j];
-        j++;
-        k++;
+    // copy from aux to v
+    for (int x = l; x <= r; x++) {
+        v[x] = aux[x - l];
     }
-
 }
+
+
 
 /* Auxiliar function to break in partitions recursively */
 void partition(Type v[], int l, int r) {
     if (l < r) {
-        int m = l + (r - l)/2;
+        int m = (l + r) / 2;
 
         partition(v, l, m);
         partition(v, m+1, r);
@@ -82,7 +68,25 @@ void partition(Type v[], int l, int r) {
     }
 }
 
+// iterative version of partition algorithm
+void partition_iter(Type v[], int start, int end) {
+    int block_size = 1;
+    while (block_size <= end) {
+        int block_pointer = start;
+        while ((block_pointer + block_size) <= end) {
+            int right = block_pointer - 1 + 2 * block_size;
+            if (right > end) {
+                right = end;
+            }
+            int middle = block_pointer + block_size - 1;
+            merge(v, block_pointer, middle, right);
+            block_pointer += 2 * block_size;
+        }
+        block_size *= 2;
+    }
+}
+
 
 void mergesort(Type *v, int n) {
-    partition(v, 0, n - 1);
+    partition_iter(v, 0, n - 1);
 }
