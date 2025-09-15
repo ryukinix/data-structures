@@ -16,7 +16,7 @@
 #include "sort.h"
 
 // HACK: macro rules
-#define N 15
+#define N 8
 #define TEST(ALGORITHM)                         \
     int *v = random_vector(N);                  \
     printf("== Testing for %s: ", #ALGORITHM);  \

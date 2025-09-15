@@ -34,6 +34,16 @@ Type* random_vector(int n) {
     srand(time((void*) v));
     for (int i = 0; i < n; i++) {
         v[i] = rand() % n;
+
+#ifdef UNIQUE_RANDOM_NUMBERS
+        // ensure the numbers are unique
+        for (int j = 0; j < i; j++) {
+            if (v[i] == v[j]) {
+                i--;
+                break;
+            }
+        }
+#endif
     }
     return v;
 }
