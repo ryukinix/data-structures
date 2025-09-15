@@ -28,7 +28,7 @@ void quicksort(Type *v, int n) {
         while(left < n && v[left] <= x) left++;
         while(v[right] > x) right--;
         if (left < right) {
-            printf("%d: swap: v[%d]=%d <-> v[%d]=%d \n", k, left, v[left], right, v[right]);
+            debug("%d: swap: v[%d]=%d <-> v[%d]=%d \n", k, left, v[left], right, v[right]);
             swap(v + left, v + right);
             left++;
             right--;
@@ -36,13 +36,13 @@ void quicksort(Type *v, int n) {
             break;
         }
     }
-    printf("%d: swap: v[%d]=%d <-> v[%d]=%d \n", k, left, v[right], right, v[right]);
+    debug("%d: swap: v[%d]=%d <-> v[%d]=%d \n", k, left, v[right], right, v[right]);
     swap(v + pivot, v + right);
-    printf("%d: pivt: v[%d]=%d\n", k, right, v[right]); k++;
-    printf("%d: left:  ", k);
-    print_vector(v, right);
-    printf("%d: right: ", k);
-    print_vector(v + left, n - left);
+    debug("%d: pivt: v[%d]=%d\n", k, right, v[right]); k++;
+    debug("%d: left:  ", k);
+    debug_print_vector(v, right);
+    debug("%d: right: ", k);
+    debug_print_vector(v + left, n - left);
     quicksort(v + left, n - left);
     quicksort(v, right);
 }
