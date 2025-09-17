@@ -55,9 +55,14 @@ void test_radixsort(void) {
     TEST(radixsort);
 }
 
+void test_selectionsort(void) {
+    TEST(selectionsort);
+}
+
 int main(void) {
     test_bubblesort();
     test_insertionsort();
+    test_selectionsort();
     test_quicksort();
     test_mergesort();
     test_heapsort();

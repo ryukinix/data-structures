@@ -14,7 +14,7 @@ INCLUDE := -I../ -L../queue/ -L../list/single/
 # targets to compile
 TEST_TARGET = test
 MAIN_TARGET = main
-TARGETS = quicksort.o bubblesort.o heapsort.o mergesort.o insertionsort.o utils.o radixsort.o
+TARGETS = quicksort.o bubblesort.o heapsort.o mergesort.o insertionsort.o utils.o radixsort.o selectionsort.o
 LIBRARY_OBJS = TARGETS
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
