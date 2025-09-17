@@ -50,6 +50,7 @@ void radixsort(Type *v, int n);
 /* Print the v in a pretty format */
 void print_vector(Type *v, int n);
 
+
 /* Swap the values between e1 and e2 */
 void swap(Type *e1, Type *e2);
 
@@ -58,5 +59,11 @@ int check_sorted(Type *v, int n);
 
 /* Return a random_vector with n values */
 Type* random_vector(int n);
+
+/* Debug print vector when DEBUG symbol is defined */
+void debug_print_vector(Type *v, int n);
+
+/* Debug print vector DEBUG symbol is defined */
+void debug(const char *format, ...);
 
 #endif
