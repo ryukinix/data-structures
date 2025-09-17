@@ -42,6 +42,9 @@ void heapsort(Type *v, int n);
 /* Apply the RadixSort Algorithm on the v */
 void radixsort(Type *v, int n);
 
+/* Apply the SelectionSort Algorithm on the v */
+void selectionsort(Type *v, int n);
+
 /*********/
 /* UTILS */
 /*********/
