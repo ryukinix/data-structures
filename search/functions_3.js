@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['heapsort_0',['heapsort',['../sort_8h.html#ad14faf1fe7d2c09689a0196cccbf9383',1,'sort.h']]]
+  ['debug_0',['debug',['../sort_8h.html#adacf73b93ca6fa3985f2999f7d6b3b29',1,'sort.h']]],
+  ['debug_5fprint_5fvector_1',['debug_print_vector',['../sort_8h.html#ae98bbc00bc19791f5b4bad8ee2195db0',1,'sort.h']]]
 ];

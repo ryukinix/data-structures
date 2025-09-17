@@ -1,21 +1,12 @@
 var searchData=
 [
-  ['point_5fcopy_0',['point_copy',['../point_8h.html#a6864133d6b60f25f80117a1204f25729',1,'point.h']]],
-  ['point_5fcreate_1',['point_create',['../point_8h.html#a993c37b9e04107f1901d417111fc4189',1,'point.h']]],
-  ['point_5fdistance_2',['point_distance',['../point_8h.html#a51d2d9b21a6e81990c6924f4d9673f6e',1,'point.h']]],
-  ['point_5ffree_3',['point_free',['../point_8h.html#ad3a9de742ccb9e2a23606f3e77c03661',1,'point.h']]],
-  ['point_5fget_4',['point_get',['../point_8h.html#ae57ed0034ce7cead609f14a9fd91c5bb',1,'point.h']]],
-  ['point_5fget_5fx_5',['point_get_x',['../point_8h.html#aee015511bf7eda3fe4945f766e1a25a9',1,'point.h']]],
-  ['point_5fget_5fy_6',['point_get_y',['../point_8h.html#afed4e1f309044be54e1cf1069880594c',1,'point.h']]],
-  ['point_5fset_7',['point_set',['../point_8h.html#ac75e76c80d6701e87786c54768cb176a',1,'point.h']]],
-  ['pqueue_5fcreate_8',['pqueue_create',['../pqueue_8h.html#a07ae8ed20b804a52e51697954aa34133',1,'pqueue.h']]],
-  ['pqueue_5fextract_5fmax_9',['pqueue_extract_max',['../pqueue_8h.html#a805dd3a406affe9173ce9ef08068958a',1,'pqueue.h']]],
-  ['pqueue_5ffree_10',['pqueue_free',['../pqueue_8h.html#ae5aa2e15af1dfd90ba2b5cd419a813ee',1,'pqueue.h']]],
-  ['pqueue_5fincrease_5fkeys_11',['pqueue_increase_keys',['../pqueue_8h.html#adf20106f653af15928f42af640349411',1,'pqueue.h']]],
-  ['pqueue_5finsert_12',['pqueue_insert',['../pqueue_8h.html#a8ea1460465b80d51cf7e886acdb6d569',1,'pqueue.h']]],
-  ['pqueue_5fmaximum_13',['pqueue_maximum',['../pqueue_8h.html#a7d9a70dad1ccfea5339cc2375fecfea0',1,'pqueue.h']]],
-  ['pqueue_5fprint_14',['pqueue_print',['../pqueue_8h.html#a273dd3b97c7798210404bf0a3942f7c2',1,'pqueue.h']]],
-  ['pqueue_5fprintln_15',['pqueue_println',['../pqueue_8h.html#a58f95ca0e9a45edcc43e97222d4f9a6a',1,'pqueue.h']]],
-  ['print_5fascii_5ftree_16',['print_ascii_tree',['../ascii-tree_8h.html#acdb411dc439f84cde1f64419a2f93b96',1,'ascii-tree.h']]],
-  ['print_5fvector_17',['print_vector',['../sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e',1,'sort.h']]]
+  ['matrix_5fcolumns_0',['matrix_columns',['../matrix_8h.html#af028bebbaf3e81266df491ac1bf59d4f',1,'matrix.h']]],
+  ['matrix_5fcreate_1',['matrix_create',['../matrix_8h.html#ac8aef184f1cfabbc07ecadb352879bba',1,'matrix.h']]],
+  ['matrix_5ffree_2',['matrix_free',['../matrix_8h.html#a998650feec406b9df658940151adb7f9',1,'matrix.h']]],
+  ['matrix_5fget_3',['matrix_get',['../matrix_8h.html#ab3851bfe3e7bbf3fa46416f67b844646',1,'matrix.h']]],
+  ['matrix_5flines_4',['matrix_lines',['../matrix_8h.html#a4530f65c79ca4168db00553f7d9340fb',1,'matrix.h']]],
+  ['matrix_5fmax_5',['matrix_max',['../matrix-utils_8h.html#a57857540fa7c33edad5c2c5aba7e6a58',1,'matrix-utils.h']]],
+  ['matrix_5fprint_6',['matrix_print',['../matrix-utils_8h.html#a3768f4937226fa592c8c6f4ad270117a',1,'matrix-utils.h']]],
+  ['matrix_5fset_7',['matrix_set',['../matrix_8h.html#a18eb45e990da5a033d6a4476e6a636a7',1,'matrix.h']]],
+  ['mergesort_8',['mergesort',['../sort_8h.html#aeb8e4a806b70e15d0ec7cc1f5559bb85',1,'sort.h']]]
 ];

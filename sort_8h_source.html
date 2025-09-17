@@ -121,16 +121,23 @@ $(function() {
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/* Print the v in a pretty format */</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e">   51</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e">print_vector</a>(Type *v, <span class="keywordtype">int</span> n);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/* Swap the values between e1 and e2 */</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="sort_8h.html#a7b887f8c60c6e8d3748e30071baeb646">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sort_8h.html#a7b887f8c60c6e8d3748e30071baeb646">swap</a>(Type *e1, Type *e2);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/* Check if the vector v is sorted */</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="sort_8h.html#ac4fdaea4ac1098ac703a5373c61feef2">   57</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="sort_8h.html#ac4fdaea4ac1098ac703a5373c61feef2">check_sorted</a>(Type *v, <span class="keywordtype">int</span> n);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/* Return a random_vector with n values */</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="sort_8h.html#a754375fbc6a60f29a33f8ac458e9bc8e">   60</a></span>Type* <a class="code hl_function" href="sort_8h.html#a754375fbc6a60f29a33f8ac458e9bc8e">random_vector</a>(<span class="keywordtype">int</span> n);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/* Swap the values between e1 and e2 */</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="sort_8h.html#a7b887f8c60c6e8d3748e30071baeb646">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sort_8h.html#a7b887f8c60c6e8d3748e30071baeb646">swap</a>(Type *e1, Type *e2);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/* Check if the vector v is sorted */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="sort_8h.html#ac4fdaea4ac1098ac703a5373c61feef2">   58</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="sort_8h.html#ac4fdaea4ac1098ac703a5373c61feef2">check_sorted</a>(Type *v, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/* Return a random_vector with n values */</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="sort_8h.html#a754375fbc6a60f29a33f8ac458e9bc8e">   61</a></span>Type* <a class="code hl_function" href="sort_8h.html#a754375fbc6a60f29a33f8ac458e9bc8e">random_vector</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">/* Debug print vector when DEBUG symbol is defined */</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="sort_8h.html#ae98bbc00bc19791f5b4bad8ee2195db0">   64</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sort_8h.html#ae98bbc00bc19791f5b4bad8ee2195db0">debug_print_vector</a>(Type *v, <span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/* Debug print vector DEBUG symbol is defined */</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="sort_8h.html#adacf73b93ca6fa3985f2999f7d6b3b29">   67</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="sort_8h.html#adacf73b93ca6fa3985f2999f7d6b3b29">debug</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, ...);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="asort_8h_html_a39f1c6cc8fab6863d055b5623ec59be6"><div class="ttname"><a href="sort_8h.html#a39f1c6cc8fab6863d055b5623ec59be6">bubblesort</a></div><div class="ttdeci">void bubblesort(Type *v, int n)</div></div>
 <div class="ttc" id="asort_8h_html_a3e72f6d05f7e2c1a059b9f1a7e92e0fe"><div class="ttname"><a href="sort_8h.html#a3e72f6d05f7e2c1a059b9f1a7e92e0fe">quicksort</a></div><div class="ttdeci">void quicksort(Type *v, int n)</div></div>
 <div class="ttc" id="asort_8h_html_a4807ef31f766a7b8e854bc1c7a88de8e"><div class="ttname"><a href="sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e">print_vector</a></div><div class="ttdeci">void print_vector(Type *v, int n)</div></div>
@@ -140,6 +147,8 @@ $(function() {
 <div class="ttc" id="asort_8h_html_a9baa6fe3189274063061cd3e28084418"><div class="ttname"><a href="sort_8h.html#a9baa6fe3189274063061cd3e28084418">radixsort</a></div><div class="ttdeci">void radixsort(Type *v, int n)</div></div>
 <div class="ttc" id="asort_8h_html_ac4fdaea4ac1098ac703a5373c61feef2"><div class="ttname"><a href="sort_8h.html#ac4fdaea4ac1098ac703a5373c61feef2">check_sorted</a></div><div class="ttdeci">int check_sorted(Type *v, int n)</div></div>
 <div class="ttc" id="asort_8h_html_ad14faf1fe7d2c09689a0196cccbf9383"><div class="ttname"><a href="sort_8h.html#ad14faf1fe7d2c09689a0196cccbf9383">heapsort</a></div><div class="ttdeci">void heapsort(Type *v, int n)</div></div>
+<div class="ttc" id="asort_8h_html_adacf73b93ca6fa3985f2999f7d6b3b29"><div class="ttname"><a href="sort_8h.html#adacf73b93ca6fa3985f2999f7d6b3b29">debug</a></div><div class="ttdeci">void debug(const char *format,...)</div></div>
+<div class="ttc" id="asort_8h_html_ae98bbc00bc19791f5b4bad8ee2195db0"><div class="ttname"><a href="sort_8h.html#ae98bbc00bc19791f5b4bad8ee2195db0">debug_print_vector</a></div><div class="ttdeci">void debug_print_vector(Type *v, int n)</div></div>
 <div class="ttc" id="asort_8h_html_aeb8e4a806b70e15d0ec7cc1f5559bb85"><div class="ttname"><a href="sort_8h.html#aeb8e4a806b70e15d0ec7cc1f5559bb85">mergesort</a></div><div class="ttdeci">void mergesort(Type *v, int n)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
