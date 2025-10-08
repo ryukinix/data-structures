@@ -1,11 +1,11 @@
 /**
  * ================================================
  *
- *         Copyright 2017 Manoel Vilela
+ *         Copyright 2025 Manoel Vilela
  *
  *         Author: Manoel Vilela
  *        Contact: manoel_vilela@engineer.com
- *   Organization: UFC
+ *   Organization: ITA
  *
  * ===============================================
  */
@@ -15,18 +15,43 @@
 #include <assert.h>
 #include "search.h"
 
+struct test_case {
+    char *text;
+    char *pattern;
+    int expected;
 
-char *text = "a search pattern algorithm";
-const char *pattern = "ttern";
-int expected = 11;
-int answer;
+};
+
+struct test_case tests[] = {
+    {
+        .text = "a search pattern algorithm",
+        .pattern = "ttern",
+        .expected = 11
+    },
+    {
+        .text = "a search pattern algorithm",
+        .pattern = "rithm",
+        .expected = 21
+    },
+    {
+        .text = "a search pattern algorithm",
+        .pattern = "machine",
+        .expected = -1
+    },
+};
+
+int n_tests = sizeof(tests) / sizeof(struct test_case);
+int answer, i;
 
 #define TEST(ALGORITHM)                                \
     printf("== Testing for %s: ", #ALGORITHM);         \
-    printf("\n-- Input: text='%s' ; pattern='%s'\n", text, pattern);     \
-    answer = ALGORITHM(text, pattern);                  \
-    printf("-- Result: answer=%d; expected=%d\n", answer, expected);    \
-    assert(answer == expected);
+    for (i = 0; i < n_tests; i++) { \
+        printf("\n-- Input: text='%s' ; pattern='%s'\n", tests[i].text, tests[i].pattern); \
+        answer = ALGORITHM(tests[i].text, tests[i].pattern);                              \
+        printf("-- Result: answer=%d; expected=%d\n", answer, tests[i].expected); \
+        assert(answer == tests[i].expected); \
+    };
+
 
 int main(void) {
     TEST(search_naive);
