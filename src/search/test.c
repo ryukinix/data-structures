@@ -61,5 +61,6 @@ int answer, i;
 int main(void) {
     TEST(search_naive);
     TEST(search_kmp);
+    TEST(search_bm);
     return 0;
 }
