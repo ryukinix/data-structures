@@ -38,6 +38,11 @@ struct test_case tests[] = {
         .pattern = "machine",
         .expected = -1
     },
+    {
+        .text = "xxxabababaaba",
+        .pattern = "abaaba",
+        .expected = 7
+    },
 };
 
 int n_tests = sizeof(tests) / sizeof(struct test_case);
@@ -46,7 +51,7 @@ int answer, i;
 #define TEST(ALGORITHM)                                \
     printf("== Testing for %s: ", #ALGORITHM);         \
     for (i = 0; i < n_tests; i++) { \
-        printf("\n-- Input: text='%s' ; pattern='%s'\n", tests[i].text, tests[i].pattern); \
+        printf("\n-- Input: text='%s'; \t pattern='%s'\n", tests[i].text, tests[i].pattern); \
         answer = ALGORITHM(tests[i].text, tests[i].pattern);                              \
         printf("-- Result: answer=%d; expected=%d\n", answer, tests[i].expected); \
         assert(answer == tests[i].expected); \
@@ -55,5 +60,6 @@ int answer, i;
 
 int main(void) {
     TEST(search_naive);
+    TEST(search_kmp);
     return 0;
 }
