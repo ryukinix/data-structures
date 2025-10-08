@@ -43,6 +43,11 @@ struct test_case tests[] = {
         .pattern = "abaaba",
         .expected = 7
     },
+    {
+        .text = "ratara tatata xxx",
+        .pattern = "tata",
+        .expected = 7
+    },
 };
 
 int n_tests = sizeof(tests) / sizeof(struct test_case);
