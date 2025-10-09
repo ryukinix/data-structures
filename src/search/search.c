@@ -10,14 +10,18 @@
  * ===============================================
  */
 
-#include "search.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+#include <stdio.h>
+
+#include "search.h"
 
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #define ALPHABET 128
 
-int search_naive(char* text, const char* pattern) {
+int search_naive(char *text, const char *pattern) {
     int n = strlen(text);
     int m = strlen(pattern);
     for (int i = 0; i <= n - m; i++) {
@@ -32,7 +36,7 @@ int search_naive(char* text, const char* pattern) {
     return -1;
 }
 
-void kmp_init_failure_function(int *f, int m, const char* pattern) {
+void kmp_init_failure_function(int *f, int m, const char *pattern) {
     f[0] = 0;
     int i = 1, j = 0;
     while (i < m) {
@@ -46,7 +50,7 @@ void kmp_init_failure_function(int *f, int m, const char* pattern) {
     }
 }
 
-int search_kmp(char *text, const char* pattern) {
+int search_kmp(char *text, const char *pattern) {
     int n = strlen(text);
     int m = strlen(pattern);
     int f[m];
@@ -83,7 +87,7 @@ void bm_init_l(int *l, int m, const char* pattern) {
 
 }
 
-int search_bm(char *text, const char* pattern) {
+int search_bm(char *text, const char *pattern) {
     int l[ALPHABET];
     int n = strlen(text);
     int m = strlen(pattern);
@@ -109,4 +113,77 @@ int search_bm(char *text, const char* pattern) {
 
     return -1;
 
+}
+
+bool _is_prime(int n) {
+    if (n < 2) {
+        return false;
+    }
+    for (int q = 2; q < sqrt(n) + 1; q++) {
+        if (n % q == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int next_prime(int q) {
+    int i = q + 1;
+    while (!_is_prime(i)) i++;
+    return i;
+}
+
+int check_substring(char *text, const char *pattern) {
+    int m = strlen(pattern);
+    return strncmp(text, pattern, m) == 0;
+}
+
+int pow_mod(int x, int n, int m) {
+    // (x ^ n) % m
+
+    // Initialize result as 1 (since anything power 0 is 1)
+    int res = 1;
+
+    // n times to multiply x with itself
+    for(int i = 1; i <= n; i++) {
+
+        // Multiplying res with x
+        // and taking modulo to avoid overflow
+        res = (res * x) % m;
+    }
+
+    return res;
+}
+
+
+int search_kr(char *text, const char *pattern) {
+    int d = ALPHABET;
+    int n = strlen(text);
+    int m = strlen(pattern);
+    int q = next_prime(m * d);
+    int h = pow_mod(d, m - 1, q);
+
+    int p = 0;
+    int t = 0;
+
+    for (int i = 0; i < m; i++) {
+        p = (d * p + pattern[i]) % q;
+        t = (d * t + text[i]) % q;
+    }
+
+    for (int s = 0; s <= (n - m); s++) {
+        if (p == t) {
+            if (check_substring(text + s, pattern)) {
+                return s;
+            }
+        }
+        if (s < (n - m)) {
+            t = (d * (t - text[s] * h) + text[s + m]) % q;
+            if (t < 0) {
+                t = t + q;
+            }
+        }
+    }
+    return -1;
 }
