@@ -25,6 +25,11 @@ struct test_case {
 struct test_case tests[] = {
     {
         .text = "a search pattern algorithm",
+        .pattern = "a search",
+        .expected = 0,
+    },
+    {
+        .text = "a search pattern algorithm",
         .pattern = "ttern",
         .expected = 11
     },
@@ -56,9 +61,9 @@ int answer, i;
 #define TEST(ALGORITHM)                                \
     printf("== Testing for %s: ", #ALGORITHM);         \
     for (i = 0; i < n_tests; i++) { \
-        printf("\n-- Input: text='%s'; \t pattern='%s'\n", tests[i].text, tests[i].pattern); \
+        printf("\n   Input: text='%s'; \t pattern='%s'\n", tests[i].text, tests[i].pattern); \
         answer = ALGORITHM(tests[i].text, tests[i].pattern);                              \
-        printf("-- Result: answer=%d; expected=%d\n", answer, tests[i].expected); \
+        printf("   Result: answer=%d; expected=%d\n", answer, tests[i].expected); \
         assert(answer == tests[i].expected); \
     };
 
@@ -67,5 +72,6 @@ int main(void) {
     TEST(search_naive);
     TEST(search_kmp);
     TEST(search_bm);
+    TEST(search_kr);
     return 0;
 }
