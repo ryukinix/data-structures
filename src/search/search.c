@@ -115,7 +115,7 @@ int search_bm(char *text, const char *pattern) {
 
 }
 
-int is_prime(int n) {
+bool _is_prime(int n) {
     if (n < 2) {
         return false;
     }
@@ -130,7 +130,7 @@ int is_prime(int n) {
 
 int next_prime(int q) {
     int i = q + 1;
-    while (!is_prime(i)) i++;
+    while (!_is_prime(i)) i++;
     return i;
 }
 
@@ -161,7 +161,7 @@ int search_kr(char *text, const char *pattern) {
     int d = ALPHABET;
     int n = strlen(text);
     int m = strlen(pattern);
-    int q = next_prime(m * 1000);
+    int q = next_prime(m * d);
     int h = pow_mod(d, m - 1, q);
 
     int p = 0;
