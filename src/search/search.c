@@ -171,18 +171,18 @@ int search_kr(char *text, const char *pattern) {
         p = (d * p + pattern[i]) % q;
         t = (d * t + text[i]) % q;
     }
-    printf("[debug] d=%d, q=%d, h=%d, p=%d, t=%d\n", d, q, h, p, t);
 
     for (int s = 0; s <= (n - m); s++) {
         if (p == t) {
-            printf("[debug] match! p=%d t=%d s=%d\n", p, t, s);
             if (check_substring(text + s, pattern)) {
                 return s;
             }
         }
         if (s < (n - m)) {
-            // FIXME: this hashing update function is not correct!
             t = (d * (t - text[s] * h) + text[s + m]) % q;
+            if (t < 0) {
+                t = t + q;
+            }
         }
     }
     return -1;
