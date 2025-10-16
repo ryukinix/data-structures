@@ -1,17 +1,17 @@
 /**
  * ============================================================================
  *
- *                     MIT Copyright 2017-2019 © Manoel Vilela
+ *                     MIT Copyright 2017-2025 © Manoel Vilela
  *
  *         Author: Manoel Vilela
  *        Contact: manoel_vilela@engineer.com
- *   Organization: UFC
+ *   Organization: UFC-ITA
  *
  * ============================================================================
  */
 
-#ifndef DS_UFC_H
-#define DS_UFC_H
+#ifndef DS_LERAX_H
+#define DS_LERAX_H
 
 #include "console/console.h"
 #include "circle/circle.h"
