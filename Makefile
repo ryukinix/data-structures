@@ -7,6 +7,7 @@ LIBDIR = lib
 HEADER = ds-lerax.h
 CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99 -fPIC
 SOURCES = $(shell find $(SRCDIR) -iname '*.c')
+COMPILED = $(shell find $(SRCDIR) -type f -iname '*.o' -or -iname "*.out" -or -iname "*.a")
 BLACKLIST = "(list-iter|main|test).c|*.-static.c|matrix-vector"
 LIB_SOURCES = $(shell echo $(SOURCES) | tr ' ' '\n' | grep -E -v $(BLACKLIST))
 LIB_OBJECTS = $(shell echo $(LIB_SOURCES) | tr ' ' '\n' | sed "s/\.c/\.o/")
@@ -46,7 +47,7 @@ compile: $(LIB_OBJECTS)
 
 clean:
 	@printf $(STATUS_PREFIX); echo "CLEANING ALL"
-	rm -vrf $(LIB_OBJECTS) $(LIBDIR)
+	rm -vrf $(COMPILED) $(LIBDIR)
 
 static: mkdir-$(LIBDIR) $(LIBDIR)/$(LIBNAME).a
 shared: mkdir-$(LIBDIR) $(LIBDIR)/$(LIBNAME).so
