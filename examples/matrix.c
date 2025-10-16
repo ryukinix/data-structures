@@ -1,5 +1,5 @@
 /**
- * Copyright 2017 Manoel Vilela
+ * Copyright 2017-2025 Manoel Vilela
  *
  * Referências da Aula_0 e Aula_1.
  */
