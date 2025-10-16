@@ -12,8 +12,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "list/single/list.h"
-#include "utils/check_alloc.h"
+#include "../list/single/list.h"
+#include "../utils/check_alloc.h"
 #include "queue.h"
 
 struct queue {

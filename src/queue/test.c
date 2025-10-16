@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include "queue.h"
-#include "console/console.h"
+#include "../console/console.h"
 
 int main(void) {
     Queue* q = queue_create();

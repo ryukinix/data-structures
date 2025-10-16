@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "point.h"
-#include "utils/check_alloc.h"
+#include "../utils/check_alloc.h"
 
 
 Point* point_create(float x, float y) {

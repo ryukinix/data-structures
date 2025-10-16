@@ -16,7 +16,7 @@
 #include <stdarg.h>
 #include <time.h>
 #include "sort.h"
-#include "utils/check_alloc.h"
+#include "../utils/check_alloc.h"
 
 void print_vector(Type *v, int n) {
     printf("[");

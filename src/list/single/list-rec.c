@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "list.h"
-#include "utils/check_alloc.h"
+#include "../../utils/check_alloc.h"
 
 
 // auxiliar print recursively list (without squared brackets)

@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "list-double.h"
-#include "utils/check_alloc.h"
+#include "../../utils/check_alloc.h"
 
 
 ListDouble* list_double__new_node(int data) {

@@ -23,7 +23,8 @@
 
 
 /* Binary Search Tree DataType Definition */
-#include "tree/avl/binary-tree.h"
+#include "binary-tree.h"
+
 typedef struct BinaryNode AVLTree;
 #ifndef Type
 #define Type BINARY_NODE_TYPE

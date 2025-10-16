@@ -34,7 +34,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "../src//utils/check_alloc.h"
+#include "../src/utils/check_alloc.h"
 
 
 // aloca uma matrix como um vetor contínuo

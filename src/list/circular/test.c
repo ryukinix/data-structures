@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "list-circular.h"
-#include "console/console.h"
+#include "../../console/console.h"
 
 int main(void) {
     ListCircular* l = list_circular_create();

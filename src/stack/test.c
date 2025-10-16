@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include "stack.h"
-#include "console/console.h"
+#include "../console/console.h"
 
 int main(void) {
     Stack* p1 = stack_create();

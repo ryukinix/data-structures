@@ -19,7 +19,7 @@
 #include <math.h>
 #include <stdarg.h>
 #include "list.h"
-#include "utils/check_alloc.h"
+#include "../../utils/check_alloc.h"
 
 List* list_create(void) {
     return NULL;

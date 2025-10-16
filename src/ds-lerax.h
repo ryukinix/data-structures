@@ -27,5 +27,7 @@
 #include "tree/ascii-tree/ascii-tree.h"
 #include "tree/binary-tree.h"
 #include "tree/bst/bst.h"
+#include "tree/avl/avl.h"
+#include "search/search.h"
 
 #endif

@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include "bst.h"
-#include "tree/ascii-tree/ascii-tree.h"
+#include "../ascii-tree/ascii-tree.h"
 
 #define N 5
 
