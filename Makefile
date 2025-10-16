@@ -7,13 +7,13 @@ LIBDIR = lib
 HEADER = ds-lerax.h
 CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99 -fPIC
 SOURCES = $(shell find $(SRCDIR) -iname '*.c')
-BLACKLIST = "(list-iter|main|test).c|avl|*.-static.c|matrix-vector"
+BLACKLIST = "(list-iter|main|test).c|*.-static.c|matrix-vector"
 LIB_SOURCES = $(shell echo $(SOURCES) | tr ' ' '\n' | grep -E -v $(BLACKLIST))
 LIB_OBJECTS = $(shell echo $(LIB_SOURCES) | tr ' ' '\n' | sed "s/\.c/\.o/")
 INCLUDE=-I./$(SRCDIR)
 LIBPATH = $(LIBDIR)/$(LIBNAME)
-INCLUDE_TARGET = /usr/local/include
-LIB_TARGET = /usr/local/lib
+INCLUDE_TARGET = /usr/include
+LIB_TARGET = /usr/lib
 SUBSYSTEMS = $(shell find src -iname "Makefile" -exec dirname '{}' \;)
 
 STATUS_PREFIX = "\033[1;32m[+]\033[0m "
@@ -25,9 +25,13 @@ all: compile static shared header
 
 install: all
 	@printf $(STATUS_PREFIX); echo "INSTALLING LIB INTO: " $(LIB_TARGET)
-	cp -f $(LIBDIR)/ds-lerax.h $(INCLUDE_TARGET)
-	cp -f $(LIBDIR)/libds-lerax.a $(LIBDIR)/libds-lerax.so $(LIB_TARGET)
+	install -d $(INCLUDE_TARGET)/ds-lerax
+	cp -f -v -r $(LIBDIR)/headers/* $(INCLUDE_TARGET)/ds-lerax/
+	install -m 755 $(LIBDIR)/libds-lerax.a $(LIB_TARGET)
+	install -m 755 $(LIBDIR)/libds-lerax.so $(LIB_TARGET)
 
+uninstall:
+	rm -rfv $(INCLUDE_TARGET)/ds-lerax $(LIB_TARGET)/libds-lerax.a $(LIB_TARGET)/libds-lerax.so
 
 mkdir-%:
 	@mkdir -p "$*"
@@ -58,12 +62,9 @@ header: mkdir-$(LIBDIR) $(LIBDIR)/$(HEADER)
 
 $(LIBDIR)/$(HEADER): $(SRCDIR)/$(HEADER)
 	@printf $(STATUS_PREFIX); echo "GENERATING HEADER: " $(SRCDIR)/$(HEADER)
-	rm -rf $@
-	touch $@
-	echo "#include <stdio.h>" >> $@
-	echo "#include <stdlib.h>" >> $@
-	echo "#include <math.h>" >> $@
-	$(CC) -CC -E -Isrc/ "$<" >> $@
+	cd $(SRCDIR) && find . -name '*.h' | cpio -pdmu --quiet ../$(LIBDIR)/headers
+
+lib: static shared header
 
 test: all
 	@printf $(STATUS_PREFIX); echo "TESTING SUBSYTEMS"

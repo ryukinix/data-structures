@@ -16,7 +16,7 @@
 
 
 #include "list.h"
-#include "console/console.h"
+#include "../../console/console.h"
 #include <stdio.h>
 
 void test_basic_functions(void) {

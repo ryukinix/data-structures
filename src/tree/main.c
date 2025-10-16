@@ -14,7 +14,7 @@
 #include <string.h>
 #include "avl/avl.h"
 #include "ascii-tree/ascii-tree.h"
-#include "console/console.h"
+#include "../console/console.h"
 
 /**
  * @description

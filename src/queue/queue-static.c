@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "queue.h"
-#include "utils/check_alloc.h"
+#include "../utils/check_alloc.h"
 
 struct queue {
     int size;

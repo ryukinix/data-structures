@@ -15,7 +15,7 @@
 #include <math.h>
 #include <stdio.h>
 
-#include "queue/queue.h"
+#include "../queue/queue.h"
 #include "sort.h"
 
 

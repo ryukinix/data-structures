@@ -17,6 +17,7 @@
 #include <stdio.h>
 
 #include "search.h"
+#include "../utils/prime.h"
 
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #define ALPHABET 128
@@ -115,24 +116,6 @@ int search_bm(char *text, const char *pattern) {
 
 }
 
-bool _is_prime(int n) {
-    if (n < 2) {
-        return false;
-    }
-    for (int q = 2; q < sqrt(n) + 1; q++) {
-        if (n % q == 0) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int next_prime(int q) {
-    int i = q + 1;
-    while (!_is_prime(i)) i++;
-    return i;
-}
 
 int check_substring(char *text, const char *pattern) {
     int m = strlen(pattern);

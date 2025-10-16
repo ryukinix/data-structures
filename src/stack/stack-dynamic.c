@@ -13,8 +13,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "stack.h"
-#include "utils/check_alloc.h"
-#include "list/single/list.h"
+#include "../utils/check_alloc.h"
+#include "../list/single/list.h"
 
 struct stack {
     List* list;

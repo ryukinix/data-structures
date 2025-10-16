@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 #include "circle.h"
-#include "utils/check_alloc.h"
+#include "../utils/check_alloc.h"
 
 Circle* circle_create(Point *center, float radius) {
     Circle* c = (Circle *) malloc(sizeof(Circle));

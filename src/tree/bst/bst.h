@@ -20,7 +20,7 @@
  */
 
 // definition of BinaryTree and struct node.
-#include "tree/binary-tree.h"
+#include "../binary-tree.h"
 
 /* Binary Search Tree DataType Definition */
 typedef struct BinaryNode BSTree;

@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tree/bst/bst.h"
+#include "../bst/bst.h"
 #include "ascii-tree.h"
 
 int main() {

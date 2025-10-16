@@ -14,12 +14,10 @@
 #ifndef ASCII_H
 #define ASCII_H
 
-#ifndef DS_UFC_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#endif
-#include "tree/binary-tree.h"
+#include "../binary-tree.h"
 
 /**
  * @description

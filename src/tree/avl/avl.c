@@ -15,7 +15,8 @@
 #include <stdbool.h>
 #include <math.h>
 #include "avl.h"
-#include "utils/check_alloc.h"
+#include "../../utils/check_alloc.h"
+#include "../../utils/prime.h"
 
 
 // New auxiliary methods
@@ -281,30 +282,14 @@ void avl_infix(AVLTree *t) {
 
 // a)
 
-int is_leaf(AVLTree *t) {
+int avl_is_leaf(AVLTree *t) {
     return t != NULL && t->left == NULL && t->right == NULL;
 }
 
-// Worst: O(sqrt(n))
-int is_prime(int n) {
-    if (n == 2) {
-        return true;
-    } else if (n <= 1 || n % 2 == 0) {
-        return false;
-    }
-
-    for (int k = 3; k <= floor(sqrt(n)); k += 2) {
-        if (n % k == 0) {
-            return false;
-        }
-    }
-
-    return true;
-}
 
 int avl_leafs_primes(AVLTree *t) {
     if (!avl_empty(t)) {
-        if (is_leaf(t)) {
+        if (avl_is_leaf(t)) {
             return is_prime(t->value);
         } else {
             return avl_leafs_primes(t->left) + avl_leafs_primes(t->right);

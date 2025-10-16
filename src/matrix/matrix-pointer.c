@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "matrix.h"
-#include "utils/check_alloc.h"
+#include "../utils/check_alloc.h"
 
 struct matrix {
     int lines;

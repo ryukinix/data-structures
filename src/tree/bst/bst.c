@@ -15,7 +15,8 @@
 #include <stdbool.h>
 #include <math.h>
 #include "bst.h"
-#include "utils/check_alloc.h"
+#include "../../utils/check_alloc.h"
+#include "../../utils/prime.h"
 
 #define MAX(a, b) a > b? a : b
 
@@ -190,30 +191,13 @@ void bst_infix(BSTree *t) {
 
 // a)
 
-int is_leaf(BSTree *t) {
+int bst_is_leaf(BSTree *t) {
     return t != NULL && t->left == NULL && t->right == NULL;
-}
-
-// Worst: O(sqrt(n))
-int is_prime(int n) {
-    if (n == 2) {
-        return true;
-    } else if (n <= 1 || n % 2 == 0) {
-        return false;
-    }
-
-    for (int k = 3; k <= floor(sqrt(n)); k += 2) {
-        if (n % k == 0) {
-            return false;
-        }
-    }
-
-    return true;
 }
 
 int bst_leafs_primes(BSTree *t) {
     if (!bst_empty(t)) {
-        if (is_leaf(t)) {
+        if (bst_is_leaf(t)) {
             return is_prime(t->value);
         } else {
             return bst_leafs_primes(t->left) + bst_leafs_primes(t->right);
