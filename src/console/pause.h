@@ -13,6 +13,8 @@
 #ifndef PAUSE_H
 #define PAUSE_H
 
+#include <stdio.h>
+
 /**
  * @brief remove all the garbage from stdin
  */
