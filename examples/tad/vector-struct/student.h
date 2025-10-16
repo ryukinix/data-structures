@@ -13,10 +13,9 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#ifndef DS_UFC_H
 #include <stdio.h>
 #include <stdlib.h>
-#endif
+
 
 #define STUDENT_MAX_NAME 81
 
