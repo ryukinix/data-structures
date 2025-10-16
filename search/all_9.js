@@ -22,6 +22,7 @@ var searchData=
   ['pqueue_5fprint_19',['pqueue_print',['../pqueue_8h.html#a273dd3b97c7798210404bf0a3942f7c2',1,'pqueue.h']]],
   ['pqueue_5fprintln_20',['pqueue_println',['../pqueue_8h.html#a58f95ca0e9a45edcc43e97222d4f9a6a',1,'pqueue.h']]],
   ['prev_21',['prev',['../structListDouble.html#a82240fc1d9077f7d6644e6608427c03f',1,'ListDouble']]],
-  ['print_5fascii_5ftree_22',['print_ascii_tree',['../ascii-tree_8h.html#acdb411dc439f84cde1f64419a2f93b96',1,'ascii-tree.h']]],
-  ['print_5fvector_23',['print_vector',['../sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e',1,'sort.h']]]
+  ['prime_2eh_22',['prime.h',['../prime_8h.html',1,'']]],
+  ['print_5fascii_5ftree_23',['print_ascii_tree',['../ascii-tree_8h.html#acdb411dc439f84cde1f64419a2f93b96',1,'ascii-tree.h']]],
+  ['print_5fvector_24',['print_vector',['../sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e',1,'sort.h']]]
 ];
