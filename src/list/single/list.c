@@ -19,14 +19,136 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 #include "list.h"
 #include "../../utils/check_alloc.h"
 
 
+List* list_create(void) {
+    return NULL;
+}
+
+int list_empty(List *l) {
+    return l == EMPTY_LIST;
+}
+
+// util function
+List* list__new_node(int data) {
+    List* l = (List *) malloc(sizeof(List));
+    check_alloc(l);
+    l->data = data;
+    l->next = list_create();
+    return l;
+}
+
+List* list__new_node_with_key(int key, int data) {
+    List* l = (List *) malloc(sizeof(List));
+    check_alloc(l);
+    l->key = key;
+    l->data = data;
+    l->next = list_create();
+    return l;
+}
+
+
+List* list_insert(List *l, int data) {
+    List* head = list__new_node(data);
+
+    if (list_empty(l)) {
+        l = head;
+    } else {
+        head->next = l;
+        l = head;
+    }
+    return l;
+}
+List* list_insert_with_key(List *l, int key, int data) {
+    List* head = list__new_node_with_key(key, data);
+
+    if (list_empty(l)) {
+        l = head;
+    } else {
+        head->next = l;
+        l = head;
+    }
+    return l;
+}
+
+List* list_init(int size_list,...) {
+    List *l = list_create();
+    va_list args;
+
+    va_start(args, size_list);
+    for(int i = 0; i < size_list; i++) {
+        l = list_append(l, va_arg(args, int));
+    }
+
+    va_end(args);
+    return l;
+}
+
+
+// check if a given number is perfect or not
+int list__is_perfect_number(int n) {
+    int sum_divisors = 1;
+
+    for(int i = 2; i < sqrt(n); i++) {
+        if (n % i == 0) {
+            sum_divisors += i + n/i;
+        }
+    }
+    return sum_divisors == n;
+
+}
+
+
+int list_head(List *l) {
+    return l->data;
+}
+
+
+List* list_tail(List *l) {
+    return l->next;
+}
+
+
+int list_pop_head(List** l) {
+    if (!list_empty(*l)) {
+        int head = (*l)->data;
+        List* head_pointer = *l;
+        *l = (*l)->next;
+        free(head_pointer);
+        return head;
+    } else {
+        printf("Exception: pop head on empty list\n");
+        exit(1);
+    }
+}
+
+List* list_append_node(List *l, struct ListNode *node) {
+    struct ListNode* tail = l;
+    if (tail == EMPTY_LIST) {
+        return node;
+    }
+    while (!list_empty(tail->next)) {
+        tail = tail->next;
+    }
+    tail->next = node;
+    return l;
+}
+
+List* list_append_with_key(List *l, int key, int data) {
+    return list_append_node(l, list__new_node_with_key(key, data));
+}
+
 // auxiliar print recursively list (without squared brackets)
 void list__aux_print(List *l) {
     if(!list_empty(l)) {
+        #ifdef LIST_PRINT_KEY
+        printf("%d->%d", l->key, l->data);
+        #else
         printf("%d", l->data);
+        #endif
         if (!list_empty(l->next)) {
             printf(", ");
         }
@@ -98,6 +220,15 @@ List* list_search(List *l, int data) {
     return l;
 }
 
+List* list_search_by_key(List *l, int key) {
+    if(!list_empty(l)) {
+        if (l->key != key) {
+            l = list_search_by_key(l->next, key);
+        }
+    }
+    return l;
+}
+
 
 List* list_remove(List *l, int data) {
     if (!list_empty(l)) {
@@ -107,6 +238,19 @@ List* list_remove(List *l, int data) {
             l = next;
         } else {
             l->next = list_remove(l->next, data);
+        }
+    }
+    return l;
+}
+
+List* list_remove_by_key(List *l, int key){
+    if (!list_empty(l)) {
+        if (l->key == key) {
+            List* next = l->next;
+            free(l);
+            l = next;
+        } else {
+            l->next = list_remove_by_key(l->next, key);
         }
     }
     return l;
