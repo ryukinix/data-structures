@@ -57,6 +57,18 @@ int hash_table_get(HashTable *ht, int key, bool *ok);
 void hash_table_print(HashTable *ht);
 
 /**
+ * @brief Print items of the hash table
+ * @param ht hash table pointer
+ */
+void hash_table_print_items(HashTable *ht);
+
+/**
+ * @brief Print keys of the hash table
+ * @param ht hash table pointer
+ */
+void hash_table_print_keys(HashTable *ht);
+
+/**
  * @brief Free memory of hash table and its contents
  * @param ht hash table pointer
  */
