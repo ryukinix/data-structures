@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
+#include <limits.h>
 #include "list.h"
 #include "../../utils/check_alloc.h"
 
@@ -37,6 +38,7 @@ List* list__new_node(int data) {
     List* l = (List *) malloc(sizeof(List));
     check_alloc(l);
     l->data = data;
+    l->key = INT_MIN;
     l->next = list_create();
     return l;
 }
@@ -145,7 +147,12 @@ List* list_append_with_key(List *l, int key, int data) {
 void list__aux_print(List *l) {
     if(!list_empty(l)) {
         #ifdef LIST_PRINT_KEY
-        printf("%d->%d", l->key, l->data);
+        // HACK: avoiding printing unecessary list without keys
+        if (l->key != INT_MIN) {
+            printf("%d->%d", l->key, l->data);
+        } else {
+            printf("%d", l->data);
+        }
         #else
         printf("%d", l->data);
         #endif
