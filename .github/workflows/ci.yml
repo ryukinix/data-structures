@@ -12,3 +12,16 @@ jobs:
     - uses: actions/checkout@v3
     - name: Run make check
       run: make check
+
+  make-check-valgrind:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Valgrind
+      run: |
+        sudo apt install valgrind -y
+        echo "Valgrind installed"
+
+    - uses: actions/checkout@v3
+    - name: Run make check-valgrind
+      run: make check-valgrind

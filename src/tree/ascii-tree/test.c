@@ -62,5 +62,5 @@ int main() {
            "children..\n");
     root = bst_remove (root, 10);
     print_ascii_tree(root);
-
+    bst_free(root);
 }
