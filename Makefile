@@ -99,4 +99,7 @@ docs-publish:
 open-docs: docs
 	cd api_docs/html/ && python -m http.server 8000
 
+tags: $(SOURCES)
+	ctags -Re -f TAGS src/
+
 .PHONY: clean docs
