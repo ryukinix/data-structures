@@ -30,5 +30,6 @@
 #include "tree/avl/avl.h"
 #include "search/search.h"
 #include "hash-table/hash-table.h"
+#include "set/set.h"
 
 #endif
