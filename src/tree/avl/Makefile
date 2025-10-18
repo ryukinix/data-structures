@@ -37,10 +37,10 @@ deps:
 %.o: %.c
 	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
 
-$(TEST_BINARY): $(TARGETS) $(TEST_TARGET).c
+$(TEST_BINARY): deps $(TARGETS) $(TEST_TARGET).c
 	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
-test: deps $(TARGETS) $(TEST_BINARY)
+test: $(TARGETS) $(TEST_BINARY)
 	./$(TEST_BINARY)
 
 $(LIBRARY_TARGET): $(LIBRARY_OBJS)
