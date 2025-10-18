@@ -22,6 +22,9 @@ struct Point {
 };
 
 
+/**
+ * @brief Represents a point in a 2D plane.
+ */
 typedef struct Point Point;
 
 /**
@@ -48,12 +51,12 @@ void point_set(Point *p, float x, float y);
 void point_get(Point *p, float *x, float *y);
 
 /**
- * @brief Get the x value
+ * @brief Get the y value
  */
 float point_get_y(Point *p);
 
 /**
- * @brief Get the y value
+ * @brief Get the x value
  */
 float point_get_x(Point *p);
 

@@ -15,35 +15,80 @@
 
 #define STACK_STATIC_MAX 10
 
+/**
+ * @brief A stack data structure.
+ */
 typedef struct stack Stack;
 
-/** Create a new stack */
+/**
+ * @brief Creates an empty stack.
+ *
+ * @return A pointer to the new stack.
+ */
 Stack* stack_create(void);
 
-/** Verify is stack is empty */
+/**
+ * @brief Checks if a stack is empty.
+ *
+ * @param s The stack to check.
+ * @return 1 if the stack is empty, 0 otherwise.
+ */
 int stack_empty(Stack* s);
 
-/** Push a new element on top of stack */
+/**
+ * @brief Pushes an element onto the top of a stack.
+ *
+ * @param s The stack to push onto.
+ * @param data The data to push.
+ */
 void stack_push(Stack* s, int data);
 
-/** Pop a element from top of stack */
+/**
+ * @brief Pops an element from the top of a stack.
+ *
+ * @param s The stack to pop from.
+ * @return The popped element.
+ */
 int stack_pop(Stack* s);
 
-/** Print the elements of stack without a newline */
+/**
+ * @brief Prints the elements of a stack to the console.
+ *
+ * @param s The stack to print.
+ */
 void stack_print(Stack* s);
 
-/** Print the elements of stack with a newline on the end */
+/**
+ * @brief Prints the elements of a stack to the console, followed by a newline
+ * character.
+ *
+ * @param s The stack to print.
+ */
 void stack_println(Stack* s);
 
-/** Free memory of the stack structure */
+/**
+ * @brief Frees the memory allocated for a stack.
+ *
+ * @param s The stack to free.
+ */
 void stack_free(Stack* s);
 
 // additional functions
 
-/** Get the element of top without removing */
+/**
+ * @brief Returns the element at the top of a stack without removing it.
+ *
+ * @param s The stack to peek at.
+ * @return The element at the top of the stack.
+ */
 int stack_top(Stack* s);
 
-/** Count the elements which is odd */
+/**
+ * @brief Counts the number of odd elements in a stack.
+ *
+ * @param s The stack to search.
+ * @return The number of odd elements.
+ */
 int stack_odds(Stack* s);
 
 #endif

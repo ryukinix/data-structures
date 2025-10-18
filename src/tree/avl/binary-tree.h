@@ -20,6 +20,12 @@
 #define BINARY_NODE_FORMAT "%d"
 #endif
 
+/**
+ * @brief A node in a binary tree.
+ *
+ * Each node contains a value, its height (for AVL trees), and pointers to its
+ * left and right children.
+ */
 struct BinaryNode {
     BINARY_NODE_TYPE value;
     int height;
@@ -27,6 +33,11 @@ struct BinaryNode {
     struct BinaryNode* right;
 };
 
+/**
+ * @brief A binary tree.
+ *
+ * A `BinaryTree` is a pointer to the root node of the tree.
+ */
 typedef struct BinaryNode BinaryTree;
 
 #endif

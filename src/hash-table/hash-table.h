@@ -17,7 +17,13 @@
 #include <stdbool.h>
 #include "../list/single/list.h"
 
-/** Public type definition for HashTable */
+/**
+ * @brief A basic implementation of a hash table.
+ *
+ * This implementation uses a separate chaining strategy to handle collisions.
+ * The hash table is composed of an array of buckets, where each bucket is a
+ * linked list of key-value pairs.
+ */
 typedef struct HashTable HashTable;
 
 /**

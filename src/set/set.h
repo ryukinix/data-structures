@@ -16,7 +16,12 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-/** Public type definition for Set */
+/**
+ * @brief A basic implementation of a Set.
+ *
+ * This implementation uses a hash table to store the elements, which allows
+ * for efficient insertion, deletion, and membership testing.
+ */
 typedef struct Set Set;
 
 /**
@@ -97,7 +102,7 @@ void set_remove(Set *set, int element);
 bool set_contains(Set *set, int element);
 
 /**
- * @brief Print all buckets of the set (one list per line)
+ * @brief Print all elements of the set
  * @param set pointer
  */
 void set_print(Set *set);

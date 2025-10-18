@@ -26,11 +26,16 @@ struct Circle {
 };
 
 
+/**
+ * @brief Represents a circle in a 2D plane.
+ *
+ * A circle is defined by its center point and radius.
+ */
 typedef struct Circle Circle;
 
 /**
  * @brief allocate a new circle on memory based on its parameters
- * @param center_pointint is the center point of the circle
+ * @param center is the center point of the circle
  * @param radius is the radius of the circle
  * @return the address of the allocated circle
  */

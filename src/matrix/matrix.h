@@ -13,6 +13,11 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
+/**
+ * @brief A 2D matrix of floating-point numbers.
+ *
+ * The matrix is stored in row-major order.
+ */
 typedef struct matrix Matrix;
 
 /**
@@ -32,8 +37,8 @@ void matrix_free(Matrix* matrix);
 
 
 /**
- * @brieaf Get a value on position (i,j) of the matrix
- * @param the matrix pointer
+ * @brief Get a value on position (i,j) of the matrix
+ * @param matrix the matrix pointer
  * @param i the line index
  * @param j the column index
  * @return the value on (i,j) as float

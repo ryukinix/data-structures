@@ -24,25 +24,67 @@
 /* SORTING ALGORITHMS */
 /**********************/
 
-/* Apply BubbleSort Algorithm on the v */
+/**
+ * @brief Sorts an array of integers in ascending order using the bubble sort
+ * algorithm.
+ *
+ * @param v The array to sort.
+ * @param n The number of elements in the array.
+ */
 void bubblesort(Type *v, int n);
 
-/* Apply the InsertionSort Algorithm on the v */
+/**
+ * @brief Sorts an array of integers in ascending order using the insertion sort
+ * algorithm.
+ *
+ * @param v The array to sort.
+ * @param n The number of elements in the array.
+ */
 void insertionsort(Type *v, int n);
 
-/* Apply the MergeSort Algorithm on the v */
+/**
+ * @brief Sorts an array of integers in ascending order using the merge sort
+ * algorithm.
+ *
+ * @param v The array to sort.
+ * @param n The number of elements in the array.
+ */
 void mergesort(Type *v, int n);
 
-/* Apply the QuickSort Algorithm on the v */
+/**
+ * @brief Sorts an array of integers in ascending order using the quicksort
+ * algorithm.
+ *
+ * @param v The array to sort.
+ * @param n The number of elements in the array.
+ */
 void quicksort(Type *v, int n);
 
-/* Apply the HeapSort Algorithm on the v */
+/**
+ * @brief Sorts an array of integers in ascending order using the heapsort
+ * algorithm.
+ *
+ * @param v The array to sort.
+ * @param n The number of elements in the array.
+ */
 void heapsort(Type *v, int n);
 
-/* Apply the RadixSort Algorithm on the v */
+/**
+ * @brief Sorts an array of integers in ascending order using the radix sort
+ * algorithm.
+ *
+ * @param v The array to sort.
+ * @param n The number of elements in the array.
+ */
 void radixsort(Type *v, int n);
 
-/* Apply the SelectionSort Algorithm on the v */
+/**
+ * @brief Sorts an array of integers in ascending order using the selection sort
+ * algorithm.
+ *
+ * @param v The array to sort.
+ * @param n The number of elements in the array.
+ */
 void selectionsort(Type *v, int n);
 
 /*********/
@@ -50,23 +92,55 @@ void selectionsort(Type *v, int n);
 /*********/
 
 
-/* Print the v in a pretty format */
+/**
+ * @brief Prints the elements of an array to the console.
+ *
+ * @param v The array to print.
+ * @param n The number of elements in the array.
+ */
 void print_vector(Type *v, int n);
 
 
-/* Swap the values between e1 and e2 */
+/**
+ * @brief Swaps the values of two integers.
+ *
+ * @param e1 A pointer to the first integer.
+ * @param e2 A pointer to the second integer.
+ */
 void swap(Type *e1, Type *e2);
 
-/* Check if the vector v is sorted */
+/**
+ * @brief Checks if an array is sorted in ascending order.
+ *
+ * @param v The array to check.
+ * @param n The number of elements in the array.
+ * @return 1 if the array is sorted, 0 otherwise.
+ */
 int check_sorted(Type *v, int n);
 
-/* Return a random_vector with n values */
+/**
+ * @brief Creates an array of random integers.
+ *
+ * @param n The number of elements in the array.
+ * @return A pointer to the new array.
+ */
 Type* random_vector(int n);
 
-/* Debug print vector when DEBUG symbol is defined */
+/**
+ * @brief Prints the elements of an array to the console if the DEBUG symbol is
+ * defined.
+ *
+ * @param v The array to print.
+ * @param n The number of elements in the array.
+ */
 void debug_print_vector(Type *v, int n);
 
-/* Debug print vector DEBUG symbol is defined */
+/**
+ * @brief Prints a debug message to the console if the DEBUG symbol is defined.
+ *
+ * @param format The format string for the message.
+ * @param ... The arguments for the format string.
+ */
 void debug(const char *format, ...);
 
 #endif

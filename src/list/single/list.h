@@ -14,8 +14,10 @@
 #define LIST_H
 
 /**
- * Shared struct definition because we have multiple source files
- * which need to know how the internal struct is implemented
+ * @brief A node in a singly linked list.
+ *
+ * Each node contains an integer key, an integer data field, and a pointer to
+ * the next node in the list.
  */
 struct ListNode {
     int key; // optional field, introduced because hash tables
@@ -23,9 +25,12 @@ struct ListNode {
     struct ListNode *next;
 };
 
-
-
-/** Public type List for Singly Linked Lists */
+/**
+ * @brief A singly linked list.
+ *
+ * A `List` is a pointer to the first node in the list. An empty list is
+ * represented by a null pointer.
+ */
 typedef struct ListNode List;
 
 #define EMPTY_LIST (List*) 0
