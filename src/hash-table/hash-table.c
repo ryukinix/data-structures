@@ -4,25 +4,25 @@
 #include "hash-table.h"
 
 struct HashTable {
-    size_t size;    // size of buckets
-    size_t items;   // number of pairs key->data inside of hash table
+    size_t size;   // number of pairs key->data inside of hash table
+    size_t n_buckets;    // size of buckets
     List **buckets; // hash-indexed buckets to set pairs on int
 };
 
-static unsigned int hash_int(int key, size_t size) {
+static unsigned int hash_int(int key, size_t n_buckets) {
     if (key < 0) {
         key = -key;
     }
-    return (unsigned int)(key % size);
+    return (unsigned int)(key % n_buckets);
 }
 
-HashTable* hash_table_create(size_t size) {
+HashTable* hash_table_create(size_t n_buckets) {
     HashTable *ht = malloc(sizeof(HashTable));
     if (!ht) return NULL;
 
-    ht->size = size;
-    ht->items = 0;
-    ht->buckets = calloc(size, sizeof(List*));
+    ht->n_buckets = n_buckets;
+    ht->size = 0;
+    ht->buckets = calloc(n_buckets, sizeof(List*));
     if (!ht->buckets) {
         free(ht);
         return NULL;
@@ -35,21 +35,21 @@ bool hash_table_empty(HashTable *ht) {
         return true;
     }
 
-    return ht->items == 0;
+    return ht->size == 0;
 
 }
 
 HashTable* hash_table_copy(HashTable *ht) {
-    HashTable *ht_copy = hash_table_create(ht->size);
-    ht_copy->items = ht->items;
-    for (size_t i = 0; i < ht_copy->size; i++) {
+    HashTable *ht_copy = hash_table_create(ht->n_buckets);
+    ht_copy->size = ht->size;
+    for (size_t i = 0; i < ht_copy->n_buckets; i++) {
         ht_copy->buckets[i] = list_copy(ht->buckets[i]);
     }
     return ht_copy;
 }
 
 void hash_table_put(HashTable *ht, int key, int value) {
-    unsigned int index = hash_int(key, ht->size);
+    unsigned int index = hash_int(key, ht->n_buckets);
 
     List *found = list_search_by_key(ht->buckets[index], key);
 
@@ -57,7 +57,7 @@ void hash_table_put(HashTable *ht, int key, int value) {
         found->data = value;
     } else {
         ht->buckets[index] = list_insert_with_key(ht->buckets[index], key, value);
-        ht->items++;
+        ht->size++;
     }
 }
 
@@ -67,13 +67,13 @@ void hash_table_remove(HashTable *ht, int key) {
     if (!exists) {
         return;
     }
-    unsigned int index = hash_int(key, ht->size);
+    unsigned int index = hash_int(key, ht->n_buckets);
     ht->buckets[index] = list_remove_by_key(ht->buckets[index], key);
-    ht->items--;
+    ht->size--;
 }
 
 int hash_table_get(HashTable *ht, int key, bool *exists) {
-    unsigned int index = hash_int(key, ht->size);
+    unsigned int index = hash_int(key, ht->n_buckets);
     List *l = ht->buckets[index];
     while (l) {
         if (l->key == key) {
@@ -91,7 +91,7 @@ int hash_table_get(HashTable *ht, int key, bool *exists) {
 }
 
 void hash_table_print(HashTable *ht) {
-    for (size_t i = 0; i < ht->size; i++) {
+    for (size_t i = 0; i < ht->n_buckets; i++) {
         if (!list_empty(ht->buckets[i])) {
             printf("[%zu]: ", i);
             list_println(ht->buckets[i]);
@@ -99,19 +99,19 @@ void hash_table_print(HashTable *ht) {
     }
 }
 
-size_t hash_table_items(HashTable *ht) {
-    return ht->items;
+size_t hash_table_size(HashTable *ht) {
+    return ht->size;
 }
 
 void hash_table_print_items(HashTable *ht) {
     printf("{");
-    for (size_t i = 0; i < ht->size; i++) {
+    for (size_t i = 0; i < ht->n_buckets; i++) {
         List *head = ht->buckets[i];
         if (!list_empty(head)) {
             do {
                 printf("%d->%d", head->key, head->data);
                 head = head->next;
-                if (!((ht->size - 1) == i && !head)) {
+                if (!((ht->n_buckets - 1) == i && !head)) {
                     printf(", ");
                 }
             } while (head);
@@ -122,7 +122,7 @@ void hash_table_print_items(HashTable *ht) {
 
 List* hash_table_keys(HashTable *ht) {
     List *keys = list_create();
-    for (size_t i = 0; i < ht->size; i++) {
+    for (size_t i = 0; i < ht->n_buckets; i++) {
         List *head = ht->buckets[i];
         if (!list_empty(head)) {
             do {
@@ -142,7 +142,7 @@ void hash_table_print_keys(HashTable *ht) {
 
 
 void hash_table_free(HashTable *ht) {
-    for (size_t i = 0; i < ht->size; i++) {
+    for (size_t i = 0; i < ht->n_buckets; i++) {
         list_free(ht->buckets[i]);
     }
     free(ht->buckets);

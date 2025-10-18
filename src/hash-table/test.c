@@ -58,7 +58,7 @@ HashTable* hash_table_setup() {
     hash_table_put(ht, 2, 300);
 
     printf("== Hash Table:\n");
-    printf("number of items: %lu\n", hash_table_items(ht));
+    printf("number of items: %lu\n", hash_table_size(ht));
     hash_table_print(ht);
 
     return ht;

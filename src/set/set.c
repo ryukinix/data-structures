@@ -62,7 +62,7 @@ bool set_subset(Set *set_a, Set *set_b) {
 
 
 bool set_equal(Set *set_a, Set *set_b) {
-    if (hash_table_items(set_a->memory) != hash_table_items(set_b->memory)) {
+    if (hash_table_size(set_a->memory) != hash_table_size(set_b->memory)) {
         return false;
     }
     return set_subset(set_a, set_b);

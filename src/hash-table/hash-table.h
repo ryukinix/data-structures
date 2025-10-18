@@ -22,10 +22,10 @@ typedef struct HashTable HashTable;
 
 /**
  * @brief Create a new hash table instance
- * @param size number of buckets in the hash table
+ * @param n_buckets number of buckets in the hash table
  * @return pointer to the newly created hash table
  */
-HashTable* hash_table_create(size_t size);
+HashTable* hash_table_create(size_t n_buckets);
 
 /**
  * @brief Check if hash table is empty
@@ -66,11 +66,11 @@ int hash_table_get(HashTable *ht, int key, bool *exists);
 
 
 /**
- * @brief Get the number of items
+ * @brief Get the number of elements in the hash table
  * @param ht hash table pointer
  * @return the number of elements inside of the hash table
  */
-size_t hash_table_items(HashTable *ht);
+size_t hash_table_size(HashTable *ht);
 
 
 /**
