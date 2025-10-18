@@ -71,7 +71,12 @@ test: all
 	@printf $(STATUS_PREFIX); echo "TESTING SUBSYTEMS"
 	@for s in $(SUBSYSTEMS); do \
 		printf $(STATUS_PREFIX); echo "SYSTEM: $$s"; \
-		make -C $$s test; \
+		make -C $$s -q test > /dev/null 2>&1; \
+		if [ $$? -lt 2 ]; then \
+			make -C $$s test; \
+		else \
+			printf $(STATUS_PREFIX); echo "No test target in $$s"; \
+		fi; \
 	done
 
 check: test

@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <assert.h>
+#include "hash-table.h"
+
+
+void test_hash_table_remove(HashTable *ht, int key) {
+    printf("\n== After removing key=%d:\n", key);
+    hash_table_remove(ht, key);
+    hash_table_print(ht);
+
+
+    bool ok;
+    hash_table_get(ht, key, &ok);
+    assert(ok == false);
+
+}
+
+void test_hash_table_get(HashTable *ht, int key, int expected) {
+    int value = hash_table_get(ht, key, NULL);
+    assert(value == expected);
+}
+
+void test_hash_table_insert_with_update(HashTable *ht, int key) {
+    hash_table_put(ht, key, 10);
+    hash_table_put(ht, key, 20);
+    printf("\n== Inserting 10 and 20 values with key=%d:\n", key);
+    hash_table_print(ht);
+    printf("items: ");
+    hash_table_print_items(ht);
+    printf("keys: ");
+    hash_table_print_keys(ht);
+}
+
+
+
+HashTable* hash_table_setup() {
+    HashTable *ht = hash_table_create(10);
+
+    hash_table_put(ht, 1, 111);
+    hash_table_put(ht, 10, 110);
+    hash_table_put(ht, 11, 112);
+    hash_table_put(ht, 9, 999);
+    hash_table_put(ht, 2, 300);
+
+    printf("== Hash Table:\n");
+    hash_table_print(ht);
+
+    return ht;
+}
+
+int main(void) {
+
+    HashTable *ht = hash_table_setup();
+    test_hash_table_get(ht, 9, 999);
+    test_hash_table_remove(ht, 10);
+    test_hash_table_remove(ht, 1);
+    test_hash_table_insert_with_update(ht, 0);
+
+
+
+    hash_table_free(ht);
+    return 0;
+}

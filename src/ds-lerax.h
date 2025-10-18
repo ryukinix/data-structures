@@ -29,5 +29,6 @@
 #include "tree/bst/bst.h"
 #include "tree/avl/avl.h"
 #include "search/search.h"
+#include "hash-table/hash-table.h"
 
 #endif

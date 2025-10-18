@@ -18,9 +18,12 @@
  * which need to know how the internal struct is implemented
  */
 struct ListNode {
+    int key; // optional field, introduced because hash tables
     int data;
     struct ListNode *next;
 };
+
+
 
 /** Public type List for Singly Linked Lists */
 typedef struct ListNode List;
@@ -45,12 +48,38 @@ List* list_create(void);
 List* list_insert(List *l, int data);
 
 /**
+ * @brief Insert a new element on the beginning of the list
+ * @param l List to insert \p data and \p key on
+ * @param data integer value to insert on
+ * @param key integer value to insert on
+ * @return the updated list
+ */
+List* list_insert_with_key(List *l, int key, int data);
+
+/**
  * @brief Insert a new element on the end of the list
  * @param l List to insert \p data on
  * @param data integer value to insert on
  * @return the updated list
  */
 List* list_append(List *l, int data);
+
+/**
+ * @brief Insert a new element on the end of the list with key
+ * @param l List to insert \p data on with \p key
+ * @param data integer value to insert on
+ * @param key integer value to insert on
+ * @return the updated list
+ */
+List* list_append_with_key(List *l, int key, int data);
+
+/**
+ * @brief Insert a new node on the end of the list
+ * @param l List to insert \p data on
+ * @param node to insert on
+ * @return the updated list
+ */
+List* list_append_node(List *l, struct ListNode *node);
 
 /**
  * @brief Ordered insert of a new element in the list
@@ -67,6 +96,14 @@ List* list_insert_ord(List *l, int data);
  * @return the node to return it
  */
 List* list_search(List *l, int data);
+
+/**
+ * @brief Search on the list by key and return the node which contains it
+ * @param l List to search \p key
+ * @param key integer value to search
+ * @return the node to return it
+ */
+List* list_search_by_key(List *l, int key);
 
 /**
  * @brief Print the list without a new line
@@ -97,11 +134,19 @@ void list_println_reverse(List *l);
 
 /**
  * @brief Remove specific element from List
- * @param l List to insert \p data on
+ * @param l List to remove \p data on
  * @param data integer value to remove
  * @return new list without the node which contains \p data
  */
 List* list_remove(List *l, int data);
+
+/**
+ * @brief Remove specific element from List by a key
+ * @param l List to remove with \p key
+ * @param key integer value to remove
+ * @return new list without the node which contains \p key
+ */
+List* list_remove_by_key(List *l, int key);
 
 /**
  * @brief Free memory of List and its nodes
