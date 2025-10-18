@@ -28,6 +28,13 @@ typedef struct HashTable HashTable;
 HashTable* hash_table_create(size_t size);
 
 /**
+ * @brief Create a hash table as copy of another
+ * @param ht hash table to copy
+ * @return pointer to the newly created hash table
+ */
+HashTable* hash_table_copy(HashTable *ht);
+
+/**
  * @brief Put a value associated to a key
  * @param ht hash table pointer
  * @param key integer key used to determine the bucket

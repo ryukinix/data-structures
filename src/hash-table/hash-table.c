@@ -28,6 +28,15 @@ HashTable* hash_table_create(size_t size) {
     return ht;
 }
 
+HashTable* hash_table_copy(HashTable *ht) {
+    HashTable *ht_copy = hash_table_create(ht->size);
+
+    for (size_t i = 0; i < ht_copy->size; i++) {
+        ht_copy->buckets[i] = list_copy(ht->buckets[i]);
+    }
+    return ht_copy;
+}
+
 void hash_table_put(HashTable *ht, int key, int value) {
     unsigned int index = hash_int(key, ht->size);
 

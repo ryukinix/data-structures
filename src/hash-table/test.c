@@ -31,6 +31,19 @@ void test_hash_table_insert_with_update(HashTable *ht, int key) {
     hash_table_print_keys(ht);
 }
 
+void test_hash_table_copy(HashTable *ht) {
+    HashTable *ht_copy = hash_table_copy(ht);
+
+    printf("== Hash Table Copy, modify key=1 from 10 to 20\n");
+    hash_table_put(ht, 1, 10);
+    hash_table_put(ht_copy, 1, 20);
+    printf("\nOriginal: ");
+    hash_table_print_items(ht);
+    printf("Copy: ");
+    hash_table_print_items(ht_copy);
+
+    assert(hash_table_get(ht, 1, NULL) != hash_table_get(ht_copy, 1, NULL));
+}
 
 
 HashTable* hash_table_setup() {
@@ -55,7 +68,7 @@ int main(void) {
     test_hash_table_remove(ht, 10);
     test_hash_table_remove(ht, 1);
     test_hash_table_insert_with_update(ht, 0);
-
+    test_hash_table_copy(ht);
 
 
     hash_table_free(ht);
