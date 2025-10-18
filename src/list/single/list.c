@@ -109,6 +109,11 @@ int list_head(List *l) {
 }
 
 
+int list_head_key(List *l) {
+    return l->key;
+}
+
+
 List* list_tail(List *l) {
     return l->next;
 }
@@ -349,7 +354,7 @@ List* list_copy(List *l) {
     List* copy = list_create();
 
     if (!list_empty(l)) {
-        copy = list_insert(copy, list_head(l));
+        copy = list_insert_with_key(copy, list_head_key(l), list_head(l));
         copy->next = list_copy(list_tail(l));
     }
 

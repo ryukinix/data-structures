@@ -8,18 +8,18 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS := -llist -lm
-INCLUDE := -I../ -L../list/single
+LDFLAGS := -lhash-table -llist -lm
+INCLUDE := -I../ -L../list/single -L../hash-table/
 
 # targets to compile
 TEST_TARGET = test
-TARGETS = hash-table.o
-LIBRARY_OBJS = $(TARGETS)
+TARGETS = set.o
+LIBRARY_OBJS = TARGETS
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
 
 # static library
-LIBRARY_TARGET = libhash-table.a
+LIBRARY_TARGET = libset.a
 
 all: compile
 	@echo > /dev/null
@@ -28,6 +28,7 @@ compile: $(TARGETS) $(TEST_TARGET).o $(MAIN_TARGET).o
 
 deps:
 	make clean library -C ../list/single CFLAGS=-DLIST_PRINT_KEY
+	make clean library -C ../hash-table
 
 
 %.o: %.c

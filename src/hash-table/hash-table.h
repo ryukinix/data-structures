@@ -22,10 +22,24 @@ typedef struct HashTable HashTable;
 
 /**
  * @brief Create a new hash table instance
- * @param size number of buckets in the hash table
+ * @param n_buckets number of buckets in the hash table
  * @return pointer to the newly created hash table
  */
-HashTable* hash_table_create(size_t size);
+HashTable* hash_table_create(size_t n_buckets);
+
+/**
+ * @brief Check if hash table is empty
+ * @param ht hash table pointer
+ * @return true if empty, false otherwise
+ */
+bool hash_table_empty(HashTable *ht);
+
+/**
+ * @brief Create a hash table as copy of another
+ * @param ht hash table to copy
+ * @return pointer to the newly created hash table
+ */
+HashTable* hash_table_copy(HashTable *ht);
 
 /**
  * @brief Put a value associated to a key
@@ -46,9 +60,18 @@ void hash_table_remove(HashTable *ht, int key);
  * @brief Get a value in the hash table
  * @param ht hash table pointer
  * @param key integer key used to locate the bucket
- * @param pointer of the value integer key used to locate the bucket; null if not found
+ * @param exists bool pointer, set true if found false otherwise; null pointer does nothing
   */
-int hash_table_get(HashTable *ht, int key, bool *ok);
+int hash_table_get(HashTable *ht, int key, bool *exists);
+
+
+/**
+ * @brief Get the number of elements in the hash table
+ * @param ht hash table pointer
+ * @return the number of elements inside of the hash table
+ */
+size_t hash_table_size(HashTable *ht);
+
 
 /**
  * @brief Print all buckets of the hash table (one list per line)
@@ -67,6 +90,12 @@ void hash_table_print_items(HashTable *ht);
  * @param ht hash table pointer
  */
 void hash_table_print_keys(HashTable *ht);
+
+/**
+ * @brief Build a list with the hash table keys
+ * @param ht hash table pointer
+ */
+List* hash_table_keys(HashTable *ht);
 
 /**
  * @brief Free memory of hash table and its contents
