@@ -1,3 +1,9 @@
+ifeq ($(OS),Windows_NT)
+	EXTENSION := exe
+else
+	EXTENSION := out
+endif
+
 CC = gcc
 WARN = -Wall -Wextra
 DEBUG ?= -g
@@ -5,7 +11,7 @@ SRCDIR = src
 LIBNAME = libds-lerax
 LIBDIR = lib
 HEADER = ds-lerax.h
-CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99 -fPIC
+override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99 -fPIC
 SOURCES = $(shell find $(SRCDIR) -iname '*.c')
 COMPILED = $(shell find $(SRCDIR) -type f -iname '*.o' -or -iname "*.out" -or -iname "*.a")
 BLACKLIST = "(list-iter|main|test).c|*.-static.c|matrix-vector"
@@ -20,6 +26,9 @@ SUBSYSTEMS = $(shell find src -iname "Makefile" -exec dirname '{}' \;)
 STATUS_PREFIX = "\033[1;32m[+]\033[0m "
 TEST_PREFIX = "\033[1;32m[>>]\033[0m "
 ATTENTION_PREFIX =  "\033[1;36m[!]\033[0m "
+
+override VALGRIND_ARGS += --quiet --trace-children=yes --track-fds=yes --track-origins=yes \
+                          --leak-check=full --show-leak-kinds=all --error-exitcode=1
 
 
 all: compile static shared header
@@ -67,6 +76,19 @@ $(LIBDIR)/$(HEADER): $(SRCDIR)/$(HEADER)
 
 lib: static shared header
 
+compile-tests:
+	@printf $(STATUS_PREFIX); echo "COMPILE TESTS OF SUBSYTEMS"
+	@for s in $(SUBSYSTEMS); do \
+		printf $(STATUS_PREFIX); echo "SYSTEM: $$s"; \
+	    make --no-print-directory  -C $$s -q test.$(EXTENSION) > /dev/null 2>&1; \
+		if [ $$? -lt 2 ]; then \
+			make --no-print-directory  -C $$s test.$(EXTENSION); \
+		else \
+			printf $(STATUS_PREFIX); echo "No test target in $$s"; \
+		fi; \
+	done
+
+
 test: all
 	@printf $(STATUS_PREFIX); echo "TESTING SUBSYTEMS"
 	@for s in $(SUBSYSTEMS); do \
@@ -80,6 +102,10 @@ test: all
 	done
 
 check: test
+
+check-valgrind:
+	make compile-tests > /dev/null
+	find $(SRCDIR) -iname "test.out" | xargs -L 1 valgrind $(VALGRIND_ARGS) > /dev/null
 
 docs-worktree:
 	@if [ ! -d docs/gh-pages ]; then \

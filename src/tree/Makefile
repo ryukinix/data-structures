@@ -10,15 +10,14 @@ DEBUG = -g
 override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99
 LDFLAGS = -lm -L./ascii-tree/ -L./avl/ -lavl -lascii-tree
 LDFLAGS = -L./ascii-tree/ -L./avl/ -B static -lavl -lascii-tree -B dynamic -lm
-MAIN = main
 INCLUDE = -I../
 
 # targets to compile
-TARGETS = $(MAIN).o
+TARGETS = main.o
 
-# linking test binary
-OBJS += $(MAIN).o
-MAIN_BINARY = $(MAIN).$(EXTENSION)
+OBJS += main.o
+MAIN_BINARY = main.$(EXTENSION)
+
 all: compile
 	@echo > /dev/null
 
@@ -39,10 +38,7 @@ main: deps $(TARGETS) $(MAIN_BINARY)
 
 run: main
 
-test:
-	@echo "Test manually with: make main"
-
 clean:
 	rm -fv *.o *.$(EXTENSION) *.a
 
-.PHONY: all clean compile test deps
+.PHONY: all clean compile deps
