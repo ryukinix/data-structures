@@ -27,8 +27,9 @@ STATUS_PREFIX = "\033[1;32m[+]\033[0m "
 TEST_PREFIX = "\033[1;32m[>>]\033[0m "
 ATTENTION_PREFIX =  "\033[1;36m[!]\033[0m "
 
-override VALGRIND_ARGS += --quiet --trace-children=yes --track-fds=yes --track-origins=yes \
-                          --leak-check=full --show-leak-kinds=all --error-exitcode=1
+override VALGRIND_ARGS += --quiet --trace-children=yes --track-fds=yes \
+                          --leak-check=full --show-leak-kinds=all --error-exitcode=1 \
+	                      --undef-value-errors=no
 
 
 all: compile static shared header
@@ -103,15 +104,16 @@ test: all
 
 check: test
 
-check-valgrind:
+check-valgrind/%:
 	make compile-tests > /dev/null
-	find $(SRCDIR) -iname "test.out" | xargs -L 1 valgrind $(VALGRIND_ARGS) > /dev/null
+	find $(SRCDIR) -path "*$**" -and -iname "test.out" | xargs -L 1 valgrind $(VALGRIND_ARGS)  > /dev/null
+
+check-valgrind: check-valgrind/src
 
 docs-worktree:
 	@if [ ! -d docs/gh-pages ]; then \
 		git worktree add docs/gh-pages gh-pages -f; \
 	fi
-
 
 docs: docs-worktree
 	doxygen doxygen.cfg

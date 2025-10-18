@@ -59,4 +59,8 @@ void radixsort(Type *v, int n) {
        }
 
     }
+
+    for (int i = 0; i < BASE; i++) {
+        queue_free(q[i]);
+    }
 }
