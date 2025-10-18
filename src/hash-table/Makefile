@@ -14,7 +14,7 @@ INCLUDE := -I../ -L../list/single
 # targets to compile
 TEST_TARGET = test
 TARGETS = hash-table.o
-LIBRARY_OBJS = TARGETS
+LIBRARY_OBJS = $(TARGETS)
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
 

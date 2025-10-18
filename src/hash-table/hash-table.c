@@ -4,8 +4,9 @@
 #include "hash-table.h"
 
 struct HashTable {
-    size_t size;
-    List **buckets;
+    size_t size;    // size of buckets
+    size_t items;   // number of pairs key->data inside of hash table
+    List **buckets; // hash-indexed buckets to set pairs on int
 };
 
 static unsigned int hash_int(int key, size_t size) {
@@ -20,6 +21,7 @@ HashTable* hash_table_create(size_t size) {
     if (!ht) return NULL;
 
     ht->size = size;
+    ht->items = 0;
     ht->buckets = calloc(size, sizeof(List*));
     if (!ht->buckets) {
         free(ht);
@@ -28,9 +30,18 @@ HashTable* hash_table_create(size_t size) {
     return ht;
 }
 
+bool hash_table_empty(HashTable *ht) {
+    if (!ht) {
+        return true;
+    }
+
+    return ht->items == 0;
+
+}
+
 HashTable* hash_table_copy(HashTable *ht) {
     HashTable *ht_copy = hash_table_create(ht->size);
-
+    ht_copy->items = ht->items;
     for (size_t i = 0; i < ht_copy->size; i++) {
         ht_copy->buckets[i] = list_copy(ht->buckets[i]);
     }
@@ -46,28 +57,35 @@ void hash_table_put(HashTable *ht, int key, int value) {
         found->data = value;
     } else {
         ht->buckets[index] = list_insert_with_key(ht->buckets[index], key, value);
+        ht->items++;
     }
 }
 
 void hash_table_remove(HashTable *ht, int key) {
+    bool exists;
+    hash_table_get(ht, key, &exists);
+    if (!exists) {
+        return;
+    }
     unsigned int index = hash_int(key, ht->size);
     ht->buckets[index] = list_remove_by_key(ht->buckets[index], key);
+    ht->items--;
 }
 
-int hash_table_get(HashTable *ht, int key, bool *ok) {
+int hash_table_get(HashTable *ht, int key, bool *exists) {
     unsigned int index = hash_int(key, ht->size);
     List *l = ht->buckets[index];
     while (l) {
         if (l->key == key) {
-            if (ok != NULL) {
-                *ok = true;
+            if (exists != NULL) {
+                *exists = true;
             }
             return l->data;
         }
         l = l->next;
     }
-    if (ok != NULL) {
-        *ok = false;
+    if (exists != NULL) {
+        *exists = false;
     }
     return -1;
 }
@@ -79,6 +97,10 @@ void hash_table_print(HashTable *ht) {
             list_println(ht->buckets[i]);
         }
     }
+}
+
+size_t hash_table_items(HashTable *ht) {
+    return ht->items;
 }
 
 void hash_table_print_items(HashTable *ht) {
@@ -98,22 +120,26 @@ void hash_table_print_items(HashTable *ht) {
     printf("}\n");
 }
 
-void hash_table_print_keys(HashTable *ht) {
-    printf("{");
+List* hash_table_keys(HashTable *ht) {
+    List *keys = list_create();
     for (size_t i = 0; i < ht->size; i++) {
         List *head = ht->buckets[i];
         if (!list_empty(head)) {
             do {
-                printf("%d", head->key);
+                keys = list_insert(keys, head->key);
                 head = head->next;
-                if (!((ht->size - 1) == i && !head)) {
-                    printf(", ");
-                }
             } while (head);
         }
     }
-    printf("}\n");
+    return keys;
 }
+
+
+void hash_table_print_keys(HashTable *ht) {
+    List *keys = hash_table_keys(ht);
+    list_println_reverse(keys);
+}
+
 
 void hash_table_free(HashTable *ht) {
     for (size_t i = 0; i < ht->size; i++) {
