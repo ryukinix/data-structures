@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_0',['value',['../structBinaryNode.html#a00624fc2f2f272ddf08f77248c9dd623',1,'BinaryNode']]]
+  ['size_0',['size',['../structPQueue.html#a87efd2ac42013a3caf82d2fb3d8b94ae',1,'PQueue']]]
 ];

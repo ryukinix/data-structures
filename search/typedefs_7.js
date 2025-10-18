@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stack_0',['Stack',['../stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0',1,'stack.h']]]
+  ['queue_0',['Queue',['../queue_8h.html#a8560ae2ddf510ea6643f85a929bffa48',1,'queue.h']]]
 ];
