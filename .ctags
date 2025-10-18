@@ -1,0 +1,5 @@
+# --- C-Language Optimization ---
+--languages=C
+--c-kinds=+p
+--tag-relative=yes
+--recurse=yes
