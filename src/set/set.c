@@ -23,6 +23,7 @@ Set* set_create() {
 
 Set* set_copy(Set *set) {
     Set *set_new = set_create();
+    hash_table_free(set_new->memory);
     set_new->memory = hash_table_copy(set->memory);
     return set_new;
 }
@@ -47,17 +48,21 @@ Set* set_init(int set_size,...) {
 }
 
 bool set_subset(Set *set_a, Set *set_b) {
-    List* keys = hash_table_keys(set_a->memory);
+    List* keys_begin = hash_table_keys(set_a->memory);
+    List* keys = keys_begin;
+    bool checking = true;
     while (!list_empty(keys)) {
         bool exists;
         int element = keys->data;
         hash_table_get(set_b->memory, element, &exists);
         if (!exists) {
-            return false;
+            checking = false;
+            break;
         }
         keys = keys->next;
     }
-    return true;
+    list_free(keys_begin);
+    return checking;
 }
 
 
@@ -71,7 +76,8 @@ bool set_equal(Set *set_a, Set *set_b) {
 
 Set* set_intersection(Set *set_a, Set *set_b) {
     Set* set_new = set_create();
-    List* keys = hash_table_keys(set_a->memory);
+    List* keys_begin = hash_table_keys(set_a->memory);
+    List* keys = keys_begin;
     while (!list_empty(keys)) {
         bool exists;
         int element = keys->data;
@@ -81,6 +87,7 @@ Set* set_intersection(Set *set_a, Set *set_b) {
         }
         keys = keys->next;
     }
+    list_free(keys_begin);
     return set_new;
 }
 
@@ -88,19 +95,24 @@ Set* set_intersection(Set *set_a, Set *set_b) {
 Set* set_union(Set *set_a, Set *set_b) {
     List* keys_a = hash_table_keys(set_a->memory);
     List* keys_b = hash_table_keys(set_b->memory);
-    List* keys = list_concat(keys_a, keys_b);
+    List* keys_begin = list_concat(keys_a, keys_b);
+    List* keys = keys_begin;
     Set* set_new = set_create();
     while (!list_empty(keys)) {
         set_add(set_new, keys->data);
         keys = keys->next;
     }
+    list_free(keys_a);
+    list_free(keys_b);
+    list_free(keys_begin);
     return set_new;
 }
 
 
 Set* set_difference(Set *set_a, Set *set_b) {
     Set* set_new = set_create();
-    List* keys = hash_table_keys(set_a->memory);
+    List* keys_begin = hash_table_keys(set_a->memory);
+    List* keys = keys_begin;
     while (!list_empty(keys)) {
         bool exists;
         int element = keys->data;
@@ -111,6 +123,7 @@ Set* set_difference(Set *set_a, Set *set_b) {
         }
         set_add(set_new, element);
     }
+    list_free(keys_begin);
     return set_new;
 }
 

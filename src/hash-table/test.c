@@ -71,6 +71,7 @@ void test_hash_table_empty() {
     assert(hash_table_empty(ht) == false);
     hash_table_remove(ht, 1);
     assert(hash_table_empty(ht) == true);
+    hash_table_free(ht);
 }
 
 int main(void) {

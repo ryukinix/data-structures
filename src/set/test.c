@@ -13,6 +13,7 @@ void test_set_contains() {
     set_free(set);
 }
 
+
 void test_set_remove() {
     printf("\n== test set_remove\n\n");
     Set *set = set_init(5, 1, 2, 3, 3, 4);
@@ -25,6 +26,7 @@ void test_set_remove() {
 
     set_free(set);
 }
+
 
 void test_set_equal() {
     printf("\n== test set_equal\n\n");
@@ -40,8 +42,10 @@ void test_set_equal() {
     set_remove(set_b, 4);
     set_print(set_b);
     assert(set_equal(set_a, set_b) == false);
+    set_free(set_a); set_free(set_b);
 
 }
+
 
 void test_set_intersection() {
     printf("\n== test set_intersection\n\n");
@@ -55,7 +59,9 @@ void test_set_intersection() {
     printf("set_intersection: ");
     set_print(set_c);
     assert(set_equal(set_c, set_a) == true);
+    set_free(set_a); set_free(set_b); set_free(set_c);
 }
+
 
 void test_set_union() {
     printf("\n== test set_union\n\n");
@@ -70,7 +76,9 @@ void test_set_union() {
     printf("set_union: ");
     set_print(set_c);
     assert(set_equal(set_c, set_expected) == true);
+    set_free(set_a); set_free(set_b); set_free(set_c); set_free(set_expected);
 }
+
 
 void test_set_difference() {
     printf("\n== test set_difference\n\n");
@@ -85,7 +93,9 @@ void test_set_difference() {
     printf("set_difference: ");
     set_print(set_c);
     assert(set_equal(set_c, set_expected) == true);
+    set_free(set_a); set_free(set_b); set_free(set_c); set_free(set_expected);
 }
+
 
 void test_set_copy() {
     printf("\n== test set_copy\n\n");
@@ -101,8 +111,9 @@ void test_set_copy() {
     printf("set_copied: ");
     set_print(set_copied);
     assert(set_equal(set, set_copied) == false);
-
+    set_free(set); set_free(set_copied);
 }
+
 
 int main(void) {
     printf("== Tests over Set data stucture");

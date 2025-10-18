@@ -138,6 +138,7 @@ List* hash_table_keys(HashTable *ht) {
 void hash_table_print_keys(HashTable *ht) {
     List *keys = hash_table_keys(ht);
     list_println_reverse(keys);
+    list_free(keys);
 }
 
 
