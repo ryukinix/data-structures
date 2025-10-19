@@ -25,13 +25,14 @@
 var NAVTREE =
 [
   [ "Data Structures Lerax", "index.html", [
-    [ "Data Structures & Algorithms by Lerax/Manoel", "index.html", [
+    [ "Documentation", "index.html", [
       [ "Introduction", "index.html#intro_sec", null ],
       [ "Data Structures", "index.html#data_structures_sec", null ],
       [ "Sorting Algorithms", "index.html#sorting_algorithms_sec", null ],
       [ "Search Algorithms", "index.html#search_algorithms_sec", null ],
       [ "Author", "index.html#author_sec", null ]
     ] ],
+    [ "Modules", "modules.html", "modules" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -55,7 +56,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"queue_8h.html#a26000444a1afaeb1ee2b52938ffc5ef1"
+"group__DataStructureMethods.html#ga85c85d44262734aa23d58d8ed14ee256",
+"structBinaryNode.html#acc14383a0c479e58e33e9b0b70883ea2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

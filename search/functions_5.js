@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insertionsort_344',['insertionsort',['../sort_8h.html#a6cbc559ab4b492514c588fea4282d54b',1,'sort.h']]]
+  ['insertionsort_349',['insertionsort',['../group__SortingAlgorithms.html#ga6cbc559ab4b492514c588fea4282d54b',1,'sort.h']]]
 ];

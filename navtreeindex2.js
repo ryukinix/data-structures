@@ -1,0 +1,25 @@
+var NAVTREEINDEX2 =
+{
+"structBinaryNode.html#acc14383a0c479e58e33e9b0b70883ea2":[2,0,0,0],
+"structBinaryNode.html#ae06b62d570f5dcb2cab85cb25eb9cf06":[2,0,0,2],
+"structCircle.html":[2,0,1],
+"structCircle.html#a47644132ec8bec0f3a4e8d0e15bcd5d3":[2,0,1,1],
+"structCircle.html#a7e71a329a498a6f9d7e03a54a5f9bf13":[2,0,1,0],
+"structListCircular.html":[2,0,2],
+"structListCircular.html#ab76c48a1af8e213362fc4ac6bafd8aa4":[2,0,2,1],
+"structListCircular.html#ac5fa8c70578dde18f7df74ecaa1e5de8":[2,0,2,0],
+"structListDouble.html":[2,0,3],
+"structListDouble.html#a6e51cfe4b853d2eca3c53252dfd10063":[2,0,3,0],
+"structListDouble.html#a82240fc1d9077f7d6644e6608427c03f":[2,0,3,2],
+"structListDouble.html#ab6b427de5a3decdf500658b99609b50e":[2,0,3,1],
+"structListNode.html":[2,0,4],
+"structListNode.html#aa048672d5b781b9c8decaa86203fc5d5":[2,0,4,0],
+"structListNode.html#ac7af9e18e0586f13d59a52b3501ac4ca":[2,0,4,2],
+"structListNode.html#afd94238833851d4317d87dd13ab20f95":[2,0,4,1],
+"structPQueue.html":[2,0,6],
+"structPQueue.html#a87efd2ac42013a3caf82d2fb3d8b94ae":[2,0,6,1],
+"structPQueue.html#aa967068eda502e148bba0e56437282b4":[2,0,6,0],
+"structPoint.html":[2,0,5],
+"structPoint.html#a05dfe2dfbde813ad234b514f30e662f1":[2,0,5,0],
+"structPoint.html#a6101960c8d2d4e8ea1d32c9234bbeb8d":[2,0,5,1]
+};

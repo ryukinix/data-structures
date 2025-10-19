@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['insertionsort_91',['insertionsort',['../sort_8h.html#a6cbc559ab4b492514c588fea4282d54b',1,'sort.h']]]
+  ['hash_2dtable_2eh_75',['hash-table.h',['../hash-table_8h.html',1,'']]],
+  ['hash_5ftable_5fcopy_76',['hash_table_copy',['../group__DataStructureMethods.html#ga0d7e8967cf0f9dc381aa946d04cfa4da',1,'hash-table.h']]],
+  ['hash_5ftable_5fcreate_77',['hash_table_create',['../group__DataStructureMethods.html#gac8c5992ae1b130a520e1c5bfadddf723',1,'hash-table.h']]],
+  ['hash_5ftable_5fempty_78',['hash_table_empty',['../group__DataStructureMethods.html#ga579beb5488f7448c610a170019ca1574',1,'hash-table.h']]],
+  ['hash_5ftable_5ffree_79',['hash_table_free',['../group__DataStructureMethods.html#ga3920e9707bec9a3346b6bf0d43b7e6ba',1,'hash-table.h']]],
+  ['hash_5ftable_5fget_80',['hash_table_get',['../group__DataStructureMethods.html#ga7811ad7e580b9f0cb04b595db0e0e80a',1,'hash-table.h']]],
+  ['hash_5ftable_5fkeys_81',['hash_table_keys',['../group__DataStructureMethods.html#ga8f24b1219dd68b7a282defaf4ea7ed20',1,'hash-table.h']]],
+  ['hash_5ftable_5fprint_82',['hash_table_print',['../group__DataStructureMethods.html#gafe60755b1f40f5d7fffb296b295e7748',1,'hash-table.h']]],
+  ['hash_5ftable_5fprint_5fitems_83',['hash_table_print_items',['../group__DataStructureMethods.html#ga8f49f9a9e1cb972a9faded6bc5d56dfd',1,'hash-table.h']]],
+  ['hash_5ftable_5fprint_5fkeys_84',['hash_table_print_keys',['../group__DataStructureMethods.html#gad6aac284d4f87b4eb382099254aa0e8f',1,'hash-table.h']]],
+  ['hash_5ftable_5fput_85',['hash_table_put',['../group__DataStructureMethods.html#gaba3779e858aee65f15ddd53855bc2e20',1,'hash-table.h']]],
+  ['hash_5ftable_5fremove_86',['hash_table_remove',['../group__DataStructureMethods.html#ga1b25b535c8084363646a43d8d448c13a',1,'hash-table.h']]],
+  ['hash_5ftable_5fsize_87',['hash_table_size',['../group__DataStructureMethods.html#gae23522f9013c46a517eea68c3342feb0',1,'hash-table.h']]],
+  ['hashtable_88',['HashTable',['../hash-table_8h.html#a8dea4341d1b1662a30ec89ea38da0c0c',1,'hash-table.h']]],
+  ['heap_89',['heap',['../structPQueue.html#aa967068eda502e148bba0e56437282b4',1,'PQueue']]],
+  ['heap_5fempty_5fcell_90',['HEAP_EMPTY_CELL',['../pqueue_8h.html#a4f19a5aa14ba17dd502fc023384c68f5',1,'pqueue.h']]],
+  ['heapsort_91',['heapsort',['../group__SortingAlgorithms.html#gad14faf1fe7d2c09689a0196cccbf9383',1,'sort.h']]],
+  ['height_92',['height',['../structBinaryNode.html#acc14383a0c479e58e33e9b0b70883ea2',1,'BinaryNode']]]
 ];
