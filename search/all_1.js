@@ -26,5 +26,6 @@ var searchData=
   ['bst_5fsearch_23',['bst_search',['../group__DataStructureMethods.html#ga86c42cbbc3f362744d51d47689991e2e',1,'bst.h']]],
   ['bst_5ftwo_5fchildren_24',['bst_two_children',['../group__DataStructureMethods.html#ga62d66c1bfa554521135019461731f6a5',1,'bst.h']]],
   ['bstree_25',['BSTree',['../bst_8h.html#a808b63f4505437f6edbd72f8f55277fa',1,'bst.h']]],
-  ['bubblesort_26',['bubblesort',['../group__SortingAlgorithms.html#ga39f1c6cc8fab6863d055b5623ec59be6',1,'sort.h']]]
+  ['bubblesort_26',['bubblesort',['../group__SortingAlgorithms.html#ga39f1c6cc8fab6863d055b5623ec59be6',1,'sort.h']]],
+  ['buckets_27',['buckets',['../structHashTable.html#a043ee4ff28c4b658e9fa9f21a723584e',1,'HashTable']]]
 ];

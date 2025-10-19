@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_0',['data',['../structListCircular.html#ac5fa8c70578dde18f7df74ecaa1e5de8',1,'ListCircular::data'],['../structListDouble.html#a6e51cfe4b853d2eca3c53252dfd10063',1,'ListDouble::data'],['../structListNode.html#aa048672d5b781b9c8decaa86203fc5d5',1,'ListNode::data']]]
+  ['center_0',['center',['../structCircle.html#a7e71a329a498a6f9d7e03a54a5f9bf13',1,'Circle']]]
 ];

@@ -1,5 +1,6 @@
 var set_8h =
 [
+    [ "Set", "structSet.html", "structSet" ],
     [ "Set", "set_8h.html#ae18711cd0f4e4e8356608ed79326276b", null ],
     [ "set_add", "group__DataStructureMethods.html#gaeb88ad5817223ab5f169f27cf181c5f4", null ],
     [ "set_contains", "group__DataStructureMethods.html#gac26507b2ef6e33b9115325505a8a86e9", null ],

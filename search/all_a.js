@@ -12,6 +12,7 @@ var searchData=
   ['matrix_5fmax_9',['matrix_max',['../group__DataStructureMethods.html#ga57857540fa7c33edad5c2c5aba7e6a58',1,'matrix-utils.h']]],
   ['matrix_5fprint_10',['matrix_print',['../group__DataStructureMethods.html#ga3768f4937226fa592c8c6f4ad270117a',1,'matrix-utils.h']]],
   ['matrix_5fset_11',['matrix_set',['../group__DataStructureMethods.html#ga18eb45e990da5a033d6a4476e6a636a7',1,'matrix.h']]],
-  ['mergesort_12',['mergesort',['../group__SortingAlgorithms.html#gaeb8e4a806b70e15d0ec7cc1f5559bb85',1,'sort.h']]],
-  ['methods_13',['Data Structure Methods',['../group__DataStructureMethods.html',1,'']]]
+  ['memory_12',['memory',['../structSet.html#af585bea6a2b2c4b0a78b22ba836df8f9',1,'Set']]],
+  ['mergesort_13',['mergesort',['../group__SortingAlgorithms.html#gaeb8e4a806b70e15d0ec7cc1f5559bb85',1,'sort.h']]],
+  ['methods_14',['Data Structure Methods',['../group__DataStructureMethods.html',1,'']]]
 ];

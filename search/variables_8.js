@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['size_0',['size',['../structPQueue.html#a87efd2ac42013a3caf82d2fb3d8b94ae',1,'PQueue']]]
+  ['prev_0',['prev',['../structListDouble.html#a82240fc1d9077f7d6644e6608427c03f',1,'ListDouble']]]
 ];
