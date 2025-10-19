@@ -14,8 +14,10 @@
 #define LIST_H
 
 /**
- * Shared struct definition because we have multiple source files
- * which need to know how the internal struct is implemented
+ * @brief A node in a singly linked list.
+ *
+ * Each node contains an integer key, an integer data field, and a pointer to
+ * the next node in the list.
  */
 struct ListNode {
     int key; // optional field, introduced because hash tables
@@ -23,9 +25,12 @@ struct ListNode {
     struct ListNode *next;
 };
 
-
-
-/** Public type List for Singly Linked Lists */
+/**
+ * @brief A singly linked list.
+ *
+ * A `List` is a pointer to the first node in the list. An empty list is
+ * represented by a null pointer.
+ */
 typedef struct ListNode List;
 
 #define EMPTY_LIST (List*) 0
@@ -36,6 +41,7 @@ typedef struct ListNode List;
 
 /**
  * @brief create a new list instance
+ * @ingroup DataStructureMethods
  */
 List* list_create(void);
 
@@ -44,6 +50,7 @@ List* list_create(void);
  * @param l List to insert \p data on
  * @param data integer value to insert on
  * @return the updated list
+ * @ingroup DataStructureMethods
  */
 List* list_insert(List *l, int data);
 
@@ -53,6 +60,7 @@ List* list_insert(List *l, int data);
  * @param data integer value to insert on
  * @param key integer value to insert on
  * @return the updated list
+ * @ingroup DataStructureMethods
  */
 List* list_insert_with_key(List *l, int key, int data);
 
@@ -61,6 +69,7 @@ List* list_insert_with_key(List *l, int key, int data);
  * @param l List to insert \p data on
  * @param data integer value to insert on
  * @return the updated list
+ * @ingroup DataStructureMethods
  */
 List* list_append(List *l, int data);
 
@@ -70,6 +79,7 @@ List* list_append(List *l, int data);
  * @param data integer value to insert on
  * @param key integer value to insert on
  * @return the updated list
+ * @ingroup DataStructureMethods
  */
 List* list_append_with_key(List *l, int key, int data);
 
@@ -78,6 +88,7 @@ List* list_append_with_key(List *l, int key, int data);
  * @param l List to insert \p data on
  * @param node to insert on
  * @return the updated list
+ * @ingroup DataStructureMethods
  */
 List* list_append_node(List *l, struct ListNode *node);
 
@@ -86,6 +97,7 @@ List* list_append_node(List *l, struct ListNode *node);
  * @param l List to insert \p data on
  * @param data integer value to insert on
  * @return the updated list
+ * @ingroup DataStructureMethods
  */
 List* list_insert_ord(List *l, int data);
 
@@ -94,6 +106,7 @@ List* list_insert_ord(List *l, int data);
  * @param l List to insert \p data on
  * @param data integer value to search on
  * @return the node to return it
+ * @ingroup DataStructureMethods
  */
 List* list_search(List *l, int data);
 
@@ -102,12 +115,14 @@ List* list_search(List *l, int data);
  * @param l List to search \p key
  * @param key integer value to search
  * @return the node to return it
+ * @ingroup DataStructureMethods
  */
 List* list_search_by_key(List *l, int key);
 
 /**
  * @brief Print the list without a new line
  * @param l the list to print
+ * @ingroup DataStructureMethods
  */
 void list_print(List *l);
 
@@ -115,12 +130,14 @@ void list_print(List *l);
 /**
  * @brief Print the list with a new line
  * @param l the list to print
+ * @ingroup DataStructureMethods
  */
 void list_println(List *l);
 
 /**
  * @brief Print the list reversed without a new line
  * @param l the list to print
+ * @ingroup DataStructureMethods
  */
 void list_print_reverse(List *l);
 
@@ -128,6 +145,7 @@ void list_print_reverse(List *l);
 /**
  * @brief Print the list reversed with a new line
  * @param l the list to print
+ * @ingroup DataStructureMethods
  */
 void list_println_reverse(List *l);
 
@@ -137,6 +155,7 @@ void list_println_reverse(List *l);
  * @param l List to remove \p data on
  * @param data integer value to remove
  * @return new list without the node which contains \p data
+ * @ingroup DataStructureMethods
  */
 List* list_remove(List *l, int data);
 
@@ -145,23 +164,27 @@ List* list_remove(List *l, int data);
  * @param l List to remove with \p key
  * @param key integer value to remove
  * @return new list without the node which contains \p key
+ * @ingroup DataStructureMethods
  */
 List* list_remove_by_key(List *l, int key);
 
 /**
  * @brief Free memory of List and its nodes
+ * @ingroup DataStructureMethods
  */
 void list_free(List *l);
 
 /**
  * @brief Verify if the list is empty
  * @return 1 if empty and 0 if is not
+ * @ingroup DataStructureMethods
  */
 int list_empty(List *l);
 
 
 /**
  * @brief Check if two lists are equal
+ * @ingroup DataStructureMethods
  */
 int list_equal(List* l_x, List* l_y);
 
@@ -173,31 +196,37 @@ int list_equal(List* l_x, List* l_y);
 
 /**
  * @brief Return the count of perfect numbers on list
+ * @ingroup DataStructureMethods
  */
 int list_perfect(List *l);
 
 /**
  * @brief Return the length of the list
+ * @ingroup DataStructureMethods
  */
 int list_length(List *l);
 
 /**
  * @brief Return the number of numbers less \p n
+ * @ingroup DataStructureMethods
  */
 int list_less_than(List *l, int n);
 
 /**
  * @brief Return the sum of numbers on the list
+ * @ingroup DataStructureMethods
  */
 int list_sum(List *l);
 
 /**
  * @brief Create a copy of the list l
+ * @ingroup DataStructureMethods
  */
 List* list_copy(List *l);
 
 /**
  * @brief Return a concatenation of the two lists as a new list
+ * @ingroup DataStructureMethods
  */
 List* list_concat(List *l_x, List* l_y);
 
@@ -210,37 +239,44 @@ List* list_concat(List *l_x, List* l_y);
 /**
  * @brief Create a list based on its variadic arguments
  * @param size_list number of paramaters passed to the function
+ * @ingroup DataStructureMethods
  */
 List* list_init(int size_list, ...);
 
 /**
  * @brief Get the data from last element
+ * @ingroup DataStructureMethods
  */
 int list_last(List *l);
 
 /**
  * @brief Get the data from the first element
+ * @ingroup DataStructureMethods
  */
 int list_head(List *l);
 
 /**
  * @brief Get the tail of the list
+ * @ingroup DataStructureMethods
  */
 List* list_tail(List *l);
 
 /**
  * @brief Get and pop the head of the list
+ * @ingroup DataStructureMethods
  */
 int list_pop_head(List** l);
 
 /**
  * @brief Get and pop the last element of the list
+ * @ingroup DataStructureMethods
  */
 int list_pop_last(List** l);
 
 /**
  * @brief Reverse a list (no creating a new)
  * WARNING: side-effects
+ * @ingroup DataStructureMethods
  */
 void list_reverse(List** l);
 
@@ -250,11 +286,13 @@ void list_reverse(List** l);
 
 /**
  * @brief Check if a given number is perfect
+ * @ingroup DataStructureMethods
  */
 int list__is_perfect_number(int n);
 
 /**
  * @brief Create a new node for the list
+ * @ingroup DataStructureMethods
  */
 List* list__new_node(int data);
 

@@ -16,7 +16,10 @@
 #include <stdio.h>
 
 /**
- * @brief remove all the garbage from stdin
+ * @brief Clears the standard input buffer.
+ *
+ * This function reads and discards all characters from the standard input
+ * buffer until a newline character or the end-of-file is reached.
  */
 static inline void flush_stdin() {
     char c;
@@ -25,7 +28,10 @@ static inline void flush_stdin() {
 }
 
 /**
- * @brief Cross-platform pause: works on windows and linux
+ * @brief Pauses the program execution until the user presses Enter.
+ *
+ * This function prints a message to the console and waits for the user to
+ * press the Enter key.
  */
 static inline void pause() {
     printf("Press enter to continue...");

@@ -15,16 +15,20 @@
 #include "matrix.h"
 
 /**
- * @brief pretty print matrix
- * @param matrix the matrix itself
+ * @brief Prints the elements of a matrix to the console in a formatted way.
+ *
+ * @param matrix The matrix to print.
+ * @ingroup DataStructureMethods
  */
 void matrix_print(Matrix *matrix);
 
 
 /**
- * @brief Get the max value on the matrix
- * @param matrix the matrix pointer
- * @return the max value
+ * @brief Finds the maximum value in a matrix.
+ *
+ * @param matrix The matrix to search.
+ * @return The maximum value in the matrix.
+ * @ingroup DataStructureMethods
  */
 float matrix_max(Matrix *matrix);
 

@@ -18,25 +18,51 @@
 /* SEARCH ALGORITHMS */
 /**********************/
 
-/* Use brute force search to find substring on text:
-   worst case: O(n * m)
+/**
+ * @brief Finds the first occurrence of a pattern in a text using the naive
+ * string searching algorithm.
+ *
+ * @param text The text to search in.
+ * @param pattern The pattern to search for.
+ * @return The index of the first occurrence of the pattern in the text, or -1
+ * if the pattern is not found.
+ * @ingroup SearchAlgorithms
  */
 int search_naive(char *text, const char *pattern);
 
-/* Use KMP algorithm to search substring on text:
-   worst case: O(n)
+/**
+ * @brief Finds the first occurrence of a pattern in a text using the
+ * Knuth-Morris-Pratt (KMP) algorithm.
+ *
+ * @param text The text to search in.
+ * @param pattern The pattern to search for.
+ * @return The index of the first occurrence of the pattern in the text, or -1
+ * if the pattern is not found.
+ * @ingroup SearchAlgorithms
  */
 int search_kmp(char *text, const char *pattern);
 
-/* Use Boyer-Moore algorithm to search substring on text:
-   avg case: Omega(n/m)
-   worst case: O(n * m)
+/**
+ * @brief Finds the first occurrence of a pattern in a text using the
+ * Boyer-Moore string searching algorithm.
+ *
+ * @param text The text to search in.
+ * @param pattern The pattern to search for.
+ * @return The index of the first occurrence of the pattern in the text, or -1
+ * if the pattern is not found.
+ * @ingroup SearchAlgorithms
  */
 int search_bm(char *text, const char *pattern);
 
-/* Use Karp-Rabin algorithm to search substring on text:
-   avg case: Omega(n)
-   worst case: O(n * m)
+/**
+ * @brief Finds the first occurrence of a pattern in a text using the
+ * Karp-Rabin algorithm.
+ *
+ * @param text The text to search in.
+ * @param pattern The pattern to search for.
+ * @return The index of the first occurrence of the pattern in the text, or -1
+ * if the pattern is not found.
+ * @ingroup SearchAlgorithms
  */
 int search_kr(char *text, const char *pattern);
 

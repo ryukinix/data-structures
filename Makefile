@@ -26,6 +26,7 @@ SUBSYSTEMS = $(shell find src -iname "Makefile" -exec dirname '{}' \;)
 STATUS_PREFIX = "\033[1;32m[+]\033[0m "
 TEST_PREFIX = "\033[1;32m[>>]\033[0m "
 ATTENTION_PREFIX =  "\033[1;36m[!]\033[0m "
+PROJECT_NUMBER = $(shell git describe --tags --abbrev=4 2> /dev/null || printf 0.0.0)
 
 override VALGRIND_ARGS += --quiet --trace-children=yes --track-fds=yes \
                           --leak-check=full --show-leak-kinds=all --error-exitcode=1 \
@@ -116,7 +117,7 @@ docs-worktree:
 	fi
 
 docs: docs-worktree
-	doxygen doxygen.cfg
+	PROJECT_NUMBER=$(PROJECT_NUMBER) doxygen doxygen.cfg
 
 docs-open: docs
 	xdg-open docs/gh-pages/index.html

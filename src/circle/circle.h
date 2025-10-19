@@ -26,13 +26,19 @@ struct Circle {
 };
 
 
+/**
+ * @brief Represents a circle in a 2D plane.
+ *
+ * A circle is defined by its center point and radius.
+ */
 typedef struct Circle Circle;
 
 /**
  * @brief allocate a new circle on memory based on its parameters
- * @param center_pointint is the center point of the circle
+ * @param center is the center point of the circle
  * @param radius is the radius of the circle
  * @return the address of the allocated circle
+ * @ingroup DataStructureMethods
  */
 Circle* circle_create(Point *center, float radius);
 
@@ -40,33 +46,39 @@ Circle* circle_create(Point *center, float radius);
 /**
  * @brief free memory allocated by the circle c
  * @param c a pointer to Circle structure
+ * @ingroup DataStructureMethods
  */
 void circle_free(Circle *c);
 
 /**
  * @brief Set the circle center
+ * @ingroup DataStructureMethods
  */
 void circle_set_center(Circle *c, Point *center);
 
 /**
  * @brief Set the circle radius
+ * @ingroup DataStructureMethods
  */
 void circle_set_radius(Circle *c, float center);
 
 /**
  * @brief Set the values of center and radius of structure
+ * @ingroup DataStructureMethods
  */
 void circle_set(Circle *c, Point *center, float radius);
 
 
 /**
  * @brief Get the radius of circle c
+ * @ingroup DataStructureMethods
  */
 float circle_get_radius(Circle *c);
 
 /**
  * @brief Get the center of circle c
  * @param [in] c the circle to get the /p center
+ * @ingroup DataStructureMethods
  */
 Point* circle_get_center(Circle *c);
 
@@ -75,6 +87,7 @@ Point* circle_get_center(Circle *c);
  * @param [in] c the desired circle as pointer
  * @param [out] center the point pointer to save the center of \p c
  * @param [out] radius the radius to save the radius of \p c
+ * @ingroup DataStructureMethods
  */
 void circle_get(Circle *c, Point *center, float *radius);
 
@@ -83,6 +96,7 @@ void circle_get(Circle *c, Point *center, float *radius);
  * @param c is the circle to check
  * @param point is the point to check if is inside the /p c
  * @return 1 if inside of the circle, otherwise 0
+ * @ingroup DataStructureMethods
  */
 int circle_point_inside(Circle *c, Point *point);
 

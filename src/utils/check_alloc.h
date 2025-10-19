@@ -26,6 +26,14 @@
 // but this is bad?
 
 
+/**
+ * @brief Checks if a memory allocation was successful.
+ *
+ * If the provided pointer `p` is NULL, it indicates a memory allocation error,
+ * and the program will print an error message and exit.
+ *
+ * @param p A pointer to the allocated memory.
+ */
 static inline void check_alloc(void *p) {
     if (p == NULL) {
         puts("Memory allocation error.");

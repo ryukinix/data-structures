@@ -14,10 +14,16 @@
 #define CLEAR_H
 
 #ifdef _WIN32
+/**
+ * @brief Clear the console screen on Windows.
+ */
 static inline void clear() {
     system("cls");
 }
 #else
+/**
+ * @brief Clear the console screen on Unix-like systems.
+ */
 static inline void clear() {
     printf("\033[1;1H\033[2J");
 }

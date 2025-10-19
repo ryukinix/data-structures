@@ -20,12 +20,22 @@
 #define BINARY_NODE_FORMAT "%d"
 #endif
 
+/**
+ * @brief A node in a binary tree.
+ *
+ * Each node contains a value and pointers to its left and right children.
+ */
 struct BinaryNode {
     BINARY_NODE_TYPE value;
     struct BinaryNode* left;
     struct BinaryNode* right;
 };
 
+/**
+ * @brief A binary tree.
+ *
+ * A `BinaryTree` is a pointer to the root node of the tree.
+ */
 typedef struct BinaryNode BinaryTree;
 
 #endif

@@ -20,11 +20,11 @@
 #include "../binary-tree.h"
 
 /**
- * @description
- * Module to print a Binary Tree Structure
- * in ASCII art on console.
+ * @brief Prints a binary tree to the console as an ASCII art diagram.
+ *
+ * @param t The binary tree to print.
+ * @ingroup DataStructureMethods
  */
-
 void print_ascii_tree(BinaryTree *t);
 
 #endif
