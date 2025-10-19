@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x_0',['x',['../structPoint.html#a05dfe2dfbde813ad234b514f30e662f1',1,'Point']]]
+  ['type_246',['Type',['../sort_8h.html#ae1f0ac82c78444bf9b69e7dbdd1d1983',1,'Type():&#160;sort.h'],['../avl_8h.html#ae1f0ac82c78444bf9b69e7dbdd1d1983',1,'Type():&#160;avl.h'],['../bst_8h.html#ae1f0ac82c78444bf9b69e7dbdd1d1983',1,'Type():&#160;bst.h']]],
+  ['typeformat_247',['TypeFormat',['../sort_8h.html#a83b594f0de40e15dcec634979bec5109',1,'sort.h']]]
 ];

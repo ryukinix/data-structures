@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_0',['y',['../structPoint.html#a6101960c8d2d4e8ea1d32c9234bbeb8d',1,'Point']]]
+  ['value_248',['value',['../structBinaryNode.html#a00624fc2f2f272ddf08f77248c9dd623',1,'BinaryNode']]]
 ];
