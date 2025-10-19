@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">v3.0-96-g7f8f2</span>
+                  &#160;<span id="projectnumber">v3.0-97-g6ddf</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -114,39 +114,48 @@ $(function(){initNavTree('hash-table_8h.html','',''); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">hash-table.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="list_8h_source.html">list/single/list.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="list_8h_source.html">../list/single/list.h</a>&quot;</code><br />
 </div>
 <p><a href="hash-table_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:HashTable" id="r_HashTable"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structHashTable.html">HashTable</a></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a8dea4341d1b1662a30ec89ea38da0c0c" id="r_a8dea4341d1b1662a30ec89ea38da0c0c"><td class="memItemLeft" align="right" valign="top">typedef struct HashTable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a></td></tr>
+<tr class="memitem:a8dea4341d1b1662a30ec89ea38da0c0c" id="r_a8dea4341d1b1662a30ec89ea38da0c0c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a></td></tr>
+<tr class="memdesc:a8dea4341d1b1662a30ec89ea38da0c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A basic implementation of a hash table.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0ba3dc54ebc343845f687fbdc9371cd6" id="r_a0ba3dc54ebc343845f687fbdc9371cd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHashTable.html">HashTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ba3dc54ebc343845f687fbdc9371cd6">hash_table_create</a> (size_t n_buckets)</td></tr>
-<tr class="memitem:a579beb5488f7448c610a170019ca1574" id="r_a579beb5488f7448c610a170019ca1574"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a579beb5488f7448c610a170019ca1574">hash_table_empty</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht)</td></tr>
-<tr class="memitem:af6610f49ade73651651c1df0cb803e4e" id="r_af6610f49ade73651651c1df0cb803e4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHashTable.html">HashTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6610f49ade73651651c1df0cb803e4e">hash_table_copy</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht)</td></tr>
-<tr class="memitem:aba3779e858aee65f15ddd53855bc2e20" id="r_aba3779e858aee65f15ddd53855bc2e20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba3779e858aee65f15ddd53855bc2e20">hash_table_put</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht, int key, int value)</td></tr>
-<tr class="memitem:a1b25b535c8084363646a43d8d448c13a" id="r_a1b25b535c8084363646a43d8d448c13a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b25b535c8084363646a43d8d448c13a">hash_table_remove</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht, int key)</td></tr>
-<tr class="memitem:a7811ad7e580b9f0cb04b595db0e0e80a" id="r_a7811ad7e580b9f0cb04b595db0e0e80a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7811ad7e580b9f0cb04b595db0e0e80a">hash_table_get</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht, int key, bool *exists)</td></tr>
-<tr class="memitem:afe60755b1f40f5d7fffb296b295e7748" id="r_afe60755b1f40f5d7fffb296b295e7748"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe60755b1f40f5d7fffb296b295e7748">hash_table_print</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht)</td></tr>
-<tr class="memitem:ae23522f9013c46a517eea68c3342feb0" id="r_ae23522f9013c46a517eea68c3342feb0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae23522f9013c46a517eea68c3342feb0">hash_table_size</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht)</td></tr>
-<tr class="memitem:a8f49f9a9e1cb972a9faded6bc5d56dfd" id="r_a8f49f9a9e1cb972a9faded6bc5d56dfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f49f9a9e1cb972a9faded6bc5d56dfd">hash_table_print_items</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht)</td></tr>
-<tr class="memitem:ac499c1122d3469bb30235d1fa6874eb7" id="r_ac499c1122d3469bb30235d1fa6874eb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac499c1122d3469bb30235d1fa6874eb7">hash_table_keys</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht)</td></tr>
-<tr class="memitem:ad6aac284d4f87b4eb382099254aa0e8f" id="r_ad6aac284d4f87b4eb382099254aa0e8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6aac284d4f87b4eb382099254aa0e8f">hash_table_print_keys</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht)</td></tr>
-<tr class="memitem:a3920e9707bec9a3346b6bf0d43b7e6ba" id="r_a3920e9707bec9a3346b6bf0d43b7e6ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3920e9707bec9a3346b6bf0d43b7e6ba">hash_table_free</a> (<a class="el" href="structHashTable.html">HashTable</a> *ht)</td></tr>
+<tr class="memitem:ga0ba3dc54ebc343845f687fbdc9371cd6" id="r_ga0ba3dc54ebc343845f687fbdc9371cd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga0ba3dc54ebc343845f687fbdc9371cd6">hash_table_create</a> (size_t n_buckets)</td></tr>
+<tr class="memdesc:ga0ba3dc54ebc343845f687fbdc9371cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new hash table instance.  <br /></td></tr>
+<tr class="memitem:ga579beb5488f7448c610a170019ca1574" id="r_ga579beb5488f7448c610a170019ca1574"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga579beb5488f7448c610a170019ca1574">hash_table_empty</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memdesc:ga579beb5488f7448c610a170019ca1574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if hash table is empty.  <br /></td></tr>
+<tr class="memitem:gaf6610f49ade73651651c1df0cb803e4e" id="r_gaf6610f49ade73651651c1df0cb803e4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gaf6610f49ade73651651c1df0cb803e4e">hash_table_copy</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memdesc:gaf6610f49ade73651651c1df0cb803e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a hash table as copy of another.  <br /></td></tr>
+<tr class="memitem:gaba3779e858aee65f15ddd53855bc2e20" id="r_gaba3779e858aee65f15ddd53855bc2e20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gaba3779e858aee65f15ddd53855bc2e20">hash_table_put</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht, int key, int value)</td></tr>
+<tr class="memdesc:gaba3779e858aee65f15ddd53855bc2e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put a value associated to a key.  <br /></td></tr>
+<tr class="memitem:ga1b25b535c8084363646a43d8d448c13a" id="r_ga1b25b535c8084363646a43d8d448c13a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga1b25b535c8084363646a43d8d448c13a">hash_table_remove</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht, int key)</td></tr>
+<tr class="memdesc:ga1b25b535c8084363646a43d8d448c13a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a specific value associated with a given key.  <br /></td></tr>
+<tr class="memitem:ga7811ad7e580b9f0cb04b595db0e0e80a" id="r_ga7811ad7e580b9f0cb04b595db0e0e80a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga7811ad7e580b9f0cb04b595db0e0e80a">hash_table_get</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht, int key, bool *exists)</td></tr>
+<tr class="memdesc:ga7811ad7e580b9f0cb04b595db0e0e80a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a value in the hash table.  <br /></td></tr>
+<tr class="memitem:gae23522f9013c46a517eea68c3342feb0" id="r_gae23522f9013c46a517eea68c3342feb0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gae23522f9013c46a517eea68c3342feb0">hash_table_size</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memdesc:gae23522f9013c46a517eea68c3342feb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of elements in the hash table.  <br /></td></tr>
+<tr class="memitem:gafe60755b1f40f5d7fffb296b295e7748" id="r_gafe60755b1f40f5d7fffb296b295e7748"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gafe60755b1f40f5d7fffb296b295e7748">hash_table_print</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memdesc:gafe60755b1f40f5d7fffb296b295e7748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print all buckets of the hash table (one list per line)  <br /></td></tr>
+<tr class="memitem:ga8f49f9a9e1cb972a9faded6bc5d56dfd" id="r_ga8f49f9a9e1cb972a9faded6bc5d56dfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga8f49f9a9e1cb972a9faded6bc5d56dfd">hash_table_print_items</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memdesc:ga8f49f9a9e1cb972a9faded6bc5d56dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print items of the hash table.  <br /></td></tr>
+<tr class="memitem:gad6aac284d4f87b4eb382099254aa0e8f" id="r_gad6aac284d4f87b4eb382099254aa0e8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gad6aac284d4f87b4eb382099254aa0e8f">hash_table_print_keys</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memdesc:gad6aac284d4f87b4eb382099254aa0e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print keys of the hash table.  <br /></td></tr>
+<tr class="memitem:gac499c1122d3469bb30235d1fa6874eb7" id="r_gac499c1122d3469bb30235d1fa6874eb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gac499c1122d3469bb30235d1fa6874eb7">hash_table_keys</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memdesc:gac499c1122d3469bb30235d1fa6874eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a list with the hash table keys.  <br /></td></tr>
+<tr class="memitem:ga3920e9707bec9a3346b6bf0d43b7e6ba" id="r_ga3920e9707bec9a3346b6bf0d43b7e6ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga3920e9707bec9a3346b6bf0d43b7e6ba">hash_table_free</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memdesc:ga3920e9707bec9a3346b6bf0d43b7e6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free memory of hash table and its contents.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="a8dea4341d1b1662a30ec89ea38da0c0c" name="a8dea4341d1b1662a30ec89ea38da0c0c"></a>
@@ -156,10 +165,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct HashTable HashTable</td>
+          <td class="memname">typedef struct <a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> <a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A basic implementation of a hash table. </p>
 <hr  />
  <pre class="fragment">    Copyright 2025 Manoel Vilela
 
@@ -167,233 +178,7 @@ Functions</h2></td></tr>
    Contact: manoel_vilela@engineer.com
 </pre><p> Organization: ITA</p>
 <hr  />
- 
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="af6610f49ade73651651c1df0cb803e4e" name="af6610f49ade73651651c1df0cb803e4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6610f49ade73651651c1df0cb803e4e">&#9670;&#160;</a></span>hash_table_copy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structHashTable.html">HashTable</a> * hash_table_copy </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0ba3dc54ebc343845f687fbdc9371cd6" name="a0ba3dc54ebc343845f687fbdc9371cd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ba3dc54ebc343845f687fbdc9371cd6">&#9670;&#160;</a></span>hash_table_create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structHashTable.html">HashTable</a> * hash_table_create </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>n_buckets</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a579beb5488f7448c610a170019ca1574" name="a579beb5488f7448c610a170019ca1574"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a579beb5488f7448c610a170019ca1574">&#9670;&#160;</a></span>hash_table_empty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool hash_table_empty </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3920e9707bec9a3346b6bf0d43b7e6ba" name="a3920e9707bec9a3346b6bf0d43b7e6ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3920e9707bec9a3346b6bf0d43b7e6ba">&#9670;&#160;</a></span>hash_table_free()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void hash_table_free </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7811ad7e580b9f0cb04b595db0e0e80a" name="a7811ad7e580b9f0cb04b595db0e0e80a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7811ad7e580b9f0cb04b595db0e0e80a">&#9670;&#160;</a></span>hash_table_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int hash_table_get </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>exists</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac499c1122d3469bb30235d1fa6874eb7" name="ac499c1122d3469bb30235d1fa6874eb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac499c1122d3469bb30235d1fa6874eb7">&#9670;&#160;</a></span>hash_table_keys()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> * hash_table_keys </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afe60755b1f40f5d7fffb296b295e7748" name="afe60755b1f40f5d7fffb296b295e7748"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe60755b1f40f5d7fffb296b295e7748">&#9670;&#160;</a></span>hash_table_print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void hash_table_print </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8f49f9a9e1cb972a9faded6bc5d56dfd" name="a8f49f9a9e1cb972a9faded6bc5d56dfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f49f9a9e1cb972a9faded6bc5d56dfd">&#9670;&#160;</a></span>hash_table_print_items()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void hash_table_print_items </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad6aac284d4f87b4eb382099254aa0e8f" name="ad6aac284d4f87b4eb382099254aa0e8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6aac284d4f87b4eb382099254aa0e8f">&#9670;&#160;</a></span>hash_table_print_keys()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void hash_table_print_keys </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aba3779e858aee65f15ddd53855bc2e20" name="aba3779e858aee65f15ddd53855bc2e20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba3779e858aee65f15ddd53855bc2e20">&#9670;&#160;</a></span>hash_table_put()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void hash_table_put </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1b25b535c8084363646a43d8d448c13a" name="a1b25b535c8084363646a43d8d448c13a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b25b535c8084363646a43d8d448c13a">&#9670;&#160;</a></span>hash_table_remove()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void hash_table_remove </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>key</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae23522f9013c46a517eea68c3342feb0" name="ae23522f9013c46a517eea68c3342feb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae23522f9013c46a517eea68c3342feb0">&#9670;&#160;</a></span>hash_table_size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t hash_table_size </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structHashTable.html">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+ <p>This implementation uses a separate chaining strategy to handle collisions. The hash table is composed of an array of buckets, where each bucket is a linked list of key-value pairs. </p>
 
 </div>
 </div>
