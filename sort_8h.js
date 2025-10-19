@@ -12,7 +12,7 @@ var sort_8h =
     [ "print_vector", "sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e", null ],
     [ "quicksort", "group__SortingAlgorithms.html#ga3e72f6d05f7e2c1a059b9f1a7e92e0fe", null ],
     [ "radixsort", "group__SortingAlgorithms.html#ga9baa6fe3189274063061cd3e28084418", null ],
-    [ "random_vector", "sort_8h.html#ac5ef701117286701dc23ca197cc41cf1", null ],
+    [ "random_vector", "sort_8h.html#a754375fbc6a60f29a33f8ac458e9bc8e", null ],
     [ "selectionsort", "group__SortingAlgorithms.html#ga762503b7757d36008eca86b8a85e31a4", null ],
     [ "swap", "sort_8h.html#a7b887f8c60c6e8d3748e30071baeb646", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['binarynode_255',['BinaryNode',['../structBinaryNode.html',1,'']]]
+  ['binarynode_0',['BinaryNode',['../structBinaryNode.html',1,'']]]
 ];

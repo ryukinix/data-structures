@@ -3,7 +3,7 @@ var point_8h =
     [ "Point", "structPoint.html", "structPoint" ],
     [ "Point", "point_8h.html#a332e649c40b7d806629d2cfa046f3ee0", null ],
     [ "point_copy", "group__DataStructureMethods.html#ga6864133d6b60f25f80117a1204f25729", null ],
-    [ "point_create", "group__DataStructureMethods.html#ga4514300a0ed1093687685eb7b51d7659", null ],
+    [ "point_create", "group__DataStructureMethods.html#ga993c37b9e04107f1901d417111fc4189", null ],
     [ "point_distance", "group__DataStructureMethods.html#ga51d2d9b21a6e81990c6924f4d9673f6e", null ],
     [ "point_free", "group__DataStructureMethods.html#gad3a9de742ccb9e2a23606f3e77c03661", null ],
     [ "point_get", "group__DataStructureMethods.html#gae57ed0034ce7cead609f14a9fd91c5bb", null ],

@@ -4,7 +4,7 @@ var pqueue_8h =
     [ "HEAP_EMPTY_CELL", "pqueue_8h.html#a4f19a5aa14ba17dd502fc023384c68f5", null ],
     [ "PQUEUE_SIZE", "pqueue_8h.html#acf5daa72d5e8184594daf1b6dc81b415", null ],
     [ "PQueue", "pqueue_8h.html#aac7605bb6de2e519ff7b692270fb24de", null ],
-    [ "pqueue_create", "group__DataStructureMethods.html#ga5fa30ae87b96e5d6510d251d5cd54041", null ],
+    [ "pqueue_create", "group__DataStructureMethods.html#ga07ae8ed20b804a52e51697954aa34133", null ],
     [ "pqueue_extract_max", "group__DataStructureMethods.html#ga805dd3a406affe9173ce9ef08068958a", null ],
     [ "pqueue_free", "group__DataStructureMethods.html#gae5aa2e15af1dfd90ba2b5cd419a813ee", null ],
     [ "pqueue_increase_keys", "group__DataStructureMethods.html#gadf20106f653af15928f42af640349411", null ],

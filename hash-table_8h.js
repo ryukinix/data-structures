@@ -1,12 +1,12 @@
 var hash_table_8h =
 [
     [ "HashTable", "hash-table_8h.html#a8dea4341d1b1662a30ec89ea38da0c0c", null ],
-    [ "hash_table_copy", "group__DataStructureMethods.html#ga0d7e8967cf0f9dc381aa946d04cfa4da", null ],
-    [ "hash_table_create", "group__DataStructureMethods.html#gac8c5992ae1b130a520e1c5bfadddf723", null ],
+    [ "hash_table_copy", "group__DataStructureMethods.html#gaf6610f49ade73651651c1df0cb803e4e", null ],
+    [ "hash_table_create", "group__DataStructureMethods.html#ga0ba3dc54ebc343845f687fbdc9371cd6", null ],
     [ "hash_table_empty", "group__DataStructureMethods.html#ga579beb5488f7448c610a170019ca1574", null ],
     [ "hash_table_free", "group__DataStructureMethods.html#ga3920e9707bec9a3346b6bf0d43b7e6ba", null ],
     [ "hash_table_get", "group__DataStructureMethods.html#ga7811ad7e580b9f0cb04b595db0e0e80a", null ],
-    [ "hash_table_keys", "group__DataStructureMethods.html#ga8f24b1219dd68b7a282defaf4ea7ed20", null ],
+    [ "hash_table_keys", "group__DataStructureMethods.html#gac499c1122d3469bb30235d1fa6874eb7", null ],
     [ "hash_table_print", "group__DataStructureMethods.html#gafe60755b1f40f5d7fffb296b295e7748", null ],
     [ "hash_table_print_items", "group__DataStructureMethods.html#ga8f49f9a9e1cb972a9faded6bc5d56dfd", null ],
     [ "hash_table_print_keys", "group__DataStructureMethods.html#gad6aac284d4f87b4eb382099254aa0e8f", null ],

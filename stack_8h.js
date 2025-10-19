@@ -2,7 +2,7 @@ var stack_8h =
 [
     [ "STACK_STATIC_MAX", "stack_8h.html#a9218bb7fe7c87b959b80678bcd06e2bc", null ],
     [ "Stack", "stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0", null ],
-    [ "stack_create", "group__DataStructureMethods.html#ga1bcb5c9adf1bb4ee7901d42675d250ef", null ],
+    [ "stack_create", "group__DataStructureMethods.html#gae5a3d0d7d18942221d081e0bffd143ff", null ],
     [ "stack_empty", "group__DataStructureMethods.html#gab3000bfe7241d1243628a3d006f5255d", null ],
     [ "stack_free", "group__DataStructureMethods.html#gaee3cc8432cd8515bded9248453539111", null ],
     [ "stack_odds", "group__DataStructureMethods.html#ga008b11ebddbaaab50229ca415719069b", null ],

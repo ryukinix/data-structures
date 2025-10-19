@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['search_20algorithms_512',['Search Algorithms',['../group__SearchAlgorithms.html',1,'']]],
-  ['sorting_20algorithms_513',['Sorting Algorithms',['../group__SortingAlgorithms.html',1,'']]]
+  ['data_20structure_20methods_0',['Data Structure Methods',['../group__DataStructureMethods.html',1,'']]]
 ];
