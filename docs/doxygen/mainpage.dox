@@ -24,31 +24,31 @@ The main goal of this repository is to provide a simple and clear implementation
 The following data structures are implemented in this project:
 
 - **Singly Linked List:** A linear data structure where each element is a separate object. Each element (we will call it a node) of a list is comprising of two items - the data and a reference to the next node.
-  - See header file: `src/list/single/list.h`
+  - See header file: @ref src/list/single/list.h
 - **Doubly Linked List:** A linear data structure where each node has a pointer to the next node and also to the previous node.
-  - See header file: `src/list/double/list-double.h`
+  - See header file: @ref src/list/double/list-double.h
 - **Circular Linked List:** A linked list where all nodes are connected to form a circle.
-  - See header file: `src/list/circular/list-circular.h`
+  - See header file: @ref src/list/circular/list-circular.h
 - **Stack:** A linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).
-  - See header file: `src/stack/stack.h`
+  - See header file: @ref src/stack/stack.h
 - **Queue:** A linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO).
-  - See header file: `src/queue/queue.h`
+  - See header file: @ref src/queue/queue.h
 - **Priority Queue:** An abstract data type similar to a regular queue or stack data structure, but where additionally each element has a "priority" associated with it.
-  - See header file: `src/pqueue/pqueue.h`
+  - See header file: @ref src/pqueue/pqueue.h
 - **Binary Tree:** A tree data structure in which each node has at most two children, which are referred to as the left child and the right child.
-  - See header file: `src/tree/binary-tree.h`
+  - See header file: @ref src/tree/binary-tree.h
 - **Binary Search Tree (BST):** A node-based binary tree data structure which has the following properties: The left subtree of a node contains only nodes with keys lesser than the node’s key. The right subtree of a node contains only nodes with keys greater than the node’s key. The left and right subtree each must also be a binary search tree.
-  - See header file: `src/tree/bst/bst.h`
+  - See header file: @ref src/tree/bst/bst.h
 - **AVL Tree:** A self-balancing binary search tree. It was the first such data structure to be invented.
-  - See header file: `src/tree/avl/avl.h`
+  - See header file: @ref src/tree/avl/avl.h
 - **Hash Table:** A data structure that implements an associative array abstract data type, a structure that can map keys to values.
-  - See header file: `src/hash-table/hash-table.h`
+  - See header file: @ref src/hash-table/hash-table.h
 - **Set:** An abstract data type that can store unique values, without any particular order.
-  - See header file: `src/set/set.h`
+  - See header file: @ref src/set/set.h
 - **Matrix:** A rectangular array or table of numbers, symbols, or expressions, arranged in rows and columns.
-  - See header file: `src/matrix/matrix.h`
+  - See header file: @ref src/matrix/matrix.h
 - **Point:** A basic geometric entity representing a location in a coordinate system.
-  - See header file: `src/point/point.h`
+  - See header file: @ref src/point/point.h
 
 @section sorting_algorithms_sec Sorting Algorithms
 
@@ -62,7 +62,7 @@ The following sorting algorithms are implemented in this project:
 - **Heap Sort:** A comparison-based sorting algorithm. Heapsort can be thought of as an improved selection sort.
 - **Radix Sort:** A non-comparative integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value.
 
-See header file for all sorting algorithms: `src/sort/sort.h`
+See header file for all sorting algorithms: @ref src/sort/sort.h
 
 @section search_algorithms_sec Search Algorithms
 
@@ -73,7 +73,7 @@ The following search algorithms are implemented in this project:
 - **Boyer-Moore Search:** An efficient string-searching algorithm that skips characters in the text by using information gained from mismatches.
 - **Karp-Rabin Search:** A string-searching algorithm that uses hashing to find any one of a set of pattern strings in a text.
 
-See header file for all search algorithms: `src/search/search.h`
+See header file for all search algorithms: @ref src/search/search.h
 
 @section author_sec Author
 

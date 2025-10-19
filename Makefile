@@ -125,9 +125,6 @@ docs-open: docs
 docs-publish:
 	cd docs/gh-pages && git add . && git commit -m "Auto-generated commit from make docs-publish" && git push || true
 
-open-docs: docs
-	cd api_docs/html/ && python -m http.server 8000
-
 tags: $(SOURCES)
 	ctags -Re -f TAGS src/
 
