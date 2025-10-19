@@ -35,6 +35,7 @@ typedef struct PQueue PQueue;
  * @brief Creates an empty priority queue.
  *
  * @return A pointer to the new priority queue.
+ * @ingroup DataStructureMethods
  */
 PQueue* pqueue_create();
 
@@ -43,6 +44,7 @@ PQueue* pqueue_create();
  *
  * @param pq The priority queue to insert into.
  * @param x The element to insert.
+ * @ingroup DataStructureMethods
  */
 void pqueue_insert(PQueue *pq, int x);
 
@@ -51,6 +53,7 @@ void pqueue_insert(PQueue *pq, int x);
  *
  * @param pq The priority queue to extract from.
  * @return The maximum element.
+ * @ingroup DataStructureMethods
  */
 int pqueue_extract_max(PQueue *pq);
 
@@ -60,6 +63,7 @@ int pqueue_extract_max(PQueue *pq);
  * @param pq The priority queue.
  * @param k The index of the element to increase.
  * @param v The new value of the element.
+ * @ingroup DataStructureMethods
  */
 void pqueue_increase_keys(PQueue *pq, int k, int v);
 
@@ -68,6 +72,7 @@ void pqueue_increase_keys(PQueue *pq, int k, int v);
  *
  * @param pq The priority queue.
  * @return The maximum element.
+ * @ingroup DataStructureMethods
  */
 int pqueue_maximum(PQueue *pq);
 
@@ -75,6 +80,7 @@ int pqueue_maximum(PQueue *pq);
  * @brief Frees the memory allocated for a priority queue.
  *
  * @param pq The priority queue to free.
+ * @ingroup DataStructureMethods
  */
 void pqueue_free(PQueue *pq);
 
@@ -82,6 +88,7 @@ void pqueue_free(PQueue *pq);
  * @brief Prints the elements of a priority queue to the console.
  *
  * @param pq The priority queue to print.
+ * @ingroup DataStructureMethods
  */
 void pqueue_print(PQueue *pq);
 
@@ -90,6 +97,7 @@ void pqueue_print(PQueue *pq);
  * newline character.
  *
  * @param pq The priority queue to print.
+ * @ingroup DataStructureMethods
  */
 void pqueue_println(PQueue *pq);
 

@@ -24,6 +24,7 @@ typedef struct stack Stack;
  * @brief Creates an empty stack.
  *
  * @return A pointer to the new stack.
+ * @ingroup DataStructureMethods
  */
 Stack* stack_create(void);
 
@@ -32,6 +33,7 @@ Stack* stack_create(void);
  *
  * @param s The stack to check.
  * @return 1 if the stack is empty, 0 otherwise.
+ * @ingroup DataStructureMethods
  */
 int stack_empty(Stack* s);
 
@@ -40,6 +42,7 @@ int stack_empty(Stack* s);
  *
  * @param s The stack to push onto.
  * @param data The data to push.
+ * @ingroup DataStructureMethods
  */
 void stack_push(Stack* s, int data);
 
@@ -48,6 +51,7 @@ void stack_push(Stack* s, int data);
  *
  * @param s The stack to pop from.
  * @return The popped element.
+ * @ingroup DataStructureMethods
  */
 int stack_pop(Stack* s);
 
@@ -55,6 +59,7 @@ int stack_pop(Stack* s);
  * @brief Prints the elements of a stack to the console.
  *
  * @param s The stack to print.
+ * @ingroup DataStructureMethods
  */
 void stack_print(Stack* s);
 
@@ -63,6 +68,7 @@ void stack_print(Stack* s);
  * character.
  *
  * @param s The stack to print.
+ * @ingroup DataStructureMethods
  */
 void stack_println(Stack* s);
 
@@ -70,6 +76,7 @@ void stack_println(Stack* s);
  * @brief Frees the memory allocated for a stack.
  *
  * @param s The stack to free.
+ * @ingroup DataStructureMethods
  */
 void stack_free(Stack* s);
 
@@ -80,6 +87,7 @@ void stack_free(Stack* s);
  *
  * @param s The stack to peek at.
  * @return The element at the top of the stack.
+ * @ingroup DataStructureMethods
  */
 int stack_top(Stack* s);
 
@@ -88,6 +96,7 @@ int stack_top(Stack* s);
  *
  * @param s The stack to search.
  * @return The number of odd elements.
+ * @ingroup DataStructureMethods
  */
 int stack_odds(Stack* s);
 

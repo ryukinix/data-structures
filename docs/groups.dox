@@ -1,0 +1,14 @@
+/**
+ * @defgroup DataStructureMethods Data Structure Methods
+ * @brief Functions related to various data structures (lists, stacks, queues, trees, hash tables, sets, etc.).
+ */
+
+/**
+ * @defgroup SortingAlgorithms Sorting Algorithms
+ * @brief Functions implementing various sorting algorithms.
+ */
+
+/**
+ * @defgroup SearchAlgorithms Search Algorithms
+ * @brief Functions implementing various search algorithms.
+ */

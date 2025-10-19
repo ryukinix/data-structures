@@ -18,6 +18,7 @@
  * @brief Prints the elements of a matrix to the console in a formatted way.
  *
  * @param matrix The matrix to print.
+ * @ingroup DataStructureMethods
  */
 void matrix_print(Matrix *matrix);
 
@@ -27,6 +28,7 @@ void matrix_print(Matrix *matrix);
  *
  * @param matrix The matrix to search.
  * @return The maximum value in the matrix.
+ * @ingroup DataStructureMethods
  */
 float matrix_max(Matrix *matrix);
 

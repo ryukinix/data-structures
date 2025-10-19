@@ -30,6 +30,7 @@
  *
  * @param v The array to sort.
  * @param n The number of elements in the array.
+ * @ingroup SortingAlgorithms
  */
 void bubblesort(Type *v, int n);
 
@@ -39,6 +40,7 @@ void bubblesort(Type *v, int n);
  *
  * @param v The array to sort.
  * @param n The number of elements in the array.
+ * @ingroup SortingAlgorithms
  */
 void insertionsort(Type *v, int n);
 
@@ -48,6 +50,7 @@ void insertionsort(Type *v, int n);
  *
  * @param v The array to sort.
  * @param n The number of elements in the array.
+ * @ingroup SortingAlgorithms
  */
 void mergesort(Type *v, int n);
 
@@ -57,6 +60,7 @@ void mergesort(Type *v, int n);
  *
  * @param v The array to sort.
  * @param n The number of elements in the array.
+ * @ingroup SortingAlgorithms
  */
 void quicksort(Type *v, int n);
 
@@ -66,6 +70,7 @@ void quicksort(Type *v, int n);
  *
  * @param v The array to sort.
  * @param n The number of elements in the array.
+ * @ingroup SortingAlgorithms
  */
 void heapsort(Type *v, int n);
 
@@ -75,6 +80,7 @@ void heapsort(Type *v, int n);
  *
  * @param v The array to sort.
  * @param n The number of elements in the array.
+ * @ingroup SortingAlgorithms
  */
 void radixsort(Type *v, int n);
 
@@ -84,6 +90,7 @@ void radixsort(Type *v, int n);
  *
  * @param v The array to sort.
  * @param n The number of elements in the array.
+ * @ingroup SortingAlgorithms
  */
 void selectionsort(Type *v, int n);
 

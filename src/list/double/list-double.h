@@ -40,6 +40,7 @@ typedef struct ListDouble ListDouble;
  * @brief Creates an empty doubly linked list.
  *
  * @return A null pointer, representing an empty list.
+ * @ingroup DataStructureMethods
  */
 ListDouble* list_double_create(void);
 
@@ -48,6 +49,7 @@ ListDouble* list_double_create(void);
  *
  * @param l The list to check.
  * @return 1 if the list is empty, 0 otherwise.
+ * @ingroup DataStructureMethods
  */
 int list_double_empty(ListDouble *l);
 
@@ -57,6 +59,7 @@ int list_double_empty(ListDouble *l);
  * @param l The list to insert into.
  * @param data The data to insert.
  * @return The updated list.
+ * @ingroup DataStructureMethods
  */
 ListDouble* list_double_insert(ListDouble *l, int data);
 
@@ -66,6 +69,7 @@ ListDouble* list_double_insert(ListDouble *l, int data);
  * @param l The list to remove from.
  * @param data The data to remove.
  * @return The updated list.
+ * @ingroup DataStructureMethods
  */
 ListDouble* list_double_remove(ListDouble *l, int data);
 
@@ -76,6 +80,7 @@ ListDouble* list_double_remove(ListDouble *l, int data);
  * @param data The data to search for.
  * @return A pointer to the node containing the data, or a null pointer if the
  * data is not found.
+ * @ingroup DataStructureMethods
  */
 ListDouble* list_double_search(ListDouble *l, int data);
 
@@ -83,6 +88,7 @@ ListDouble* list_double_search(ListDouble *l, int data);
  * @brief Prints the elements of a doubly linked list to the console.
  *
  * @param l The list to print.
+ * @ingroup DataStructureMethods
  */
 void list_double_print(ListDouble *l);
 
@@ -91,6 +97,7 @@ void list_double_print(ListDouble *l);
  * newline character.
  *
  * @param l The list to print.
+ * @ingroup DataStructureMethods
  */
 void list_double_println(ListDouble *l);
 
@@ -98,6 +105,7 @@ void list_double_println(ListDouble *l);
  * @brief Frees the memory allocated for a doubly linked list.
  *
  * @param l The list to free.
+ * @ingroup DataStructureMethods
  */
 void list_double_free(ListDouble *l);
 
@@ -110,6 +118,7 @@ void list_double_free(ListDouble *l);
  *
  * @param data The data to store in the new node.
  * @return A pointer to the new node.
+ * @ingroup DataStructureMethods
  */
 ListDouble* list_double__new_node(int data);
 

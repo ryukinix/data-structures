@@ -42,6 +42,7 @@ typedef struct BinaryNode BSTree;
  * @param right A pointer to the right child.
  * @param value The value to store in the node.
  * @return A pointer to the new node.
+ * @ingroup DataStructureMethods
  */
 BSTree* bst_create_node(BSTree* left, BSTree* right, Type value);
 
@@ -49,6 +50,7 @@ BSTree* bst_create_node(BSTree* left, BSTree* right, Type value);
  * @brief Creates an empty BST.
  *
  * @return A null pointer, representing an empty tree.
+ * @ingroup DataStructureMethods
  */
 BSTree* bst_create(void);
 
@@ -57,6 +59,7 @@ BSTree* bst_create(void);
  *
  * @param t The tree to check.
  * @return 1 if the tree is empty, 0 otherwise.
+ * @ingroup DataStructureMethods
  */
 int bst_empty(BSTree *t);
 
@@ -66,6 +69,7 @@ int bst_empty(BSTree *t);
  * @param t The tree to search in.
  * @param c The value to search for.
  * @return 1 if the value exists, 0 otherwise.
+ * @ingroup DataStructureMethods
  */
 int bst_exists(BSTree *t, Type c);
 
@@ -76,6 +80,7 @@ int bst_exists(BSTree *t, Type c);
  * @param c The value to search for.
  * @return A pointer to the node containing the value, or a null pointer if the
  * value is not found.
+ * @ingroup DataStructureMethods
  */
 BSTree* bst_search(BSTree *t,Type c);
 
@@ -83,6 +88,7 @@ BSTree* bst_search(BSTree *t,Type c);
  * @brief Prints the elements of a BST in in-order traversal.
  *
  * @param t The tree to print.
+ * @ingroup DataStructureMethods
  */
 void bst_print(BSTree *t);
 
@@ -91,6 +97,7 @@ void bst_print(BSTree *t);
  *
  * @param t The tree.
  * @return The height of the tree.
+ * @ingroup DataStructureMethods
  */
 int bst_height(BSTree *t);
 
@@ -100,6 +107,7 @@ int bst_height(BSTree *t);
  * @param t The tree to insert into.
  * @param c The value to insert.
  * @return The updated tree.
+ * @ingroup DataStructureMethods
  */
 BSTree* bst_insert(BSTree *t, Type c);
 
@@ -109,6 +117,7 @@ BSTree* bst_insert(BSTree *t, Type c);
  * @param t The tree to remove from.
  * @param c The value to remove.
  * @return The updated tree.
+ * @ingroup DataStructureMethods
  */
 BSTree* bst_remove(BSTree *t, Type c);
 
@@ -116,6 +125,7 @@ BSTree* bst_remove(BSTree *t, Type c);
  * @brief Frees the memory allocated for a BST.
  *
  * @param t The tree to free.
+ * @ingroup DataStructureMethods
  */
 void bst_free(BSTree *t);
 
@@ -123,6 +133,7 @@ void bst_free(BSTree *t);
  * @brief Prints the elements of a BST in post-order traversal.
  *
  * @param t The tree to print.
+ * @ingroup DataStructureMethods
  */
 void bst_posfix(BSTree *t);
 
@@ -130,6 +141,7 @@ void bst_posfix(BSTree *t);
  * @brief Prints the elements of a BST in pre-order traversal.
  *
  * @param t The tree to print.
+ * @ingroup DataStructureMethods
  */
 void bst_prefix(BSTree *t);
 
@@ -137,6 +149,7 @@ void bst_prefix(BSTree *t);
  * @brief Prints the elements of a BST in in-order traversal.
  *
  * @param t The tree to print.
+ * @ingroup DataStructureMethods
  */
 void bst_infix(BSTree *t);
 
@@ -145,6 +158,7 @@ void bst_infix(BSTree *t);
  *
  * @param t The tree.
  * @return The number of nodes.
+ * @ingroup DataStructureMethods
  */
 int bst_nodes(BSTree *t);
 
@@ -153,6 +167,7 @@ int bst_nodes(BSTree *t);
  *
  * @param t The tree.
  * @return The number of prime leaf nodes.
+ * @ingroup DataStructureMethods
  */
 int bst_leafs_primes(BSTree *t);
 
@@ -161,6 +176,7 @@ int bst_leafs_primes(BSTree *t);
  *
  * @param t The tree.
  * @return The number of nodes with two children.
+ * @ingroup DataStructureMethods
  */
 int bst_two_children(BSTree *t);
 
@@ -169,6 +185,7 @@ int bst_two_children(BSTree *t);
  *
  * @param t The tree.
  * @return The number of nodes with equal branch heights.
+ * @ingroup DataStructureMethods
  */
 int bst_nodes_equal_height(BSTree *t);
 
@@ -178,6 +195,7 @@ int bst_nodes_equal_height(BSTree *t);
  * @param t1 The first tree.
  * @param t2 The second tree.
  * @return 1 if the trees are equal, 0 otherwise.
+ * @ingroup DataStructureMethods
  */
 int bst_equals(BSTree *t1, BSTree *t2);
 

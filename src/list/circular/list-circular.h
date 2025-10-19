@@ -38,6 +38,7 @@ typedef struct ListCircular ListCircular;
  * @brief Creates an empty circular list.
  *
  * @return A null pointer, representing an empty list.
+ * @ingroup DataStructureMethods
  */
 ListCircular* list_circular_create(void);
 
@@ -46,6 +47,7 @@ ListCircular* list_circular_create(void);
  *
  * @param l The list to check.
  * @return 1 if the list is empty, 0 otherwise.
+ * @ingroup DataStructureMethods
  */
 int list_circular_empty(ListCircular *l);
 
@@ -55,6 +57,7 @@ int list_circular_empty(ListCircular *l);
  * @param l The list to insert into.
  * @param data The data to insert.
  * @return The updated list.
+ * @ingroup DataStructureMethods
  */
 ListCircular* list_circular_insert(ListCircular *l, int data);
 
@@ -64,6 +67,7 @@ ListCircular* list_circular_insert(ListCircular *l, int data);
  * @param l The list to remove from.
  * @param data The data to remove.
  * @return The updated list.
+ * @ingroup DataStructureMethods
  */
 ListCircular* list_circular_remove(ListCircular *l, int data);
 
@@ -74,6 +78,7 @@ ListCircular* list_circular_remove(ListCircular *l, int data);
  * @param data The data to search for.
  * @return A pointer to the node containing the data, or a null pointer if the
  * data is not found.
+ * @ingroup DataStructureMethods
  */
 ListCircular* list_circular_search(ListCircular *l, int data);
 
@@ -82,6 +87,7 @@ ListCircular* list_circular_search(ListCircular *l, int data);
  * newline character.
  *
  * @param l The list to print.
+ * @ingroup DataStructureMethods
  */
 void list_circular_print(ListCircular *l);
 
@@ -90,6 +96,7 @@ void list_circular_print(ListCircular *l);
  * newline character.
  *
  * @param l The list to print.
+ * @ingroup DataStructureMethods
  */
 void list_circular_println(ListCircular *l);
 
@@ -98,6 +105,7 @@ void list_circular_println(ListCircular *l);
  * @brief Frees the memory allocated for a circular list.
  *
  * @param l The list to free.
+ * @ingroup DataStructureMethods
  */
 void list_circular_free(ListCircular *l);
 
@@ -110,6 +118,7 @@ void list_circular_free(ListCircular *l);
  *
  * @param data The data to store in the new node.
  * @return A pointer to the new node.
+ * @ingroup DataStructureMethods
  */
 ListCircular* list_circular__new_node(int data);
 

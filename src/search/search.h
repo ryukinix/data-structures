@@ -26,6 +26,7 @@
  * @param pattern The pattern to search for.
  * @return The index of the first occurrence of the pattern in the text, or -1
  * if the pattern is not found.
+ * @ingroup SearchAlgorithms
  */
 int search_naive(char *text, const char *pattern);
 
@@ -37,6 +38,7 @@ int search_naive(char *text, const char *pattern);
  * @param pattern The pattern to search for.
  * @return The index of the first occurrence of the pattern in the text, or -1
  * if the pattern is not found.
+ * @ingroup SearchAlgorithms
  */
 int search_kmp(char *text, const char *pattern);
 
@@ -48,6 +50,7 @@ int search_kmp(char *text, const char *pattern);
  * @param pattern The pattern to search for.
  * @return The index of the first occurrence of the pattern in the text, or -1
  * if the pattern is not found.
+ * @ingroup SearchAlgorithms
  */
 int search_bm(char *text, const char *pattern);
 
@@ -59,6 +62,7 @@ int search_bm(char *text, const char *pattern);
  * @param pattern The pattern to search for.
  * @return The index of the first occurrence of the pattern in the text, or -1
  * if the pattern is not found.
+ * @ingroup SearchAlgorithms
  */
 int search_kr(char *text, const char *pattern);
 

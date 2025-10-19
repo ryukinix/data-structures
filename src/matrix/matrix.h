@@ -25,6 +25,7 @@ typedef struct matrix Matrix;
  * @param m means number of lines
  * @param n means number of columns
  * @return the address of the created matrix
+ * @ingroup DataStructureMethods
  */
 Matrix* matrix_create(int m, int n);
 
@@ -32,6 +33,7 @@ Matrix* matrix_create(int m, int n);
 /**
  * @brief Free memory of the matrix
  * @param matrix the matrix pointer itself
+ * @ingroup DataStructureMethods
  */
 void matrix_free(Matrix* matrix);
 
@@ -42,6 +44,7 @@ void matrix_free(Matrix* matrix);
  * @param i the line index
  * @param j the column index
  * @return the value on (i,j) as float
+ * @ingroup DataStructureMethods
  */
 float matrix_get(Matrix *matrix, int i, int j);
 
@@ -52,6 +55,7 @@ float matrix_get(Matrix *matrix, int i, int j);
  * @param i the line index
  * @param j the column index
  * @param v the value the set on (i,j)
+ * @ingroup DataStructureMethods
  */
 void matrix_set(Matrix *matrix, int i, int j, float v);
 
@@ -60,6 +64,7 @@ void matrix_set(Matrix *matrix, int i, int j, float v);
  * @brief Get the number of lines of the matrix
  * @param matrix the matrix pointer
  * @return the number of lines
+ * @ingroup DataStructureMethods
  */
 int matrix_lines (Matrix *matrix);
 
@@ -68,6 +73,7 @@ int matrix_lines (Matrix *matrix);
  * @brief Get the number of columns of the matrix
  * @param matrix the matrix pointer
  * @return the number of columns
+ * @ingroup DataStructureMethods
  */
 int matrix_columns(Matrix *matrix);
 
