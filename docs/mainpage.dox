@@ -8,13 +8,16 @@ This project is a collection of common data structures, sorting, and
 search algorithms implemented in C. It was developed initially as part of the
 Data Structures course at Federal University of Ceará (UFC), Sobral campus,
 taught by Professor Jarbas Joaci de Sá in 2017.2. This work has been
-continued with the master degree lectures of course Data Structures &
+continued with the master degree lectures of course [CT-234] Data Structures &
 Algorithms & Complexity Analysis from Instituto Tecnológico de
-Aeronáutica (ITA) in 2025.2.
+Aeronáutica (ITA) in 2025.2 by Professor Carlos Alberto Alonso Sanches .
 
-Source: [github.com](https://github.com/ryukinix/data-structures).
+Source: [github.com].
 
 The main goal of this repository is to provide a simple and clear implementation of these data structures and algorithms, as well as to serve as a learning resource for students and developers. The copyright has been updated to 2017-2025.
+
+[CT-234]: https://www.comp.ita.br/~alonso/ensino.html
+[github.com]: https://github.com/ryukinix/data-structures
 
 @section data_structures_sec Data Structures
 
