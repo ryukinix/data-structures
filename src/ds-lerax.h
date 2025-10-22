@@ -20,6 +20,7 @@
 #include "list/circular/list-circular.h"
 #include "list/double/list-double.h"
 #include "list/single/list.h"
+#include "list/single/list-gen.h"
 #include "pqueue/pqueue.h"
 #include "queue/queue.h"
 #include "sort/sort.h"
@@ -30,6 +31,8 @@
 #include "tree/avl/avl.h"
 #include "search/search.h"
 #include "hash-table/hash-table.h"
+#include "hash-table/hash-table-gen.h"
 #include "set/set.h"
+#include "graph/graph.h"
 
 #endif

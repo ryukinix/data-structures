@@ -12,7 +12,7 @@ TEST_TARGET = test
 INCLUDE = -I../../
 
 # object-code
-TARGETS = list.o
+TARGETS = list.o list-gen.o
 
 # linking test binary
 OBJS = $(TARGETS) $(TEST_TARGET).o
