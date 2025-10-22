@@ -15,6 +15,7 @@
 
 #include <stddef.h>
 #include <stdbool.h>
+#include "../list/single/list.h"
 
 /**
  * @brief A basic implementation of a Set.
@@ -125,5 +126,13 @@ void set_print(Set *set);
  * @ingroup DataStructureMethods
  */
 void set_free(Set *set);
+
+/**
+ * @brief Converts a set to a list.
+ * @param s The set to convert.
+ * @return A list containing the elements of the set.
+ * @ingroup DataStructureMethods
+ */
+List* set_to_list(Set *s);
 
 #endif /* SET_H */

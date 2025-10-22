@@ -149,3 +149,11 @@ void set_free(Set *set) {
     hash_table_free(set->memory);
     free(set);
 }
+
+
+List* set_to_list(Set *s) {
+    if (s == NULL) {
+        return NULL;
+    }
+    return hash_table_keys(s->memory);
+}

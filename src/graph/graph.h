@@ -92,4 +92,6 @@ void graph_free(Graph *g);
  */
 void graph_print(Graph *g);
 
+void graph_bfs(Graph *g, int start_node);
+
 #endif /* GRAPH_H */
