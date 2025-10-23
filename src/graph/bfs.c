@@ -27,22 +27,19 @@ void graph_bfs(Graph* g, int start_node) {
 
         // 5. Get the neighbors of the current node.
         Set* neighbors_set = graph_get_neighbors(g, current_node);
-        List* neighbors_list = set_to_list(neighbors_set); // Helper function
-
+        Iterator* it = set_iterator(neighbors_set); // Helper function
         // 6. Iterate over the neighbors.
-        List* temp = neighbors_list;
-        while (temp != NULL) {
-            int neighbor = temp->data;
+        while (!iterator_done(it)) {
+            int neighbor = *(int*)it->next(it);
             // 7. If the neighbor has not been visited, add it to the queue and visited set.
             if (!set_contains(visited, neighbor)) {
                 set_add(visited, neighbor);
                 queue_insert(q, neighbor);
             }
-            temp = temp->next;
         }
 
         // 8. Free the memory used for the neighbors list and set.
-        list_free(neighbors_list);
+        iterator_free(it);
         set_free(neighbors_set);
     }
 

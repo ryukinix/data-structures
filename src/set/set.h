@@ -16,6 +16,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "../list/single/list.h"
+#include "../iterator/iterator.h"
 
 /**
  * @brief A basic implementation of a Set.
@@ -134,5 +135,7 @@ void set_free(Set *set);
  * @ingroup DataStructureMethods
  */
 List* set_to_list(Set *s);
+
+Iterator* set_iterator(Set *s);
 
 #endif /* SET_H */

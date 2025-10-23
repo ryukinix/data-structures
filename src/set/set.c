@@ -150,10 +150,25 @@ void set_free(Set *set) {
     free(set);
 }
 
+void* set_next(Iterator *it) {
+    List *list = (List*)it->container;
+    int *data = &list->data;
+    it->container = list->next;
+    return data;
+}
 
-List* set_to_list(Set *s) {
-    if (s == NULL) {
-        return NULL;
-    }
-    return hash_table_keys(s->memory);
+void* set_get(Iterator *it) {
+    List *list = (List*)it->container;
+    return &list->data;
+}
+
+Iterator* set_iterator(Set *s) {
+    // FIXME: this will make a memory leak! Create hash table and set iterator before;
+    List *elements = hash_table_keys(s->memory);
+    Iterator *it = iterator_create(
+        elements,
+        set_get,
+        set_next
+    );
+    return it;
 }

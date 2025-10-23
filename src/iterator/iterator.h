@@ -6,38 +6,39 @@
 #include "../utils/check_alloc.h"
 
 typedef struct Iterator {
-    void *container;
-    bool (*done)(struct Iterator*);
-    void* (*get_next)(struct Iterator*);
+    void  *container;
+    void* (*get)(struct Iterator*);  /* get current inner container data pointer */
+    void* (*next)(struct Iterator*); /* get current data and move container pointer to next */
 } Iterator;
 
-static Iterator* iterator_create(
-    void *container,
-    bool (*done)(Iterator*),
-    void* (*get_next)(Iterator*)
+static inline Iterator* iterator_create(
+    void  *container,
+    void* (*get)(Iterator*),
+    void* (*next)(Iterator*)
 ) {
     Iterator* it = malloc(sizeof(Iterator));
     check_alloc(it);
     it->container = container;
-    it->done = done;
-    it->get_next = get_next;
+    it->get = get;
+    it->next = next;
     return it;
 }
 
-static bool iterator_done(Iterator* it) {
-    if (it->container != NULL || it->get_next(it)) {
-        return false;
+static inline bool iterator_done(Iterator* it) {
+    if (it->container == NULL) {
+        return true;
     }
-    return true;
+    return false;
 }
 
-static void* iterator_get_next(Iterator* it) {
-    void *next = it->get_next(it);
+static inline void* iterator_next(Iterator* it) {
+    void *current = it->get(it);
+    void *next = it->next(it);
     it->container = next;
-    return next;
+    return current;
 }
 
-static void iterator_free(Iterator *it) {
+static inline void iterator_free(Iterator *it) {
     free(it);
 }
 
