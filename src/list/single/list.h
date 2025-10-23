@@ -13,6 +13,8 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include "../../iterator/iterator.h"
+
 /**
  * @brief A node in a singly linked list.
  *
@@ -295,5 +297,9 @@ int list__is_perfect_number(int n);
  * @ingroup DataStructureMethods
  */
 List* list__new_node(int data);
+
+
+Iterator* list_iterator_keys(List *l);
+Iterator* list_iterator_data(List *l);
 
 #endif

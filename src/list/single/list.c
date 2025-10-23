@@ -396,3 +396,50 @@ void list_reverse(List** l) {
 
     *l = tail;
 }
+
+
+
+void* list_next_data(Iterator *it) {
+    List *list = (List*)it->container;
+    int *data = &list->data;
+    it->container = list->next;
+    return data;
+}
+
+void* list_get_data(Iterator *it) {
+    List *list = (List*)it->container;
+    return &list->data;
+}
+
+
+void* list_next_key(Iterator *it) {
+    List *list = (List*)it->container;
+    int *data = &list->key;
+    it->container = list->next;
+    return data;
+}
+
+void* list_get_key(Iterator *it) {
+    List *list = (List*)it->container;
+    return &list->key;
+}
+
+Iterator* list_iterator_keys(List *list) {
+    Iterator *it = iterator_create(
+        list,
+        list_get_key,
+        list_next_key,
+        NULL
+    );
+    return it;
+}
+
+Iterator* list_iterator_data(List *list) {
+    Iterator *it = iterator_create(
+        list,
+        list_get_data,
+        list_next_data,
+        NULL
+    );
+    return it;
+}

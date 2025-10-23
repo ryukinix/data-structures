@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "hash-table.h"
+#include "../utils/check_alloc.h"
 
 struct HashTable {
     size_t size;   // number of pairs key->data inside of hash table
@@ -18,7 +19,7 @@ static unsigned int hash_int(int key, size_t n_buckets) {
 
 HashTable* hash_table_create(size_t n_buckets) {
     HashTable *ht = malloc(sizeof(HashTable));
-    if (!ht) return NULL;
+    check_alloc(ht);
 
     ht->n_buckets = n_buckets;
     ht->size = 0;
@@ -134,6 +135,20 @@ List* hash_table_keys(HashTable *ht) {
     return keys;
 }
 
+List* hash_table_values(HashTable *ht) {
+    List *keys = list_create();
+    for (size_t i = 0; i < ht->n_buckets; i++) {
+        List *head = ht->buckets[i];
+        if (!list_empty(head)) {
+            do {
+                keys = list_insert(keys, head->data);
+                head = head->next;
+            } while (head);
+        }
+    }
+    return keys;
+}
+
 
 void hash_table_print_keys(HashTable *ht) {
     List *keys = hash_table_keys(ht);
@@ -148,4 +163,19 @@ void hash_table_free(HashTable *ht) {
     }
     free(ht->buckets);
     free(ht);
+}
+
+
+Iterator* hash_table_iterator_keys(HashTable *ht) {
+    // NOTE: values of list from produced hash_table_keys are produced
+    // on field list->data, and not list->keys
+    Iterator *it = list_iterator_data(hash_table_keys(ht));
+    it->free = (void (*)(void*)) &list_free;
+    return it;
+}
+
+Iterator* hash_table_iterator_values(HashTable *ht) {
+    Iterator *it = list_iterator_data(hash_table_values(ht));
+    it->free = (void (*)(void*)) &list_free;
+    return it;
 }
