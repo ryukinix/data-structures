@@ -3,11 +3,6 @@
 #include "../queue/queue.h"
 #include "../list/single/list.h"
 
-/**
- * @brief Performs a Breadth-First Search on a graph.
- * @param g The graph to traverse.
- * @param start_node The node to start the traversal from.
- */
 void graph_bfs(Graph* g, int start_node) {
     // 1. Create a queue for the nodes to visit and a set for visited nodes.
     Queue* q = queue_create();
