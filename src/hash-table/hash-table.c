@@ -165,17 +165,21 @@ void hash_table_free(HashTable *ht) {
     free(ht);
 }
 
+void hash_table_iterator_free(Iterator *it) {
+    list_free(it->begin);
+    free(it);
+}
 
 Iterator* hash_table_iterator_keys(HashTable *ht) {
     // NOTE: values of list from produced hash_table_keys are produced
     // on field list->data, and not list->keys
     Iterator *it = list_iterator_data(hash_table_keys(ht));
-    it->free = (void (*)(void*)) &list_free;
+    it->free = &hash_table_iterator_free;
     return it;
 }
 
 Iterator* hash_table_iterator_values(HashTable *ht) {
     Iterator *it = list_iterator_data(hash_table_values(ht));
-    it->free = (void (*)(void*)) &list_free;
+    it->free = &hash_table_iterator_free;
     return it;
 }

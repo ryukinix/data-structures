@@ -97,6 +97,6 @@ void graph_print(Graph *g);
  * @param g The graph to traverse.
  * @param start_node The node to start the traversal from.
  */
-void graph_bfs(Graph *g, int start_node);
+Iterator* graph_bfs(Graph *g, int start_node);
 
 #endif /* GRAPH_H */

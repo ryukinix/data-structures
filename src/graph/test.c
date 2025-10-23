@@ -22,8 +22,13 @@ void test_bfs() {
     graph_print(g);
     printf("\n");
 
-    graph_bfs(g, 1);
+    Iterator *it = graph_bfs(g, 1);
+    while (!iterator_done(it)) {
+        int node = *(int*) iterator_next(it);
+        printf("BFS: %d\n", node);
+    }
 
+    iterator_free(it);
     graph_free(g);
     printf("\n--- BFS Test Finished ---\n");
 }

@@ -429,6 +429,7 @@ Iterator* list_iterator_keys(List *list) {
         list,
         list_get_key,
         list_next_key,
+        NULL,
         NULL
     );
     return it;
@@ -439,6 +440,7 @@ Iterator* list_iterator_data(List *list) {
         list,
         list_get_data,
         list_next_data,
+        NULL,
         NULL
     );
     return it;
