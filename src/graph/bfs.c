@@ -68,7 +68,6 @@ Iterator* graph_bfs(Graph* g, int start_node) {
 
     return iterator_create(
         it_context,
-        NULL,  // no get param, use return of next
         graph_bfs_next,
         graph_bfs_free,
         graph_bfs_done
