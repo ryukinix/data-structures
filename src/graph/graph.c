@@ -7,6 +7,7 @@
 
 struct Graph {
     HashTableGen *adj;
+    bool directed; // true by default
 };
 
 Graph* graph_create() {
@@ -15,11 +16,22 @@ Graph* graph_create() {
         return NULL;
     }
     g->adj = hash_table_gen_create(GRAPH_DEFAULT_N_BUCKETS);
+    g->directed = true;
     if (!g->adj) {
         free(g);
         return NULL;
     }
     return g;
+}
+
+Graph* graph_undirected_create() {
+    Graph *g = graph_create();
+    g->directed = false;
+    return g;
+}
+
+bool graph_is_directed(Graph* g) {
+    return g->directed;
 }
 
 void graph_add_node(Graph *g, int node) {
@@ -31,20 +43,34 @@ void graph_add_node(Graph *g, int node) {
     }
 }
 
-void graph_add_edge(Graph *g, int u, int v) {
+void graph__add_edge(Graph *g, int u, int v) {
     graph_add_node(g, u);
     graph_add_node(g, v);
     Set *set_u = hash_table_gen_get(g->adj, u, NULL);
     set_add(set_u, v);
 }
 
-void graph_remove_edge(Graph *g, int u, int v) {
+void graph_add_edge(Graph *g, int u, int v) {
+    graph__add_edge(g, u, v);
+    if (!g->directed) {
+        graph__add_edge(g, v, u);
+    }
+}
+
+void graph__remove_edge(Graph *g, int u, int v) {
     bool u_exists, v_exists;
     Set *set_u = hash_table_gen_get(g->adj, u, &u_exists);
     hash_table_gen_get(g->adj, v, &v_exists);
 
     if (u_exists && v_exists) {
         set_remove(set_u, v);
+    }
+}
+
+void graph_remove_edge(Graph *g, int u, int v) {
+    graph__remove_edge(g, u, v);
+    if (!g->directed) {
+        graph__remove_edge(g, v, u);
     }
 }
 

@@ -19,11 +19,18 @@
 typedef struct Graph Graph;
 
 /**
- * @brief Creates a new graph.
+ * @brief Creates a new directed graph.
  * @return A pointer to the new graph.
  * @ingroup DataStructureMethods
  */
 Graph* graph_create();
+
+/**
+ * @brief Creates a new undirected graph.
+ * @return A pointer to the new graph.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_undirected_create();
 
 /**
  * @brief Adds a node to the graph.
@@ -96,6 +103,8 @@ void graph_print(Graph *g);
  * @brief Performs a Breadth-First Search on a graph.
  * @param g The graph to traverse.
  * @param start_node The node to start the traversal from.
+ * @return A node iterator
+ * @ingroup DataStructureMethods
  */
 Iterator* graph_bfs(Graph *g, int start_node);
 
@@ -103,6 +112,8 @@ Iterator* graph_bfs(Graph *g, int start_node);
  * @brief Performs a Depth-First Search on a graph.
  * @param g The graph to traverse.
  * @param start_node The node to start the traversal from.
+ * @return A node iterator
+ * @ingroup DataStructureMethods
  */
 Iterator* graph_dfs(Graph *g, int start_node);
 

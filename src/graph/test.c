@@ -74,8 +74,8 @@ void test_dfs() {
     printf("\n--- DFS Test Finished ---\n");
 }
 
-
-int main() {
+void test_graph_directed() {
+    puts("== Graph directed tests");
     Graph *g = graph_create();
 
     graph_add_edge(g, 1, 2);
@@ -87,6 +87,7 @@ int main() {
     assert(graph_has_edge(g, 1, 3));
     assert(graph_has_edge(g, 2, 3));
     assert(graph_has_edge(g, 3, 4));
+    assert(!graph_has_edge(g, 4, 3));
     assert(!graph_has_edge(g, 4, 1));
 
     printf("Graph before removing edge (1, 2):\n");
@@ -106,11 +107,50 @@ int main() {
     graph_print(g);
 
     graph_free(g);
+}
+
+void test_graph_undirected() {
+    puts("== Graph undirected tests");
+    Graph *g = graph_undirected_create();
+
+    graph_add_edge(g, 1, 2);
+    graph_add_edge(g, 1, 3);
+    graph_add_edge(g, 2, 3);
+    graph_add_edge(g, 3, 4);
+
+    assert(graph_has_edge(g, 1, 2));
+    assert(graph_has_edge(g, 2, 1));
+    assert(graph_has_edge(g, 1, 3));
+    assert(graph_has_edge(g, 3, 1));
+    assert(graph_has_edge(g, 4, 3));
+    assert(!graph_has_edge(g, 4, 1));
+
+    printf("Graph before removing edge (1, 2):\n");
+    graph_print(g);
+
+    graph_remove_edge(g, 1, 2);
+    assert(!graph_has_edge(g, 1, 2));
+    assert(!graph_has_edge(g, 2, 1));
+
+    printf("\nGraph after removing edge (1, 2):\n");
+    graph_print(g);
+
+    graph_remove_node(g, 3);
+    assert(!graph_has_edge(g, 1, 3));
+    assert(!graph_has_edge(g, 2, 3));
+
+    printf("\nGraph after removing node 3:\n");
+    graph_print(g);
+
+    graph_free(g);
+}
+
+int main() {
+    test_graph_directed();
+    test_graph_undirected();
     test_bfs();
     test_dfs();
 
     printf("\nAll graph tests passed!\n");
-
-
     return 0;
 }
