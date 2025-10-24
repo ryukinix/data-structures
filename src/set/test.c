@@ -114,6 +114,21 @@ void test_set_copy() {
     set_free(set); set_free(set_copied);
 }
 
+void test_set_iterator() {
+    printf("\n== test set_iterator\n\n");
+    printf("test: producing a list through a set iterator should be equal\n\n");
+
+    Set *set = set_init(4, 0, 1, 2, 3);
+    printf("set: "); set_print(set);
+
+    Iterator *it = set_iterator(set);
+    Set *set_iterator = set_from_iterator(it);
+    printf("set_iterator: "); set_print(set_iterator);
+
+    assert(set_equal(set, set_iterator));
+
+}
+
 
 int main(void) {
     printf("== Tests over Set data stucture");
@@ -124,5 +139,6 @@ int main(void) {
     test_set_intersection();
     test_set_union();
     test_set_difference();
+    test_set_iterator();
     return 0;
 }

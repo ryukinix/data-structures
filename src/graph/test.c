@@ -23,12 +23,17 @@ void test_bfs() {
     printf("\n");
 
     Iterator *it = graph_bfs(g, 1);
-    while (!iterator_done(it)) {
-        int node = *(int*) iterator_next(it);
-        printf("BFS: %d\n", node);
-    }
-
+    List *path = list_from_iterator(it);
     iterator_free(it);
+    printf("BFS Path: ");
+    list_println(path);
+    List *path_expected = list_init(6, 1, 3, 2, 6, 5, 4);
+    printf("BFS Expected: ");
+    list_println(path_expected);
+
+    assert(list_equal(path, path_expected));
+
+    list_free(path); list_free(path_expected);
     graph_free(g);
     printf("\n--- BFS Test Finished ---\n");
 }
@@ -65,10 +70,10 @@ int main() {
     graph_print(g);
 
     graph_free(g);
+    test_bfs();
 
     printf("\nAll graph tests passed!\n");
 
-    test_bfs();
 
     return 0;
 }

@@ -8,9 +8,9 @@
 typedef struct Iterator {
     void  *container;
     void  *begin;
-    void* (*get)(struct Iterator*);  /* get current inner container data pointer */
+    void* (*get)(struct Iterator*);  /* (optional) get current inner container data pointer */
     void* (*next)(struct Iterator*); /* get current data and move container pointer to next */
-    void  (*free)(struct Iterator*);           /* (optional) free object  */
+    void  (*free)(struct Iterator*);  /* (optional) free object  */
     bool  (*done)(struct Iterator*); /* (optional) check logic if iterator is done */
 } Iterator;
 
@@ -40,13 +40,13 @@ static inline bool iterator_done(Iterator* it) {
 }
 
 static inline void* iterator_next(Iterator* it) {
-    // if have a get function
+    // if we have a get function
     if (it->get != NULL) {
         void *current = it->get(it);
-        void *next = it->next(it);
-        it->container = next;
+        it->next(it);
         return current;
     } else {
+        // HACK: introduced by bfs iterator
         // only calculate next and return directly
         return it->next(it);
     }

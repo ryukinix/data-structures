@@ -301,5 +301,6 @@ List* list__new_node(int data);
 
 Iterator* list_iterator_keys(List *l);
 Iterator* list_iterator_data(List *l);
+List* list_from_iterator(Iterator* it);
 
 #endif

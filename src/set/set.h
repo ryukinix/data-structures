@@ -128,14 +128,7 @@ void set_print(Set *set);
  */
 void set_free(Set *set);
 
-/**
- * @brief Converts a set to a list.
- * @param s The set to convert.
- * @return A list containing the elements of the set.
- * @ingroup DataStructureMethods
- */
-List* set_to_list(Set *s);
-
 Iterator* set_iterator(Set *s);
+Set* set_from_iterator(Iterator *s);
 
 #endif /* SET_H */

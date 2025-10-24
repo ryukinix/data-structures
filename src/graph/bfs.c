@@ -35,10 +35,9 @@ void* graph_bfs_next(Iterator* it) {
     // Get the neighbors of the current node.
     Set* neighbors_set = graph_get_neighbors(it_context->graph, current_node);
     Iterator* set_it = set_iterator(neighbors_set); // Helper function
-
     // Iterate over the neighbors.
     while (!iterator_done(set_it)) {
-        int neighbor = *(int*)set_it->next(set_it);
+        int neighbor = *(int*)iterator_next(set_it);
         if (!set_contains(it_context->visited, neighbor)) {
             set_add(it_context->visited, neighbor);
             queue_insert(it_context->queue, neighbor);
