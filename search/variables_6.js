@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['prev_0',['prev',['../structListDouble.html#a82240fc1d9077f7d6644e6608427c03f',1,'ListDouble']]]
+  ['key_0',['key',['../structListGen.html#a74defb9977cafe1568db5e959e40b936',1,'ListGen::key'],['../structListNode.html#afd94238833851d4317d87dd13ab20f95',1,'ListNode::key']]]
 ];

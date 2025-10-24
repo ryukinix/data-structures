@@ -5,5 +5,6 @@ var searchData=
   ['data_20structures_2',['Data Structures',['../index.html#data_structures_sec',1,'']]],
   ['debug_3',['debug',['../sort_8h.html#adacf73b93ca6fa3985f2999f7d6b3b29',1,'sort.h']]],
   ['debug_5fprint_5fvector_4',['debug_print_vector',['../sort_8h.html#ae98bbc00bc19791f5b4bad8ee2195db0',1,'sort.h']]],
-  ['documentation_5',['Documentation',['../index.html',1,'']]]
+  ['documentation_5',['Documentation',['../index.html',1,'']]],
+  ['done_6',['done',['../structIterator.html#af3e0c6068e1b97e92578b1c1f81db70b',1,'Iterator']]]
 ];

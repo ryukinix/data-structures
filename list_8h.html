@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">v3.0-98-gb2fc</span>
+                  &#160;<span id="projectnumber">v3.0-99-gfeb78</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -121,7 +121,8 @@ $(function(){initNavTree('list_8h.html','',''); });
   <div class="headertitle"><div class="title">list.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="iterator_8h_source.html">../../iterator/iterator.h</a>&quot;</code><br />
+</div>
 <p><a href="list_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -206,6 +207,12 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga78789f79d8a0b6a6048576018579de34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a given number is perfect.  <br /></td></tr>
 <tr class="memitem:ga17512f40533e97d3eb577094a93a6527" id="r_ga17512f40533e97d3eb577094a93a6527"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga17512f40533e97d3eb577094a93a6527">list__new_node</a> (int data)</td></tr>
 <tr class="memdesc:ga17512f40533e97d3eb577094a93a6527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new node for the list.  <br /></td></tr>
+<tr class="memitem:adac7446611a3c55204ee986c6cfc8f52" id="r_adac7446611a3c55204ee986c6cfc8f52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adac7446611a3c55204ee986c6cfc8f52">list_iterator_keys</a> (<a class="el" href="#a99e20082d0eddef1840f9f37978efd28">List</a> *l)</td></tr>
+<tr class="memdesc:adac7446611a3c55204ee986c6cfc8f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an iterator for the list keys.  <br /></td></tr>
+<tr class="memitem:a2818f7b7d3222a28fa1d6b79c5b1c576" id="r_a2818f7b7d3222a28fa1d6b79c5b1c576"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2818f7b7d3222a28fa1d6b79c5b1c576">list_iterator_data</a> (<a class="el" href="#a99e20082d0eddef1840f9f37978efd28">List</a> *l)</td></tr>
+<tr class="memdesc:a2818f7b7d3222a28fa1d6b79c5b1c576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an iterator for the list data.  <br /></td></tr>
+<tr class="memitem:aeb63b5279da6ce8bb35172bb57dc7784" id="r_aeb63b5279da6ce8bb35172bb57dc7784"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb63b5279da6ce8bb35172bb57dc7784">list_from_iterator</a> (<a class="el" href="structIterator.html">Iterator</a> *it)</td></tr>
+<tr class="memdesc:aeb63b5279da6ce8bb35172bb57dc7784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a list from an iterator.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a08ae9c7badcac2d94f0a59844eb6e6cc" name="a08ae9c7badcac2d94f0a59844eb6e6cc"></a>
@@ -237,6 +244,85 @@ Functions</h2></td></tr>
 
 <p>A singly linked list. </p>
 <p>A <span class="tt"><a class="el" href="#a99e20082d0eddef1840f9f37978efd28" title="A singly linked list.">List</a></span> is a pointer to the first node in the list. An empty list is represented by a null pointer. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aeb63b5279da6ce8bb35172bb57dc7784" name="aeb63b5279da6ce8bb35172bb57dc7784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb63b5279da6ce8bb35172bb57dc7784">&#9670;&#160;</a></span>list_from_iterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a99e20082d0eddef1840f9f37978efd28">List</a> * list_from_iterator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structIterator.html">Iterator</a> *</td>          <td class="paramname"><span class="paramname"><em>it</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a list from an iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>The iterator to create the list from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new list. </dd></dl>
+
+</div>
+</div>
+<a id="a2818f7b7d3222a28fa1d6b79c5b1c576" name="a2818f7b7d3222a28fa1d6b79c5b1c576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2818f7b7d3222a28fa1d6b79c5b1c576">&#9670;&#160;</a></span>list_iterator_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIterator.html">Iterator</a> * list_iterator_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a99e20082d0eddef1840f9f37978efd28">List</a> *</td>          <td class="paramname"><span class="paramname"><em>l</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an iterator for the list data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td>The list to iterate over. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new iterator. </dd></dl>
+
+</div>
+</div>
+<a id="adac7446611a3c55204ee986c6cfc8f52" name="adac7446611a3c55204ee986c6cfc8f52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adac7446611a3c55204ee986c6cfc8f52">&#9670;&#160;</a></span>list_iterator_keys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIterator.html">Iterator</a> * list_iterator_keys </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a99e20082d0eddef1840f9f37978efd28">List</a> *</td>          <td class="paramname"><span class="paramname"><em>l</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an iterator for the list keys. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td>The list to iterate over. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new iterator. </dd></dl>
 
 </div>
 </div>

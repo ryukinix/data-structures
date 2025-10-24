@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['point_0',['Point',['../structPoint.html',1,'']]],
-  ['pqueue_1',['PQueue',['../structPQueue.html',1,'']]]
+  ['listcircular_0',['ListCircular',['../structListCircular.html',1,'']]],
+  ['listdouble_1',['ListDouble',['../structListDouble.html',1,'']]],
+  ['listgen_2',['ListGen',['../structListGen.html',1,'']]],
+  ['listnode_3',['ListNode',['../structListNode.html',1,'']]]
 ];

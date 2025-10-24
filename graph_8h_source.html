@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">v3.0-98-gb2fc</span>
+                  &#160;<span id="projectnumber">v3.0-99-gfeb78</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -143,9 +143,12 @@ $(function(){initNavTree('graph_8h_source.html','',''); });
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="group__DataStructureMethods.html#gab86bd6cf63f60d730aa569dc0d20de92">   86</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group__DataStructureMethods.html#gab86bd6cf63f60d730aa569dc0d20de92">graph_free</a>(<a class="code hl_typedef" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="group__DataStructureMethods.html#gaa3a385a56949260edcbeeb87389834b0">   93</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group__DataStructureMethods.html#gaa3a385a56949260edcbeeb87389834b0">graph_print</a>(<a class="code hl_typedef" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#endif </span><span class="comment">/* GRAPH_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="graph_8h.html#a663df5be270b676eee0948f9adb551ac">  100</a></span><a class="code hl_struct" href="structIterator.html">Iterator</a>* <a class="code hl_function" href="graph_8h.html#a663df5be270b676eee0948f9adb551ac">graph_bfs</a>(<a class="code hl_typedef" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, <span class="keywordtype">int</span> start_node);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#endif </span><span class="comment">/* GRAPH_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="agraph_8h_html_a0c94bbeb31bba748d2897a168f62e9bc"><div class="ttname"><a href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a></div><div class="ttdeci">struct Graph Graph</div><div class="ttdef"><b>Definition</b> graph.h:19</div></div>
+<div class="ttc" id="agraph_8h_html_a663df5be270b676eee0948f9adb551ac"><div class="ttname"><a href="graph_8h.html#a663df5be270b676eee0948f9adb551ac">graph_bfs</a></div><div class="ttdeci">Iterator * graph_bfs(Graph *g, int start_node)</div><div class="ttdoc">Performs a Breadth-First Search on a graph.</div></div>
 <div class="ttc" id="agroup__DataStructureMethods_html_ga2707306335d4949a622b069702f7f909"><div class="ttname"><a href="group__DataStructureMethods.html#ga2707306335d4949a622b069702f7f909">graph_get_neighbors</a></div><div class="ttdeci">Set * graph_get_neighbors(Graph *g, int node)</div><div class="ttdoc">Gets the neighbors of a node.</div></div>
 <div class="ttc" id="agroup__DataStructureMethods_html_ga3359b742debb4bf9c3f0865943df4272"><div class="ttname"><a href="group__DataStructureMethods.html#ga3359b742debb4bf9c3f0865943df4272">graph_remove_edge</a></div><div class="ttdeci">void graph_remove_edge(Graph *g, int u, int v)</div><div class="ttdoc">Removes an edge from the graph.</div></div>
 <div class="ttc" id="agroup__DataStructureMethods_html_ga39a96a95df86039c63a8299247a8d3df"><div class="ttname"><a href="group__DataStructureMethods.html#ga39a96a95df86039c63a8299247a8d3df">graph_create</a></div><div class="ttdeci">Graph * graph_create()</div><div class="ttdoc">Creates a new graph.</div></div>
@@ -156,7 +159,8 @@ $(function(){initNavTree('graph_8h_source.html','',''); });
 <div class="ttc" id="agroup__DataStructureMethods_html_gab86bd6cf63f60d730aa569dc0d20de92"><div class="ttname"><a href="group__DataStructureMethods.html#gab86bd6cf63f60d730aa569dc0d20de92">graph_free</a></div><div class="ttdeci">void graph_free(Graph *g)</div><div class="ttdoc">Frees the memory allocated for the graph.</div></div>
 <div class="ttc" id="agroup__DataStructureMethods_html_gabefd5131112f6e5b268ed7ba30466b70"><div class="ttname"><a href="group__DataStructureMethods.html#gabefd5131112f6e5b268ed7ba30466b70">graph_remove_node</a></div><div class="ttdeci">void graph_remove_node(Graph *g, int node)</div><div class="ttdoc">Removes a node from the graph.</div></div>
 <div class="ttc" id="aset_8h_html"><div class="ttname"><a href="set_8h.html">set.h</a></div></div>
-<div class="ttc" id="aset_8h_html_ae18711cd0f4e4e8356608ed79326276b"><div class="ttname"><a href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a></div><div class="ttdeci">struct Set Set</div><div class="ttdoc">A basic implementation of a Set.</div><div class="ttdef"><b>Definition</b> set.h:25</div></div>
+<div class="ttc" id="aset_8h_html_ae18711cd0f4e4e8356608ed79326276b"><div class="ttname"><a href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a></div><div class="ttdeci">struct Set Set</div><div class="ttdoc">A basic implementation of a Set.</div><div class="ttdef"><b>Definition</b> set.h:27</div></div>
+<div class="ttc" id="astructIterator_html"><div class="ttname"><a href="structIterator.html">Iterator</a></div><div class="ttdoc">A generic iterator struct.</div><div class="ttdef"><b>Definition</b> iterator.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

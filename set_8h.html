@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">v3.0-98-gb2fc</span>
+                  &#160;<span id="projectnumber">v3.0-99-gfeb78</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -121,6 +121,8 @@ $(function(){initNavTree('set_8h.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="list_8h_source.html">../list/single/list.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="iterator_8h_source.html">../iterator/iterator.h</a>&quot;</code><br />
 </div>
 <p><a href="set_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -157,6 +159,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:gad5ca92546c83b1b0b9c26b137ad400ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print all elements of the set.  <br /></td></tr>
 <tr class="memitem:gaf0d8defcb25047c8ca43efbfd26af9d4" id="r_gaf0d8defcb25047c8ca43efbfd26af9d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gaf0d8defcb25047c8ca43efbfd26af9d4">set_free</a> (<a class="el" href="#ae18711cd0f4e4e8356608ed79326276b">Set</a> *set)</td></tr>
 <tr class="memdesc:gaf0d8defcb25047c8ca43efbfd26af9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free memory of set and its contents.  <br /></td></tr>
+<tr class="memitem:aa5092416012d727e500d80eb8406fa37" id="r_aa5092416012d727e500d80eb8406fa37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5092416012d727e500d80eb8406fa37">set_iterator</a> (<a class="el" href="#ae18711cd0f4e4e8356608ed79326276b">Set</a> *s)</td></tr>
+<tr class="memdesc:aa5092416012d727e500d80eb8406fa37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an iterator for the set.  <br /></td></tr>
+<tr class="memitem:aa1079ea0f68a7b0340e37b713051e5b4" id="r_aa1079ea0f68a7b0340e37b713051e5b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae18711cd0f4e4e8356608ed79326276b">Set</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1079ea0f68a7b0340e37b713051e5b4">set_from_iterator</a> (<a class="el" href="structIterator.html">Iterator</a> *s)</td></tr>
+<tr class="memdesc:aa1079ea0f68a7b0340e37b713051e5b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a set from an iterator.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="ae18711cd0f4e4e8356608ed79326276b" name="ae18711cd0f4e4e8356608ed79326276b"></a>
@@ -180,6 +186,59 @@ Functions</h2></td></tr>
 </pre><p> Organization: ITA</p>
 <hr  />
  <p>This implementation uses a hash table to store the elements, which allows for efficient insertion, deletion, and membership testing. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aa1079ea0f68a7b0340e37b713051e5b4" name="aa1079ea0f68a7b0340e37b713051e5b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1079ea0f68a7b0340e37b713051e5b4">&#9670;&#160;</a></span>set_from_iterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae18711cd0f4e4e8356608ed79326276b">Set</a> * set_from_iterator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structIterator.html">Iterator</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a set from an iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The iterator to create the set from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new set. </dd></dl>
+
+</div>
+</div>
+<a id="aa5092416012d727e500d80eb8406fa37" name="aa5092416012d727e500d80eb8406fa37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5092416012d727e500d80eb8406fa37">&#9670;&#160;</a></span>set_iterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIterator.html">Iterator</a> * set_iterator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ae18711cd0f4e4e8356608ed79326276b">Set</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an iterator for the set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The set to iterate over. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new iterator. </dd></dl>
 
 </div>
 </div>

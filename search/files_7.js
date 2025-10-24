@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['pause_2eh_0',['pause.h',['../pause_8h.html',1,'']]],
-  ['point_2eh_1',['point.h',['../point_8h.html',1,'']]],
-  ['pqueue_2eh_2',['pqueue.h',['../pqueue_8h.html',1,'']]],
-  ['prime_2eh_3',['prime.h',['../prime_8h.html',1,'']]]
+  ['mainpage_2edox_0',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
+  ['matrix_2dutils_2eh_1',['matrix-utils.h',['../matrix-utils_8h.html',1,'']]],
+  ['matrix_2eh_2',['matrix.h',['../matrix_8h.html',1,'']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['value_0',['value',['../structBinaryNode.html#a00624fc2f2f272ddf08f77248c9dd623',1,'BinaryNode']]]
+  ['type_0',['Type',['../sort_8h.html#ae1f0ac82c78444bf9b69e7dbdd1d1983',1,'Type:&#160;sort.h'],['../avl_8h.html#ae1f0ac82c78444bf9b69e7dbdd1d1983',1,'Type:&#160;avl.h'],['../bst_8h.html#ae1f0ac82c78444bf9b69e7dbdd1d1983',1,'Type:&#160;bst.h']]],
+  ['typeformat_1',['TypeFormat',['../sort_8h.html#a83b594f0de40e15dcec634979bec5109',1,'sort.h']]]
 ];

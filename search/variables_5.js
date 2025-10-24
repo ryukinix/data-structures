@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['next_0',['next',['../structListCircular.html#ab76c48a1af8e213362fc4ac6bafd8aa4',1,'ListCircular::next'],['../structListDouble.html#ab6b427de5a3decdf500658b99609b50e',1,'ListDouble::next'],['../structListGen.html#ad5dfbc53e4a15a5b78f25787f2954bbd',1,'ListGen::next'],['../structListNode.html#ac7af9e18e0586f13d59a52b3501ac4ca',1,'ListNode::next']]]
+  ['heap_0',['heap',['../structPQueue.html#aa967068eda502e148bba0e56437282b4',1,'PQueue']]],
+  ['height_1',['height',['../structBinaryNode.html#acc14383a0c479e58e33e9b0b70883ea2',1,'BinaryNode']]]
 ];

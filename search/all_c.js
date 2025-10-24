@@ -1,29 +1,4 @@
 var searchData=
 [
-  ['pause_2eh_0',['pause.h',['../pause_8h.html',1,'']]],
-  ['point_1',['Point',['../structPoint.html',1,'Point'],['../point_8h.html#a332e649c40b7d806629d2cfa046f3ee0',1,'Point:&#160;point.h']]],
-  ['point_2eh_2',['point.h',['../point_8h.html',1,'']]],
-  ['point_5fcopy_3',['point_copy',['../group__DataStructureMethods.html#ga6864133d6b60f25f80117a1204f25729',1,'point.h']]],
-  ['point_5fcreate_4',['point_create',['../group__DataStructureMethods.html#ga993c37b9e04107f1901d417111fc4189',1,'point.h']]],
-  ['point_5fdistance_5',['point_distance',['../group__DataStructureMethods.html#ga51d2d9b21a6e81990c6924f4d9673f6e',1,'point.h']]],
-  ['point_5ffree_6',['point_free',['../group__DataStructureMethods.html#gad3a9de742ccb9e2a23606f3e77c03661',1,'point.h']]],
-  ['point_5fget_7',['point_get',['../group__DataStructureMethods.html#gae57ed0034ce7cead609f14a9fd91c5bb',1,'point.h']]],
-  ['point_5fget_5fx_8',['point_get_x',['../group__DataStructureMethods.html#gaee015511bf7eda3fe4945f766e1a25a9',1,'point.h']]],
-  ['point_5fget_5fy_9',['point_get_y',['../group__DataStructureMethods.html#gafed4e1f309044be54e1cf1069880594c',1,'point.h']]],
-  ['point_5fset_10',['point_set',['../group__DataStructureMethods.html#gac75e76c80d6701e87786c54768cb176a',1,'point.h']]],
-  ['pqueue_11',['PQueue',['../structPQueue.html',1,'PQueue'],['../pqueue_8h.html#aac7605bb6de2e519ff7b692270fb24de',1,'PQueue:&#160;pqueue.h']]],
-  ['pqueue_2eh_12',['pqueue.h',['../pqueue_8h.html',1,'']]],
-  ['pqueue_5fcreate_13',['pqueue_create',['../group__DataStructureMethods.html#ga07ae8ed20b804a52e51697954aa34133',1,'pqueue.h']]],
-  ['pqueue_5fextract_5fmax_14',['pqueue_extract_max',['../group__DataStructureMethods.html#ga805dd3a406affe9173ce9ef08068958a',1,'pqueue.h']]],
-  ['pqueue_5ffree_15',['pqueue_free',['../group__DataStructureMethods.html#gae5aa2e15af1dfd90ba2b5cd419a813ee',1,'pqueue.h']]],
-  ['pqueue_5fincrease_5fkeys_16',['pqueue_increase_keys',['../group__DataStructureMethods.html#gadf20106f653af15928f42af640349411',1,'pqueue.h']]],
-  ['pqueue_5finsert_17',['pqueue_insert',['../group__DataStructureMethods.html#ga8ea1460465b80d51cf7e886acdb6d569',1,'pqueue.h']]],
-  ['pqueue_5fmaximum_18',['pqueue_maximum',['../group__DataStructureMethods.html#ga7d9a70dad1ccfea5339cc2375fecfea0',1,'pqueue.h']]],
-  ['pqueue_5fprint_19',['pqueue_print',['../group__DataStructureMethods.html#ga273dd3b97c7798210404bf0a3942f7c2',1,'pqueue.h']]],
-  ['pqueue_5fprintln_20',['pqueue_println',['../group__DataStructureMethods.html#ga58f95ca0e9a45edcc43e97222d4f9a6a',1,'pqueue.h']]],
-  ['pqueue_5fsize_21',['PQUEUE_SIZE',['../pqueue_8h.html#acf5daa72d5e8184594daf1b6dc81b415',1,'pqueue.h']]],
-  ['prev_22',['prev',['../structListDouble.html#a82240fc1d9077f7d6644e6608427c03f',1,'ListDouble']]],
-  ['prime_2eh_23',['prime.h',['../prime_8h.html',1,'']]],
-  ['print_5fascii_5ftree_24',['print_ascii_tree',['../group__DataStructureMethods.html#gacdb411dc439f84cde1f64419a2f93b96',1,'ascii-tree.h']]],
-  ['print_5fvector_25',['print_vector',['../sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e',1,'sort.h']]]
+  ['next_0',['next',['../structIterator.html#a9701f2f52a4c09866c2b6f0a47d996a1',1,'Iterator::next'],['../structListCircular.html#ab76c48a1af8e213362fc4ac6bafd8aa4',1,'ListCircular::next'],['../structListDouble.html#ab6b427de5a3decdf500658b99609b50e',1,'ListDouble::next'],['../structListGen.html#ad5dfbc53e4a15a5b78f25787f2954bbd',1,'ListGen::next'],['../structListNode.html#ac7af9e18e0586f13d59a52b3501ac4ca',1,'ListNode::next']]]
 ];

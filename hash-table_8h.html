@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">v3.0-98-gb2fc</span>
+                  &#160;<span id="projectnumber">v3.0-99-gfeb78</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -122,6 +122,7 @@ $(function(){initNavTree('hash-table_8h.html','',''); });
 <div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="list_8h_source.html">../list/single/list.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="iterator_8h_source.html">../iterator/iterator.h</a>&quot;</code><br />
 </div>
 <p><a href="hash-table_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -154,6 +155,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:gad6aac284d4f87b4eb382099254aa0e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print keys of the hash table.  <br /></td></tr>
 <tr class="memitem:gac499c1122d3469bb30235d1fa6874eb7" id="r_gac499c1122d3469bb30235d1fa6874eb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gac499c1122d3469bb30235d1fa6874eb7">hash_table_keys</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
 <tr class="memdesc:gac499c1122d3469bb30235d1fa6874eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a list with the hash table keys.  <br /></td></tr>
+<tr class="memitem:a1ff0ef34d759bc264dd6353b31741908" id="r_a1ff0ef34d759bc264dd6353b31741908"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ff0ef34d759bc264dd6353b31741908">hash_table_iterator_keys</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
+<tr class="memitem:a465f6c746d10d6a3f1092d3f656d893a" id="r_a465f6c746d10d6a3f1092d3f656d893a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a465f6c746d10d6a3f1092d3f656d893a">hash_table_iterator_data</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
 <tr class="memitem:ga3920e9707bec9a3346b6bf0d43b7e6ba" id="r_ga3920e9707bec9a3346b6bf0d43b7e6ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga3920e9707bec9a3346b6bf0d43b7e6ba">hash_table_free</a> (<a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *ht)</td></tr>
 <tr class="memdesc:ga3920e9707bec9a3346b6bf0d43b7e6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free memory of hash table and its contents.  <br /></td></tr>
 </table>
@@ -179,6 +182,41 @@ Functions</h2></td></tr>
 </pre><p> Organization: ITA</p>
 <hr  />
  <p>This implementation uses a separate chaining strategy to handle collisions. The hash table is composed of an array of buckets, where each bucket is a linked list of key-value pairs. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a465f6c746d10d6a3f1092d3f656d893a" name="a465f6c746d10d6a3f1092d3f656d893a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a465f6c746d10d6a3f1092d3f656d893a">&#9670;&#160;</a></span>hash_table_iterator_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIterator.html">Iterator</a> * hash_table_iterator_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ff0ef34d759bc264dd6353b31741908" name="a1ff0ef34d759bc264dd6353b31741908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ff0ef34d759bc264dd6353b31741908">&#9670;&#160;</a></span>hash_table_iterator_keys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIterator.html">Iterator</a> * hash_table_iterator_keys </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *</td>          <td class="paramname"><span class="paramname"><em>ht</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
