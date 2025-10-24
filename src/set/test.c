@@ -127,6 +127,9 @@ void test_set_iterator() {
 
     assert(set_equal(set, set_iterator));
 
+    set_free(set);
+    set_free(set_iterator);
+    iterator_free(it);
 }
 
 
