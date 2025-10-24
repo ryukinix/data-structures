@@ -149,3 +149,18 @@ void set_free(Set *set) {
     hash_table_free(set->memory);
     free(set);
 }
+
+Iterator* set_iterator(Set *s) {
+    Iterator *it = hash_table_iterator_keys(s->memory);
+    return it;
+}
+
+
+Set* set_from_iterator(Iterator *it) {
+    Set *set = set_create();
+    while (!iterator_done(it)) {
+        int data = *(int*)iterator_next(it);
+        set_add(set, data);
+    }
+    return set;
+}

@@ -15,9 +15,10 @@
  */
 
 
+#include <stdio.h>
+#include <assert.h>
 #include "list.h"
 #include "../../console/console.h"
-#include <stdio.h>
 
 void test_basic_functions(void) {
     puts("== test basic functions: insert_ord, print, free and remove");
@@ -248,6 +249,24 @@ void test_jarbas(void) {
 
 }
 
+void test_list_iterator() {
+    puts("== list iterator should produce the same list");
+    List *l = list_init(3, 1, 2, 3);
+    printf("list input: ");
+    list_println(l);
+
+    Iterator *it = list_iterator_data(l);
+    List *l_from_iterator = list_from_iterator(it);
+    printf("list iterator: ");
+    list_println(l_from_iterator);
+
+    assert(list_equal(l, l_from_iterator));
+
+    iterator_free(it);
+    list_free(l);
+    list_free(l_from_iterator);
+}
+
 int main(void) {
     test_basic_functions();
     test_list_init();
@@ -264,6 +283,7 @@ int main(void) {
     test_list_concat();
     test_list_reverse();
     test_jarbas();
+    test_list_iterator();
 #ifdef _WIN32
     pause();
 #endif

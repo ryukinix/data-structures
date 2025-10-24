@@ -16,6 +16,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "../list/single/list.h"
+#include "../iterator/iterator.h"
 
 /**
  * @brief A basic implementation of a hash table.
@@ -113,6 +114,9 @@ void hash_table_print_keys(HashTable *ht);
  * @ingroup DataStructureMethods
  */
 List* hash_table_keys(HashTable *ht);
+
+Iterator* hash_table_iterator_keys(HashTable *ht);
+Iterator* hash_table_iterator_data(HashTable *ht);
 
 /**
  * @brief Free memory of hash table and its contents

@@ -8,12 +8,12 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS := -lset -lhash-table -llist -lm
-INCLUDE := -I../ -L../ -L../list/single  -L../hash-table -L../set
+LDFLAGS := -lset -lhash-table -llist -lqueue -lm
+INCLUDE := -I../ -L../list/single  -L../hash-table -L../set -L../queue
 
 # targets to compile
 TEST_TARGET = test
-TARGETS = graph.o
+TARGETS = graph.o bfs.o
 LIBRARY_OBJS = $(TARGETS)
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
@@ -22,7 +22,6 @@ TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
 LIBRARY_TARGET = libgraph.a
 
 all: compile
-	@echo > /dev/null
 
 compile: $(TARGETS) $(TEST_TARGET).o
 
@@ -30,13 +29,14 @@ deps:
 	make clean library -C ../list/single CFLAGS=-DLIST_PRINT_KEY
 	make clean library -C ../hash-table
 	make clean library -C ../set
+	make clean library -C ../queue
 
 
 %.o: %.c
 	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
 
 $(TEST_BINARY): deps library $(TARGETS) $(TEST_TARGET).c
-	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(TARGETS) $(TEST_TARGET).c $(LDFLAGS)
+	$(CC) $(INCLUDE) -L. $(CFLAGS) -o $@ $(TARGETS) $(TEST_TARGET).c -lgraph $(LDFLAGS)
 
 test: library $(TEST_BINARY)
 	./$(TEST_BINARY)
@@ -49,4 +49,4 @@ library: $(LIBRARY_TARGET)
 clean:
 	rm -fv *.o *.$(EXTENSION) *.a
 
-.PHONY: all clean compile test
+.PHONY: all clean compile test library

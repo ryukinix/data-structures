@@ -2,6 +2,43 @@
 #include <assert.h>
 #include "graph.h"
 
+void test_bfs() {
+    printf("\n--- Testing BFS ---\n");
+    Graph* g = graph_create();
+
+    // Add nodes
+    for (int i = 1; i <= 6; i++) {
+        graph_add_node(g, i);
+    }
+
+    // Add edges
+    graph_add_edge(g, 1, 2);
+    graph_add_edge(g, 1, 3);
+    graph_add_edge(g, 2, 4);
+    graph_add_edge(g, 2, 5);
+    graph_add_edge(g, 3, 6);
+
+    printf("Graph created:\n");
+    graph_print(g);
+    printf("\n");
+
+    Iterator *it = graph_bfs(g, 1);
+    List *path = list_from_iterator(it);
+    iterator_free(it);
+    printf("BFS Path: ");
+    list_println(path);
+    List *path_expected = list_init(6, 1, 3, 2, 6, 5, 4);
+    printf("BFS Expected: ");
+    list_println(path_expected);
+
+    assert(list_equal(path, path_expected));
+
+    list_free(path); list_free(path_expected);
+    graph_free(g);
+    printf("\n--- BFS Test Finished ---\n");
+}
+
+
 int main() {
     Graph *g = graph_create();
 
@@ -33,8 +70,10 @@ int main() {
     graph_print(g);
 
     graph_free(g);
+    test_bfs();
 
     printf("\nAll graph tests passed!\n");
+
 
     return 0;
 }

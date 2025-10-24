@@ -13,6 +13,8 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include "../../iterator/iterator.h"
+
 /**
  * @brief A node in a singly linked list.
  *
@@ -295,5 +297,31 @@ int list__is_perfect_number(int n);
  * @ingroup DataStructureMethods
  */
 List* list__new_node(int data);
+
+
+/**
+ * @brief Creates an iterator for the list keys.
+ *
+ * @param l The list to iterate over.
+ * @return A pointer to the new iterator.
+ */
+Iterator* list_iterator_keys(List *l);
+
+/**
+ * @brief Creates an iterator for the list data.
+ *
+ * @param l The list to iterate over.
+ * @return A pointer to the new iterator.
+ */
+Iterator* list_iterator_data(List *l);
+
+
+/**
+ * @brief Creates a list from an iterator.
+ *
+ * @param it The iterator to create the list from.
+ * @return A pointer to the new list.
+ */
+List* list_from_iterator(Iterator* it);
 
 #endif
