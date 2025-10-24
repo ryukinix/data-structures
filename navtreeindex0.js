@@ -94,6 +94,7 @@ var NAVTREEINDEX0 =
 "globals_type.html":[3,1,2],
 "graph_8h.html":[3,0,1,2,0],
 "graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc":[3,0,1,2,0,0],
+"graph_8h.html#a5fdd2e99e8e415f2f5af3a342d3884bb":[3,0,1,2,0,5],
 "graph_8h.html#a663df5be270b676eee0948f9adb551ac":[3,0,1,2,0,3],
 "graph_8h_source.html":[3,0,1,2,0],
 "group__DataStructureMethods.html":[1,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "group__DataStructureMethods.html#gac8aef184f1cfabbc07ecadb352879bba":[1,0,141],
 "group__DataStructureMethods.html#gac96b0ee3a6d0e05bfd10f086afeff408":[1,0,186],
 "group__DataStructureMethods.html#gaca9dbede156befc672cf55c5d9980bfb":[1,0,112],
-"group__DataStructureMethods.html#gacb11cf1b6406ddd75d9b7dbb535a36e8":[1,0,37],
-"group__DataStructureMethods.html#gacdb411dc439f84cde1f64419a2f93b96":[1,0,164]
+"group__DataStructureMethods.html#gacb11cf1b6406ddd75d9b7dbb535a36e8":[1,0,37]
 };

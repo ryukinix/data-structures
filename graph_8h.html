@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">v3.0-100-g56be</span>
+                  &#160;<span id="projectnumber">v3.0-101-gb1f7</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -150,6 +150,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:gaa3a385a56949260edcbeeb87389834b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the graph.  <br /></td></tr>
 <tr class="memitem:a663df5be270b676eee0948f9adb551ac" id="r_a663df5be270b676eee0948f9adb551ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a663df5be270b676eee0948f9adb551ac">graph_bfs</a> (<a class="el" href="#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, int start_node)</td></tr>
 <tr class="memdesc:a663df5be270b676eee0948f9adb551ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a Breadth-First Search on a graph.  <br /></td></tr>
+<tr class="memitem:a5fdd2e99e8e415f2f5af3a342d3884bb" id="r_a5fdd2e99e8e415f2f5af3a342d3884bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fdd2e99e8e415f2f5af3a342d3884bb">graph_dfs</a> (<a class="el" href="#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, int start_node)</td></tr>
+<tr class="memdesc:a5fdd2e99e8e415f2f5af3a342d3884bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a Depth-First Search on a graph.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="a0c94bbeb31bba748d2897a168f62e9bc" name="a0c94bbeb31bba748d2897a168f62e9bc"></a>
@@ -194,6 +196,36 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Performs a Breadth-First Search on a graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>The graph to traverse. </td></tr>
+    <tr><td class="paramname">start_node</td><td>The node to start the traversal from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5fdd2e99e8e415f2f5af3a342d3884bb" name="a5fdd2e99e8e415f2f5af3a342d3884bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fdd2e99e8e415f2f5af3a342d3884bb">&#9670;&#160;</a></span>graph_dfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIterator.html">Iterator</a> * graph_dfs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>start_node</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs a Depth-First Search on a graph. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td>The graph to traverse. </td></tr>

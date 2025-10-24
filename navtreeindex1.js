@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"group__DataStructureMethods.html#gacdb411dc439f84cde1f64419a2f93b96":[1,0,164],
 "group__DataStructureMethods.html#gacdfb2571d434360f996c8b26002df7fc":[1,0,105],
 "group__DataStructureMethods.html#gaceaf795b36bb4de16bc5cdb2016576b9":[1,0,4],
 "group__DataStructureMethods.html#gad16d39752101465b8baaecb1ca236467":[1,0,88],
