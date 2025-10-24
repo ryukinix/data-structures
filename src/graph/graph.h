@@ -99,4 +99,11 @@ void graph_print(Graph *g);
  */
 Iterator* graph_bfs(Graph *g, int start_node);
 
+/**
+ * @brief Performs a Depth-First Search on a graph.
+ * @param g The graph to traverse.
+ * @param start_node The node to start the traversal from.
+ */
+Iterator* graph_dfs(Graph *g, int start_node);
+
 #endif /* GRAPH_H */
