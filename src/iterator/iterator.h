@@ -14,7 +14,7 @@ typedef struct Iterator {
     void  *container;
     void  *begin;
     void* (*next)(struct Iterator*); /**< get current data and move container pointer to next */
-    void  (*free)(struct Iterator*);  /**< (optional) free object  */
+    void  (*free)(struct Iterator*); /**< (optional) free object  */
     bool  (*done)(struct Iterator*); /**< (optional) check logic if iterator is done */
 } Iterator;
 
