@@ -128,7 +128,21 @@ void set_print(Set *set);
  */
 void set_free(Set *set);
 
+/**
+ * @brief Creates an iterator for the set.
+ *
+ * @param s The set to iterate over.
+ * @return A pointer to the new iterator.
+ */
 Iterator* set_iterator(Set *s);
+
+
+/**
+ * @brief Creates a set from an iterator.
+ *
+ * @param s The iterator to create the set from.
+ * @return A pointer to the new set.
+ */
 Set* set_from_iterator(Iterator *s);
 
 #endif /* SET_H */
