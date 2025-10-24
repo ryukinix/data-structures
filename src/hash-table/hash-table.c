@@ -165,7 +165,7 @@ void hash_table_free(HashTable *ht) {
     free(ht);
 }
 
-void hash_table_iterator_free(Iterator *it) {
+static void hash_table_iterator_free(Iterator *it) {
     list_free(it->begin);
     free(it);
 }

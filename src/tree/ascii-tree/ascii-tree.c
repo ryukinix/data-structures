@@ -20,8 +20,8 @@
 #include "ascii-tree.h"
 
 #define MAX_HEIGHT 1000
-int lprofile[MAX_HEIGHT];
-int rprofile[MAX_HEIGHT];
+static int lprofile[MAX_HEIGHT];
+static int rprofile[MAX_HEIGHT];
 #define INFINITY (1<<20) // hack? this seems defined somewhere.. math.h?
 
 typedef struct asciiTree ASCIITree;
@@ -51,7 +51,7 @@ struct asciiTree {
 
 // used for printing next node in the same level,
 // this is the x coordinate of the next char printed
-int print_next;
+static int print_next;
 
 int MIN(int X, int Y) { return ((X) < (Y)) ? (X) : (Y); }
 
