@@ -38,22 +38,20 @@ void graph_add_node(Graph *g, int node) {
     bool exists;
     hash_table_gen_get(g->adj, node, &exists);
     if (!exists) {
-        HashTableGen *s = hash_table_gen_create(GRAPH_DEFAULT_N_BUCKETS);
+        Set *s = set_create();
         hash_table_gen_put(g->adj, node, s);
     }
 }
 
-void graph__add_weighted_edge(Graph *g, int u, int v, int weight) {
+void graph_add_edge_with_weight(Graph *g, int u, int v, int weight) {
     graph_add_node(g, u);
     graph_add_node(g, v);
-    HashTableGen *neighbors = hash_table_gen_get(g->adj, u, NULL);
-    hash_table_gen_put(neighbors, v, (void*)(long)weight);
-}
+    Set *set_u = hash_table_gen_get(g->adj, u, NULL);
+    set_add_with_value(set_u, v, weight);
 
-void graph_add_edge_with_weight(Graph *g, int u, int v, int weight) {
-    graph__add_weighted_edge(g, u, v, weight);
     if (!g->directed) {
-        graph__add_weighted_edge(g, v, u, weight);
+        Set *set_v = hash_table_gen_get(g->adj, v, NULL);
+        set_add_with_value(set_v, u, weight);
     }
 }
 
@@ -62,11 +60,12 @@ void graph_add_edge(Graph *g, int u, int v) {
 }
 
 void graph__remove_edge(Graph *g, int u, int v) {
-    bool u_exists;
-    HashTableGen *set_u = hash_table_gen_get(g->adj, u, &u_exists);
+    bool u_exists, v_exists;
+    Set *set_u = hash_table_gen_get(g->adj, u, &u_exists);
+    hash_table_gen_get(g->adj, v, &v_exists);
 
-    if (u_exists) {
-        hash_table_gen_remove(set_u, v);
+    if (u_exists && v_exists) {
+        set_remove(set_u, v);
     }
 }
 
@@ -79,9 +78,9 @@ void graph_remove_edge(Graph *g, int u, int v) {
 
 void graph_remove_node(Graph *g, int node) {
     bool exists;
-    HashTableGen *adj_node = hash_table_gen_get(g->adj, node, &exists);
+    Set *adj_node = hash_table_gen_get(g->adj, node, &exists);
     if (exists) {
-        hash_table_gen_free(adj_node, NULL); // we don't need a freer for the weights
+        set_free(adj_node);
         hash_table_gen_remove(g->adj, node);
     }
 
@@ -89,38 +88,41 @@ void graph_remove_node(Graph *g, int node) {
     ListGen *current = nodes;
     while(current) {
         int u = (int)(long)current->data;
-        HashTableGen *s = hash_table_gen_get(g->adj, u, NULL);
-        hash_table_gen_remove(s, node);
+        Set *s = hash_table_gen_get(g->adj, u, NULL);
+        set_remove(s, node);
         current = current->next;
     }
     list_gen_free(nodes);
 }
 
 bool graph_has_edge(Graph *g, int u, int v) {
-    bool u_exists, v_exists;
-    HashTableGen *neighbors_u = hash_table_gen_get(g->adj, u, &u_exists);
-    if (!u_exists) {
+    bool exists;
+    Set *set_u = hash_table_gen_get(g->adj, u, &exists);
+    if (!exists) {
         return false;
     }
-    hash_table_gen_get(neighbors_u, v, &v_exists);
-    return v_exists;
+    return set_contains(set_u, v);
 }
 
 Set* graph_get_neighbors(Graph *g, int node) {
     bool exists;
-    HashTableGen *neighbors = hash_table_gen_get(g->adj, node, &exists);
+    Set *neighbors = hash_table_gen_get(g->adj, node, &exists);
     if (!exists) {
         return set_create();
     }
-    ListGen *nodes = hash_table_gen_keys(neighbors);
-    Set *s = set_create();
-    ListGen *current = nodes;
-    while(current) {
-        set_add(s, (int)(long)current->data);
-        current = current->next;
+    return set_copy(neighbors);
+}
+
+int graph_get_edge_weight(Graph *g, int u, int v) {
+    bool exists;
+    Set *set_u = hash_table_gen_get(g->adj, u, &exists);
+    if (!exists) {
+        return -1;
     }
-    list_gen_free(nodes);
-    return s;
+    if (!set_contains(set_u, v)) {
+        return -1;
+    }
+    return set_get_value(set_u, v);
 }
 
 void graph_print(Graph *g) {
@@ -129,44 +131,25 @@ void graph_print(Graph *g) {
     while(current_node) {
         int u = (int)(long)current_node->data;
         printf("%d -> { ", u);
-        HashTableGen *neighbors = hash_table_gen_get(g->adj, u, NULL);
-        ListGen *neighbor_keys = hash_table_gen_keys(neighbors);
-        ListGen *current_neighbor = neighbor_keys;
-        while(current_neighbor) {
-            int v = (int)(long)current_neighbor->data;
-            int weight = (int)(long)hash_table_gen_get(neighbors, v, NULL);
+        Set *neighbors = hash_table_gen_get(g->adj, u, NULL);
+        Iterator *it = set_iterator(neighbors);
+        while(!iterator_done(it)) {
+            int v = *(int*)iterator_next(it);
+            int weight = set_get_value(neighbors, v);
             printf("(%d, w: %d)", v, weight);
-            if(current_neighbor->next) {
+            if(!iterator_done(it)) {
                 printf(", ");
             }
-            current_neighbor = current_neighbor->next;
         }
+        iterator_free(it);
         printf(" }\n");
-        list_gen_free(neighbor_keys);
         current_node = current_node->next;
     }
     list_gen_free(nodes);
 }
 
 
-void free_inner_hash_table(void* ht) {
-    hash_table_gen_free((HashTableGen*)ht, NULL);
-}
-
 void graph_free(Graph *g) {
-    hash_table_gen_free(g->adj, free_inner_hash_table);
+    hash_table_gen_free(g->adj, (void (*)(void*))set_free);
     free(g);
-}
-
-int graph_get_edge_weight(Graph *g, int u, int v) {
-    bool u_exists, v_exists;
-    HashTableGen *neighbors_u = hash_table_gen_get(g->adj, u, &u_exists);
-    if (!u_exists) {
-        return -1; // Or some other error indicator
-    }
-    void* weight_ptr = hash_table_gen_get(neighbors_u, v, &v_exists);
-    if (!v_exists) {
-        return -1; // Or some other error indicator
-    }
-    return (int)(long)weight_ptr;
 }
