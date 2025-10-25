@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">v3.0-102-gaf18</span>
+                  &#160;<span id="projectnumber">v3.0-103-g0115</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -232,8 +232,10 @@ $(function(){initNavTree('list_8h_source.html','',''); });
 <div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span></div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="list_8h.html#aeb63b5279da6ce8bb35172bb57dc7784">  325</a></span><a class="code hl_typedef" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a>* <a class="code hl_function" href="list_8h.html#aeb63b5279da6ce8bb35172bb57dc7784">list_from_iterator</a>(<a class="code hl_struct" href="structIterator.html">Iterator</a>* it);</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno"><a class="line" href="list_8h.html#a76c317c80ae90ada730a6ed2ba4e6c53">  332</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="list_8h.html#a76c317c80ae90ada730a6ed2ba4e6c53">list_sort</a>(<a class="code hl_typedef" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a>** list);</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="agroup__DataStructureMethods_html_ga0c2292ad15fe513ed2963105505d7ecb"><div class="ttname"><a href="group__DataStructureMethods.html#ga0c2292ad15fe513ed2963105505d7ecb">list_search</a></div><div class="ttdeci">List * list_search(List *l, int data)</div><div class="ttdoc">Search on the list by data and return the node which contains it.</div></div>
 <div class="ttc" id="agroup__DataStructureMethods_html_ga0f6b7c62eb6ef20821defbb3b0b556b0"><div class="ttname"><a href="group__DataStructureMethods.html#ga0f6b7c62eb6ef20821defbb3b0b556b0">list_free</a></div><div class="ttdeci">void list_free(List *l)</div><div class="ttdoc">Free memory of List and its nodes.</div></div>
 <div class="ttc" id="agroup__DataStructureMethods_html_ga17512f40533e97d3eb577094a93a6527"><div class="ttname"><a href="group__DataStructureMethods.html#ga17512f40533e97d3eb577094a93a6527">list__new_node</a></div><div class="ttdeci">List * list__new_node(int data)</div><div class="ttdoc">Create a new node for the list.</div></div>
@@ -269,6 +271,7 @@ $(function(){initNavTree('list_8h_source.html','',''); });
 <div class="ttc" id="agroup__DataStructureMethods_html_gafcd97bebd012deddf21570fdfdada306"><div class="ttname"><a href="group__DataStructureMethods.html#gafcd97bebd012deddf21570fdfdada306">list_pop_last</a></div><div class="ttdeci">int list_pop_last(List **l)</div><div class="ttdoc">Get and pop the last element of the list.</div></div>
 <div class="ttc" id="aiterator_8h_html"><div class="ttname"><a href="iterator_8h.html">iterator.h</a></div></div>
 <div class="ttc" id="alist_8h_html_a2818f7b7d3222a28fa1d6b79c5b1c576"><div class="ttname"><a href="list_8h.html#a2818f7b7d3222a28fa1d6b79c5b1c576">list_iterator_data</a></div><div class="ttdeci">Iterator * list_iterator_data(List *l)</div><div class="ttdoc">Creates an iterator for the list data.</div></div>
+<div class="ttc" id="alist_8h_html_a76c317c80ae90ada730a6ed2ba4e6c53"><div class="ttname"><a href="list_8h.html#a76c317c80ae90ada730a6ed2ba4e6c53">list_sort</a></div><div class="ttdeci">void list_sort(List **list)</div><div class="ttdoc">Sort a list using insertion sort.</div></div>
 <div class="ttc" id="alist_8h_html_a99e20082d0eddef1840f9f37978efd28"><div class="ttname"><a href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a></div><div class="ttdeci">struct ListNode List</div><div class="ttdoc">A singly linked list.</div><div class="ttdef"><b>Definition</b> list.h:36</div></div>
 <div class="ttc" id="alist_8h_html_adac7446611a3c55204ee986c6cfc8f52"><div class="ttname"><a href="list_8h.html#adac7446611a3c55204ee986c6cfc8f52">list_iterator_keys</a></div><div class="ttdeci">Iterator * list_iterator_keys(List *l)</div><div class="ttdoc">Creates an iterator for the list keys.</div></div>
 <div class="ttc" id="alist_8h_html_aeb63b5279da6ce8bb35172bb57dc7784"><div class="ttname"><a href="list_8h.html#aeb63b5279da6ce8bb35172bb57dc7784">list_from_iterator</a></div><div class="ttdeci">List * list_from_iterator(Iterator *it)</div><div class="ttdoc">Creates a list from an iterator.</div></div>

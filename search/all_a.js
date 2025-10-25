@@ -71,10 +71,11 @@ var searchData=
   ['list_5freverse_68',['list_reverse',['../group__DataStructureMethods.html#ga24b701bdb2568d6240b6f4e567048476',1,'list.h']]],
   ['list_5fsearch_69',['list_search',['../group__DataStructureMethods.html#ga0c2292ad15fe513ed2963105505d7ecb',1,'list.h']]],
   ['list_5fsearch_5fby_5fkey_70',['list_search_by_key',['../group__DataStructureMethods.html#gadd1c009ee8ca05d8ee39b1b6b2f550ad',1,'list.h']]],
-  ['list_5fsum_71',['list_sum',['../group__DataStructureMethods.html#ga723facec42e6f5e8251d9c706b9b6871',1,'list.h']]],
-  ['list_5ftail_72',['list_tail',['../group__DataStructureMethods.html#ga44d0e65969310126a7517c9458bade9e',1,'list.h']]],
-  ['listcircular_73',['ListCircular',['../structListCircular.html',1,'ListCircular'],['../list-circular_8h.html#a7f523b90443d668c8d8d4cf84b54f02c',1,'ListCircular:&#160;list-circular.h']]],
-  ['listdouble_74',['ListDouble',['../structListDouble.html',1,'ListDouble'],['../list-double_8h.html#aee3a9358a248532a78b05c0761295c67',1,'ListDouble:&#160;list-double.h']]],
-  ['listgen_75',['ListGen',['../structListGen.html',1,'ListGen'],['../list-gen_8h.html#a91dedce8799146ed2194ad8933affe90',1,'ListGen:&#160;list-gen.h']]],
-  ['listnode_76',['ListNode',['../structListNode.html',1,'']]]
+  ['list_5fsort_71',['list_sort',['../list_8h.html#a76c317c80ae90ada730a6ed2ba4e6c53',1,'list.h']]],
+  ['list_5fsum_72',['list_sum',['../group__DataStructureMethods.html#ga723facec42e6f5e8251d9c706b9b6871',1,'list.h']]],
+  ['list_5ftail_73',['list_tail',['../group__DataStructureMethods.html#ga44d0e65969310126a7517c9458bade9e',1,'list.h']]],
+  ['listcircular_74',['ListCircular',['../structListCircular.html',1,'ListCircular'],['../list-circular_8h.html#a7f523b90443d668c8d8d4cf84b54f02c',1,'ListCircular:&#160;list-circular.h']]],
+  ['listdouble_75',['ListDouble',['../structListDouble.html',1,'ListDouble'],['../list-double_8h.html#aee3a9358a248532a78b05c0761295c67',1,'ListDouble:&#160;list-double.h']]],
+  ['listgen_76',['ListGen',['../structListGen.html',1,'ListGen'],['../list-gen_8h.html#a91dedce8799146ed2194ad8933affe90',1,'ListGen:&#160;list-gen.h']]],
+  ['listnode_77',['ListNode',['../structListNode.html',1,'']]]
 ];

@@ -65,6 +65,7 @@ var searchData=
   ['list_5freverse_62',['list_reverse',['../group__DataStructureMethods.html#ga24b701bdb2568d6240b6f4e567048476',1,'list.h']]],
   ['list_5fsearch_63',['list_search',['../group__DataStructureMethods.html#ga0c2292ad15fe513ed2963105505d7ecb',1,'list.h']]],
   ['list_5fsearch_5fby_5fkey_64',['list_search_by_key',['../group__DataStructureMethods.html#gadd1c009ee8ca05d8ee39b1b6b2f550ad',1,'list.h']]],
-  ['list_5fsum_65',['list_sum',['../group__DataStructureMethods.html#ga723facec42e6f5e8251d9c706b9b6871',1,'list.h']]],
-  ['list_5ftail_66',['list_tail',['../group__DataStructureMethods.html#ga44d0e65969310126a7517c9458bade9e',1,'list.h']]]
+  ['list_5fsort_65',['list_sort',['../list_8h.html#a76c317c80ae90ada730a6ed2ba4e6c53',1,'list.h']]],
+  ['list_5fsum_66',['list_sum',['../group__DataStructureMethods.html#ga723facec42e6f5e8251d9c706b9b6871',1,'list.h']]],
+  ['list_5ftail_67',['list_tail',['../group__DataStructureMethods.html#ga44d0e65969310126a7517c9458bade9e',1,'list.h']]]
 ];

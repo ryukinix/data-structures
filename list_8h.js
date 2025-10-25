@@ -37,6 +37,7 @@ var list_8h =
     [ "list_reverse", "group__DataStructureMethods.html#ga24b701bdb2568d6240b6f4e567048476", null ],
     [ "list_search", "group__DataStructureMethods.html#ga0c2292ad15fe513ed2963105505d7ecb", null ],
     [ "list_search_by_key", "group__DataStructureMethods.html#gadd1c009ee8ca05d8ee39b1b6b2f550ad", null ],
+    [ "list_sort", "list_8h.html#a76c317c80ae90ada730a6ed2ba4e6c53", null ],
     [ "list_sum", "group__DataStructureMethods.html#ga723facec42e6f5e8251d9c706b9b6871", null ],
     [ "list_tail", "group__DataStructureMethods.html#ga44d0e65969310126a7517c9458bade9e", null ]
 ];
