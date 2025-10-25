@@ -9,6 +9,7 @@ struct Graph {
     HashTableGen *adj;
     bool directed; // true by default
     bool weighted;
+    bool tarjan; // false by default
 };
 
 Graph* graph_create() {
@@ -29,6 +30,14 @@ Graph* graph_create() {
 Graph* graph_undirected_create() {
     Graph *g = graph_create();
     g->directed = false;
+    return g;
+}
+
+Graph* graph_tarjan_create() {
+    Graph *g = graph_create();
+    g->directed = true;
+    g->weighted = true;
+    g->tarjan = true;
     return g;
 }
 
@@ -163,7 +172,19 @@ void graph_print(Graph *g) {
         int u = *(int*)iterator_next(it);
         printf("%d: ", u);
         Set *neighbors = hash_table_gen_get(g->adj, u, NULL);
-        if (g->weighted) {
+        if (g->tarjan) {
+            Iterator *it = set_iterator_items(neighbors);
+            printf("{");
+            while (!iterator_done(it)) {
+                List *list = (List*) iterator_next(it);
+                printf("%d:%s", list->key, graph_edge_type_name(list->data));
+                if (!iterator_done(it)) {
+                    printf(", ");
+                }
+            }
+            printf("}\n");
+            iterator_free(it);
+        } else if (g->weighted) {
             set_print_items(neighbors);
         } else {
             set_print(neighbors);

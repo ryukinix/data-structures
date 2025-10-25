@@ -317,6 +317,15 @@ Iterator* list_iterator_data(List *l);
 
 
 /**
+ * @brief Creates an iterator of list nodes.
+ *
+ * @param l The list to iterate over.
+ * @return A pointer to the new iterator.
+ */
+Iterator* list_iterator(List *l);
+
+
+/**
  * @brief Creates a list from an iterator.
  *
  * @param it The iterator to create the list from.

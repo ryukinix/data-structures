@@ -168,6 +168,27 @@ void test_graph_acyclical() {
     graph_free(g);
 }
 
+void test_graph_tarjan() {
+    puts("== Graph edge classification through tarjan ");
+
+    Graph *g = graph_create();
+
+    printf("input graph: \n");
+    graph_add_edge(g, 1, 2);
+    graph_add_edge(g, 2, 3);
+    graph_add_edge(g, 3, 4);
+    graph_add_edge(g, 3, 1);
+
+    graph_print(g);
+
+    printf("tarjan graph: \n");
+    Graph *g_tarjan = graph_tarjan(g);
+    graph_print(g_tarjan);
+
+    graph_free(g_tarjan);
+    graph_free(g);
+}
+
 
 int main() {
     test_graph_directed();
@@ -175,6 +196,7 @@ int main() {
     test_bfs();
     test_dfs();
     test_graph_acyclical();
+    test_graph_tarjan();
 
     printf("\nAll graph tests passed!\n");
     return 0;

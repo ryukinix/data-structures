@@ -173,6 +173,11 @@ Iterator* set_iterator(Set *s) {
     return it;
 }
 
+Iterator* set_iterator_items(Set *s) {
+    Iterator *it = hash_table_iterator_items(s->memory);
+    return it;
+}
+
 
 Set* set_from_iterator(Iterator *it) {
     Set *set = set_create();

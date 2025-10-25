@@ -117,6 +117,7 @@ List* hash_table_keys(HashTable *ht);
 
 Iterator* hash_table_iterator_keys(HashTable *ht);
 Iterator* hash_table_iterator_data(HashTable *ht);
+Iterator* hash_table_iterator_items(HashTable *ht);
 
 /**
  * @brief Free memory of hash table and its contents

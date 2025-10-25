@@ -18,6 +18,13 @@
 
 typedef struct Graph Graph;
 
+typedef enum edgeType {
+    TREE,
+    CROSS,
+    FORWARD,
+    BACK,
+} EdgeType;
+
 /**
  * @brief Creates a new directed graph.
  * @return A pointer to the new graph.
@@ -31,6 +38,13 @@ Graph* graph_create();
  * @ingroup DataStructureMethods
  */
 Graph* graph_undirected_create();
+
+/**
+ * @brief Creates a new tarjan graph.
+ * @return A pointer to the new graph.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_tarjan_create();
 
 /**
  * @brief Get the number of nodes.
@@ -175,4 +189,22 @@ Iterator* graph_nodes_iterator(Graph *g);
  */
 bool graph_acyclical(Graph *g);
 
+/**
+ * @brief Create a new graph with tarjan arc classification as weight of the edges.
+ * @param g The graph to traverse.
+ * @return new graph.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_tarjan(Graph *g);
+
 #endif /* GRAPH_H */
+
+static inline const char* graph_edge_type_name(EdgeType edge_type) {
+    switch (edge_type) {
+    case TREE: return "TREE";
+    case CROSS: return "CROSS";
+    case FORWARD: return "FORWARD";
+    case BACK: return "BACK";
+    }
+    return "?";
+}

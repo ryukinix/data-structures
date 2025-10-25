@@ -137,6 +137,20 @@ List* hash_table_keys(HashTable *ht) {
     return keys;
 }
 
+List* hash_table_items(HashTable *ht) {
+    List *keys = list_create();
+    for (size_t i = 0; i < ht->n_buckets; i++) {
+        List *head = ht->buckets[i];
+        if (!list_empty(head)) {
+            do {
+                keys = list_insert_with_key(keys, head->key, head->data);
+                head = head->next;
+            } while (head);
+        }
+    }
+    return keys;
+}
+
 List* hash_table_values(HashTable *ht) {
     List *keys = list_create();
     for (size_t i = 0; i < ht->n_buckets; i++) {
@@ -170,6 +184,12 @@ void hash_table_free(HashTable *ht) {
 static void hash_table_iterator_free(Iterator *it) {
     list_free(it->begin);
     free(it);
+}
+
+Iterator* hash_table_iterator_items(HashTable *ht) {
+    Iterator *it = list_iterator(hash_table_items(ht));
+    it->free = &hash_table_iterator_free;
+    return it;
 }
 
 Iterator* hash_table_iterator_keys(HashTable *ht) {
