@@ -22,12 +22,12 @@ void test_bfs() {
     graph_print(g);
     printf("\n");
 
-    Iterator *it = graph_bfs(g, 1);
+    Iterator *it = graph_bfs(g, 4);
     List *path = list_from_iterator(it);
     iterator_free(it);
     printf("BFS Path: ");
     list_println(path);
-    List *path_expected = list_init(6, 1, 3, 2, 6, 5, 4);
+    List *path_expected = list_init(6, 4, 1, 3, 2, 6, 5);
     printf("BFS Expected: ");
     list_println(path_expected);
 
@@ -58,12 +58,12 @@ void test_dfs() {
     graph_print(g);
     printf("\n");
 
-    Iterator *it = graph_dfs(g, 1);
+    Iterator *it = graph_dfs(g, 6);
     List *path = list_from_iterator(it);
     iterator_free(it);
     printf("DFS Path: ");
     list_println(path);
-    List *path_expected = list_init(6, 1, 2, 4, 5, 3, 6);
+    List *path_expected = list_init(6, 6, 1, 2, 4, 5, 3, 1);
     printf("DFS Expected: ");
     list_println(path_expected);
 

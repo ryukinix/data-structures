@@ -6,13 +6,32 @@
 
 typedef struct GraphIteratorContext {
     Graph* graph;
+    Iterator* nodes;
     Stack* stack;
     Set* visited;
     List* path;
 } GraphIteratorContext;
 
+static void graph_visit_if_necessary(GraphIteratorContext* it_context, int node) {
+    if (!set_contains(it_context->visited, node)) {
+        set_add(it_context->visited, node);
+        stack_push(it_context->stack, node);
+    }
+}
+
 bool graph_dfs_done(Iterator* it) {
     GraphIteratorContext* it_context = (GraphIteratorContext*) it->container;
+    bool stack_is_empty = stack_empty(it_context->stack);
+    if (!graph_is_directed(it_context->graph)) {
+        return stack_is_empty;
+    }
+
+    // ensure visite all nodes
+    while (stack_empty(it_context->stack) && !iterator_done(it_context->nodes)) {
+        int node = *(int*)iterator_next(it_context->nodes);
+        graph_visit_if_necessary(it_context, node);
+    }
+
     return stack_empty(it_context->stack);
 }
 
@@ -21,6 +40,7 @@ void graph_dfs_free(Iterator* it) {
     stack_free(it_context->stack);
     set_free(it_context->visited);
     list_free(it_context->path);
+    iterator_free(it_context->nodes);
     free(it->container);
     free(it);
 }
@@ -38,10 +58,7 @@ void* graph_dfs_next(Iterator* it) {
     // Iterate over the neighbors.
     while (!iterator_done(set_it)) {
         int neighbor = *(int*)iterator_next(set_it);
-        if (!set_contains(it_context->visited, neighbor)) {
-            set_add(it_context->visited, neighbor);
-            stack_push(it_context->stack, neighbor);
-        }
+        graph_visit_if_necessary(it_context, neighbor);
     }
 
     iterator_free(set_it);
@@ -62,6 +79,7 @@ Iterator* graph_dfs(Graph* g, int start_node) {
 
     GraphIteratorContext* it_context = malloc(sizeof(GraphIteratorContext));
     it_context->graph = g;
+    it_context->nodes = graph_nodes_iterator(g);
     it_context->visited = visited;
     it_context->stack = q;
     it_context->path = path;

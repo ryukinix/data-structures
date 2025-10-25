@@ -33,6 +33,20 @@ Graph* graph_create();
 Graph* graph_undirected_create();
 
 /**
+ * @brief Check if graph is weighted.
+ * @return true if is weighted, false otherwise.
+ * @ingroup DataStructureMethods
+ */
+bool graph_is_directed(Graph *g);
+
+/**
+ * @brief Check if graph is weighted.
+ * @return true if is weighted, false otherwise.
+ * @ingroup DataStructureMethods
+ */
+bool graph_is_weighted(Graph *g);
+
+/**
  * @brief Adds a node to the graph.
  * @param g The graph.
  * @param node The node to be added.
@@ -138,5 +152,12 @@ Iterator* graph_bfs(Graph *g, int start_node);
  * @ingroup DataStructureMethods
  */
 Iterator* graph_dfs(Graph *g, int start_node);
+
+/**
+ * @brief Iterate over nodes of the graph.
+ * @param g The graph to traverse.
+ * @ingroup DataStructureMethods
+ */
+Iterator* graph_nodes_iterator(Graph *g);
 
 #endif /* GRAPH_H */
