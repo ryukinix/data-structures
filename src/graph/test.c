@@ -146,11 +146,35 @@ void test_graph_undirected() {
     graph_free(g);
 }
 
+void test_graph_acyclical() {
+    puts("== Graph acyclical tests");
+    Graph *g = graph_create();
+
+    graph_add_edge(g, 1, 2);
+    graph_add_edge(g, 2, 3);
+    graph_add_edge(g, 3, 4);
+
+    printf("This graph doesn't have cycles:\n");
+    graph_print(g);
+
+    assert(graph_acyclical(g) == true);
+
+    printf("But this have one cycle after introducing edge (3, 1):\n");
+    graph_add_edge(g, 3, 1);
+    graph_print(g);
+
+    assert(graph_acyclical(g) == false);
+
+    graph_free(g);
+}
+
+
 int main() {
     test_graph_directed();
     test_graph_undirected();
     test_bfs();
     test_dfs();
+    test_graph_acyclical();
 
     printf("\nAll graph tests passed!\n");
     return 0;

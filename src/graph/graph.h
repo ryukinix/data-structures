@@ -33,6 +33,13 @@ Graph* graph_create();
 Graph* graph_undirected_create();
 
 /**
+ * @brief Get the number of nodes.
+ * @return number of nodes on the graph.
+ * @ingroup DataStructureMethods
+ */
+size_t graph_size(Graph *g);
+
+/**
  * @brief Check if graph is weighted.
  * @return true if is weighted, false otherwise.
  * @ingroup DataStructureMethods
@@ -159,5 +166,13 @@ Iterator* graph_dfs(Graph *g, int start_node);
  * @ingroup DataStructureMethods
  */
 Iterator* graph_nodes_iterator(Graph *g);
+
+/**
+ * @brief Check if graph has cycles.
+ * @param g The graph to traverse.
+ * @return true if has any cycle, false otherwise.
+ * @ingroup DataStructureMethods
+ */
+bool graph_acyclical(Graph *g);
 
 #endif /* GRAPH_H */
