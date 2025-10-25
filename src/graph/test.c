@@ -58,12 +58,12 @@ void test_dfs() {
     graph_print(g);
     printf("\n");
 
-    Iterator *it = graph_dfs(g, 1);
+    Iterator *it = graph_dfs(g, 6);
     List *path = list_from_iterator(it);
     iterator_free(it);
     printf("DFS Path: ");
     list_println(path);
-    List *path_expected = list_init(6, 1, 2, 4, 5, 3, 6);
+    List *path_expected = list_init(6, 6, 1, 2, 4, 5, 3, 1);
     printf("DFS Expected: ");
     list_println(path_expected);
 

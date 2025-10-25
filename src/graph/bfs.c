@@ -13,7 +13,7 @@ typedef struct GraphIteratorContext {
 } GraphIteratorContext;
 
 
-void graph_visit_if_necessary(GraphIteratorContext* it_context, int node) {
+static void graph_visit_if_necessary(GraphIteratorContext* it_context, int node) {
     if (!set_contains(it_context->visited, node)) {
         set_add(it_context->visited, node);
         queue_insert(it_context->queue, node);
