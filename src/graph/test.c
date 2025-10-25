@@ -185,6 +185,11 @@ void test_graph_tarjan() {
     Graph *g_tarjan = graph_tarjan(g);
     graph_print(g_tarjan);
 
+    assert(graph_get_edge_weight(g_tarjan, 1, 2) == TREE);
+    assert(graph_get_edge_weight(g_tarjan, 2, 3) == TREE);
+    assert(graph_get_edge_weight(g_tarjan, 3, 4) == TREE);
+    assert(graph_get_edge_weight(g_tarjan, 3, 1) == BACK);
+
     graph_free(g_tarjan);
     graph_free(g);
 }
