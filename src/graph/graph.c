@@ -8,6 +8,7 @@
 struct Graph {
     HashTableGen *adj;
     bool directed; // true by default
+    bool weighted;
 };
 
 Graph* graph_create() {
@@ -17,6 +18,7 @@ Graph* graph_create() {
     }
     g->adj = hash_table_gen_create(GRAPH_DEFAULT_N_BUCKETS);
     g->directed = true;
+    g->weighted = false;
     if (!g->adj) {
         free(g);
         return NULL;
@@ -48,6 +50,7 @@ void graph_add_edge_with_weight(Graph *g, int u, int v, int weight) {
     graph_add_node(g, v);
     Set *set_u = hash_table_gen_get(g->adj, u, NULL);
     set_add_with_value(set_u, v, weight);
+    g->weighted = true;
 
     if (!g->directed) {
         Set *set_v = hash_table_gen_get(g->adj, v, NULL);
@@ -56,7 +59,15 @@ void graph_add_edge_with_weight(Graph *g, int u, int v, int weight) {
 }
 
 void graph_add_edge(Graph *g, int u, int v) {
-    graph_add_edge_with_weight(g, u, v, 1);
+    graph_add_node(g, u);
+    graph_add_node(g, v);
+    Set *set_u = hash_table_gen_get(g->adj, u, NULL);
+    set_add(set_u, v);
+
+    if (!g->directed) {
+        Set *set_v = hash_table_gen_get(g->adj, v, NULL);
+        set_add(set_v, u);
+    }
 }
 
 void graph__remove_edge(Graph *g, int u, int v) {
@@ -130,19 +141,25 @@ void graph_print(Graph *g) {
     ListGen *current_node = nodes;
     while(current_node) {
         int u = (int)(long)current_node->data;
-        printf("%d -> { ", u);
+        printf("%d -> ", u);
         Set *neighbors = hash_table_gen_get(g->adj, u, NULL);
-        Iterator *it = set_iterator(neighbors);
-        while(!iterator_done(it)) {
-            int v = *(int*)iterator_next(it);
-            int weight = set_get_value(neighbors, v);
-            printf("(%d, w: %d)", v, weight);
-            if(!iterator_done(it)) {
-                printf(", ");
+        if (g->weighted) {
+            printf("[");
+            Iterator *it = set_iterator(neighbors);
+            while(!iterator_done(it)) {
+                int v = *(int*)iterator_next(it);
+                int weight = set_get_value(neighbors, v);
+                printf("%d->w:%d", v, weight);
+                if(!iterator_done(it)) {
+                    printf(", ");
+                }
             }
+            iterator_free(it);
+            printf("]");
+        } else {
+            set_print(neighbors);
         }
-        iterator_free(it);
-        printf(" }\n");
+        printf("\n");
         current_node = current_node->next;
     }
     list_gen_free(nodes);
