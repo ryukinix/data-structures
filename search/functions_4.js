@@ -10,8 +10,11 @@ var searchData=
   ['graph_5fget_5fedge_5fweight_7',['graph_get_edge_weight',['../group__DataStructureMethods.html#ga21ff51ff74b1563d9c43b6e783ec7e15',1,'graph.h']]],
   ['graph_5fget_5fneighbors_8',['graph_get_neighbors',['../group__DataStructureMethods.html#ga2707306335d4949a622b069702f7f909',1,'graph.h']]],
   ['graph_5fhas_5fedge_9',['graph_has_edge',['../group__DataStructureMethods.html#gaae783bc6c2fbb1b8506767005c938279',1,'graph.h']]],
-  ['graph_5fprint_10',['graph_print',['../group__DataStructureMethods.html#gaa3a385a56949260edcbeeb87389834b0',1,'graph.h']]],
-  ['graph_5fremove_5fedge_11',['graph_remove_edge',['../group__DataStructureMethods.html#ga3359b742debb4bf9c3f0865943df4272',1,'graph.h']]],
-  ['graph_5fremove_5fnode_12',['graph_remove_node',['../group__DataStructureMethods.html#gabefd5131112f6e5b268ed7ba30466b70',1,'graph.h']]],
-  ['graph_5fundirected_5fcreate_13',['graph_undirected_create',['../group__DataStructureMethods.html#ga143276e133a3634ca5ba37d8e181c518',1,'graph.h']]]
+  ['graph_5fis_5fdirected_10',['graph_is_directed',['../group__DataStructureMethods.html#ga2c5f77c0f08e175141c73ece10c22f4e',1,'graph.h']]],
+  ['graph_5fis_5fweighted_11',['graph_is_weighted',['../group__DataStructureMethods.html#ga039eb4d46e046f908b2c51887f2662dd',1,'graph.h']]],
+  ['graph_5fnodes_5fiterator_12',['graph_nodes_iterator',['../group__DataStructureMethods.html#gaf0ef46ec9b32dad0d083252109a230b4',1,'graph.h']]],
+  ['graph_5fprint_13',['graph_print',['../group__DataStructureMethods.html#gaa3a385a56949260edcbeeb87389834b0',1,'graph.h']]],
+  ['graph_5fremove_5fedge_14',['graph_remove_edge',['../group__DataStructureMethods.html#ga3359b742debb4bf9c3f0865943df4272',1,'graph.h']]],
+  ['graph_5fremove_5fnode_15',['graph_remove_node',['../group__DataStructureMethods.html#gabefd5131112f6e5b268ed7ba30466b70',1,'graph.h']]],
+  ['graph_5fundirected_5fcreate_16',['graph_undirected_create',['../group__DataStructureMethods.html#ga143276e133a3634ca5ba37d8e181c518',1,'graph.h']]]
 ];
