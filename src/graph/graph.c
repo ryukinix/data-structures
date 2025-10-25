@@ -45,11 +45,15 @@ Iterator* graph_nodes_iterator(Graph *g) {
     return iterator;
 }
 
-bool graph_is_directed(Graph* g) {
+size_t graph_size(Graph *g) {
+    return hash_table_gen_size(g->adj);
+}
+
+bool graph_is_directed(Graph *g) {
     return g->directed;
 }
 
-bool graph_is_weighted(Graph* g) {
+bool graph_is_weighted(Graph *g) {
     return g->weighted;
 }
 

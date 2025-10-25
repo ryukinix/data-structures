@@ -13,7 +13,7 @@ INCLUDE := -I../ -L../list/single  -L../hash-table -L../set -L../queue -L ../sta
 
 # targets to compile
 TEST_TARGET = test
-TARGETS = graph.o bfs.o dfs.o
+TARGETS = graph.o bfs.o dfs.o acyclical.o
 LIBRARY_OBJS = $(TARGETS)
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
