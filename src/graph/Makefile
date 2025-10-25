@@ -41,6 +41,7 @@ $(TEST_BINARY): deps library $(TARGETS) $(TEST_TARGET).c
 
 test: library $(TEST_BINARY)
 	./$(TEST_BINARY)
+	make dot2png
 
 $(LIBRARY_TARGET): $(LIBRARY_OBJS)
 	ar rcs $@ $?

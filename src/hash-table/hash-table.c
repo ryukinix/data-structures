@@ -129,7 +129,7 @@ List* hash_table_keys(HashTable *ht) {
         List *head = ht->buckets[i];
         if (!list_empty(head)) {
             do {
-                keys = list_insert(keys, head->key);
+                keys = list_append(keys, head->key);
                 head = head->next;
             } while (head);
         }

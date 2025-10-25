@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
+#include <unistd.h>
+#include <linux/limits.h>
 #include "graph.h"
 
 void test_bfs() {
@@ -27,7 +29,7 @@ void test_bfs() {
     iterator_free(it);
     printf("BFS Path: ");
     list_println(path);
-    List *path_expected = list_init(6, 4, 1, 3, 2, 6, 5);
+    List *path_expected = list_init(6, 4, 1, 2, 3, 5, 6);
     printf("BFS Expected: ");
     list_println(path_expected);
 
@@ -63,7 +65,7 @@ void test_dfs() {
     iterator_free(it);
     printf("DFS Path: ");
     list_println(path);
-    List *path_expected = list_init(6, 6, 1, 2, 4, 5, 3, 1);
+    List *path_expected = list_init(6, 6, 1, 3, 2, 5, 4);
     printf("DFS Expected: ");
     list_println(path_expected);
 
@@ -195,6 +197,12 @@ void test_graph_tarjan() {
 }
 
 void test_graph_export() {
+    char cwd[PATH_MAX];
+    getcwd(cwd, sizeof(cwd));
+    const char *g1_fname = "test_graph.dot";
+    const char *g2_fname = "test_graph_undirected.dot";
+    const char *g3_fname = "test_graph_tarjan.dot";
+
     puts("== Testing graph export");
     Graph *g = graph_create();
     graph_add_edge_with_weight(g, 1, 2, 10);
@@ -202,8 +210,10 @@ void test_graph_export() {
     graph_add_edge(g, 2, 3);
     graph_add_edge_with_weight(g, 3, 4, 30);
     graph_add_edge(g, 4, 1);
+    graph_add_edge(g, 5, 1);
 
-    graph_export_to_dot(g, "test_graph.dot");
+    graph_export_to_dot(g, g1_fname);
+    printf("saved: %s/%s\n", cwd, g1_fname);
 
     Graph *g2 = graph_undirected_create();
     graph_add_edge_with_weight(g2, 1, 2, 10);
@@ -211,9 +221,11 @@ void test_graph_export() {
     graph_add_edge(g2, 2, 3);
     graph_add_edge_with_weight(g2, 3, 4, 30);
 
-    graph_export_to_dot(g2, "test_graph_undirected.dot");
+    graph_export_to_dot(g2, g2_fname);
+    printf("saved: %s/%s\n", cwd, g2_fname);
     Graph* g3 = graph_tarjan(g);
-    graph_export_to_dot(g3, "test_graph_tarjan.dot");
+    graph_export_to_dot(g3, g3_fname);
+    printf("saved: %s/%s\n", cwd, g3_fname);
 
     graph_free(g);
     graph_free(g2);
