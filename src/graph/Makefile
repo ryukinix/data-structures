@@ -45,6 +45,9 @@ test: library $(TEST_BINARY)
 $(LIBRARY_TARGET): $(LIBRARY_OBJS)
 	ar rcs $@ $?
 
+dot2png:
+	find . -iname "*.dot" | xargs -L 1 dot -T png -O
+
 library: $(LIBRARY_TARGET)
 
 clean:

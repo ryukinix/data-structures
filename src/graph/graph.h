@@ -157,6 +157,14 @@ void graph_free(Graph *g);
 void graph_print(Graph *g);
 
 /**
+ * @brief Exports the graph to a DOT file for visualization with Graphviz.
+ * @param g The graph.
+ * @param filename The name of the output DOT file.
+ * @ingroup DataStructureMethods
+ */
+void graph_export_to_dot(Graph *g, const char* filename);
+
+/**
  * @brief Performs a Breadth-First Search on a graph.
  * @param g The graph to traverse.
  * @param start_node The node to start the traversal from.

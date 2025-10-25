@@ -194,6 +194,32 @@ void test_graph_tarjan() {
     graph_free(g);
 }
 
+void test_graph_export() {
+    puts("== Testing graph export");
+    Graph *g = graph_create();
+    graph_add_edge_with_weight(g, 1, 2, 10);
+    graph_add_edge_with_weight(g, 1, 3, 20);
+    graph_add_edge(g, 2, 3);
+    graph_add_edge_with_weight(g, 3, 4, 30);
+    graph_add_edge(g, 4, 1);
+
+    graph_export_to_dot(g, "test_graph.dot");
+
+    Graph *g2 = graph_undirected_create();
+    graph_add_edge_with_weight(g2, 1, 2, 10);
+    graph_add_edge_with_weight(g2, 1, 3, 20);
+    graph_add_edge(g2, 2, 3);
+    graph_add_edge_with_weight(g2, 3, 4, 30);
+
+    graph_export_to_dot(g2, "test_graph_undirected.dot");
+    Graph* g3 = graph_tarjan(g);
+    graph_export_to_dot(g3, "test_graph_tarjan.dot");
+
+    graph_free(g);
+    graph_free(g2);
+    graph_free(g3);
+}
+
 
 int main() {
     test_graph_directed();
@@ -202,6 +228,7 @@ int main() {
     test_dfs();
     test_graph_acyclical();
     test_graph_tarjan();
+    test_graph_export();
 
     printf("\nAll graph tests passed!\n");
     return 0;

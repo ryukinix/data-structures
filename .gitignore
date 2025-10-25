@@ -11,3 +11,5 @@ lib/
 src/sort/data/
 api_docs/
 docs/gh-pages
+src/graph/*.dot
+src/graph/*.png

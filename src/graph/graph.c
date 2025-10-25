@@ -198,3 +198,51 @@ void graph_free(Graph *g) {
     hash_table_gen_free(g->adj, (void (*)(void*))set_free);
     free(g);
 }
+
+void graph_export_to_dot(Graph *g, const char* filename) {
+    FILE *fp = fopen(filename, "w");
+    if (fp == NULL) {
+        return;
+        fprintf(stderr, "Could not open file %s for writing\n", filename);
+    }
+
+    fprintf(fp, "%s G {\n", g->directed ? "digraph" : "graph");
+
+    List *nodes = hash_table_gen_keys(g->adj);
+    List *current_node = nodes;
+    while(current_node) {
+        int u = (int)(long)current_node->data;
+        fprintf(fp, "    %d;\n", u); // Declare nodes
+        current_node = current_node->next;
+    }
+    list_free(nodes);
+
+
+    nodes = hash_table_gen_keys(g->adj);
+    current_node = nodes;
+    while (current_node) {
+        int u = (int)(long)current_node->data;
+        Set *neighbors = hash_table_gen_get(g->adj, u, NULL);
+        Iterator *it = set_iterator(neighbors);
+        while (!iterator_done(it)) {
+            int v = *(int*)iterator_next(it);
+            if (g->directed || u < v) { // Avoid duplicate edges in undirected graphs
+                fprintf(fp, "    %d %s %d", u, g->directed ? "->" : "--", v);
+                if (g->tarjan) {
+                    int edge_type = set_get_value(neighbors, v);
+                    fprintf(fp, " [label=\"%s\"]", graph_edge_type_name(edge_type));
+                } else if (g->weighted) {
+                    int weight = set_get_value(neighbors, v);
+                    fprintf(fp, " [label=\"%d\"]", weight);
+                }
+                fprintf(fp, ";\n");
+            }
+        }
+        iterator_free(it);
+        current_node = current_node->next;
+    }
+    list_free(nodes);
+
+    fprintf(fp, "}\n");
+    fclose(fp);
+}
