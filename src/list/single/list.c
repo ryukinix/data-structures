@@ -452,3 +452,17 @@ List* list_from_iterator(Iterator *it) {
     list_reverse(&l);
     return l;
 }
+
+void list_sort(List **list) {
+    List* list_sorted = list_create();
+    Iterator* it = list_iterator_data(*list);
+
+    while (!iterator_done(it)) {
+        int data = *(int*)iterator_next(it);
+        list_sorted = list_insert_ord(list_sorted, data);
+    }
+
+    iterator_free(it);
+    list_free(*list);
+    *list = list_sorted;
+}

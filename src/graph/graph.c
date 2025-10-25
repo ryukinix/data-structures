@@ -95,15 +95,15 @@ void graph_remove_node(Graph *g, int node) {
         hash_table_gen_remove(g->adj, node);
     }
 
-    ListGen *nodes = hash_table_gen_keys(g->adj);
-    ListGen *current = nodes;
-    while(current) {
-        int u = (int)(long)current->data;
+    List *nodes = hash_table_gen_keys(g->adj);
+    Iterator *it = list_iterator_data(nodes);
+    while(!iterator_done(it)) {
+        int u = *(int*)iterator_next(it);
         Set *s = hash_table_gen_get(g->adj, u, NULL);
         set_remove(s, node);
-        current = current->next;
     }
-    list_gen_free(nodes);
+    list_free(nodes);
+    iterator_free(it);
 }
 
 bool graph_has_edge(Graph *g, int u, int v) {
@@ -137,11 +137,12 @@ int graph_get_edge_weight(Graph *g, int u, int v) {
 }
 
 void graph_print(Graph *g) {
-    ListGen *nodes = hash_table_gen_keys(g->adj);
-    ListGen *current_node = nodes;
-    while(current_node) {
-        int u = (int)(long)current_node->data;
-        printf("%d -> ", u);
+    List *nodes = hash_table_gen_keys(g->adj);
+    list_sort(&nodes);
+    Iterator *it = list_iterator_data(nodes);
+    while(!iterator_done(it)) {
+        int u = *(int*)iterator_next(it);
+        printf("%d: ", u);
         Set *neighbors = hash_table_gen_get(g->adj, u, NULL);
         if (g->weighted) {
             printf("[");
@@ -155,14 +156,13 @@ void graph_print(Graph *g) {
                 }
             }
             iterator_free(it);
-            printf("]");
+            printf("]\n");
         } else {
             set_print(neighbors);
         }
-        printf("\n");
-        current_node = current_node->next;
     }
-    list_gen_free(nodes);
+    list_free(nodes);
+    iterator_free(it);
 }
 
 
