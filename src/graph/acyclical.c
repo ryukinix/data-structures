@@ -1,20 +1,22 @@
 #include "graph.h"
 #include "../stack/stack.h"
 
+struct CycleContext {
+    Stack* cycle_path;
+    int counter_exploration;
+    int counter_complete;
+    int *exploration;
+    int *complete;
+};
 
 // detect if graph has cycles
 static bool graph_dfsa(
     Graph *g,
     int node,
-    Stack* cycle_path,
-    int *counter_exploration,
-    int *counter_complete,
-    int *exploration,
-    int *complete
+    struct CycleContext *sc
 ) {
-    *counter_exploration = *counter_exploration + 1;
-    exploration[node] = *counter_exploration;
-    stack_push(cycle_path, node);
+    sc->exploration[node] = ++sc->counter_exploration;
+    stack_push(sc->cycle_path, node);
 
     bool has_cycles = false;
     Set* neighbors_set = graph_get_neighbors(g, node);
@@ -22,17 +24,13 @@ static bool graph_dfsa(
 
     while (!iterator_done(set_it)) {
         int neighbor = *(int*) iterator_next(set_it);
-        if (exploration[neighbor] == 0) {
+        if (sc->exploration[neighbor] == 0) {
             has_cycles = graph_dfsa(
                 g,
                 neighbor,
-                cycle_path,
-                counter_exploration,
-                counter_complete,
-                exploration,
-                complete
+                sc
             );
-        } else if (exploration[neighbor] < exploration[node] && complete[neighbor] == 0) {
+        } else if (sc->exploration[neighbor] < sc->exploration[node] && sc->complete[neighbor] == 0) {
             has_cycles = true;
         }
 
@@ -46,21 +44,24 @@ static bool graph_dfsa(
         return true;
     }
 
-    stack_pop(cycle_path);
-    *counter_complete = *counter_complete + 1;
-    complete[node] = *counter_complete;
-    stack_push(cycle_path, node);
+    stack_pop(sc->cycle_path);
+    sc->complete[node] = ++sc->counter_complete;
     return false;
 }
 
 
 bool graph_acyclical(Graph *g) {
-    int counter_exploration = 0;
-    int counter_complete = 0;
+    struct CycleContext sc;
     int exploration[graph_size(g)];
     int complete[graph_size(g)];
-
     Stack* cycle_path = stack_create();
+
+    sc.cycle_path = cycle_path;
+    sc.counter_complete = 0;
+    sc.counter_exploration = 0;
+    sc.exploration = exploration;
+    sc.complete = complete;
+
     Iterator *nodes;
 
     // initialize
@@ -80,11 +81,7 @@ bool graph_acyclical(Graph *g) {
         has_cycles = graph_dfsa(
             g,
             node,
-            cycle_path,
-            &counter_exploration,
-            &counter_complete,
-            exploration,
-            complete
+            &sc
         );
         if (has_cycles) {
             //printf("Cycle: "); stack_println(cycle_path);
