@@ -32,8 +32,25 @@ Graph* graph_undirected_create() {
     return g;
 }
 
+static void graph_nodes_iterator_free(Iterator *it) {
+    list_free(it->begin);
+    free(it);
+}
+
+Iterator* graph_nodes_iterator(Graph *g) {
+    List *nodes = hash_table_gen_keys(g->adj);
+    list_sort(&nodes);
+    Iterator *iterator = list_iterator_data(nodes);
+    iterator->free = &graph_nodes_iterator_free;
+    return iterator;
+}
+
 bool graph_is_directed(Graph* g) {
     return g->directed;
+}
+
+bool graph_is_weighted(Graph* g) {
+    return g->weighted;
 }
 
 void graph_add_node(Graph *g, int node) {
@@ -137,9 +154,7 @@ int graph_get_edge_weight(Graph *g, int u, int v) {
 }
 
 void graph_print(Graph *g) {
-    List *nodes = hash_table_gen_keys(g->adj);
-    list_sort(&nodes);
-    Iterator *it = list_iterator_data(nodes);
+    Iterator *it = graph_nodes_iterator(g);
     while(!iterator_done(it)) {
         int u = *(int*)iterator_next(it);
         printf("%d: ", u);
@@ -150,7 +165,6 @@ void graph_print(Graph *g) {
             set_print(neighbors);
         }
     }
-    list_free(nodes);
     iterator_free(it);
 }
 
