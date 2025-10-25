@@ -158,6 +158,11 @@ void set_print(Set *set) {
 }
 
 
+void set_print_items(Set *set) {
+    hash_table_print_items(set->memory);
+}
+
+
 void set_free(Set *set) {
     hash_table_free(set->memory);
     free(set);

@@ -145,18 +145,7 @@ void graph_print(Graph *g) {
         printf("%d: ", u);
         Set *neighbors = hash_table_gen_get(g->adj, u, NULL);
         if (g->weighted) {
-            printf("[");
-            Iterator *it = set_iterator(neighbors);
-            while(!iterator_done(it)) {
-                int v = *(int*)iterator_next(it);
-                int weight = set_get_value(neighbors, v);
-                printf("%d->w:%d", v, weight);
-                if(!iterator_done(it)) {
-                    printf(", ");
-                }
-            }
-            iterator_free(it);
-            printf("]\n");
+            set_print_items(neighbors);
         } else {
             set_print(neighbors);
         }

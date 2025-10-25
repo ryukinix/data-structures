@@ -106,15 +106,17 @@ size_t hash_table_size(HashTable *ht) {
 
 void hash_table_print_items(HashTable *ht) {
     printf("{");
+    size_t k = 0;
     for (size_t i = 0; i < ht->n_buckets; i++) {
         List *head = ht->buckets[i];
         if (!list_empty(head)) {
             do {
                 printf("%d->%d", head->key, head->data);
                 head = head->next;
-                if (!((ht->n_buckets - 1) == i && !head)) {
+                if (k < (ht->size - 1)) {
                     printf(", ");
                 }
+                k++;
             } while (head);
         }
     }

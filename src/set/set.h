@@ -140,6 +140,13 @@ bool set_contains(Set *set, int element);
 void set_print(Set *set);
 
 /**
+ * @brief Print all elements with its inner value
+ * @param set pointer
+ * @ingroup DataStructureMethods
+ */
+void set_print_items(Set *set);
+
+/**
  * @brief Free memory of set and its contents
  * @param set pointer
  * @ingroup DataStructureMethods
