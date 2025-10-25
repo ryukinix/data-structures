@@ -105,6 +105,9 @@ test: all
 
 check: test
 
+check/%:
+	make test -C src/$*
+
 check-valgrind/%:
 	make compile-tests > /dev/null
 	find $(SRCDIR) -path "*$**" -and -iname "test.out" | xargs -L 1 valgrind $(VALGRIND_ARGS)  > /dev/null
