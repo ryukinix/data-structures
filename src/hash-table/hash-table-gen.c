@@ -85,13 +85,13 @@ size_t hash_table_gen_size(HashTableGen *ht) {
     return ht->size;
 }
 
-ListGen* hash_table_gen_keys(HashTableGen *ht) {
-    ListGen *keys = list_gen_create();
+List* hash_table_gen_keys(HashTableGen *ht) {
+    List *keys = list_create();
     for (size_t i = 0; i < ht->n_buckets; i++) {
         ListGen *head = ht->buckets[i];
         if (!list_gen_empty(head)) {
             do {
-                keys = list_gen_insert(keys, (void*)(long)head->key);
+                keys = list_insert(keys, head->key);
                 head = head->next;
             } while (head);
         }

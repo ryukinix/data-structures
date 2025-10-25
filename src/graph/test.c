@@ -82,6 +82,7 @@ void test_graph_directed() {
     graph_add_edge(g, 1, 3);
     graph_add_edge(g, 2, 3);
     graph_add_edge(g, 3, 4);
+    graph_add_edge_with_weight(g, 3, 4, 2);
 
     assert(graph_has_edge(g, 1, 2));
     assert(graph_has_edge(g, 1, 3));

@@ -50,6 +50,28 @@ void graph_add_node(Graph *g, int node);
 void graph_add_edge(Graph *g, int u, int v);
 
 /**
+ * @brief Adds a weighted edge to the graph.
+ * @param g The graph.
+ * @param u The source node.
+ * @param v The destination node.
+ * @param weight The weight of the edge.
+ * @ingroup DataStructureMethods
+ */
+void graph_add_edge_with_weight(Graph *g, int u, int v, int weight);
+
+
+/**
+ * @brief Gets the weight of an edge.
+ * @param g The graph.
+ * @param u The source node.
+ * @param v The destination node.
+ * @return The weight of the edge, or -1 if the edge does not exist.
+ * @ingroup DataStructureMethods
+ */
+int graph_get_edge_weight(Graph *g, int u, int v);
+
+
+/**
  * @brief Removes an edge from the graph.
  * @param g The graph.
  * @param u The source node.

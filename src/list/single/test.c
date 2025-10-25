@@ -267,6 +267,22 @@ void test_list_iterator() {
     list_free(l_from_iterator);
 }
 
+void test_list_sort() {
+    puts("== list sort should produce the a ordered list");
+    List *l = list_init(4, 1, 0, 2, 3);
+    List *l_expected = list_init(4, 0, 1, 2, 3);
+    printf("list input: ");
+    list_println(l);
+    printf("list expected after sort: ");
+    list_println(l_expected);
+
+    list_sort(&l);
+    assert(list_equal(l, l_expected));
+
+    list_free(l);
+    list_free(l_expected);
+}
+
 int main(void) {
     test_basic_functions();
     test_list_init();
@@ -284,6 +300,7 @@ int main(void) {
     test_list_reverse();
     test_jarbas();
     test_list_iterator();
+    test_list_sort();
 #ifdef _WIN32
     pause();
 #endif

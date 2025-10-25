@@ -324,4 +324,11 @@ Iterator* list_iterator_data(List *l);
  */
 List* list_from_iterator(Iterator* it);
 
+/**
+ * @brief Sort a list using insertion sort.
+ *
+ * @param list Double pointer to the list.
+  */
+void list_sort(List** list);
+
 #endif

@@ -29,8 +29,21 @@ Set* set_copy(Set *set) {
 }
 
 
+void set_add_with_value(Set *set, int element, int value) {
+    hash_table_put(set->memory, element, value);
+}
+
 void set_add(Set *set, int element) {
-    hash_table_put(set->memory, element, SET_DEFAULT_HASH_MAP_VALUE);
+    set_add_with_value(set, element, SET_DEFAULT_HASH_MAP_VALUE);
+}
+
+int set_get_value(Set *set, int element) {
+    bool exists;
+    int value = hash_table_get(set->memory, element, &exists);
+    if (exists) {
+        return value;
+    }
+    return 0; // Default value if element is not in the set
 }
 
 
@@ -142,6 +155,11 @@ bool set_contains(Set *set, int element) {
 
 void set_print(Set *set) {
     hash_table_print_keys(set->memory);
+}
+
+
+void set_print_items(Set *set) {
+    hash_table_print_items(set->memory);
 }
 
 

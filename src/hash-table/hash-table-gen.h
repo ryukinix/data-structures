@@ -16,6 +16,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "../list/single/list-gen.h"
+#include "../list/single/list.h"
 
 typedef struct HashTableGen HashTableGen;
 
@@ -91,7 +92,7 @@ void hash_table_gen_print(HashTableGen *ht);
  * @return A list of the keys.
  * @ingroup DataStructureMethods
  */
-ListGen* hash_table_gen_keys(HashTableGen *ht);
+List* hash_table_gen_keys(HashTableGen *ht);
 
 /**
  * @brief Frees the memory allocated for the hash table.

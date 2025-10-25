@@ -58,6 +58,24 @@ Set* set_copy(Set *set);
 void set_add(Set *set, int element);
 
 /**
+ * @brief Add an element to the set with a custom value.
+ * @param set pointer
+ * @param element integer to add in the set
+ * @param value integer value associated with the element
+ * @ingroup DataStructureMethods
+ */
+void set_add_with_value(Set *set, int element, int value);
+
+/**
+ * @brief Get the value of an element in the set.
+ * @param set pointer
+ * @param element integer to get the value from
+ * @return the value of the element, or 0 if the element is not in the set
+ * @ingroup DataStructureMethods
+ */
+int set_get_value(Set *set, int element);
+
+/**
  * @brief Check if set A is a subset of set B
  * @param set_a set A
  * @param set_b set B
@@ -120,6 +138,13 @@ bool set_contains(Set *set, int element);
  * @ingroup DataStructureMethods
  */
 void set_print(Set *set);
+
+/**
+ * @brief Print all elements with its inner value
+ * @param set pointer
+ * @ingroup DataStructureMethods
+ */
+void set_print_items(Set *set);
 
 /**
  * @brief Free memory of set and its contents
