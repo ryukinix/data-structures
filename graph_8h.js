@@ -1,6 +1,7 @@
 var graph_8h =
 [
     [ "Graph", "graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc", null ],
+    [ "graph_acyclical", "group__DataStructureMethods.html#gab0000718355eb86d6ce169f91f982429", null ],
     [ "graph_add_edge", "group__DataStructureMethods.html#gaa2a17e2e004a9de935fdf04e2baba495", null ],
     [ "graph_add_edge_with_weight", "group__DataStructureMethods.html#gaeb94390aeb282dd55ec03add72b50326", null ],
     [ "graph_add_node", "group__DataStructureMethods.html#ga65496fe9708642e965c5323c75d0df4a", null ],
@@ -17,5 +18,6 @@ var graph_8h =
     [ "graph_print", "group__DataStructureMethods.html#gaa3a385a56949260edcbeeb87389834b0", null ],
     [ "graph_remove_edge", "group__DataStructureMethods.html#ga3359b742debb4bf9c3f0865943df4272", null ],
     [ "graph_remove_node", "group__DataStructureMethods.html#gabefd5131112f6e5b268ed7ba30466b70", null ],
+    [ "graph_size", "group__DataStructureMethods.html#gafa62be961f76feef47fcfcae30721b83", null ],
     [ "graph_undirected_create", "group__DataStructureMethods.html#ga143276e133a3634ca5ba37d8e181c518", null ]
 ];
