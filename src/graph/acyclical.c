@@ -59,6 +59,12 @@ struct CycleContext* cycle_context_create(Graph *g) {
     cc->counter_exploration = 0;
     cc->has_cycles = false;
 
+    // initialize arrays
+    for (int i = 0; i < max_nodes; i++) {
+        cc->exploration[i] = 0;
+        cc->complete[i] = 0;
+    }
+
     return cc;
 }
 
@@ -72,19 +78,9 @@ void cycle_context_free(struct CycleContext *cc) {
 
 static struct CycleContext* graph_check_cycles(Graph *g) {
     struct CycleContext *cc = cycle_context_create(g);
-    Iterator *nodes;
-
-    // initialize
-    nodes = graph_nodes_iterator(g);
-    while (!iterator_done(nodes)) {
-        int node = *(int*) iterator_next(nodes);
-        cc->exploration[node] = 0;
-        cc->complete[node] = 0;
-    }
-    iterator_free(nodes);
 
     // dfs over each node
-    nodes = graph_nodes_iterator(g);
+    Iterator *nodes = graph_nodes_iterator(g);
     while (!iterator_done(nodes)) {
         int node = *(int*) iterator_next(nodes);
 

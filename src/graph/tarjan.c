@@ -51,8 +51,9 @@ static void graph_dfst(
 
 Graph* graph_tarjan(Graph *g) {
     struct TarjanContext tc;
-    int exploration[graph_size(g)];
-    int complete[graph_size(g)];
+    int max_node_id = graph_max_node_id(g);
+    int exploration[max_node_id];
+    int complete[max_node_id];
 
     tc.g_tarjan = graph_tarjan_create(graph_is_directed(g));
     tc.counter_complete = 0;
@@ -60,19 +61,14 @@ Graph* graph_tarjan(Graph *g) {
     tc.exploration = exploration;
     tc.complete = complete;
 
-    Iterator *nodes;
-
-    // initialize
-    nodes = graph_nodes_iterator(g);
-    while (!iterator_done(nodes)) {
-        int node = *(int*) iterator_next(nodes);
-        exploration[node] = 0;
-        complete[node] = 0;
+    // initialize arrays
+    for (int i = 0; i <= max_node_id; i++) {
+        exploration[i] = 0;
+        complete[i] = 0;
     }
-    iterator_free(nodes);
 
     // dfs over each node
-    nodes = graph_nodes_iterator(g);
+    Iterator *nodes = graph_nodes_iterator(g);
     while (!iterator_done(nodes)) {
         int node = *(int*) iterator_next(nodes);
         if (tc.exploration[node] == 0) {
