@@ -202,6 +202,7 @@ void test_graph_export() {
     const char *g1_fname = "test_graph.dot";
     const char *g2_fname = "test_graph_undirected.dot";
     const char *g3_fname = "test_graph_tarjan.dot";
+    const char *g4_fname = "test_graph_undirected_tarjan.dot";
 
     puts("== Testing graph export");
     Graph *g = graph_create();
@@ -227,9 +228,14 @@ void test_graph_export() {
     graph_export_to_dot(g3, g3_fname);
     printf("saved: %s/%s\n", cwd, g3_fname);
 
+    Graph* g4 = graph_tarjan(g2);
+    graph_export_to_dot(g4, g4_fname);
+    printf("saved: %s/%s\n", cwd, g3_fname);
+
     graph_free(g);
     graph_free(g2);
     graph_free(g3);
+    graph_free(g4);
 }
 
 

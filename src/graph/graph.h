@@ -41,10 +41,11 @@ Graph* graph_undirected_create();
 
 /**
  * @brief Creates a new tarjan graph.
+ * @param directed flag if graph should be directed or not.
  * @return A pointer to the new graph.
  * @ingroup DataStructureMethods
  */
-Graph* graph_tarjan_create();
+Graph* graph_tarjan_create(bool directed);
 
 /**
  * @brief Get the number of nodes.

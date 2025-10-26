@@ -35,7 +35,10 @@ static void graph_dfsj(
     while (!iterator_done(set_it)) {
         int neighbor = *(int*) iterator_next(set_it);
         EdgeType edge_type = tarjan_classify_edge(tc, node, neighbor);
-        graph_add_edge_with_weight(tc->g_tarjan, node, neighbor, edge_type);
+        if (!graph_has_edge(tc->g_tarjan, node, neighbor)) {
+            graph_add_edge_with_weight(tc->g_tarjan, node, neighbor, edge_type);
+        }
+
         if (edge_type == TREE) {
             graph_dfsj(g, neighbor, tc);
         }
@@ -52,7 +55,7 @@ Graph* graph_tarjan(Graph *g) {
     int exploration[graph_size(g)];
     int complete[graph_size(g)];
 
-    tc.g_tarjan = graph_tarjan_create();
+    tc.g_tarjan = graph_tarjan_create(graph_is_directed(g));
     tc.counter_complete = 0;
     tc.counter_exploration = 0;
     tc.exploration = exploration;

@@ -33,9 +33,9 @@ Graph* graph_undirected_create() {
     return g;
 }
 
-Graph* graph_tarjan_create() {
+Graph* graph_tarjan_create(bool directed) {
     Graph *g = graph_create();
-    g->directed = true;
+    g->directed = directed;
     g->weighted = true;
     g->tarjan = true;
     return g;
