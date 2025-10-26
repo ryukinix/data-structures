@@ -58,6 +58,13 @@ size_t graph_size(Graph *g) {
     return hash_table_gen_size(g->adj);
 }
 
+int graph_max_node_id(Graph *g) {
+    Iterator *it = graph_nodes_iterator(g);
+    int max_node_id = iterator_max_int(it);
+    iterator_free(it);
+    return max_node_id;
+}
+
 bool graph_is_directed(Graph *g) {
     return g->directed;
 }

@@ -202,6 +202,13 @@ Iterator* graph_dfs(Graph *g, int start_node);
 Iterator* graph_nodes_iterator(Graph *g);
 
 /**
+ * @brief Get the maximum node id on the graph.
+ * @return maximum node id on the graph.
+ * @ingroup DataStructureMethods
+ */
+int graph_max_node_id(Graph *g);
+
+/**
  * @brief Check if graph has cycles.
  * @param g The graph to traverse.
  * @return true if has any cycle, false otherwise.

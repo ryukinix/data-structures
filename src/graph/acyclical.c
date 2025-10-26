@@ -49,12 +49,12 @@ static void graph_dfsa(
 
 struct CycleContext* cycle_context_create(Graph *g) {
     struct CycleContext *cc = malloc(sizeof(struct CycleContext));
-    int nodes = graph_size(g);
+    int max_nodes = graph_max_node_id(g) + 1;
 
     cc->topological_sort = stack_create();
     cc->cycle_path = stack_create();
-    cc->exploration = malloc(nodes * sizeof(int));
-    cc->complete = malloc(nodes * sizeof(int));
+    cc->exploration = malloc(max_nodes * sizeof(int));
+    cc->complete = malloc(max_nodes * sizeof(int));
     cc->counter_complete = 0;
     cc->counter_exploration = 0;
     cc->has_cycles = false;
