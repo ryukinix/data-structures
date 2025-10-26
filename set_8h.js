@@ -14,6 +14,7 @@ var set_8h =
     [ "set_init", "group__DataStructureMethods.html#gac5f722c6f5b1a460c363d9804eb9faca", null ],
     [ "set_intersection", "group__DataStructureMethods.html#gaea61a98a7f97224f406916bf0696e14c", null ],
     [ "set_iterator", "set_8h.html#aa5092416012d727e500d80eb8406fa37", null ],
+    [ "set_iterator_items", "set_8h.html#a5eaf2c8c8e6e6aac6779a546453dd564", null ],
     [ "set_print", "group__DataStructureMethods.html#gad5ca92546c83b1b0b9c26b137ad400ce", null ],
     [ "set_print_items", "group__DataStructureMethods.html#ga590547182465e3d7a44a3aba4eef409b", null ],
     [ "set_remove", "group__DataStructureMethods.html#ga24d81b0c848fb08a253bb75148f58ceb", null ],

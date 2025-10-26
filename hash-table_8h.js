@@ -7,6 +7,7 @@ var hash_table_8h =
     [ "hash_table_free", "group__DataStructureMethods.html#ga3920e9707bec9a3346b6bf0d43b7e6ba", null ],
     [ "hash_table_get", "group__DataStructureMethods.html#ga7811ad7e580b9f0cb04b595db0e0e80a", null ],
     [ "hash_table_iterator_data", "hash-table_8h.html#a465f6c746d10d6a3f1092d3f656d893a", null ],
+    [ "hash_table_iterator_items", "hash-table_8h.html#af8ea42e7846cdb020bab70f55ea2a35c", null ],
     [ "hash_table_iterator_keys", "hash-table_8h.html#a1ff0ef34d759bc264dd6353b31741908", null ],
     [ "hash_table_keys", "group__DataStructureMethods.html#gac499c1122d3469bb30235d1fa6874eb7", null ],
     [ "hash_table_print", "group__DataStructureMethods.html#gafe60755b1f40f5d7fffb296b295e7748", null ],

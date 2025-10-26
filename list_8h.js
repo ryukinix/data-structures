@@ -20,6 +20,7 @@ var list_8h =
     [ "list_insert", "group__DataStructureMethods.html#ga77efe4096d597d8656f20dc5360650c9", null ],
     [ "list_insert_ord", "group__DataStructureMethods.html#gada7776295c7f880ba04357a89f487c43", null ],
     [ "list_insert_with_key", "group__DataStructureMethods.html#ga7becbf9e693747aa7c02748f0d61ba2a", null ],
+    [ "list_iterator", "list_8h.html#a304b550a5f7115fedd6d59e090f261b6", null ],
     [ "list_iterator_data", "list_8h.html#a2818f7b7d3222a28fa1d6b79c5b1c576", null ],
     [ "list_iterator_keys", "list_8h.html#adac7446611a3c55204ee986c6cfc8f52", null ],
     [ "list_last", "group__DataStructureMethods.html#ga915fe1e58c573a63cdde45d78b449ddd", null ],

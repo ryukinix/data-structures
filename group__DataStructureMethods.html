@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">1.0.0-2-g1804</span>
+                  &#160;<span id="projectnumber">1.0.0-3-g1391</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -146,6 +146,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga39a96a95df86039c63a8299247a8d3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new directed graph.  <br /></td></tr>
 <tr class="memitem:ga143276e133a3634ca5ba37d8e181c518" id="r_ga143276e133a3634ca5ba37d8e181c518"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga143276e133a3634ca5ba37d8e181c518">graph_undirected_create</a> ()</td></tr>
 <tr class="memdesc:ga143276e133a3634ca5ba37d8e181c518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new undirected graph.  <br /></td></tr>
+<tr class="memitem:ga80ec301dfe014b65018688420cd61558" id="r_ga80ec301dfe014b65018688420cd61558"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga80ec301dfe014b65018688420cd61558">graph_tarjan_create</a> (bool directed)</td></tr>
+<tr class="memdesc:ga80ec301dfe014b65018688420cd61558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tarjan graph.  <br /></td></tr>
 <tr class="memitem:gafa62be961f76feef47fcfcae30721b83" id="r_gafa62be961f76feef47fcfcae30721b83"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafa62be961f76feef47fcfcae30721b83">graph_size</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
 <tr class="memdesc:gafa62be961f76feef47fcfcae30721b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of nodes.  <br /></td></tr>
 <tr class="memitem:ga2c5f77c0f08e175141c73ece10c22f4e" id="r_ga2c5f77c0f08e175141c73ece10c22f4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2c5f77c0f08e175141c73ece10c22f4e">graph_is_directed</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
@@ -172,6 +174,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:gab86bd6cf63f60d730aa569dc0d20de92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the memory allocated for the graph.  <br /></td></tr>
 <tr class="memitem:gaa3a385a56949260edcbeeb87389834b0" id="r_gaa3a385a56949260edcbeeb87389834b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa3a385a56949260edcbeeb87389834b0">graph_print</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
 <tr class="memdesc:gaa3a385a56949260edcbeeb87389834b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the graph.  <br /></td></tr>
+<tr class="memitem:ga7f5ad15cd23d1317fa5b73ab1fb9eada" id="r_ga7f5ad15cd23d1317fa5b73ab1fb9eada"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7f5ad15cd23d1317fa5b73ab1fb9eada">graph_export_to_dot</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, const char *filename)</td></tr>
+<tr class="memdesc:ga7f5ad15cd23d1317fa5b73ab1fb9eada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports the graph to a DOT file for visualization with Graphviz.  <br /></td></tr>
 <tr class="memitem:ga663df5be270b676eee0948f9adb551ac" id="r_ga663df5be270b676eee0948f9adb551ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga663df5be270b676eee0948f9adb551ac">graph_bfs</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, int start_node)</td></tr>
 <tr class="memdesc:ga663df5be270b676eee0948f9adb551ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a Breadth-First Search on a graph.  <br /></td></tr>
 <tr class="memitem:ga5fdd2e99e8e415f2f5af3a342d3884bb" id="r_ga5fdd2e99e8e415f2f5af3a342d3884bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5fdd2e99e8e415f2f5af3a342d3884bb">graph_dfs</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, int start_node)</td></tr>
@@ -180,6 +184,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:gaf0ef46ec9b32dad0d083252109a230b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over nodes of the graph.  <br /></td></tr>
 <tr class="memitem:gab0000718355eb86d6ce169f91f982429" id="r_gab0000718355eb86d6ce169f91f982429"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab0000718355eb86d6ce169f91f982429">graph_acyclical</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
 <tr class="memdesc:gab0000718355eb86d6ce169f91f982429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if graph has cycles.  <br /></td></tr>
+<tr class="memitem:ga1a1c95ff51077e29924a722f61e4b512" id="r_ga1a1c95ff51077e29924a722f61e4b512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1a1c95ff51077e29924a722f61e4b512">graph_tarjan</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
+<tr class="memdesc:ga1a1c95ff51077e29924a722f61e4b512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new graph with tarjan arc classification as weight of the edges.  <br /></td></tr>
 <tr class="memitem:ga8698fbad262e1ca13afe0f8fa14807bc" id="r_ga8698fbad262e1ca13afe0f8fa14807bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hash-table-gen_8h.html#a4b366b34613fae694b6d8de0578705be">HashTableGen</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8698fbad262e1ca13afe0f8fa14807bc">hash_table_gen_create</a> (size_t n_buckets)</td></tr>
 <tr class="memdesc:ga8698fbad262e1ca13afe0f8fa14807bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new generic hash table.  <br /></td></tr>
 <tr class="memitem:ga83befd236c85362e316959283ef38235" id="r_ga83befd236c85362e316959283ef38235"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga83befd236c85362e316959283ef38235">hash_table_gen_empty</a> (<a class="el" href="hash-table-gen_8h.html#a4b366b34613fae694b6d8de0578705be">HashTableGen</a> *ht)</td></tr>
@@ -1980,6 +1986,36 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga7f5ad15cd23d1317fa5b73ab1fb9eada" name="ga7f5ad15cd23d1317fa5b73ab1fb9eada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7f5ad15cd23d1317fa5b73ab1fb9eada">&#9670;&#160;</a></span>graph_export_to_dot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graph_export_to_dot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exports the graph to a DOT file for visualization with Graphviz. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>The graph. </td></tr>
+    <tr><td class="paramname">filename</td><td>The name of the output DOT file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="gab86bd6cf63f60d730aa569dc0d20de92" name="gab86bd6cf63f60d730aa569dc0d20de92"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab86bd6cf63f60d730aa569dc0d20de92">&#9670;&#160;</a></span>graph_free()</h2>
 
@@ -2283,6 +2319,58 @@ Functions</h2></td></tr>
 
 <p>Get the number of nodes. </p>
 <dl class="section return"><dt>Returns</dt><dd>number of nodes on the graph. </dd></dl>
+
+</div>
+</div>
+<a id="ga1a1c95ff51077e29924a722f61e4b512" name="ga1a1c95ff51077e29924a722f61e4b512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a1c95ff51077e29924a722f61e4b512">&#9670;&#160;</a></span>graph_tarjan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> * graph_tarjan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a new graph with tarjan arc classification as weight of the edges. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>The graph to traverse. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>new graph. </dd></dl>
+
+</div>
+</div>
+<a id="ga80ec301dfe014b65018688420cd61558" name="ga80ec301dfe014b65018688420cd61558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80ec301dfe014b65018688420cd61558">&#9670;&#160;</a></span>graph_tarjan_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> * graph_tarjan_create </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>directed</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new tarjan graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">directed</td><td>flag if graph should be directed or not. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new graph. </dd></dl>
 
 </div>
 </div>

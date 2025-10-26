@@ -1,6 +1,13 @@
 var graph_8h =
 [
+    [ "EdgeType", "graph_8h.html#ab4eb730bba7533d744017f84530c63c1", null ],
     [ "Graph", "graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc", null ],
+    [ "edgeType", "graph_8h.html#aab9a1e952dbcb68cff4894aa8c3c9c52", [
+      [ "TREE", "graph_8h.html#aab9a1e952dbcb68cff4894aa8c3c9c52a80ee3d282aa2d7af547e862568d3e240", null ],
+      [ "CROSS", "graph_8h.html#aab9a1e952dbcb68cff4894aa8c3c9c52ad699bdf1731bd839b56c299536ba1d9d", null ],
+      [ "FORWARD", "graph_8h.html#aab9a1e952dbcb68cff4894aa8c3c9c52aa26736999186daf8146f809e863712a1", null ],
+      [ "BACK", "graph_8h.html#aab9a1e952dbcb68cff4894aa8c3c9c52ac921ff2cfc571c1d19b0485d7f6926ee", null ]
+    ] ],
     [ "graph_acyclical", "group__DataStructureMethods.html#gab0000718355eb86d6ce169f91f982429", null ],
     [ "graph_add_edge", "group__DataStructureMethods.html#gaa2a17e2e004a9de935fdf04e2baba495", null ],
     [ "graph_add_edge_with_weight", "group__DataStructureMethods.html#gaeb94390aeb282dd55ec03add72b50326", null ],
@@ -8,6 +15,7 @@ var graph_8h =
     [ "graph_bfs", "group__DataStructureMethods.html#ga663df5be270b676eee0948f9adb551ac", null ],
     [ "graph_create", "group__DataStructureMethods.html#ga39a96a95df86039c63a8299247a8d3df", null ],
     [ "graph_dfs", "group__DataStructureMethods.html#ga5fdd2e99e8e415f2f5af3a342d3884bb", null ],
+    [ "graph_export_to_dot", "group__DataStructureMethods.html#ga7f5ad15cd23d1317fa5b73ab1fb9eada", null ],
     [ "graph_free", "group__DataStructureMethods.html#gab86bd6cf63f60d730aa569dc0d20de92", null ],
     [ "graph_get_edge_weight", "group__DataStructureMethods.html#ga21ff51ff74b1563d9c43b6e783ec7e15", null ],
     [ "graph_get_neighbors", "group__DataStructureMethods.html#ga2707306335d4949a622b069702f7f909", null ],
@@ -19,5 +27,7 @@ var graph_8h =
     [ "graph_remove_edge", "group__DataStructureMethods.html#ga3359b742debb4bf9c3f0865943df4272", null ],
     [ "graph_remove_node", "group__DataStructureMethods.html#gabefd5131112f6e5b268ed7ba30466b70", null ],
     [ "graph_size", "group__DataStructureMethods.html#gafa62be961f76feef47fcfcae30721b83", null ],
+    [ "graph_tarjan", "group__DataStructureMethods.html#ga1a1c95ff51077e29924a722f61e4b512", null ],
+    [ "graph_tarjan_create", "group__DataStructureMethods.html#ga80ec301dfe014b65018688420cd61558", null ],
     [ "graph_undirected_create", "group__DataStructureMethods.html#ga143276e133a3634ca5ba37d8e181c518", null ]
 ];

@@ -40,6 +40,7 @@ var menudata={children:[
 {text:"c",url:"globals_c.html#index_c"},
 {text:"d",url:"globals_d.html#index_d"},
 {text:"e",url:"globals_e.html#index_e"},
+{text:"f",url:"globals_f.html#index_f"},
 {text:"g",url:"globals_g.html#index_g"},
 {text:"h",url:"globals_h.html#index_h"},
 {text:"i",url:"globals_i.html#index_i"},
@@ -65,4 +66,6 @@ var menudata={children:[
 {text:"r",url:"globals_func_r.html#index_r"},
 {text:"s",url:"globals_func_s.html#index_s"}]},
 {text:"Typedefs",url:"globals_type.html"},
+{text:"Enumerations",url:"globals_enum.html"},
+{text:"Enumerator",url:"globals_eval.html"},
 {text:"Macros",url:"globals_defs.html"}]}]}]}
