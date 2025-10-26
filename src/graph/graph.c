@@ -246,3 +246,8 @@ void graph_export_to_dot(Graph *g, const char* filename) {
     fprintf(fp, "}\n");
     fclose(fp);
 }
+
+
+bool graph_is_dag(Graph* g) {
+    return g->directed && graph_acyclical(g);
+}
