@@ -5,7 +5,7 @@ else
 endif
 
 CC = gcc
-CFLAGS = -g -pedantic -Wall -Wextra
+override CFLAGS += -fPIC -g -pedantic -Wall -Wextra -std=c99
 LDFLAGS = -lm
 LIST_CIRCULAR = list-circular
 TEST_TARGET = test

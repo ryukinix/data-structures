@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -pedantic -Wall -Wextra
+override CFLAGS += -fPIC -g -pedantic -Wall -Wextra -std=c99
 LDFLAGS = -lm
 TARGET = point
 OBJ = $(TARGET).o
