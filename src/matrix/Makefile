@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -pedantic -Wall -Wextra
+CFLAGS = -fPIC -g -pedantic -Wall -Wextra
 LDFLAGS = -lm
 MATRIX_POINTER = matrix-pointer
 MATRIX_VECTOR = matrix-vector

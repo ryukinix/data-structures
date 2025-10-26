@@ -5,7 +5,7 @@ else
 endif
 
 CC = gcc
-CFLAGS = -g -pedantic -Wall -Wextra
+CFLAGS = -fPIC -g -pedantic -Wall -Wextra
 LDFLAGS = --static -lm
 LIST_DOUBLE = list-double
 TEST_TARGET = test

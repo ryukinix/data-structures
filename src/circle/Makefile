@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -pedantic -Wall -Wextra
+CFLAGS = -fPIC -g -pedantic -Wall -Wextra
 LDFLAGS = -lm
 TARGET = circle
 OBJ = $(TARGET).o
