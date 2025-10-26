@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -fPIC -g -pedantic -Wall -Wextra
+override CFLAGS += -fPIC -g -pedantic -Wall -Wextra -std=c99
 LDFLAGS = -lm
 TARGET = circle
 OBJ = $(TARGET).o

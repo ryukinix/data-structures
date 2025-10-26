@@ -5,7 +5,7 @@ else
 endif
 
 CC = gcc
-CFLAGS = -fPIC -g -pedantic -Wall -Wextra
+override CFLAGS += -fPIC -g -pedantic -Wall -Wextra -std=c99
 LDFLAGS = -llist -lm
 STACK_STATIC = stack-static
 STACK_DYNAMIC = stack-dynamic

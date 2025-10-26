@@ -5,7 +5,7 @@ else
 endif
 
 CC = gcc
-override CFLAGS += -fPIC -g -pedantic -Wall -Wextra
+override CFLAGS += -fPIC -g -pedantic -Wall -Wextra -std=c99
 LDFLAGS = -lm
 
 TEST_TARGET = test
