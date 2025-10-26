@@ -154,12 +154,21 @@ void set_print_items(Set *set);
 void set_free(Set *set);
 
 /**
- * @brief Creates an iterator for the set.
+ * @brief Creates an iterator for the key elements of set.
  *
  * @param s The set to iterate over.
  * @return A pointer to the new iterator.
  */
+
 Iterator* set_iterator(Set *s);
+
+/**
+ * @brief Creates an iterator for (key, value) of the set.
+ * The elements are a List*
+ * @param s The set to iterate over.
+ * @return A pointer to the new iterator.
+ */
+Iterator* set_iterator_items(Set *s);
 
 
 /**

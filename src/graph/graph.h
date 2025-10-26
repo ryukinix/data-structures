@@ -18,6 +18,13 @@
 
 typedef struct Graph Graph;
 
+typedef enum edgeType {
+    TREE,
+    CROSS,
+    FORWARD,
+    BACK,
+} EdgeType;
+
 /**
  * @brief Creates a new directed graph.
  * @return A pointer to the new graph.
@@ -31,6 +38,14 @@ Graph* graph_create();
  * @ingroup DataStructureMethods
  */
 Graph* graph_undirected_create();
+
+/**
+ * @brief Creates a new tarjan graph.
+ * @param directed flag if graph should be directed or not.
+ * @return A pointer to the new graph.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_tarjan_create(bool directed);
 
 /**
  * @brief Get the number of nodes.
@@ -143,6 +158,14 @@ void graph_free(Graph *g);
 void graph_print(Graph *g);
 
 /**
+ * @brief Exports the graph to a DOT file for visualization with Graphviz.
+ * @param g The graph.
+ * @param filename The name of the output DOT file.
+ * @ingroup DataStructureMethods
+ */
+void graph_export_to_dot(Graph *g, const char* filename);
+
+/**
  * @brief Performs a Breadth-First Search on a graph.
  * @param g The graph to traverse.
  * @param start_node The node to start the traversal from.
@@ -175,4 +198,22 @@ Iterator* graph_nodes_iterator(Graph *g);
  */
 bool graph_acyclical(Graph *g);
 
+/**
+ * @brief Create a new graph with tarjan arc classification as weight of the edges.
+ * @param g The graph to traverse.
+ * @return new graph.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_tarjan(Graph *g);
+
 #endif /* GRAPH_H */
+
+static inline const char* graph_edge_type_name(EdgeType edge_type) {
+    switch (edge_type) {
+    case TREE: return "TREE";
+    case CROSS: return "CROSS";
+    case FORWARD: return "FORWARD";
+    case BACK: return "BACK";
+    }
+    return "?";
+}

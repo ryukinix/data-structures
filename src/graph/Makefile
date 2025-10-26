@@ -13,7 +13,7 @@ INCLUDE := -I../ -L../list/single  -L../hash-table -L../set -L../queue -L ../sta
 
 # targets to compile
 TEST_TARGET = test
-TARGETS = graph.o bfs.o dfs.o acyclical.o
+TARGETS = graph.o bfs.o dfs.o acyclical.o tarjan.o
 LIBRARY_OBJS = $(TARGETS)
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
@@ -40,10 +40,14 @@ $(TEST_BINARY): deps library $(TARGETS) $(TEST_TARGET).c
 	$(CC) $(INCLUDE) -L. $(CFLAGS) -o $@ $(TARGETS) $(TEST_TARGET).c -lgraph $(LDFLAGS)
 
 test: library $(TEST_BINARY)
-	./$(TEST_BINARY)
+	./$(TEST_BINARY) --extra-tests
+	make dot2png
 
 $(LIBRARY_TARGET): $(LIBRARY_OBJS)
 	ar rcs $@ $?
+
+dot2png:
+	find . -iname "*.dot" | xargs -L 1 dot -T png -O
 
 library: $(LIBRARY_TARGET)
 

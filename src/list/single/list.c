@@ -423,6 +423,25 @@ void* list_next_key(Iterator *it) {
     return key;
 }
 
+void* list_next(Iterator *it) {
+    List *list = (List*)it->container;
+    if (list == NULL) {
+        return NULL;
+    }
+    it->container = list->next;
+    return list;
+}
+
+Iterator* list_iterator(List *list) {
+    Iterator *it = iterator_create(
+        list,
+        list_next,
+        NULL,
+        list_iterator_done
+    );
+    return it;
+}
+
 Iterator* list_iterator_keys(List *list) {
     Iterator *it = iterator_create(
         list,
