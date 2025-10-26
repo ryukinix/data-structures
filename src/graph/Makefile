@@ -40,7 +40,7 @@ $(TEST_BINARY): deps library $(TARGETS) $(TEST_TARGET).c
 	$(CC) $(INCLUDE) -L. $(CFLAGS) -o $@ $(TARGETS) $(TEST_TARGET).c -lgraph $(LDFLAGS)
 
 test: library $(TEST_BINARY)
-	./$(TEST_BINARY)
+	./$(TEST_BINARY) --extra-tests
 	make dot2png
 
 $(LIBRARY_TARGET): $(LIBRARY_OBJS)

@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <unistd.h>
 #include <linux/limits.h>
+#include <string.h>
 #include "graph.h"
 
 void test_bfs() {
@@ -238,15 +239,27 @@ void test_graph_export() {
     graph_free(g4);
 }
 
+bool should_run_extra_tests(int argc, char *argv[]) {
+    // Iterate through the command-line arguments starting from argv[1]
+    // (argv[0] is the program name)
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "--extra-tests") == 0) {
+            return true;
+        }
+    }
+    return false;
+}
 
-int main() {
+int main(int argc, char *argv[]) {
     test_graph_directed();
     test_graph_undirected();
     test_bfs();
     test_dfs();
     test_graph_acyclical();
     test_graph_tarjan();
-    test_graph_export();
+    if (should_run_extra_tests(argc, argv)) {
+        test_graph_export();
+    }
 
     printf("\nAll graph tests passed!\n");
     return 0;
