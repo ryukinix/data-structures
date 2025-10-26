@@ -21,8 +21,7 @@ EdgeType tarjan_classify_edge(struct TarjanContext *tc, int parent, int u) {
     }
 }
 
-// detect if graph has cycles
-static void graph_dfsj(
+static void graph_dfst(
     Graph *g,
     int node,
     struct TarjanContext *tc
@@ -40,7 +39,7 @@ static void graph_dfsj(
         }
 
         if (edge_type == TREE) {
-            graph_dfsj(g, neighbor, tc);
+            graph_dfst(g, neighbor, tc);
         }
     }
     set_free(neighbors_set);
@@ -77,7 +76,7 @@ Graph* graph_tarjan(Graph *g) {
     while (!iterator_done(nodes)) {
         int node = *(int*) iterator_next(nodes);
         if (tc.exploration[node] == 0) {
-            graph_dfsj(g, node, &tc);
+            graph_dfst(g, node, &tc);
         }
 
     }
