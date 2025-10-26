@@ -14,6 +14,7 @@
 #define STACK_H
 
 #define STACK_STATIC_MAX 10
+#include "../iterator/iterator.h"
 
 /**
  * @brief A stack data structure.
@@ -99,5 +100,14 @@ int stack_top(Stack* s);
  * @ingroup DataStructureMethods
  */
 int stack_odds(Stack* s);
+
+/**
+ * @brief Iterator of a stack structure.
+ *
+ * @param s The stack to search.
+ * @return The number of odd elements.
+ * @ingroup DataStructureMethods
+ */
+Iterator* stack_iterator(Stack *s);
 
 #endif
