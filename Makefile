@@ -14,6 +14,7 @@ HEADER = ds-lerax.h
 override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99 -fPIC
 SOURCES = $(shell find $(SRCDIR) -iname '*.c')
 COMPILED = $(shell find $(SRCDIR) -type f -iname '*.o' -or -iname "*.out" -or -iname "*.a")
+TEST_TRASH = $(shell find $(SRCDIR) -type f -iname 'test*.dot*')
 BLACKLIST = "(list-iter|main|test).c|*.-static.c|matrix-vector"
 LIB_SOURCES = $(shell echo $(SOURCES) | tr ' ' '\n' | grep -E -v $(BLACKLIST))
 LIB_OBJECTS = $(shell echo $(LIB_SOURCES) | tr ' ' '\n' | sed "s/\.c/\.o/")
@@ -58,7 +59,7 @@ compile: $(LIB_OBJECTS)
 
 clean:
 	@printf $(STATUS_PREFIX); echo "CLEANING ALL"
-	rm -vrf $(COMPILED) $(LIBDIR)
+	rm -vrf $(COMPILED) $(LIBDIR) $(TEST_TRASH)
 
 static: mkdir-$(LIBDIR) $(LIBDIR)/$(LIBNAME).a
 shared: mkdir-$(LIBDIR) $(LIBDIR)/$(LIBNAME).so
