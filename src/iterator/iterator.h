@@ -79,4 +79,16 @@ static inline void iterator_free(Iterator *it) {
     }
 }
 
+// useful for anything that iterate integers
+static inline int iterator_max_int(Iterator *it) {
+    int max_node_id = 0;
+    while(!iterator_done(it)) {
+        int k = *(int*)iterator_next(it);
+        if (k > max_node_id) {
+            max_node_id = k;
+        }
+    }
+    return max_node_id;
+}
+
 #endif

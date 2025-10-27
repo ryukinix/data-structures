@@ -74,3 +74,7 @@ int stack__list_odds(List* l) {
 int stack_odds(Stack *s) {
     return stack__list_odds(s->list);
 }
+
+Iterator* stack_iterator(Stack *s) {
+    return list_iterator_data(s->list);
+}

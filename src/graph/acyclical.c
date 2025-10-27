@@ -1,95 +1,123 @@
+#include <stdlib.h>
 #include "graph.h"
 #include "../stack/stack.h"
 
 struct CycleContext {
-    Stack* cycle_path;
     int counter_exploration;
     int counter_complete;
+    bool has_cycles;
     int *exploration;
     int *complete;
+    Stack* cycle_path;
+    Stack* topological_sort;
 };
 
-// detect if graph has cycles
-static bool graph_dfsa(
+// detect if graph has cycles and save the topological sort
+static void graph_dfsa(
     Graph *g,
     int node,
-    struct CycleContext *sc
+    struct CycleContext *cc
 ) {
-    sc->exploration[node] = ++sc->counter_exploration;
-    stack_push(sc->cycle_path, node);
+    cc->exploration[node] = ++cc->counter_exploration;
+    stack_push(cc->cycle_path, node);
 
-    bool has_cycles = false;
     Set* neighbors_set = graph_get_neighbors(g, node);
     Iterator* set_it = set_iterator(neighbors_set);
 
     while (!iterator_done(set_it)) {
         int neighbor = *(int*) iterator_next(set_it);
-        if (sc->exploration[neighbor] == 0) {
-            has_cycles = graph_dfsa(
-                g,
-                neighbor,
-                sc
-            );
-        } else if (sc->exploration[neighbor] < sc->exploration[node] && sc->complete[neighbor] == 0) {
-            has_cycles = true;
+        if (cc->exploration[neighbor] == 0) {
+            graph_dfsa(g, neighbor, cc);
+        } else if (cc->exploration[neighbor] < cc->exploration[node] && cc->complete[neighbor] == 0) {
+            cc->has_cycles = true;
         }
-
-        if (has_cycles) {
+        if (cc->has_cycles) {
             break;
         }
     }
     set_free(neighbors_set);
     iterator_free(set_it);
-    if (has_cycles) {
-        return true;
+    // early stop
+    if (cc->has_cycles) {
+        return;
     }
 
-    stack_pop(sc->cycle_path);
-    sc->complete[node] = ++sc->counter_complete;
-    return false;
+    stack_push(cc->topological_sort, node);
+    stack_pop(cc->cycle_path);
+    cc->complete[node] = ++cc->counter_complete;
 }
 
+struct CycleContext* cycle_context_create(Graph *g) {
+    struct CycleContext *cc = malloc(sizeof(struct CycleContext));
+    int max_nodes = graph_max_node_id(g) + 1;
 
-bool graph_acyclical(Graph *g) {
-    struct CycleContext sc;
-    int exploration[graph_size(g)];
-    int complete[graph_size(g)];
-    Stack* cycle_path = stack_create();
+    cc->topological_sort = stack_create();
+    cc->cycle_path = stack_create();
+    cc->exploration = malloc(max_nodes * sizeof(int));
+    cc->complete = malloc(max_nodes * sizeof(int));
+    cc->counter_complete = 0;
+    cc->counter_exploration = 0;
+    cc->has_cycles = false;
 
-    sc.cycle_path = cycle_path;
-    sc.counter_complete = 0;
-    sc.counter_exploration = 0;
-    sc.exploration = exploration;
-    sc.complete = complete;
-
-    Iterator *nodes;
-
-    // initialize
-    nodes = graph_nodes_iterator(g);
-    while (!iterator_done(nodes)) {
-        int node = *(int*) iterator_next(nodes);
-        exploration[node] = 0;
-        complete[node] = 0;
+    // initialize arrays
+    for (int i = 0; i < max_nodes; i++) {
+        cc->exploration[i] = 0;
+        cc->complete[i] = 0;
     }
-    iterator_free(nodes);
+
+    return cc;
+}
+
+void cycle_context_free(struct CycleContext *cc) {
+    free(cc->exploration);
+    free(cc->complete);
+    stack_free(cc->topological_sort);
+    stack_free(cc->cycle_path);
+    free(cc);
+}
+
+static struct CycleContext* graph_check_cycles(Graph *g) {
+    struct CycleContext *cc = cycle_context_create(g);
 
     // dfs over each node
-    nodes = graph_nodes_iterator(g);
-    bool has_cycles = false;
+    Iterator *nodes = graph_nodes_iterator(g);
     while (!iterator_done(nodes)) {
         int node = *(int*) iterator_next(nodes);
-        has_cycles = graph_dfsa(
-            g,
-            node,
-            &sc
-        );
-        if (has_cycles) {
-            //printf("Cycle: "); stack_println(cycle_path);
+
+        if (cc->exploration[node] == 0) {
+            graph_dfsa(
+                g,
+                node,
+                cc
+            );
+        }
+
+        if (cc->has_cycles) {
+            //printf("Cycle: "); stack_println(cc->cycle_path);
             break;
         }
 
     }
-    stack_free(cycle_path);
     iterator_free(nodes);
+    return cc;
+}
+
+bool graph_acyclical(Graph *g) {
+    struct CycleContext *cc = graph_check_cycles(g);
+    bool has_cycles = cc->has_cycles;
+    cycle_context_free(cc);
     return !has_cycles;
+}
+
+List* graph_topological_sort(Graph *g) {
+    struct CycleContext *cc = graph_check_cycles(g);
+    if (cc->has_cycles) {
+        cycle_context_free(cc);
+        return NULL;
+    }
+    Iterator *it = stack_iterator(cc->topological_sort);
+    List *list = list_from_iterator(it);
+    iterator_free(it);
+    cycle_context_free(cc);
+    return list;
 }

@@ -25,6 +25,17 @@ typedef enum edgeType {
     BACK,
 } EdgeType;
 
+static inline const char* graph_edge_type_name(EdgeType edge_type) {
+    switch (edge_type) {
+    case TREE: return "TREE";
+    case CROSS: return "CROSS";
+    case FORWARD: return "FORWARD";
+    case BACK: return "BACK";
+    }
+    return "?";
+}
+
+
 /**
  * @brief Creates a new directed graph.
  * @return A pointer to the new graph.
@@ -191,12 +202,27 @@ Iterator* graph_dfs(Graph *g, int start_node);
 Iterator* graph_nodes_iterator(Graph *g);
 
 /**
+ * @brief Get the maximum node id on the graph.
+ * @return maximum node id on the graph.
+ * @ingroup DataStructureMethods
+ */
+int graph_max_node_id(Graph *g);
+
+/**
  * @brief Check if graph has cycles.
  * @param g The graph to traverse.
  * @return true if has any cycle, false otherwise.
  * @ingroup DataStructureMethods
  */
 bool graph_acyclical(Graph *g);
+
+/**
+ * @brief Check if graph can be classified as Directed Acyclical Graph.
+ * @param g The graph to traverse.
+ * @return true if is directed and acyclical , false otherwise.
+ * @ingroup DataStructureMethods
+ */
+bool graph_is_dag(Graph *g);
 
 /**
  * @brief Create a new graph with tarjan arc classification as weight of the edges.
@@ -206,14 +232,14 @@ bool graph_acyclical(Graph *g);
  */
 Graph* graph_tarjan(Graph *g);
 
-#endif /* GRAPH_H */
+/**
+ * This method is defined in acyclical.c because it inherits part of the acyclical code.
+ *
+ * @brief Creat a list with the nodes in topological sort.
+ * @param g The graph to traverse.
+ * @return a list with the nodes that represents the topological sort. Return NULL if graph cannot be sort.
+ * @ingroup DataStructureMethods
+ */
+List* graph_topological_sort(Graph *g);
 
-static inline const char* graph_edge_type_name(EdgeType edge_type) {
-    switch (edge_type) {
-    case TREE: return "TREE";
-    case CROSS: return "CROSS";
-    case FORWARD: return "FORWARD";
-    case BACK: return "BACK";
-    }
-    return "?";
-}
+#endif /* GRAPH_H */

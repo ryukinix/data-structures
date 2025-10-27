@@ -239,6 +239,33 @@ void test_graph_export() {
     graph_free(g4);
 }
 
+void test_graph_topological_sort() {
+    puts("== Graph topological sort test");
+    Graph *g = graph_create();
+
+    graph_add_edge(g, 5, 1);
+    graph_add_edge(g, 1, 2);
+    graph_add_edge(g, 1, 3);
+    graph_add_edge(g, 2, 3);
+    graph_add_edge(g, 3, 4);
+
+    List* nodes = graph_topological_sort(g);
+    List* expected = list_init(5, 5, 1, 2, 3, 4);
+
+    printf("Graph: \n");
+    graph_print(g);
+
+    printf("Topological sort: ");
+    list_println(nodes);
+    printf("Expected: ");
+    list_println(expected);
+
+    assert(list_equal(nodes, expected));
+    graph_free(g);
+    list_free(nodes);
+    list_free(expected);
+}
+
 bool should_run_extra_tests(int argc, char *argv[]) {
     // Iterate through the command-line arguments starting from argv[1]
     // (argv[0] is the program name)
@@ -257,6 +284,7 @@ int main(int argc, char *argv[]) {
     test_dfs();
     test_graph_acyclical();
     test_graph_tarjan();
+    test_graph_topological_sort();
     if (should_run_extra_tests(argc, argv)) {
         test_graph_export();
     }

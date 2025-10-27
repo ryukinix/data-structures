@@ -26,6 +26,14 @@ int main(void) {
     printf("Pop: %d\n", a);
     printf("Top element: %d\n", stack_top(p1));
     printf("Odds count %d\n", stack_odds(p1));
+    Iterator* it = stack_iterator(p1);
+    printf("Iterating in the rest of the values: \n");
+    int k = 1;
+    while (!iterator_done(it)) {
+        int n = *(int*) iterator_next(it);
+        printf("stack[%d] = %d\n", k++, n);
+    }
+    iterator_free(it);
     stack_free(p1);
 
 #ifdef _WIN32
