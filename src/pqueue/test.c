@@ -11,10 +11,9 @@
  */
 
 #include <stdio.h>
-#include <assert.h>
 #include <stdbool.h>
+#include <assert.h>
 #include "pqueue.h"
-#include <stdlib.h> // For EXIT_SUCCESS, EXIT_FAILURE
 
 void test_max_pqueue(void) {
     printf("--- Testing Max Priority Queue ---\n");
@@ -126,5 +125,5 @@ void test_min_pqueue(void) {
 int main(void) {
     test_max_pqueue();
     test_min_pqueue();
-    return EXIT_SUCCESS;
+    return 0;
 }
