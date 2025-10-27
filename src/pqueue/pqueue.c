@@ -13,6 +13,15 @@
 #include "pqueue.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
+
+int pqueue_size(PQueue *pq) {
+    return pq->size;
+}
+
+bool pqueue_is_empty(PQueue *pq) {
+    return pq->size == 0;
+}
 
 void swap_values(int *e1, int *e2) {
     int temp = *e1;

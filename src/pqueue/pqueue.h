@@ -15,6 +15,8 @@
 #define PQUEUE_SIZE 10
 #endif
 
+#include <stdbool.h>
+
 #define HEAP_EMPTY_CELL -1
 
 /**
@@ -85,6 +87,24 @@ void pqueue_change_key(PQueue *pq, int k, int v);
  * @ingroup DataStructureMethods
  */
 int pqueue_top(PQueue *pq);
+
+/**
+ * @brief Returns the number of elements in the priority queue.
+ *
+ * @param pq The priority queue.
+ * @return The number of elements.
+ * @ingroup DataStructureMethods
+ */
+int pqueue_size(PQueue *pq);
+
+/**
+ * @brief Checks if the priority queue is empty.
+ *
+ * @param pq The priority queue.
+ * @return True if the priority queue is empty, false otherwise.
+ * @ingroup DataStructureMethods
+ */
+bool pqueue_is_empty(PQueue *pq);
 
 /**
  * @brief Frees the memory allocated for a priority queue.
