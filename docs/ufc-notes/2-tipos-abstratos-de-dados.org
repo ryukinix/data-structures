@@ -98,7 +98,7 @@ Os métodos necessários para manipular um ponto é definido como:
 #+END_SRC
 
 A implementação é totalmente escondida e provida pelo arquivo =point.c=.
-É possível encontrá-lo em [[src/tad/point/point.c][point.c]]
+É possível encontrá-lo em [[file:../../src/point/point.c][point.c]]
 
 ** DONE Circle
    CLOSED: [2017-09-05 Tue 06:33]
@@ -229,7 +229,7 @@ Na qual as possíveis definições para =struct matrix= são:
 Cada definição deve ser separada por outro código-fonte que gerará um código-objeto
 específico. Para cada um desses arquivos, deve ser implementado todas as funções
 definidas no cabeçalho de interfaceamento da TAD. Um exemplo disso foi escrito
-em [[file:../examples/tad/matrix][../examples/tad/matrix]].
+em [[file:../../examples/tad/matrix/main.c][../examples/tad/matrix]].
 
 Bom, adicionalmente foi escrito o módulo =matrix-utils= para cálculo do valor
 máximo de uma matriz e também uma forma elegante da impressão dessa mesma matriz.

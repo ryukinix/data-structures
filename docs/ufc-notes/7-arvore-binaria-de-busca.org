@@ -67,4 +67,4 @@ Aplicar este algoritmo recursivamente.
 Na remoção precisamos de um cuidado um tanto maior para essa operação.
 Pois pode ocorrer ruptura da árvore na remoção e devemos lidar com
 isso. É possível encontrar esse procedimento de maneira mais detalhada
-em: [[file:src/tree/bst/bst.c][bst.c]]
+em: [[file:../../src/tree/bst/bst.c][bst.c]]
