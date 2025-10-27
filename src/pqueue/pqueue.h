@@ -18,11 +18,20 @@
 #define HEAP_EMPTY_CELL -1
 
 /**
+ * @brief Enum for priority queue type (min or max).
+ */
+typedef enum PQueueType {
+    MIN_PQUEUE,
+    MAX_PQUEUE
+} PQueueType;
+
+/**
  * @brief A priority queue implementation using a binary heap.
  */
 struct PQueue {
     int heap[PQUEUE_SIZE]; /**< inner heap for weights */
     int size;              /**< the current size of PQueue */
+    PQueueType type;       /**< type of the priority queue (min or max) */
 };
 
 
@@ -34,10 +43,11 @@ typedef struct PQueue PQueue;
 /**
  * @brief Creates an empty priority queue.
  *
+ * @param type The type of priority queue (MIN_PQUEUE or MAX_PQUEUE).
  * @return A pointer to the new priority queue.
  * @ingroup DataStructureMethods
  */
-PQueue* pqueue_create();
+PQueue* pqueue_create(PQueueType type);
 
 /**
  * @brief Inserts an element into the priority queue.
@@ -49,32 +59,32 @@ PQueue* pqueue_create();
 void pqueue_insert(PQueue *pq, int x);
 
 /**
- * @brief Extracts the maximum element from the priority queue.
+ * @brief Extracts the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) from the priority queue.
  *
  * @param pq The priority queue to extract from.
- * @return The maximum element.
+ * @return The top element.
  * @ingroup DataStructureMethods
  */
-int pqueue_extract_max(PQueue *pq);
+int pqueue_extract(PQueue *pq);
 
 /**
- * @brief Increases the key of an element in the priority queue.
+ * @brief Changes the key of an element in the priority queue.
  *
  * @param pq The priority queue.
- * @param k The index of the element to increase.
+ * @param k The index of the element to change.
  * @param v The new value of the element.
  * @ingroup DataStructureMethods
  */
-void pqueue_increase_keys(PQueue *pq, int k, int v);
+void pqueue_change_key(PQueue *pq, int k, int v);
 
 /**
- * @brief Returns the maximum element in the priority queue without extracting it.
+ * @brief Returns the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) in the priority queue without extracting it.
  *
  * @param pq The priority queue.
- * @return The maximum element.
+ * @return The top element.
  * @ingroup DataStructureMethods
  */
-int pqueue_maximum(PQueue *pq);
+int pqueue_top(PQueue *pq);
 
 /**
  * @brief Frees the memory allocated for a priority queue.

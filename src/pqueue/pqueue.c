@@ -21,70 +21,116 @@ void swap_values(int *e1, int *e2) {
 }
 
 int parent(int i) {
-    return i / 2;
+    return (i - 1) / 2; // Corrected for 0-indexed array
 }
 
 int left(int i) {
-    return i * 2;
+    return 2 * i + 1; // Corrected for 0-indexed array
 }
 
 int right(int i) {
-    return i * 2 + 1;
+    return 2 * i + 2; // Corrected for 0-indexed array
 }
 
-
-void heapify_vector(int v[], int n, int i) {
+// Max-heapify function
+void max_heapify(PQueue *pq, int i) {
+    int l = left(i);
+    int r = right(i);
     int largest = i;
-    int l = 2*i + 1;
-    int r = 2*(i + 1);
 
-    // verify if left node is greater
-    // than largest
-    if (l < n && v[l] > v[largest]) {
+    if (l < pq->size && pq->heap[l] > pq->heap[largest]) {
         largest = l;
     }
 
-    // verify if the right node is greater
-    // than largest
-    if (r < n && v[r] > v[largest]) {
+    if (r < pq->size && pq->heap[r] > pq->heap[largest]) {
         largest = r;
     }
 
-    // if current node is not the largest
-    // need swap_valuess
     if (largest != i) {
-        swap_values(v+i, v+largest); // current and largest
-        heapify_vector(v, n, largest); // apply recursively
+        swap_values(&pq->heap[i], &pq->heap[largest]);
+        max_heapify(pq, largest);
     }
 }
 
-PQueue* pqueue_create() {
+// Min-heapify function
+void min_heapify(PQueue *pq, int i) {
+    int l = left(i);
+    int r = right(i);
+    int smallest = i;
+
+    if (l < pq->size && pq->heap[l] < pq->heap[smallest]) {
+        smallest = l;
+    }
+
+    if (r < pq->size && pq->heap[r] < pq->heap[smallest]) {
+        smallest = r;
+    }
+
+    if (smallest != i) {
+        swap_values(&pq->heap[i], &pq->heap[smallest]);
+        min_heapify(pq, smallest);
+    }
+}
+
+
+PQueue* pqueue_create(PQueueType type) {
     PQueue* pq = (PQueue*) malloc(sizeof(PQueue));
+    if (pq == NULL) {
+        perror("Failed to allocate memory for PQueue");
+        exit(EXIT_FAILURE);
+    }
     pq->size = 0;
+    pq->type = type;
     return pq;
 }
 
 void pqueue_insert(PQueue *pq, int x) {
+    if (pq->size == PQUEUE_SIZE) {
+        printf("Heap overflow!\n");
+        exit(EXIT_FAILURE);
+    }
     pq->size++;
-    pq->heap[pq->size-1] = HEAP_EMPTY_CELL;
-    pqueue_increase_keys(pq, pq->size-1, x);
+    int i = pq->size - 1;
+    pq->heap[i] = x; // Temporarily insert at the end
+
+    if (pq->type == MAX_PQUEUE) {
+        // Bubble up for max-heap
+        while (i > 0 && pq->heap[parent(i)] < pq->heap[i]) {
+            swap_values(&pq->heap[i], &pq->heap[parent(i)]);
+            i = parent(i);
+        }
+    } else { // MIN_PQUEUE
+        // Bubble up for min-heap
+        while (i > 0 && pq->heap[parent(i)] > pq->heap[i]) {
+            swap_values(&pq->heap[i], &pq->heap[parent(i)]);
+            i = parent(i);
+        }
+    }
 }
 
-int pqueue_maximum(PQueue *pq) {
+int pqueue_top(PQueue *pq) {
+    if (pq->size < 1) {
+        printf("Heap underflow!\n");
+        exit(EXIT_FAILURE);
+    }
     return pq->heap[0];
 }
 
-int pqueue_extract_max(PQueue *pq) {
+int pqueue_extract(PQueue *pq) {
     if (pq->size < 1) {
-        printf("Heap underflow!");
-        exit(1);
+        printf("Heap underflow!\n");
+        exit(EXIT_FAILURE);
     }
-    int max = pqueue_maximum(pq);
-    pq->heap[0] = pq->heap[pq->size-1];
+    int top_val = pq->heap[0];
+    pq->heap[0] = pq->heap[pq->size - 1];
     pq->size--;
-    heapify_vector(pq->heap, pq->size, 0);
-    return max;
-
+    if (pq->type == MAX_PQUEUE) {
+        max_heapify(pq, 0);
+    }
+    else { // MIN_PQUEUE
+        min_heapify(pq, 0);
+    }
+    return top_val;
 }
 
 void pqueue_print(PQueue *pq) {
@@ -103,15 +149,37 @@ void pqueue_println(PQueue *pq) {
     printf("\n");
 }
 
-void pqueue_increase_keys(PQueue *pq, int k, int v) {
-    if (v < pq->heap[k]) {
-        printf("New weight %d is lesser than %d (current)", v, pq->heap[k]);
-        exit(1);
+void pqueue_change_key(PQueue *pq, int k, int v) {
+    if (k < 0 || k >= pq->size) {
+        printf("Index out of bounds!\n");
+        exit(EXIT_FAILURE);
     }
+
+    int old_val = pq->heap[k];
     pq->heap[k] = v;
-    while(k > 0 && pq->heap[parent(k)] < pq->heap[k]) {
-        swap_values(pq->heap+k, pq->heap+parent(k));
-        k = parent(k);
+
+    if (pq->type == MAX_PQUEUE) {
+        if (v < old_val) {
+            // If new value is smaller, need to heapify down
+            max_heapify(pq, k);
+        } else {
+            // If new value is larger, need to bubble up
+            while (k > 0 && pq->heap[parent(k)] < pq->heap[k]) {
+                swap_values(&pq->heap[k], &pq->heap[parent(k)]);
+                k = parent(k);
+            }
+        }
+    } else { // MIN_PQUEUE
+        if (v > old_val) {
+            // If new value is larger, need to heapify down
+            min_heapify(pq, k);
+        } else {
+            // If new value is smaller, need to bubble up
+            while (k > 0 && pq->heap[parent(k)] > pq->heap[k]) {
+                swap_values(&pq->heap[k], &pq->heap[parent(k)]);
+                k = parent(k);
+            }
+        }
     }
 }
 
