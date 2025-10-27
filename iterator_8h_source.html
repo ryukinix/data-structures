@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">1.0.0-4-g5cd0</span>
+                  &#160;<span id="projectnumber">1.0.0-5-g95b4</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -168,7 +168,19 @@ $(function(){initNavTree('iterator_8h_source.html','',''); });
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">// useful for anything that iterate integers</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> iterator_max_int(<a class="code hl_struct" href="structIterator.html">Iterator</a> *it) {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">int</span> max_node_id = 0;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">while</span>(!iterator_done(it)) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordtype">int</span> k = *(<span class="keywordtype">int</span>*)iterator_next(it);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">if</span> (k &gt; max_node_id) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            max_node_id = k;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordflow">return</span> max_node_id;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="acheck__alloc_8h_html"><div class="ttname"><a href="check__alloc_8h.html">check_alloc.h</a></div></div>
 <div class="ttc" id="astructIterator_html"><div class="ttname"><a href="structIterator.html">Iterator</a></div><div class="ttdoc">A generic iterator struct.</div><div class="ttdef"><b>Definition</b> iterator.h:13</div></div>
 <div class="ttc" id="astructIterator_html_a03310f1e906df3da6ec5a2533e89c03a"><div class="ttname"><a href="structIterator.html#a03310f1e906df3da6ec5a2533e89c03a">Iterator::free</a></div><div class="ttdeci">void(* free)(struct Iterator *)</div><div class="ttdef"><b>Definition</b> iterator.h:17</div></div>

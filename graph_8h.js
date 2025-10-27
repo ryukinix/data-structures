@@ -20,8 +20,10 @@ var graph_8h =
     [ "graph_get_edge_weight", "group__DataStructureMethods.html#ga21ff51ff74b1563d9c43b6e783ec7e15", null ],
     [ "graph_get_neighbors", "group__DataStructureMethods.html#ga2707306335d4949a622b069702f7f909", null ],
     [ "graph_has_edge", "group__DataStructureMethods.html#gaae783bc6c2fbb1b8506767005c938279", null ],
+    [ "graph_is_dag", "group__DataStructureMethods.html#gaacbedc473176ef918dd287afdec286d1", null ],
     [ "graph_is_directed", "group__DataStructureMethods.html#ga2c5f77c0f08e175141c73ece10c22f4e", null ],
     [ "graph_is_weighted", "group__DataStructureMethods.html#ga039eb4d46e046f908b2c51887f2662dd", null ],
+    [ "graph_max_node_id", "group__DataStructureMethods.html#ga5e1d0bd734bb8de61179743d651183dc", null ],
     [ "graph_nodes_iterator", "group__DataStructureMethods.html#gaf0ef46ec9b32dad0d083252109a230b4", null ],
     [ "graph_print", "group__DataStructureMethods.html#gaa3a385a56949260edcbeeb87389834b0", null ],
     [ "graph_remove_edge", "group__DataStructureMethods.html#ga3359b742debb4bf9c3f0865943df4272", null ],
@@ -29,5 +31,6 @@ var graph_8h =
     [ "graph_size", "group__DataStructureMethods.html#gafa62be961f76feef47fcfcae30721b83", null ],
     [ "graph_tarjan", "group__DataStructureMethods.html#ga1a1c95ff51077e29924a722f61e4b512", null ],
     [ "graph_tarjan_create", "group__DataStructureMethods.html#ga80ec301dfe014b65018688420cd61558", null ],
+    [ "graph_topological_sort", "group__DataStructureMethods.html#ga9574e5e4959e834b2b89f4a3dacaf541", null ],
     [ "graph_undirected_create", "group__DataStructureMethods.html#ga143276e133a3634ca5ba37d8e181c518", null ]
 ];

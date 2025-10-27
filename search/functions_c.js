@@ -27,11 +27,12 @@ var searchData=
   ['stack_5fcreate_24',['stack_create',['../group__DataStructureMethods.html#gae5a3d0d7d18942221d081e0bffd143ff',1,'stack.h']]],
   ['stack_5fempty_25',['stack_empty',['../group__DataStructureMethods.html#gab3000bfe7241d1243628a3d006f5255d',1,'stack.h']]],
   ['stack_5ffree_26',['stack_free',['../group__DataStructureMethods.html#gaee3cc8432cd8515bded9248453539111',1,'stack.h']]],
-  ['stack_5fodds_27',['stack_odds',['../group__DataStructureMethods.html#ga008b11ebddbaaab50229ca415719069b',1,'stack.h']]],
-  ['stack_5fpop_28',['stack_pop',['../group__DataStructureMethods.html#ga4685328778697aa19ac0584e3a93d881',1,'stack.h']]],
-  ['stack_5fprint_29',['stack_print',['../group__DataStructureMethods.html#ga91cfcb34ab64fcb797e1bc0f2b7bb44d',1,'stack.h']]],
-  ['stack_5fprintln_30',['stack_println',['../group__DataStructureMethods.html#ga9b97a736186fe62f48ab28fd0fbf0a47',1,'stack.h']]],
-  ['stack_5fpush_31',['stack_push',['../group__DataStructureMethods.html#ga1f96f21f1f30bf535fd0577c1862724e',1,'stack.h']]],
-  ['stack_5ftop_32',['stack_top',['../group__DataStructureMethods.html#ga6b0b7ae5b8748bc8e7b9ed8d275670fd',1,'stack.h']]],
-  ['swap_33',['swap',['../sort_8h.html#a7b887f8c60c6e8d3748e30071baeb646',1,'sort.h']]]
+  ['stack_5fiterator_27',['stack_iterator',['../group__DataStructureMethods.html#gac634d5b8ca9e12fd1c87f3d13116c112',1,'stack.h']]],
+  ['stack_5fodds_28',['stack_odds',['../group__DataStructureMethods.html#ga008b11ebddbaaab50229ca415719069b',1,'stack.h']]],
+  ['stack_5fpop_29',['stack_pop',['../group__DataStructureMethods.html#ga4685328778697aa19ac0584e3a93d881',1,'stack.h']]],
+  ['stack_5fprint_30',['stack_print',['../group__DataStructureMethods.html#ga91cfcb34ab64fcb797e1bc0f2b7bb44d',1,'stack.h']]],
+  ['stack_5fprintln_31',['stack_println',['../group__DataStructureMethods.html#ga9b97a736186fe62f48ab28fd0fbf0a47',1,'stack.h']]],
+  ['stack_5fpush_32',['stack_push',['../group__DataStructureMethods.html#ga1f96f21f1f30bf535fd0577c1862724e',1,'stack.h']]],
+  ['stack_5ftop_33',['stack_top',['../group__DataStructureMethods.html#ga6b0b7ae5b8748bc8e7b9ed8d275670fd',1,'stack.h']]],
+  ['swap_34',['swap',['../sort_8h.html#a7b887f8c60c6e8d3748e30071baeb646',1,'sort.h']]]
 ];
