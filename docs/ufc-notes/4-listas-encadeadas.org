@@ -187,7 +187,7 @@ maneira. Por esse motivo, um arquivo separado chamado ~list-common.c~
 é definido os métodos comuns da lista. Isso evita reescrevê-los nos
 arquivos individuais que contêm as implementações específicas dos
 métodos recursivos e iterativos. O código fonte para esses métodos
-você encontra em [[file:./../src/list/single/][./../src/list/single]].
+você encontra em [[file:../../src/list/single/list.c][./../src/list/single]].
 
 *** DONE Métodos em Comum
     CLOSED: [2017-09-12 Tue 12:24]

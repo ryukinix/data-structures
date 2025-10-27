@@ -88,4 +88,4 @@ com ponteiros de ponteiros. Essas notas vou deixar para o arquivo
 seguinte, [[1-tipos-estruturados.org]].
 
 Uma implementação dos conceitos referentes aqui, sobre tipos
-de alocação para matrizes, está escrito no arquivo [[file:src/matrix.c]]
+de alocação para matrizes, está escrito no arquivo [[file:../../src/matrix/matrix-pointer.c]]

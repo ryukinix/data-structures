@@ -128,7 +128,7 @@ ou não.
 * DONE Estrutura Círculo
   CLOSED: [2017-08-29 Tue 00:54] SCHEDULED: <2017-08-25 Fri>
 
-Estarei escrevendo alguns exemplos dado em sala no diretório [[file:../examples/tad/circle/]].
+Estarei escrevendo alguns exemplos dado em sala no diretório [[file:../../examples/tad/circle/main.c]].
 
 
 Em geral eu defini os arquivos as estruturas:
