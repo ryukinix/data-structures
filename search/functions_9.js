@@ -8,14 +8,16 @@ var searchData=
   ['point_5fget_5fx_5',['point_get_x',['../group__DataStructureMethods.html#gaee015511bf7eda3fe4945f766e1a25a9',1,'point.h']]],
   ['point_5fget_5fy_6',['point_get_y',['../group__DataStructureMethods.html#gafed4e1f309044be54e1cf1069880594c',1,'point.h']]],
   ['point_5fset_7',['point_set',['../group__DataStructureMethods.html#gac75e76c80d6701e87786c54768cb176a',1,'point.h']]],
-  ['pqueue_5fcreate_8',['pqueue_create',['../group__DataStructureMethods.html#ga07ae8ed20b804a52e51697954aa34133',1,'pqueue.h']]],
-  ['pqueue_5fextract_5fmax_9',['pqueue_extract_max',['../group__DataStructureMethods.html#ga805dd3a406affe9173ce9ef08068958a',1,'pqueue.h']]],
-  ['pqueue_5ffree_10',['pqueue_free',['../group__DataStructureMethods.html#gae5aa2e15af1dfd90ba2b5cd419a813ee',1,'pqueue.h']]],
-  ['pqueue_5fincrease_5fkeys_11',['pqueue_increase_keys',['../group__DataStructureMethods.html#gadf20106f653af15928f42af640349411',1,'pqueue.h']]],
+  ['pqueue_5fchange_5fkey_8',['pqueue_change_key',['../group__DataStructureMethods.html#gaa35569ff50473ff503eba7b4080a0c5c',1,'pqueue.h']]],
+  ['pqueue_5fcreate_9',['pqueue_create',['../group__DataStructureMethods.html#ga202b5418e49f8b45f09b7c6112d32bb5',1,'pqueue.h']]],
+  ['pqueue_5fextract_10',['pqueue_extract',['../group__DataStructureMethods.html#ga884be5b1352d262b0bee48ac14b8e779',1,'pqueue.h']]],
+  ['pqueue_5ffree_11',['pqueue_free',['../group__DataStructureMethods.html#gae5aa2e15af1dfd90ba2b5cd419a813ee',1,'pqueue.h']]],
   ['pqueue_5finsert_12',['pqueue_insert',['../group__DataStructureMethods.html#ga8ea1460465b80d51cf7e886acdb6d569',1,'pqueue.h']]],
-  ['pqueue_5fmaximum_13',['pqueue_maximum',['../group__DataStructureMethods.html#ga7d9a70dad1ccfea5339cc2375fecfea0',1,'pqueue.h']]],
+  ['pqueue_5fis_5fempty_13',['pqueue_is_empty',['../group__DataStructureMethods.html#ga3a9d8c7c12ac975eccf6a925c54eacde',1,'pqueue.h']]],
   ['pqueue_5fprint_14',['pqueue_print',['../group__DataStructureMethods.html#ga273dd3b97c7798210404bf0a3942f7c2',1,'pqueue.h']]],
   ['pqueue_5fprintln_15',['pqueue_println',['../group__DataStructureMethods.html#ga58f95ca0e9a45edcc43e97222d4f9a6a',1,'pqueue.h']]],
-  ['print_5fascii_5ftree_16',['print_ascii_tree',['../group__DataStructureMethods.html#gacdb411dc439f84cde1f64419a2f93b96',1,'ascii-tree.h']]],
-  ['print_5fvector_17',['print_vector',['../sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e',1,'sort.h']]]
+  ['pqueue_5fsize_16',['pqueue_size',['../group__DataStructureMethods.html#gae1592bef07b0305b1cba046cacffbada',1,'pqueue.h']]],
+  ['pqueue_5ftop_17',['pqueue_top',['../group__DataStructureMethods.html#gae6a63794196f50f04ea95e9e9877adb2',1,'pqueue.h']]],
+  ['print_5fascii_5ftree_18',['print_ascii_tree',['../group__DataStructureMethods.html#gacdb411dc439f84cde1f64419a2f93b96',1,'ascii-tree.h']]],
+  ['print_5fvector_19',['print_vector',['../sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e',1,'sort.h']]]
 ];

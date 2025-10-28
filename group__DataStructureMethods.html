@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">1.0.0-6-ge6a13</span>
+                  &#160;<span id="projectnumber">1.0.0-7-g553c</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -396,16 +396,20 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga6864133d6b60f25f80117a1204f25729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy point origin to destination.  <br /></td></tr>
 <tr class="memitem:ga51d2d9b21a6e81990c6924f4d9673f6e" id="r_ga51d2d9b21a6e81990c6924f4d9673f6e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga51d2d9b21a6e81990c6924f4d9673f6e">point_distance</a> (<a class="el" href="structPoint.html">Point</a> *px, <a class="el" href="structPoint.html">Point</a> *py)</td></tr>
 <tr class="memdesc:ga51d2d9b21a6e81990c6924f4d9673f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate the euclidean distance between two points  <br /></td></tr>
-<tr class="memitem:ga07ae8ed20b804a52e51697954aa34133" id="r_ga07ae8ed20b804a52e51697954aa34133"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPQueue.html">PQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga07ae8ed20b804a52e51697954aa34133">pqueue_create</a> ()</td></tr>
-<tr class="memdesc:ga07ae8ed20b804a52e51697954aa34133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty priority queue.  <br /></td></tr>
+<tr class="memitem:ga202b5418e49f8b45f09b7c6112d32bb5" id="r_ga202b5418e49f8b45f09b7c6112d32bb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPQueue.html">PQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga202b5418e49f8b45f09b7c6112d32bb5">pqueue_create</a> (<a class="el" href="pqueue_8h.html#a930a646d8afdf103e9434be60c95cd7f">PQueueType</a> type)</td></tr>
+<tr class="memdesc:ga202b5418e49f8b45f09b7c6112d32bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty priority queue.  <br /></td></tr>
 <tr class="memitem:ga8ea1460465b80d51cf7e886acdb6d569" id="r_ga8ea1460465b80d51cf7e886acdb6d569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8ea1460465b80d51cf7e886acdb6d569">pqueue_insert</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq, int x)</td></tr>
 <tr class="memdesc:ga8ea1460465b80d51cf7e886acdb6d569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an element into the priority queue.  <br /></td></tr>
-<tr class="memitem:ga805dd3a406affe9173ce9ef08068958a" id="r_ga805dd3a406affe9173ce9ef08068958a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga805dd3a406affe9173ce9ef08068958a">pqueue_extract_max</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
-<tr class="memdesc:ga805dd3a406affe9173ce9ef08068958a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the maximum element from the priority queue.  <br /></td></tr>
-<tr class="memitem:gadf20106f653af15928f42af640349411" id="r_gadf20106f653af15928f42af640349411"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadf20106f653af15928f42af640349411">pqueue_increase_keys</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq, int k, int v)</td></tr>
-<tr class="memdesc:gadf20106f653af15928f42af640349411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases the key of an element in the priority queue.  <br /></td></tr>
-<tr class="memitem:ga7d9a70dad1ccfea5339cc2375fecfea0" id="r_ga7d9a70dad1ccfea5339cc2375fecfea0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7d9a70dad1ccfea5339cc2375fecfea0">pqueue_maximum</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
-<tr class="memdesc:ga7d9a70dad1ccfea5339cc2375fecfea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum element in the priority queue without extracting it.  <br /></td></tr>
+<tr class="memitem:ga884be5b1352d262b0bee48ac14b8e779" id="r_ga884be5b1352d262b0bee48ac14b8e779"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga884be5b1352d262b0bee48ac14b8e779">pqueue_extract</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
+<tr class="memdesc:ga884be5b1352d262b0bee48ac14b8e779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) from the priority queue.  <br /></td></tr>
+<tr class="memitem:gaa35569ff50473ff503eba7b4080a0c5c" id="r_gaa35569ff50473ff503eba7b4080a0c5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa35569ff50473ff503eba7b4080a0c5c">pqueue_change_key</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq, int k, int v)</td></tr>
+<tr class="memdesc:gaa35569ff50473ff503eba7b4080a0c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the key of an element in the priority queue.  <br /></td></tr>
+<tr class="memitem:gae6a63794196f50f04ea95e9e9877adb2" id="r_gae6a63794196f50f04ea95e9e9877adb2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae6a63794196f50f04ea95e9e9877adb2">pqueue_top</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
+<tr class="memdesc:gae6a63794196f50f04ea95e9e9877adb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) in the priority queue without extracting it.  <br /></td></tr>
+<tr class="memitem:gae1592bef07b0305b1cba046cacffbada" id="r_gae1592bef07b0305b1cba046cacffbada"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae1592bef07b0305b1cba046cacffbada">pqueue_size</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
+<tr class="memdesc:gae1592bef07b0305b1cba046cacffbada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of elements in the priority queue.  <br /></td></tr>
+<tr class="memitem:ga3a9d8c7c12ac975eccf6a925c54eacde" id="r_ga3a9d8c7c12ac975eccf6a925c54eacde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3a9d8c7c12ac975eccf6a925c54eacde">pqueue_is_empty</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
+<tr class="memdesc:ga3a9d8c7c12ac975eccf6a925c54eacde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the priority queue is empty.  <br /></td></tr>
 <tr class="memitem:gae5aa2e15af1dfd90ba2b5cd419a813ee" id="r_gae5aa2e15af1dfd90ba2b5cd419a813ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae5aa2e15af1dfd90ba2b5cd419a813ee">pqueue_free</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
 <tr class="memdesc:gae5aa2e15af1dfd90ba2b5cd419a813ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the memory allocated for a priority queue.  <br /></td></tr>
 <tr class="memitem:ga273dd3b97c7798210404bf0a3942f7c2" id="r_ga273dd3b97c7798210404bf0a3942f7c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga273dd3b97c7798210404bf0a3942f7c2">pqueue_print</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
@@ -5185,8 +5189,44 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga07ae8ed20b804a52e51697954aa34133" name="ga07ae8ed20b804a52e51697954aa34133"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga07ae8ed20b804a52e51697954aa34133">&#9670;&#160;</a></span>pqueue_create()</h2>
+<a id="gaa35569ff50473ff503eba7b4080a0c5c" name="gaa35569ff50473ff503eba7b4080a0c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa35569ff50473ff503eba7b4080a0c5c">&#9670;&#160;</a></span>pqueue_change_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pqueue_change_key </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPQueue.html">PQueue</a> *</td>          <td class="paramname"><span class="paramname"><em>pq</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the key of an element in the priority queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pq</td><td>The priority queue. </td></tr>
+    <tr><td class="paramname">k</td><td>The index of the element to change. </td></tr>
+    <tr><td class="paramname">v</td><td>The new value of the element. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga202b5418e49f8b45f09b7c6112d32bb5" name="ga202b5418e49f8b45f09b7c6112d32bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga202b5418e49f8b45f09b7c6112d32bb5">&#9670;&#160;</a></span>pqueue_create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5194,25 +5234,31 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structPQueue.html">PQueue</a> * pqueue_create </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="pqueue_8h.html#a930a646d8afdf103e9434be60c95cd7f">PQueueType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Creates an empty priority queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type of priority queue (MIN_PQUEUE or MAX_PQUEUE). </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the new priority queue. </dd></dl>
 
 </div>
 </div>
-<a id="ga805dd3a406affe9173ce9ef08068958a" name="ga805dd3a406affe9173ce9ef08068958a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga805dd3a406affe9173ce9ef08068958a">&#9670;&#160;</a></span>pqueue_extract_max()</h2>
+<a id="ga884be5b1352d262b0bee48ac14b8e779" name="ga884be5b1352d262b0bee48ac14b8e779"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga884be5b1352d262b0bee48ac14b8e779">&#9670;&#160;</a></span>pqueue_extract()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int pqueue_extract_max </td>
+          <td class="memname">int pqueue_extract </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPQueue.html">PQueue</a> *</td>          <td class="paramname"><span class="paramname"><em>pq</em></span></td><td>)</td>
           <td></td>
@@ -5220,14 +5266,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Extracts the maximum element from the priority queue. </p>
+<p>Extracts the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) from the priority queue. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pq</td><td>The priority queue to extract from. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The maximum element. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The top element. </dd></dl>
 
 </div>
 </div>
@@ -5250,42 +5296,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pq</td><td>The priority queue to free. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="gadf20106f653af15928f42af640349411" name="gadf20106f653af15928f42af640349411"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadf20106f653af15928f42af640349411">&#9670;&#160;</a></span>pqueue_increase_keys()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void pqueue_increase_keys </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structPQueue.html">PQueue</a> *</td>          <td class="paramname"><span class="paramname"><em>pq</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Increases the key of an element in the priority queue. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pq</td><td>The priority queue. </td></tr>
-    <tr><td class="paramname">k</td><td>The index of the element to increase. </td></tr>
-    <tr><td class="paramname">v</td><td>The new value of the element. </td></tr>
   </table>
   </dd>
 </dl>
@@ -5322,14 +5332,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga7d9a70dad1ccfea5339cc2375fecfea0" name="ga7d9a70dad1ccfea5339cc2375fecfea0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7d9a70dad1ccfea5339cc2375fecfea0">&#9670;&#160;</a></span>pqueue_maximum()</h2>
+<a id="ga3a9d8c7c12ac975eccf6a925c54eacde" name="ga3a9d8c7c12ac975eccf6a925c54eacde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3a9d8c7c12ac975eccf6a925c54eacde">&#9670;&#160;</a></span>pqueue_is_empty()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int pqueue_maximum </td>
+          <td class="memname">bool pqueue_is_empty </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPQueue.html">PQueue</a> *</td>          <td class="paramname"><span class="paramname"><em>pq</em></span></td><td>)</td>
           <td></td>
@@ -5337,14 +5347,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the maximum element in the priority queue without extracting it. </p>
+<p>Checks if the priority queue is empty. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pq</td><td>The priority queue. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The maximum element. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the priority queue is empty, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -5395,6 +5405,58 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="gae1592bef07b0305b1cba046cacffbada" name="gae1592bef07b0305b1cba046cacffbada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae1592bef07b0305b1cba046cacffbada">&#9670;&#160;</a></span>pqueue_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int pqueue_size </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPQueue.html">PQueue</a> *</td>          <td class="paramname"><span class="paramname"><em>pq</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of elements in the priority queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pq</td><td>The priority queue. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of elements. </dd></dl>
+
+</div>
+</div>
+<a id="gae6a63794196f50f04ea95e9e9877adb2" name="gae6a63794196f50f04ea95e9e9877adb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae6a63794196f50f04ea95e9e9877adb2">&#9670;&#160;</a></span>pqueue_top()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int pqueue_top </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPQueue.html">PQueue</a> *</td>          <td class="paramname"><span class="paramname"><em>pq</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) in the priority queue without extracting it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pq</td><td>The priority queue. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The top element. </dd></dl>
 
 </div>
 </div>

@@ -12,6 +12,8 @@ var searchData=
   ['matrix_5fmax_9',['matrix_max',['../group__DataStructureMethods.html#ga57857540fa7c33edad5c2c5aba7e6a58',1,'matrix-utils.h']]],
   ['matrix_5fprint_10',['matrix_print',['../group__DataStructureMethods.html#ga3768f4937226fa592c8c6f4ad270117a',1,'matrix-utils.h']]],
   ['matrix_5fset_11',['matrix_set',['../group__DataStructureMethods.html#ga18eb45e990da5a033d6a4476e6a636a7',1,'matrix.h']]],
-  ['mergesort_12',['mergesort',['../group__SortingAlgorithms.html#gaeb8e4a806b70e15d0ec7cc1f5559bb85',1,'sort.h']]],
-  ['methods_13',['Data Structure Methods',['../group__DataStructureMethods.html',1,'']]]
+  ['max_5fpqueue_12',['MAX_PQUEUE',['../pqueue_8h.html#a930a646d8afdf103e9434be60c95cd7fa162d0df8ba513d954e0018c263e217d5',1,'pqueue.h']]],
+  ['mergesort_13',['mergesort',['../group__SortingAlgorithms.html#gaeb8e4a806b70e15d0ec7cc1f5559bb85',1,'sort.h']]],
+  ['methods_14',['Data Structure Methods',['../group__DataStructureMethods.html',1,'']]],
+  ['min_5fpqueue_15',['MIN_PQUEUE',['../pqueue_8h.html#a930a646d8afdf103e9434be60c95cd7fafb0128b05e7bb52655abf3c0ef1b4a09',1,'pqueue.h']]]
 ];
