@@ -17,6 +17,10 @@
 #define PQUEUE_SIZE 10
 #endif
 
+#ifndef PQUEUE_GROWTH_FACTOR
+#define PQUEUE_GROWTH_FACTOR 10
+#endif
+
 #include <stdbool.h>
 
 /**
@@ -42,8 +46,9 @@ typedef enum PQueueType {
  * @brief A priority queue implementation using a binary heap.
  */
 struct PQueue {
-    PQueueNode heap[PQUEUE_SIZE]; /**< inner heap for nodes */
+    PQueueNode *heap; /**< inner heap for nodes */
     int size;              /**< the current size of PQueue */
+    int capacity;          /**< the current capacity of PQueue */
     PQueueType type;       /**< type of the priority queue (min or max) */
 };
 

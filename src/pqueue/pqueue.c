@@ -88,15 +88,26 @@ PQueue* pqueue_create(PQueueType type) {
         perror("Failed to allocate memory for PQueue");
         exit(EXIT_FAILURE);
     }
+    pq->heap = (PQueueNode*) malloc(PQUEUE_SIZE * sizeof(PQueueNode));
+    if (pq->heap == NULL) {
+        perror("Failed to allocate memory for PQueue heap");
+        free(pq);
+        exit(EXIT_FAILURE);
+    }
     pq->size = 0;
+    pq->capacity = PQUEUE_SIZE;
     pq->type = type;
     return pq;
 }
 
 void pqueue_insert(PQueue *pq, int key, int value) {
-    if (pq->size == PQUEUE_SIZE) {
-        printf("Heap overflow!\n");
-        exit(EXIT_FAILURE);
+    if (pq->size == pq->capacity) {
+        pq->capacity += PQUEUE_GROWTH_FACTOR;
+        pq->heap = (PQueueNode*) realloc(pq->heap, pq->capacity * sizeof(PQueueNode));
+        if (pq->heap == NULL) {
+            perror("Failed to reallocate memory for PQueue heap");
+            exit(EXIT_FAILURE);
+        }
     }
     pq->size++;
     int i = pq->size - 1;
@@ -143,14 +154,14 @@ PQueueNode pqueue_extract(PQueue *pq) {
 }
 
 void pqueue_print(PQueue *pq) {
-    printf("<PQUEUE: [");
+    printf("<PQUEUE: [size=%d, capacity=%d, [", pq->size, pq->capacity);
     for (int i = 0; i < pq->size; i++) {
         printf("(%d, %d)", pq->heap[i].key, pq->heap[i].value);
         if (i + 1 < pq->size) {
             printf(", ");
         }
     }
-    printf("]>");
+    printf("]]>");
 }
 
 void pqueue_println(PQueue *pq) {
@@ -192,8 +203,7 @@ void pqueue_change_key(PQueue *pq, int key, int value) {
         if (value > old_value) {
             // If new value is larger, need to heapify down
             min_heapify(pq, k);
-        }
-        else {
+        } else {
             // If new value is smaller, need to bubble up
             while (k > 0 && pq->heap[parent(k)].value > pq->heap[k].value) {
                 swap_nodes(&pq->heap[k], &pq->heap[parent(k)]);
@@ -204,5 +214,6 @@ void pqueue_change_key(PQueue *pq, int key, int value) {
 }
 
 void pqueue_free(PQueue *pq) {
+    free(pq->heap);
     free(pq);
 }

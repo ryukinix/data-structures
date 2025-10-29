@@ -7,7 +7,7 @@
  *        Contact: manoel_vilela@engineer.com
  *   Organization: UFC
  *
- * ================================================ 
+ * ================================================
  */
 
 #include <stdio.h>
@@ -124,9 +124,31 @@ void test_min_pqueue(void) {
     printf("--- End Min Priority Queue Test ---\n\n");
 }
 
+void test_pqueue_growth(void) {
+    printf("--- Testing PQueue Growth ---\n");
+    PQueue *pq = pqueue_create(MIN_PQUEUE);
+    int initial_capacity = pq->capacity;
+    printf("Initial capacity: %d\n", initial_capacity);
+
+    for (int i = 0; i < initial_capacity + 5; i++) {
+        pqueue_insert(pq, i, i);
+    }
+
+    printf("PQueue after inserting %d elements: ", pqueue_size(pq));
+    pqueue_println(pq);
+    assert(pq->size == initial_capacity + 5);
+    assert(pq->capacity == initial_capacity + PQUEUE_GROWTH_FACTOR);
+    printf("Final capacity: %d\n", pq->capacity);
+
+    pqueue_free(pq);
+    printf("--- End PQueue Growth Test ---\n\n");
+}
+
 
 int main(void) {
     test_max_pqueue();
     test_min_pqueue();
+    test_pqueue_growth();
     return 0;
 }
+
