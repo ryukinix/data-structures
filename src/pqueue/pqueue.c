@@ -154,14 +154,14 @@ PQueueNode pqueue_extract(PQueue *pq) {
 }
 
 void pqueue_print(PQueue *pq) {
-    printf("<PQUEUE: [size=%d, capacity=%d, [", pq->size, pq->capacity);
+    printf("<PQUEUE(size=%d, capacity=%d): [", pq->size, pq->capacity);
     for (int i = 0; i < pq->size; i++) {
         printf("(%d, %d)", pq->heap[i].key, pq->heap[i].value);
         if (i + 1 < pq->size) {
             printf(", ");
         }
     }
-    printf("]]>");
+    printf("]>");
 }
 
 void pqueue_println(PQueue *pq) {
