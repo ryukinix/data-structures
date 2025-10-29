@@ -30,15 +30,15 @@ void swap_nodes(PQueueNode *n1, PQueueNode *n2) {
 }
 
 int parent(int i) {
-    return (i - 1) / 2;
+    return i / 2;
 }
 
 int left(int i) {
-    return 2 * i + 1;
+    return 2 * i;
 }
 
 int right(int i) {
-    return 2 * i + 2;
+    return 2 * i + 1;
 }
 
 // Max-heapify function
@@ -175,10 +175,10 @@ int find_key_index(PQueue *pq, int key) {
             return i;
         }
     }
-    return -1; // not found
+    return -1;
 }
 
-void pqueue_change_key(PQueue *pq, int key, int value) {
+void pqueue_update_key(PQueue *pq, int key, int value) {
     int k = find_key_index(pq, key);
     if (k == -1) {
         printf("Key not found!\n");
@@ -216,4 +216,63 @@ void pqueue_change_key(PQueue *pq, int key, int value) {
 void pqueue_free(PQueue *pq) {
     free(pq->heap);
     free(pq);
+}
+
+
+struct PQueueIterator {
+    PQueue* pq;
+    int index;
+};
+
+
+void* pqueue_iterator_next_node(Iterator *it) {
+    struct PQueueIterator *pq_it = (struct PQueueIterator*) it->container;
+    int i = pq_it->index++;
+    return &pq_it->pq->heap[i];
+}
+
+
+void* pqueue_iterator_next_key(Iterator *it) {
+    struct PQueueNode* node = (struct PQueueNode*) pqueue_iterator_next_node(it);
+    return &node->key;
+}
+
+
+bool pqueue_iterator_done(Iterator *it) {
+    struct PQueueIterator *pq_it = (struct PQueueIterator*) it->container;
+    return pq_it->index == pq_it->pq->size;
+}
+
+
+void pqueue_iterator_free(Iterator *it) {
+    free(it->container);
+    free(it);
+}
+
+
+Iterator* pqueue_iterator(PQueue *pq) {
+    struct PQueueIterator *pq_it = malloc(sizeof(struct PQueueIterator));
+    check_alloc(pq_it);
+    pq_it->pq = pq;
+    pq_it->index = 0;
+    return iterator_create(
+        pq_it,
+        pqueue_iterator_next_node,
+        pqueue_iterator_free,
+        pqueue_iterator_done
+    );
+}
+
+
+Iterator* pqueue_iterator_keys(PQueue *pq) {
+    struct PQueueIterator *pq_it = malloc(sizeof(struct PQueueIterator));
+    check_alloc(pq_it);
+    pq_it->pq = pq;
+    pq_it->index = 0;
+    return iterator_create(
+        pq_it,
+        pqueue_iterator_next_key,
+        pqueue_iterator_free,
+        pqueue_iterator_done
+    );
 }

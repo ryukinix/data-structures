@@ -43,7 +43,7 @@ void test_max_pqueue(void) {
     printf("PQueue after extract: ");
     pqueue_println(pq);
 
-    pqueue_change_key(pq, 2, 200);
+    pqueue_update_key(pq, 2, 200);
     printf("Changed key-2 element to 200 priority\n");
     printf("PQueue after change_key: ");
     pqueue_println(pq);
@@ -124,8 +124,8 @@ void test_min_pqueue(void) {
     printf("--- End Min Priority Queue Test ---\n\n");
 }
 
-void test_pqueue_growth(void) {
-    printf("--- Testing PQueue Growth ---\n");
+void test_pqueue_growth_and_iteration(void) {
+    printf("--- Testing PQueue Growth / Iterating ---\n");
     PQueue *pq = pqueue_create(MIN_PQUEUE);
     int initial_capacity = pq->capacity;
     printf("Initial capacity: %d\n", initial_capacity);
@@ -134,21 +134,31 @@ void test_pqueue_growth(void) {
         pqueue_insert(pq, i, i);
     }
 
-    printf("PQueue after inserting %d elements: ", pqueue_size(pq));
+    printf("PQueue after inserting %d elements: \n", pqueue_size(pq));
     pqueue_println(pq);
     assert(pq->size == initial_capacity + 5);
     assert(pq->capacity == initial_capacity + PQUEUE_GROWTH_FACTOR);
     printf("Final capacity: %d\n", pq->capacity);
 
+    Iterator* it = pqueue_iterator_keys(pq);
+    printf("Iterating in the keys of pqueue: [");
+    while (!iterator_done(it)) {
+        printf("%d", *(int*) iterator_next(it));
+        if (!iterator_done(it)) {
+            printf(", ");
+        }
+    }
+    printf("]\n");
+    iterator_free(it);
+
     pqueue_free(pq);
-    printf("--- End PQueue Growth Test ---\n\n");
+    printf("--- End PQueue Growth Test / Iterating ---\n\n");
 }
 
 
 int main(void) {
     test_max_pqueue();
     test_min_pqueue();
-    test_pqueue_growth();
+    test_pqueue_growth_and_iteration();
     return 0;
 }
-

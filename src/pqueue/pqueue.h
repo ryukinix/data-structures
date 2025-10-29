@@ -22,6 +22,7 @@
 #endif
 
 #include <stdbool.h>
+#include "../iterator/iterator.h"
 
 /**
  * @brief A node in the priority queue.
@@ -47,9 +48,9 @@ typedef enum PQueueType {
  */
 struct PQueue {
     PQueueNode *heap; /**< inner heap for nodes */
-    int size;              /**< the current size of PQueue */
-    int capacity;          /**< the current capacity of PQueue */
-    PQueueType type;       /**< type of the priority queue (min or max) */
+    int size;         /**< the current size of PQueue */
+    int capacity;     /**< the current capacity of PQueue */
+    PQueueType type;  /**< type of the priority queue (min or max) */
 };
 
 
@@ -87,14 +88,14 @@ void pqueue_insert(PQueue *pq, int key, int value);
 PQueueNode pqueue_extract(PQueue *pq);
 
 /**
- * @brief Changes the priority of an element in the priority queue.
+ * @brief Update the priority of an element in the priority queue.
  *
  * @param pq The priority queue.
  * @param key The key of the element to change.
  * @param value The new priority of the element.
  * @ingroup DataStructureMethods
  */
-void pqueue_change_key(PQueue *pq, int key, int value);
+void pqueue_update_key(PQueue *pq, int key, int value);
 
 /**
  * @brief Returns the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) in the priority queue without extracting it.
@@ -147,5 +148,21 @@ void pqueue_print(PQueue *pq);
  * @ingroup DataStructureMethods
  */
 void pqueue_println(PQueue *pq);
+
+/**
+ * @brief Iterator over keys of priority queue.
+ *
+ * @param pq The priority queue to print.
+ * @ingroup DataStructureMethods
+ */
+Iterator* pqueue_iterator_keys(PQueue *pq);
+
+/**
+ * @brief Iterator over nodes with (key, value) of priority queue.
+ *
+ * @param pq The priority queue to print.
+ * @ingroup DataStructureMethods
+ */
+Iterator* pqueue_iterator(PQueue *pq);
 
 #endif
