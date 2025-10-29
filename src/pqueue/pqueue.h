@@ -7,17 +7,28 @@
  *        Contact: manoel_vilela@engineer.com
  *   Organization: UFC
  *
- * ===============================================
+ * ================================================
  */
 
 #ifndef PQUEUE_H
+#define PQUEUE_H
+
 #ifndef PQUEUE_SIZE
 #define PQUEUE_SIZE 10
 #endif
 
 #include <stdbool.h>
 
-#define HEAP_EMPTY_CELL -1
+/**
+ * @brief A node in the priority queue.
+ */
+typedef struct PQueueNode {
+    int key;
+    int value; // priority
+} PQueueNode;
+
+
+#define HEAP_EMPTY_NODE (PQueueNode){-1, -1}
 
 /**
  * @brief Enum for priority queue type (min or max).
@@ -31,7 +42,7 @@ typedef enum PQueueType {
  * @brief A priority queue implementation using a binary heap.
  */
 struct PQueue {
-    int heap[PQUEUE_SIZE]; /**< inner heap for weights */
+    PQueueNode heap[PQUEUE_SIZE]; /**< inner heap for nodes */
     int size;              /**< the current size of PQueue */
     PQueueType type;       /**< type of the priority queue (min or max) */
 };
@@ -55,38 +66,39 @@ PQueue* pqueue_create(PQueueType type);
  * @brief Inserts an element into the priority queue.
  *
  * @param pq The priority queue to insert into.
- * @param x The element to insert.
+ * @param key The key of the element to insert.
+ * @param value The value (priority) of the element to insert.
  * @ingroup DataStructureMethods
  */
-void pqueue_insert(PQueue *pq, int x);
+void pqueue_insert(PQueue *pq, int key, int value);
 
 /**
  * @brief Extracts the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) from the priority queue.
  *
  * @param pq The priority queue to extract from.
- * @return The top element.
+ * @return The top element (a PQueueNode).
  * @ingroup DataStructureMethods
  */
-int pqueue_extract(PQueue *pq);
+PQueueNode pqueue_extract(PQueue *pq);
 
 /**
- * @brief Changes the key of an element in the priority queue.
+ * @brief Changes the priority of an element in the priority queue.
  *
  * @param pq The priority queue.
- * @param k The index of the element to change.
- * @param v The new value of the element.
+ * @param key The key of the element to change.
+ * @param value The new priority of the element.
  * @ingroup DataStructureMethods
  */
-void pqueue_change_key(PQueue *pq, int k, int v);
+void pqueue_change_key(PQueue *pq, int key, int value);
 
 /**
  * @brief Returns the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) in the priority queue without extracting it.
  *
  * @param pq The priority queue.
- * @return The top element.
+ * @return The top element (a PQueueNode).
  * @ingroup DataStructureMethods
  */
-int pqueue_top(PQueue *pq);
+PQueueNode pqueue_top(PQueue *pq);
 
 /**
  * @brief Returns the number of elements in the priority queue.
