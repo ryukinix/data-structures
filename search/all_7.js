@@ -29,8 +29,8 @@ var searchData=
   ['hash_5ftable_5fsize_26',['hash_table_size',['../group__DataStructureMethods.html#gae23522f9013c46a517eea68c3342feb0',1,'hash-table.h']]],
   ['hashtable_27',['HashTable',['../hash-table_8h.html#a8dea4341d1b1662a30ec89ea38da0c0c',1,'hash-table.h']]],
   ['hashtablegen_28',['HashTableGen',['../hash-table-gen_8h.html#a4b366b34613fae694b6d8de0578705be',1,'hash-table-gen.h']]],
-  ['heap_29',['heap',['../structPQueue.html#aa967068eda502e148bba0e56437282b4',1,'PQueue']]],
-  ['heap_5fempty_5fcell_30',['HEAP_EMPTY_CELL',['../pqueue_8h.html#a4f19a5aa14ba17dd502fc023384c68f5',1,'pqueue.h']]],
+  ['heap_29',['heap',['../structPQueue.html#a28aaf93e0edde44c7eba44dfcaf93cf5',1,'PQueue']]],
+  ['heap_5fempty_5fnode_30',['HEAP_EMPTY_NODE',['../pqueue_8h.html#a4d3a08fc38638e69638c3786cbedf682',1,'pqueue.h']]],
   ['heapsort_31',['heapsort',['../group__SortingAlgorithms.html#gad14faf1fe7d2c09689a0196cccbf9383',1,'sort.h']]],
   ['height_32',['height',['../structBinaryNode.html#acc14383a0c479e58e33e9b0b70883ea2',1,'BinaryNode']]]
 ];

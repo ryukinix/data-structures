@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['heap_5fempty_5fcell_0',['HEAP_EMPTY_CELL',['../pqueue_8h.html#a4f19a5aa14ba17dd502fc023384c68f5',1,'pqueue.h']]]
+  ['heap_5fempty_5fnode_0',['HEAP_EMPTY_NODE',['../pqueue_8h.html#a4d3a08fc38638e69638c3786cbedf682',1,'pqueue.h']]]
 ];

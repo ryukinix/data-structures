@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">1.0.0-7-g553c</span>
+                  &#160;<span id="projectnumber">1.0.0-8-g1d01</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -126,25 +126,57 @@ $(function(){initNavTree('structPQueue.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aa967068eda502e148bba0e56437282b4" id="r_aa967068eda502e148bba0e56437282b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa967068eda502e148bba0e56437282b4">heap</a> [<a class="el" href="pqueue_8h.html#acf5daa72d5e8184594daf1b6dc81b415">PQUEUE_SIZE</a>]</td></tr>
+<tr class="memitem:a28aaf93e0edde44c7eba44dfcaf93cf5" id="r_a28aaf93e0edde44c7eba44dfcaf93cf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPQueueNode.html">PQueueNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28aaf93e0edde44c7eba44dfcaf93cf5">heap</a></td></tr>
+<tr class="memitem:a705ddf74e56cf36e660618496008f191" id="r_a705ddf74e56cf36e660618496008f191"><td class="memItemLeft" align="right" valign="top"><a class="el" href="hash-table_8h.html#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a705ddf74e56cf36e660618496008f191">index</a></td></tr>
 <tr class="memitem:a87efd2ac42013a3caf82d2fb3d8b94ae" id="r_a87efd2ac42013a3caf82d2fb3d8b94ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87efd2ac42013a3caf82d2fb3d8b94ae">size</a></td></tr>
+<tr class="memitem:aa53f4b9806aa35375ba727a3ef203edb" id="r_aa53f4b9806aa35375ba727a3ef203edb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa53f4b9806aa35375ba727a3ef203edb">capacity</a></td></tr>
 <tr class="memitem:a4db0d52fd48983f94aadf8abf333e737" id="r_a4db0d52fd48983f94aadf8abf333e737"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pqueue_8h.html#a930a646d8afdf103e9434be60c95cd7f">PQueueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4db0d52fd48983f94aadf8abf333e737">type</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A priority queue implementation using a binary heap. </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
-<a id="aa967068eda502e148bba0e56437282b4" name="aa967068eda502e148bba0e56437282b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa967068eda502e148bba0e56437282b4">&#9670;&#160;</a></span>heap</h2>
+<a id="aa53f4b9806aa35375ba727a3ef203edb" name="aa53f4b9806aa35375ba727a3ef203edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa53f4b9806aa35375ba727a3ef203edb">&#9670;&#160;</a></span>capacity</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int PQueue::heap[<a class="el" href="pqueue_8h.html#acf5daa72d5e8184594daf1b6dc81b415">PQUEUE_SIZE</a>]</td>
+          <td class="memname">int PQueue::capacity</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>inner heap for weights </p>
+<p>the current capacity of <a class="el" href="structPQueue.html" title="A priority queue implementation using a binary heap.">PQueue</a> </p>
+
+</div>
+</div>
+<a id="a28aaf93e0edde44c7eba44dfcaf93cf5" name="a28aaf93e0edde44c7eba44dfcaf93cf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28aaf93e0edde44c7eba44dfcaf93cf5">&#9670;&#160;</a></span>heap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPQueueNode.html">PQueueNode</a>* PQueue::heap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>inner heap for nodes </p>
+
+</div>
+</div>
+<a id="a705ddf74e56cf36e660618496008f191" name="a705ddf74e56cf36e660618496008f191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a705ddf74e56cf36e660618496008f191">&#9670;&#160;</a></span>index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="hash-table_8h.html#a8dea4341d1b1662a30ec89ea38da0c0c">HashTable</a>* PQueue::index</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>index of where keys are stored in heap </p>
 
 </div>
 </div>

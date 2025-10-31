@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">1.0.0-7-g553c</span>
+                  &#160;<span id="projectnumber">1.0.0-8-g1d01</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -123,21 +123,28 @@ $(function(){initNavTree('pqueue_8h.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="iterator_8h_source.html">../iterator/iterator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hash-table_8h_source.html">../hash-table/hash-table.h</a>&quot;</code><br />
 </div>
 <p><a href="pqueue_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:PQueueNode" id="r_PQueueNode"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPQueueNode.html">PQueueNode</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A node in the priority queue.  <a href="structPQueueNode.html#details">More...</a><br /></td></tr>
 <tr class="memitem:PQueue" id="r_PQueue"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPQueue.html">PQueue</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A priority queue implementation using a binary heap.  <a href="structPQueue.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:acf5daa72d5e8184594daf1b6dc81b415" id="r_acf5daa72d5e8184594daf1b6dc81b415"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf5daa72d5e8184594daf1b6dc81b415">PQUEUE_SIZE</a>&#160;&#160;&#160;10</td></tr>
-<tr class="memitem:a4f19a5aa14ba17dd502fc023384c68f5" id="r_a4f19a5aa14ba17dd502fc023384c68f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f19a5aa14ba17dd502fc023384c68f5">HEAP_EMPTY_CELL</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memitem:a67813e1015832a27f9bcbe555708821b" id="r_a67813e1015832a27f9bcbe555708821b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67813e1015832a27f9bcbe555708821b">PQUEUE_GROWTH_FACTOR</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memitem:a4d3a08fc38638e69638c3786cbedf682" id="r_a4d3a08fc38638e69638c3786cbedf682"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d3a08fc38638e69638c3786cbedf682">HEAP_EMPTY_NODE</a>&#160;&#160;&#160;(<a class="el" href="structPQueueNode.html">PQueueNode</a>){-1, -1}</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a058a15c5c6e2fc3b27f1529ad3a2ede2" id="r_a058a15c5c6e2fc3b27f1529ad3a2ede2"><td class="memItemLeft" align="right" valign="top">typedef struct PQueueNode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a058a15c5c6e2fc3b27f1529ad3a2ede2">PQueueNode</a></td></tr>
+<tr class="memdesc:a058a15c5c6e2fc3b27f1529ad3a2ede2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A node in the priority queue.  <br /></td></tr>
 <tr class="memitem:a09786d939b8df5794bb15afebbda3425" id="r_a09786d939b8df5794bb15afebbda3425"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="#a930a646d8afdf103e9434be60c95cd7f">PQueueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09786d939b8df5794bb15afebbda3425">PQueueType</a></td></tr>
 <tr class="memdesc:a09786d939b8df5794bb15afebbda3425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum for priority queue type (min or max).  <br /></td></tr>
 <tr class="memitem:aac7605bb6de2e519ff7b692270fb24de" id="r_aac7605bb6de2e519ff7b692270fb24de"><td class="memItemLeft" align="right" valign="top">typedef struct PQueue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac7605bb6de2e519ff7b692270fb24de">PQueue</a></td></tr>
@@ -154,14 +161,14 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ga202b5418e49f8b45f09b7c6112d32bb5" id="r_ga202b5418e49f8b45f09b7c6112d32bb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPQueue.html">PQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga202b5418e49f8b45f09b7c6112d32bb5">pqueue_create</a> (<a class="el" href="#a930a646d8afdf103e9434be60c95cd7f">PQueueType</a> type)</td></tr>
 <tr class="memdesc:ga202b5418e49f8b45f09b7c6112d32bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty priority queue.  <br /></td></tr>
-<tr class="memitem:ga8ea1460465b80d51cf7e886acdb6d569" id="r_ga8ea1460465b80d51cf7e886acdb6d569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga8ea1460465b80d51cf7e886acdb6d569">pqueue_insert</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq, int x)</td></tr>
-<tr class="memdesc:ga8ea1460465b80d51cf7e886acdb6d569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an element into the priority queue.  <br /></td></tr>
-<tr class="memitem:ga884be5b1352d262b0bee48ac14b8e779" id="r_ga884be5b1352d262b0bee48ac14b8e779"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga884be5b1352d262b0bee48ac14b8e779">pqueue_extract</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
-<tr class="memdesc:ga884be5b1352d262b0bee48ac14b8e779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) from the priority queue.  <br /></td></tr>
-<tr class="memitem:gaa35569ff50473ff503eba7b4080a0c5c" id="r_gaa35569ff50473ff503eba7b4080a0c5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gaa35569ff50473ff503eba7b4080a0c5c">pqueue_change_key</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq, int k, int v)</td></tr>
-<tr class="memdesc:gaa35569ff50473ff503eba7b4080a0c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the key of an element in the priority queue.  <br /></td></tr>
-<tr class="memitem:gae6a63794196f50f04ea95e9e9877adb2" id="r_gae6a63794196f50f04ea95e9e9877adb2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gae6a63794196f50f04ea95e9e9877adb2">pqueue_top</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
-<tr class="memdesc:gae6a63794196f50f04ea95e9e9877adb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) in the priority queue without extracting it.  <br /></td></tr>
+<tr class="memitem:ga33851dc2777c848f13a1e995fb9d3833" id="r_ga33851dc2777c848f13a1e995fb9d3833"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga33851dc2777c848f13a1e995fb9d3833">pqueue_insert</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq, int key, int value)</td></tr>
+<tr class="memdesc:ga33851dc2777c848f13a1e995fb9d3833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an element into the priority queue.  <br /></td></tr>
+<tr class="memitem:ga3a12ae9e534d14b9e62d4d772d9785a5" id="r_ga3a12ae9e534d14b9e62d4d772d9785a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPQueueNode.html">PQueueNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga3a12ae9e534d14b9e62d4d772d9785a5">pqueue_extract</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
+<tr class="memdesc:ga3a12ae9e534d14b9e62d4d772d9785a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) from the priority queue.  <br /></td></tr>
+<tr class="memitem:ga6d0426cc49e621981809c5e4014511e4" id="r_ga6d0426cc49e621981809c5e4014511e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga6d0426cc49e621981809c5e4014511e4">pqueue_update_key</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq, int key, int value)</td></tr>
+<tr class="memdesc:ga6d0426cc49e621981809c5e4014511e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the priority of an element in the priority queue.  <br /></td></tr>
+<tr class="memitem:ga95816375871f9a45b5449f978e6b0630" id="r_ga95816375871f9a45b5449f978e6b0630"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPQueueNode.html">PQueueNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga95816375871f9a45b5449f978e6b0630">pqueue_top</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
+<tr class="memdesc:ga95816375871f9a45b5449f978e6b0630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) in the priority queue without extracting it.  <br /></td></tr>
 <tr class="memitem:gae1592bef07b0305b1cba046cacffbada" id="r_gae1592bef07b0305b1cba046cacffbada"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#gae1592bef07b0305b1cba046cacffbada">pqueue_size</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
 <tr class="memdesc:gae1592bef07b0305b1cba046cacffbada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of elements in the priority queue.  <br /></td></tr>
 <tr class="memitem:ga3a9d8c7c12ac975eccf6a925c54eacde" id="r_ga3a9d8c7c12ac975eccf6a925c54eacde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga3a9d8c7c12ac975eccf6a925c54eacde">pqueue_is_empty</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
@@ -172,16 +179,34 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga273dd3b97c7798210404bf0a3942f7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the elements of a priority queue to the console.  <br /></td></tr>
 <tr class="memitem:ga58f95ca0e9a45edcc43e97222d4f9a6a" id="r_ga58f95ca0e9a45edcc43e97222d4f9a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga58f95ca0e9a45edcc43e97222d4f9a6a">pqueue_println</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
 <tr class="memdesc:ga58f95ca0e9a45edcc43e97222d4f9a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the elements of a priority queue to the console, followed by a newline character.  <br /></td></tr>
+<tr class="memitem:ga3ab2091379dd78baa4287b26d8404166" id="r_ga3ab2091379dd78baa4287b26d8404166"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga3ab2091379dd78baa4287b26d8404166">pqueue_iterator_keys</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
+<tr class="memdesc:ga3ab2091379dd78baa4287b26d8404166"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structIterator.html" title="A generic iterator struct.">Iterator</a> over keys of priority queue.  <br /></td></tr>
+<tr class="memitem:ga541fe504fd8083d6cf5a16726da2b83f" id="r_ga541fe504fd8083d6cf5a16726da2b83f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIterator.html">Iterator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DataStructureMethods.html#ga541fe504fd8083d6cf5a16726da2b83f">pqueue_iterator</a> (<a class="el" href="structPQueue.html">PQueue</a> *pq)</td></tr>
+<tr class="memdesc:ga541fe504fd8083d6cf5a16726da2b83f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structIterator.html" title="A generic iterator struct.">Iterator</a> over nodes with (key, value) of priority queue.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a4f19a5aa14ba17dd502fc023384c68f5" name="a4f19a5aa14ba17dd502fc023384c68f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f19a5aa14ba17dd502fc023384c68f5">&#9670;&#160;</a></span>HEAP_EMPTY_CELL</h2>
+<a id="a4d3a08fc38638e69638c3786cbedf682" name="a4d3a08fc38638e69638c3786cbedf682"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d3a08fc38638e69638c3786cbedf682">&#9670;&#160;</a></span>HEAP_EMPTY_NODE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define HEAP_EMPTY_CELL&#160;&#160;&#160;-1</td>
+          <td class="memname">#define HEAP_EMPTY_NODE&#160;&#160;&#160;(<a class="el" href="structPQueueNode.html">PQueueNode</a>){-1, -1}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67813e1015832a27f9bcbe555708821b" name="a67813e1015832a27f9bcbe555708821b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67813e1015832a27f9bcbe555708821b">&#9670;&#160;</a></span>PQUEUE_GROWTH_FACTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PQUEUE_GROWTH_FACTOR&#160;&#160;&#160;10</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -223,6 +248,22 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>A priority queue. </p>
+
+</div>
+</div>
+<a id="a058a15c5c6e2fc3b27f1529ad3a2ede2" name="a058a15c5c6e2fc3b27f1529ad3a2ede2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a058a15c5c6e2fc3b27f1529ad3a2ede2">&#9670;&#160;</a></span>PQueueNode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct PQueueNode PQueueNode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A node in the priority queue. </p>
 
 </div>
 </div>
