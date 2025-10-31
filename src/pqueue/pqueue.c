@@ -7,13 +7,13 @@
  *        Contact: manoel_vilela@engineer.com
  *   Organization: UFC
  *
- * ===============================================
+ * ================================================
  */
 
-#include "pqueue.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "pqueue.h"
 
 int pqueue_size(PQueue *pq) {
     return pq->size;
@@ -23,22 +23,25 @@ bool pqueue_is_empty(PQueue *pq) {
     return pq->size == 0;
 }
 
-void swap_values(int *e1, int *e2) {
-    int temp = *e1;
-    *e1 = *e2;
-    *e2 = temp;
+void swap_nodes(PQueue *pq, int i, int j) {
+    PQueueNode node_i = pq->heap[i];
+    PQueueNode node_j = pq->heap[j];
+    pq->heap[i] = node_j;
+    pq->heap[j] = node_i;
+    hash_table_put(pq->index, node_i.key, j);
+    hash_table_put(pq->index, node_j.key, i);
 }
 
 int parent(int i) {
-    return (i - 1) / 2; // Corrected for 0-indexed array
+    return i / 2;
 }
 
 int left(int i) {
-    return 2 * i + 1; // Corrected for 0-indexed array
+    return 2 * i;
 }
 
 int right(int i) {
-    return 2 * i + 2; // Corrected for 0-indexed array
+    return 2 * i + 1;
 }
 
 // Max-heapify function
@@ -47,16 +50,16 @@ void max_heapify(PQueue *pq, int i) {
     int r = right(i);
     int largest = i;
 
-    if (l < pq->size && pq->heap[l] > pq->heap[largest]) {
+    if (l < pq->size && pq->heap[l].value > pq->heap[largest].value) {
         largest = l;
     }
 
-    if (r < pq->size && pq->heap[r] > pq->heap[largest]) {
+    if (r < pq->size && pq->heap[r].value > pq->heap[largest].value) {
         largest = r;
     }
 
     if (largest != i) {
-        swap_values(&pq->heap[i], &pq->heap[largest]);
+        swap_nodes(pq, i, largest);
         max_heapify(pq, largest);
     }
 }
@@ -67,16 +70,16 @@ void min_heapify(PQueue *pq, int i) {
     int r = right(i);
     int smallest = i;
 
-    if (l < pq->size && pq->heap[l] < pq->heap[smallest]) {
+    if (l < pq->size && pq->heap[l].value < pq->heap[smallest].value) {
         smallest = l;
     }
 
-    if (r < pq->size && pq->heap[r] < pq->heap[smallest]) {
+    if (r < pq->size && pq->heap[r].value < pq->heap[smallest].value) {
         smallest = r;
     }
 
     if (smallest != i) {
-        swap_values(&pq->heap[i], &pq->heap[smallest]);
+        swap_nodes(pq, i, smallest);
         min_heapify(pq, smallest);
     }
 }
@@ -84,53 +87,67 @@ void min_heapify(PQueue *pq, int i) {
 
 PQueue* pqueue_create(PQueueType type) {
     PQueue* pq = (PQueue*) malloc(sizeof(PQueue));
+    pq->index = hash_table_create(PQUEUE_SIZE * 10);
     if (pq == NULL) {
         perror("Failed to allocate memory for PQueue");
         exit(EXIT_FAILURE);
     }
+    pq->heap = (PQueueNode*) malloc(PQUEUE_SIZE * sizeof(PQueueNode));
+    if (pq->heap == NULL) {
+        perror("Failed to allocate memory for PQueue heap");
+        free(pq);
+        exit(EXIT_FAILURE);
+    }
     pq->size = 0;
+    pq->capacity = PQUEUE_SIZE;
     pq->type = type;
     return pq;
 }
 
-void pqueue_insert(PQueue *pq, int x) {
-    if (pq->size == PQUEUE_SIZE) {
-        printf("Heap overflow!\n");
-        exit(EXIT_FAILURE);
+void pqueue_insert(PQueue *pq, int key, int value) {
+    if (pq->size == pq->capacity) {
+        pq->capacity += PQUEUE_GROWTH_FACTOR;
+        pq->heap = (PQueueNode*) realloc(pq->heap, pq->capacity * sizeof(PQueueNode));
+        if (pq->heap == NULL) {
+            perror("Failed to reallocate memory for PQueue heap");
+            exit(EXIT_FAILURE);
+        }
     }
     pq->size++;
     int i = pq->size - 1;
-    pq->heap[i] = x; // Temporarily insert at the end
+    pq->heap[i] = (PQueueNode){key, value};
+    hash_table_put(pq->index, key, i);
+
 
     if (pq->type == MAX_PQUEUE) {
         // Bubble up for max-heap
-        while (i > 0 && pq->heap[parent(i)] < pq->heap[i]) {
-            swap_values(&pq->heap[i], &pq->heap[parent(i)]);
+        while (i > 0 && pq->heap[parent(i)].value < pq->heap[i].value) {
+            swap_nodes(pq, i, parent(i));
             i = parent(i);
         }
     } else { // MIN_PQUEUE
         // Bubble up for min-heap
-        while (i > 0 && pq->heap[parent(i)] > pq->heap[i]) {
-            swap_values(&pq->heap[i], &pq->heap[parent(i)]);
+        while (i > 0 && pq->heap[parent(i)].value > pq->heap[i].value) {
+            swap_nodes(pq, i, parent(i));
             i = parent(i);
         }
     }
 }
 
-int pqueue_top(PQueue *pq) {
+PQueueNode pqueue_top(PQueue *pq) {
     if (pq->size < 1) {
         printf("Heap underflow!\n");
-        exit(EXIT_FAILURE);
+        return HEAP_EMPTY_NODE;
     }
     return pq->heap[0];
 }
 
-int pqueue_extract(PQueue *pq) {
+PQueueNode pqueue_extract(PQueue *pq) {
     if (pq->size < 1) {
         printf("Heap underflow!\n");
-        exit(EXIT_FAILURE);
+        return HEAP_EMPTY_NODE;
     }
-    int top_val = pq->heap[0];
+    PQueueNode top_node = pq->heap[0];
     pq->heap[0] = pq->heap[pq->size - 1];
     pq->size--;
     if (pq->type == MAX_PQUEUE) {
@@ -139,13 +156,13 @@ int pqueue_extract(PQueue *pq) {
     else { // MIN_PQUEUE
         min_heapify(pq, 0);
     }
-    return top_val;
+    return top_node;
 }
 
 void pqueue_print(PQueue *pq) {
-    printf("<PQUEUE: [");
+    printf("<PQUEUE(size=%d, capacity=%d): [", pq->size, pq->capacity);
     for (int i = 0; i < pq->size; i++) {
-        printf("%d", pq->heap[i]);
+        printf("(%d, %d)", pq->heap[i].key, pq->heap[i].value);
         if (i + 1 < pq->size) {
             printf(", ");
         }
@@ -158,34 +175,46 @@ void pqueue_println(PQueue *pq) {
     printf("\n");
 }
 
-void pqueue_change_key(PQueue *pq, int k, int v) {
-    if (k < 0 || k >= pq->size) {
-        printf("Index out of bounds!\n");
-        exit(EXIT_FAILURE);
+// access in O(1) instead of full scan in pq->heap by using auxiliar
+// hash table to store last place in heap a given key
+int find_key_index(PQueue *pq, int key) {
+    bool exists;
+    int i = hash_table_get(pq->index, key, &exists);
+    if (exists) {
+        return i;
+    }
+    return -1;
+}
+
+void pqueue_update_key(PQueue *pq, int key, int value) {
+    int k = find_key_index(pq, key);
+    if (k == -1) {
+        printf("Key not found!\n");
+        return;
     }
 
-    int old_val = pq->heap[k];
-    pq->heap[k] = v;
+    int old_value = pq->heap[k].value;
+    pq->heap[k].value = value;
 
     if (pq->type == MAX_PQUEUE) {
-        if (v < old_val) {
+        if (value < old_value) {
             // If new value is smaller, need to heapify down
             max_heapify(pq, k);
         } else {
             // If new value is larger, need to bubble up
-            while (k > 0 && pq->heap[parent(k)] < pq->heap[k]) {
-                swap_values(&pq->heap[k], &pq->heap[parent(k)]);
+            while (k > 0 && pq->heap[parent(k)].value < pq->heap[k].value) {
+                swap_nodes(pq, k, parent(k));
                 k = parent(k);
             }
         }
     } else { // MIN_PQUEUE
-        if (v > old_val) {
+        if (value > old_value) {
             // If new value is larger, need to heapify down
             min_heapify(pq, k);
         } else {
             // If new value is smaller, need to bubble up
-            while (k > 0 && pq->heap[parent(k)] > pq->heap[k]) {
-                swap_values(&pq->heap[k], &pq->heap[parent(k)]);
+            while (k > 0 && pq->heap[parent(k)].value > pq->heap[k].value) {
+                swap_nodes(pq, k, parent(k));
                 k = parent(k);
             }
         }
@@ -193,5 +222,66 @@ void pqueue_change_key(PQueue *pq, int k, int v) {
 }
 
 void pqueue_free(PQueue *pq) {
+    free(pq->heap);
+    hash_table_free(pq->index);
     free(pq);
+}
+
+
+struct PQueueIterator {
+    PQueue* pq;
+    int index;
+};
+
+
+void* pqueue_iterator_next_node(Iterator *it) {
+    struct PQueueIterator *pq_it = (struct PQueueIterator*) it->container;
+    int i = pq_it->index++;
+    return &pq_it->pq->heap[i];
+}
+
+
+void* pqueue_iterator_next_key(Iterator *it) {
+    struct PQueueNode* node = (struct PQueueNode*) pqueue_iterator_next_node(it);
+    return &node->key;
+}
+
+
+bool pqueue_iterator_done(Iterator *it) {
+    struct PQueueIterator *pq_it = (struct PQueueIterator*) it->container;
+    return pq_it->index == pq_it->pq->size;
+}
+
+
+void pqueue_iterator_free(Iterator *it) {
+    free(it->container);
+    free(it);
+}
+
+
+Iterator* pqueue_iterator(PQueue *pq) {
+    struct PQueueIterator *pq_it = malloc(sizeof(struct PQueueIterator));
+    check_alloc(pq_it);
+    pq_it->pq = pq;
+    pq_it->index = 0;
+    return iterator_create(
+        pq_it,
+        pqueue_iterator_next_node,
+        pqueue_iterator_free,
+        pqueue_iterator_done
+    );
+}
+
+
+Iterator* pqueue_iterator_keys(PQueue *pq) {
+    struct PQueueIterator *pq_it = malloc(sizeof(struct PQueueIterator));
+    check_alloc(pq_it);
+    pq_it->pq = pq;
+    pq_it->index = 0;
+    return iterator_create(
+        pq_it,
+        pqueue_iterator_next_key,
+        pqueue_iterator_free,
+        pqueue_iterator_done
+    );
 }

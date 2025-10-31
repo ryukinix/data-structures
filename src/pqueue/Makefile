@@ -8,8 +8,8 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 override CFLAGS = -fPIC $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS = -lm
-INCLUDE = -I../
+LDFLAGS = -lhash-table -llist -lm
+INCLUDE = -I../ -L../list/single -L../hash-table
 
 # targets to compile
 TEST_TARGET = test
@@ -27,10 +27,15 @@ all: compile
 
 compile: $(TARGETS)
 
+deps:
+	make clean library -C ../hash-table CFLAGS=-DLIST_PRINT_KEY
+	make clean library -C ../list/single CFLAGS=-DLIST_PRINT_KEY
+
+
 %.o: %.c
 	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
 
-$(TEST_BINARY): $(TARGETS) $(TEST_TARGET).c
+$(TEST_BINARY): deps $(TARGETS) $(TEST_TARGET).c
 	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(TARGETS) $(LDFLAGS)
 
 test: $(TARGETS) $(TEST_BINARY)
