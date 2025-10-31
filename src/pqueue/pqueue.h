@@ -23,6 +23,7 @@
 
 #include <stdbool.h>
 #include "../iterator/iterator.h"
+#include "../hash-table/hash-table.h"
 
 /**
  * @brief A node in the priority queue.
@@ -48,6 +49,7 @@ typedef enum PQueueType {
  */
 struct PQueue {
     PQueueNode *heap; /**< inner heap for nodes */
+    HashTable *index; /**< index of where keys are stored in heap */
     int size;         /**< the current size of PQueue */
     int capacity;     /**< the current capacity of PQueue */
     PQueueType type;  /**< type of the priority queue (min or max) */

@@ -10,10 +10,10 @@
  * ================================================
  */
 
-#include "pqueue.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "pqueue.h"
 
 int pqueue_size(PQueue *pq) {
     return pq->size;
@@ -23,10 +23,13 @@ bool pqueue_is_empty(PQueue *pq) {
     return pq->size == 0;
 }
 
-void swap_nodes(PQueueNode *n1, PQueueNode *n2) {
-    PQueueNode temp = *n1;
-    *n1 = *n2;
-    *n2 = temp;
+void swap_nodes(PQueue *pq, int i, int j) {
+    PQueueNode node_i = pq->heap[i];
+    PQueueNode node_j = pq->heap[j];
+    pq->heap[i] = node_j;
+    pq->heap[j] = node_i;
+    hash_table_put(pq->index, node_i.key, j);
+    hash_table_put(pq->index, node_j.key, i);
 }
 
 int parent(int i) {
@@ -56,7 +59,7 @@ void max_heapify(PQueue *pq, int i) {
     }
 
     if (largest != i) {
-        swap_nodes(&pq->heap[i], &pq->heap[largest]);
+        swap_nodes(pq, i, largest);
         max_heapify(pq, largest);
     }
 }
@@ -76,7 +79,7 @@ void min_heapify(PQueue *pq, int i) {
     }
 
     if (smallest != i) {
-        swap_nodes(&pq->heap[i], &pq->heap[smallest]);
+        swap_nodes(pq, i, smallest);
         min_heapify(pq, smallest);
     }
 }
@@ -84,6 +87,7 @@ void min_heapify(PQueue *pq, int i) {
 
 PQueue* pqueue_create(PQueueType type) {
     PQueue* pq = (PQueue*) malloc(sizeof(PQueue));
+    pq->index = hash_table_create(PQUEUE_SIZE * 10);
     if (pq == NULL) {
         perror("Failed to allocate memory for PQueue");
         exit(EXIT_FAILURE);
@@ -112,17 +116,19 @@ void pqueue_insert(PQueue *pq, int key, int value) {
     pq->size++;
     int i = pq->size - 1;
     pq->heap[i] = (PQueueNode){key, value};
+    hash_table_put(pq->index, key, i);
+
 
     if (pq->type == MAX_PQUEUE) {
         // Bubble up for max-heap
         while (i > 0 && pq->heap[parent(i)].value < pq->heap[i].value) {
-            swap_nodes(&pq->heap[i], &pq->heap[parent(i)]);
+            swap_nodes(pq, i, parent(i));
             i = parent(i);
         }
     } else { // MIN_PQUEUE
         // Bubble up for min-heap
         while (i > 0 && pq->heap[parent(i)].value > pq->heap[i].value) {
-            swap_nodes(&pq->heap[i], &pq->heap[parent(i)]);
+            swap_nodes(pq, i, parent(i));
             i = parent(i);
         }
     }
@@ -169,11 +175,13 @@ void pqueue_println(PQueue *pq) {
     printf("\n");
 }
 
+// access in O(1) instead of full scan in pq->heap by using auxiliar
+// hash table to store last place in heap a given key
 int find_key_index(PQueue *pq, int key) {
-    for (int i = 0; i < pq->size; i++) {
-        if (pq->heap[i].key == key) {
-            return i;
-        }
+    bool exists;
+    int i = hash_table_get(pq->index, key, &exists);
+    if (exists) {
+        return i;
     }
     return -1;
 }
@@ -195,7 +203,7 @@ void pqueue_update_key(PQueue *pq, int key, int value) {
         } else {
             // If new value is larger, need to bubble up
             while (k > 0 && pq->heap[parent(k)].value < pq->heap[k].value) {
-                swap_nodes(&pq->heap[k], &pq->heap[parent(k)]);
+                swap_nodes(pq, k, parent(k));
                 k = parent(k);
             }
         }
@@ -206,7 +214,7 @@ void pqueue_update_key(PQueue *pq, int key, int value) {
         } else {
             // If new value is smaller, need to bubble up
             while (k > 0 && pq->heap[parent(k)].value > pq->heap[k].value) {
-                swap_nodes(&pq->heap[k], &pq->heap[parent(k)]);
+                swap_nodes(pq, k, parent(k));
                 k = parent(k);
             }
         }
@@ -215,6 +223,7 @@ void pqueue_update_key(PQueue *pq, int key, int value) {
 
 void pqueue_free(PQueue *pq) {
     free(pq->heap);
+    free(pq->index);
     free(pq);
 }
 
