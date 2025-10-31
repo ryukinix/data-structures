@@ -223,7 +223,7 @@ void pqueue_update_key(PQueue *pq, int key, int value) {
 
 void pqueue_free(PQueue *pq) {
     free(pq->heap);
-    free(pq->index);
+    hash_table_free(pq->index);
     free(pq);
 }
 
