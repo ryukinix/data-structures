@@ -15,6 +15,7 @@ var pqueue_8h =
     [ "pqueue_create", "group__DataStructureMethods.html#ga202b5418e49f8b45f09b7c6112d32bb5", null ],
     [ "pqueue_extract", "group__DataStructureMethods.html#ga3a12ae9e534d14b9e62d4d772d9785a5", null ],
     [ "pqueue_free", "group__DataStructureMethods.html#gae5aa2e15af1dfd90ba2b5cd419a813ee", null ],
+    [ "pqueue_get_priority", "group__DataStructureMethods.html#gadfef99cc420d5cb0a41aa5508e44d8da", null ],
     [ "pqueue_insert", "group__DataStructureMethods.html#ga33851dc2777c848f13a1e995fb9d3833", null ],
     [ "pqueue_is_empty", "group__DataStructureMethods.html#ga3a9d8c7c12ac975eccf6a925c54eacde", null ],
     [ "pqueue_iterator", "group__DataStructureMethods.html#ga541fe504fd8083d6cf5a16726da2b83f", null ],
