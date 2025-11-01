@@ -69,19 +69,19 @@ void* graph_dfs_next(Iterator* it) {
 
 Iterator* graph_dfs(Graph* g, int start_node) {
     // 1. Create a stack for the nodes to visit and a set for visited nodes.
-    Stack* q = stack_create();
+    Stack* s = stack_create();
     Set* visited = set_create();
     List* path = list_create();
 
     // 2. Add the starting node to the stack and the visited set.
-    stack_push(q, start_node);
+    stack_push(s, start_node);
     set_add(visited, start_node);
 
     GraphIteratorContext* it_context = malloc(sizeof(GraphIteratorContext));
     it_context->graph = g;
     it_context->nodes = graph_nodes_iterator(g);
     it_context->visited = visited;
-    it_context->stack = q;
+    it_context->stack = s;
     it_context->path = path;
 
     return iterator_create(

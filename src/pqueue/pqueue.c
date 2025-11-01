@@ -186,10 +186,20 @@ int find_key_index(PQueue *pq, int key) {
     return -1;
 }
 
-void pqueue_update_key(PQueue *pq, int key, int value) {
+int pqueue_get_priority(PQueue *pq, int key) {
     int k = find_key_index(pq, key);
     if (k == -1) {
         printf("Key not found!\n");
+        return -1;
+    }
+
+    return pq->heap[k].value;
+}
+
+void pqueue_update_key(PQueue *pq, int key, int value) {
+    int k = find_key_index(pq, key);
+    if (k == -1) {
+        pqueue_insert(pq, key, value);
         return;
     }
 

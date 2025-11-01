@@ -8,12 +8,12 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 override CFLAGS += -fPIC $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS := -lset -lhash-table -llist -lqueue -lstack -lm
-INCLUDE := -I../ -L../list/single  -L../hash-table -L../set -L../queue -L ../stack
+LDFLAGS := -lset -lhash-table -llist -lqueue -lstack -lpqueue -lm
+INCLUDE := -I../ -L../list/single  -L../hash-table -L../set -L../queue -L../stack -L../pqueue
 
 # targets to compile
 TEST_TARGET = test
-TARGETS = graph.o bfs.o dfs.o acyclical.o tarjan.o
+TARGETS = graph.o bfs.o dfs.o acyclical.o tarjan.o dijkstra.o
 LIBRARY_OBJS = $(TARGETS)
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
@@ -26,11 +26,12 @@ all: compile
 compile: $(TARGETS) $(TEST_TARGET).o
 
 deps:
-	make clean library -C ../list/single CFLAGS=-DLIST_PRINT_KEY
-	make clean library -C ../hash-table
-	make clean library -C ../set
+	make library -C ../list/single CFLAGS=-DLIST_PRINT_KEY
+	make library -C ../hash-table
+	make library -C ../set
 	make clean library -C ../queue
-	make clean library -C ../stack
+	make library -C ../stack
+	make library -C ../pqueue
 
 
 %.o: %.c

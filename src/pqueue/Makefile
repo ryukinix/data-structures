@@ -14,7 +14,7 @@ INCLUDE = -I../ -L../list/single -L../hash-table
 # targets to compile
 TEST_TARGET = test
 TARGETS = pqueue.o
-LIBRARY_OBJS = TARGETS
+LIBRARY_OBJS = $(TARGETS)
 TARGETS += $(TEST_TARGET).o
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
