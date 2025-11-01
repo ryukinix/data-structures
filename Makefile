@@ -79,9 +79,9 @@ $(LIBDIR)/$(HEADER): $(SRCDIR)/$(HEADER)
 
 lib: static shared header
 
-compile-tests:
+compile-tests/%:
 	@printf $(STATUS_PREFIX); echo "COMPILE TESTS OF SUBSYTEMS"
-	@for s in $(SUBSYSTEMS); do \
+	for s in $(foreach S,$(SUBSYSTEMS),$(if $(findstring $*,$S),$S)); do \
 		printf $(STATUS_PREFIX); echo "SYSTEM: $$s"; \
 	    make --no-print-directory  -C $$s -q test.$(EXTENSION) > /dev/null 2>&1; \
 		if [ $$? -lt 2 ]; then \
@@ -91,6 +91,7 @@ compile-tests:
 		fi; \
 	done
 
+compile-tests: compile-tests/src
 
 test: all
 	@printf $(STATUS_PREFIX); echo "TESTING SUBSYTEMS"
@@ -110,8 +111,12 @@ check/%:
 	make test -C src/$*
 
 check-valgrind/%:
-	make compile-tests > /dev/null
-	find $(SRCDIR) -path "*$**" -and -iname "test.out" | xargs -L 1 valgrind $(VALGRIND_ARGS)  > /dev/null
+	make compile-tests/$* > /dev/null
+	@printf $(STATUS_PREFIX); echo "CHECKING FOR MEMORY LEAK OVER FOLLOWING TESTS:"
+	@find $(SRCDIR) -path "*$**" -and -iname "test.out" \
+		| tee /dev/stderr \
+        | xargs -L 1 valgrind $(VALGRIND_ARGS)  > /dev/null
+	@printf $(STATUS_PREFIX); echo "NO MEMORY LEAK FOUND."
 
 check-valgrind: check-valgrind/src
 

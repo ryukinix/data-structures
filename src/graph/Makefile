@@ -26,12 +26,12 @@ all: compile
 compile: $(TARGETS) $(TEST_TARGET).o
 
 deps:
-	make clean library -C ../list/single CFLAGS=-DLIST_PRINT_KEY
-	make clean library -C ../hash-table
-	make clean library -C ../set
+	make library -C ../list/single CFLAGS=-DLIST_PRINT_KEY
+	make library -C ../hash-table
+	make library -C ../set
 	make clean library -C ../queue
-	make clean library -C ../stack
-	make clean library -C ../pqueue
+	make library -C ../stack
+	make library -C ../pqueue
 
 
 %.o: %.c
