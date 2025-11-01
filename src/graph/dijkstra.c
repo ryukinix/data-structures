@@ -12,12 +12,12 @@
 
 #include <limits.h>
 #include "graph.h"
-#include "pqueue/pqueue.h"
-#include "iterator/iterator.h"
-#include "utils/check_alloc.h"
+#include "../pqueue/pqueue.h"
+#include "../stack/stack.h"
+#include "../iterator/iterator.h"
+#include "../utils/check_alloc.h"
 
 #define DIJKSTRA_INFINITY INT_MAX
-
 
 Graph* graph_dijkstra(Graph* g, int source) {
     int n = graph_max_node_id(g) + 1;
@@ -66,4 +66,70 @@ Graph* graph_dijkstra(Graph* g, int source) {
     pqueue_free(pq);
 
     return g_new;
+}
+
+List* graph_shortest_path(Graph* g, int source, int destination) {
+    Graph* g_dijkstra = graph_dijkstra(g, source);
+
+    Stack* dfs = stack_create();
+    // tracing parents of the path
+    HashTable* prev = hash_table_create(graph_size(g_dijkstra));
+    Set* visited = set_create();
+
+    stack_push(dfs, source);
+    while (!stack_empty(dfs)) {
+        int node = stack_pop(dfs);
+        set_add(visited, node);
+
+        Set *neighbors = graph_get_neighbors(g_dijkstra, node);
+        Iterator *it = set_iterator(neighbors);
+
+        while (!iterator_done(it)) {
+            int neighbor = *(int*) iterator_next(it);
+            hash_table_put(prev, neighbor, node);
+            if (!set_contains(visited, neighbor)) {
+                stack_push(dfs, neighbor);
+            }
+        }
+    }
+    stack_free(dfs);
+    set_free(visited);
+    graph_free(g_dijkstra);
+
+    int visiting_node = destination;
+    List* path = list_init(1, destination);
+    while (visiting_node != source) {
+        bool exists;
+        int parent = hash_table_get(prev, visiting_node, &exists);
+        if (!exists) {
+            path = NULL;
+            break;
+        }
+        path = list_insert(path, parent);
+        visiting_node = parent;
+    }
+
+    return path;
+}
+
+int graph_minimum_distance(Graph* g, int source, int destination) {
+    Graph* g_dijkstra = graph_dijkstra(g, source);
+    List* edges = graph_edges(g_dijkstra);
+    Iterator* it = list_iterator(edges);
+
+    int distance = -1;
+    while (!iterator_done(it)) {
+        struct ListNode* edge = (struct ListNode*) iterator_next(it);
+
+        if (edge->data == destination) {
+            distance = graph_get_edge_weight(g_dijkstra, edge->key, edge->data);
+            break;
+        }
+    }
+
+    list_free(edges);
+    iterator_free(it);
+
+
+    return distance;
 }
