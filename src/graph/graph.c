@@ -20,6 +20,7 @@ Graph* graph_create() {
     g->adj = hash_table_gen_create(GRAPH_DEFAULT_N_BUCKETS);
     g->directed = true;
     g->weighted = false;
+    g->tarjan = false;
     if (!g->adj) {
         free(g);
         return NULL;

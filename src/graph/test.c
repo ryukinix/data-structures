@@ -266,7 +266,7 @@ void test_graph_topological_sort() {
     list_free(expected);
 }
 
-void test_graph_dijkstra() {
+void test_graph_dijkstra(bool extra_tests) {
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
     puts("== Dijkstra test");
@@ -283,16 +283,18 @@ void test_graph_dijkstra() {
 
     printf("Original graph:\n");
     graph_print(g);
-    graph_export_to_dot(g, "test_graph_dijkstra_input.dot");
-    printf("saved input: %s/test_graph_dijkstra_input.dot\n", cwd);
 
     int source = 1;
     Graph* dijkstra_result = graph_dijkstra(g, source);
     printf("\nDijkstra result (source=%d):\n", source);
     graph_print(dijkstra_result);
 
-    graph_export_to_dot(dijkstra_result, "test_graph_dijkstra_output.dot");
-    printf("saved output: %s/test_graph_dijkstra_output.dot\n", cwd);
+    if (extra_tests) {
+        graph_export_to_dot(g, "test_graph_dijkstra_input.dot");
+        printf("saved input: %s/test_graph_dijkstra_input.dot\n", cwd);
+        graph_export_to_dot(dijkstra_result, "test_graph_dijkstra_output.dot");
+        printf("saved output: %s/test_graph_dijkstra_output.dot\n", cwd);
+    }
 
 
     assert(graph_has_edge(dijkstra_result, 1, 2));
@@ -336,6 +338,7 @@ bool should_run_extra_tests(int argc, char *argv[]) {
 }
 
 int main(int argc, char *argv[]) {
+    int extra_tests = should_run_extra_tests(argc, argv);
     test_graph_directed();
     test_graph_undirected();
     test_bfs();
@@ -343,8 +346,8 @@ int main(int argc, char *argv[]) {
     test_graph_acyclical();
     test_graph_tarjan();
     test_graph_topological_sort();
+    test_graph_dijkstra(extra_tests);
     if (should_run_extra_tests(argc, argv)) {
-        test_graph_dijkstra();
         test_graph_export();
     }
 

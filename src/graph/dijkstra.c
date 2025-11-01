@@ -15,7 +15,6 @@
 #include "../pqueue/pqueue.h"
 #include "../stack/stack.h"
 #include "../iterator/iterator.h"
-#include "../utils/check_alloc.h"
 
 #define DIJKSTRA_INFINITY INT_MAX
 
@@ -91,6 +90,8 @@ List* graph_shortest_path(Graph* g, int source, int destination) {
                 stack_push(dfs, neighbor);
             }
         }
+        set_free(neighbors);
+        iterator_free(it);
     }
     stack_free(dfs);
     set_free(visited);
@@ -108,6 +109,7 @@ List* graph_shortest_path(Graph* g, int source, int destination) {
         path = list_insert(path, parent);
         visiting_node = parent;
     }
+    hash_table_free(prev);
 
     return path;
 }
@@ -129,6 +131,7 @@ int graph_minimum_distance(Graph* g, int source, int destination) {
 
     list_free(edges);
     iterator_free(it);
+    graph_free(g_dijkstra);
 
 
     return distance;
