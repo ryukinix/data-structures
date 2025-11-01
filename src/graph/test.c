@@ -266,6 +266,52 @@ void test_graph_topological_sort() {
     list_free(expected);
 }
 
+void test_graph_dijkstra() {
+    char cwd[PATH_MAX];
+    getcwd(cwd, sizeof(cwd));
+    puts("== Dijkstra test");
+    Graph* g = graph_create();
+    graph_add_edge_with_weight(g, 1, 2, 7);
+    graph_add_edge_with_weight(g, 1, 3, 9);
+    graph_add_edge_with_weight(g, 1, 6, 14);
+    graph_add_edge_with_weight(g, 2, 3, 10);
+    graph_add_edge_with_weight(g, 2, 4, 15);
+    graph_add_edge_with_weight(g, 3, 4, 11);
+    graph_add_edge_with_weight(g, 3, 6, 2);
+    graph_add_edge_with_weight(g, 4, 5, 6);
+    graph_add_edge_with_weight(g, 5, 6, 9);
+
+    printf("Original graph:\n");
+    graph_print(g);
+    graph_export_to_dot(g, "test_graph_dijkstra_input.dot");
+    printf("saved input: %s/test_graph_dijkstra_input.dot\n", cwd);
+
+    int source = 1;
+    Graph* dijkstra_result = graph_dijkstra(g, source);
+    printf("\nDijkstra result (source=%d):\n", source);
+    graph_print(dijkstra_result);
+
+    graph_export_to_dot(dijkstra_result, "test_graph_dijkstra_output.dot");
+    printf("saved output: %s/test_graph_dijkstra_output.dot\n", cwd);
+
+
+    assert(graph_has_edge(dijkstra_result, 1, 2));
+    assert(graph_get_edge_weight(dijkstra_result, 1, 2) == 7);
+    assert(graph_has_edge(dijkstra_result, 1, 3));
+    assert(graph_get_edge_weight(dijkstra_result, 1, 3) == 9);
+    assert(graph_has_edge(dijkstra_result, 3, 6));
+    assert(graph_get_edge_weight(dijkstra_result, 3, 6) == 11);
+    assert(graph_has_edge(dijkstra_result, 3, 4));
+    assert(graph_get_edge_weight(dijkstra_result, 3, 4) == 20);
+    assert(graph_has_edge(dijkstra_result, 4, 5));
+    assert(graph_get_edge_weight(dijkstra_result, 4, 5) == 26);
+    assert(graph_size(dijkstra_result) == 6);
+
+    graph_free(g);
+    graph_free(dijkstra_result);
+}
+
+
 bool should_run_extra_tests(int argc, char *argv[]) {
     // Iterate through the command-line arguments starting from argv[1]
     // (argv[0] is the program name)
@@ -286,6 +332,7 @@ int main(int argc, char *argv[]) {
     test_graph_tarjan();
     test_graph_topological_sort();
     if (should_run_extra_tests(argc, argv)) {
+        test_graph_dijkstra();
         test_graph_export();
     }
 

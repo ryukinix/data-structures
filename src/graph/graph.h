@@ -242,4 +242,13 @@ Graph* graph_tarjan(Graph *g);
  */
 List* graph_topological_sort(Graph *g);
 
+/**
+ * @brief Run dijkstra algorithm on the graph.
+ * @param g The graph to traverse.
+ * @param source The source node to start.
+ * @return a new graph with the shortest path tree.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_dijkstra(Graph* g, int source);
+
 #endif /* GRAPH_H */
