@@ -54,6 +54,28 @@ Iterator* graph_nodes_iterator(Graph *g) {
     return iterator;
 }
 
+List* graph_edges(Graph *g) {
+    Iterator *nodes = graph_nodes_iterator(g);
+    List *edges = list_create();
+    while (!iterator_done(nodes)) {
+        int node = *(int*) iterator_next(nodes);
+
+        Set* neighbors = graph_get_neighbors(g, node);
+        Iterator* set_it = set_iterator(neighbors);
+
+        while (!iterator_done(set_it)) {
+            int neighbor = *(int*) iterator_next(set_it);
+
+            edges = list_insert_with_key(edges, node, neighbor);
+        }
+        set_free(neighbors);
+        iterator_free(set_it);
+    }
+    iterator_free(nodes);
+    return edges;
+}
+
+
 size_t graph_size(Graph *g) {
     return hash_table_gen_size(g->adj);
 }

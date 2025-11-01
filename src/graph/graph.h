@@ -202,6 +202,13 @@ Iterator* graph_dfs(Graph *g, int start_node);
 Iterator* graph_nodes_iterator(Graph *g);
 
 /**
+ * @brief List with edges of the graph with (key,data).
+ * @param g The graph to traverse.
+ * @ingroup DataStructureMethods
+ */
+List* graph_edges(Graph *g);
+
+/**
  * @brief Get the maximum node id on the graph.
  * @return maximum node id on the graph.
  * @ingroup DataStructureMethods
@@ -241,5 +248,34 @@ Graph* graph_tarjan(Graph *g);
  * @ingroup DataStructureMethods
  */
 List* graph_topological_sort(Graph *g);
+
+/**
+ * @brief Run dijkstra algorithm on the graph.
+ * @param g The graph to traverse.
+ * @param source The source node to start.
+ * @return a new graph with the shortest path tree.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_dijkstra(Graph* g, int source);
+
+/**
+ * @brief Run dijkstra algorithm and calculate the minimum distance.
+ * @param g The graph to traverse.
+ * @param source The source node to start.
+ * @param source The destination node.
+ * @return a new graph with the shortest path tree.
+ * @ingroup DataStructureMethods
+ */
+int graph_minimum_distance(Graph* g, int source, int destination);
+
+/**
+ * @brief Run dijkstra algorithm and return the shortest path.
+ * @param g The graph to traverse.
+ * @param source The source node to start.
+ * @param source The destination node.
+ * @return a list with nodes as the shortest path.
+ * @ingroup DataStructureMethods
+ */
+List* graph_shortest_path(Graph* g, int source, int destination);
 
 #endif /* GRAPH_H */

@@ -100,6 +100,16 @@ PQueueNode pqueue_extract(PQueue *pq);
 void pqueue_update_key(PQueue *pq, int key, int value);
 
 /**
+ * @brief Get the priority of an element in the priority queue.
+ *
+ * @param pq The priority queue.
+ * @param key The key of the element to change.
+ * @return the value of the priority.
+ * @ingroup DataStructureMethods
+ */
+int pqueue_get_priority(PQueue *pq, int key);
+
+/**
  * @brief Returns the top element (max for MAX_PQUEUE, min for MIN_PQUEUE) in the priority queue without extracting it.
  *
  * @param pq The priority queue.
