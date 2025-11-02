@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">1.0.0-10-gec379</span>
+                  &#160;<span id="projectnumber">1.0.0-11-g44f9</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -139,7 +139,7 @@ $(function(){initNavTree('iterator_8h_source.html','',''); });
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span>  (*<a class="code hl_variable" href="structIterator.html#a03310f1e906df3da6ec5a2533e89c03a">free</a>)(<a class="code hl_struct" href="structIterator.html">Iterator</a>*),</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span>  (*<a class="code hl_variable" href="structIterator.html#af3e0c6068e1b97e92578b1c1f81db70b">done</a>)(<a class="code hl_struct" href="structIterator.html">Iterator</a>*)</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_struct" href="structIterator.html">Iterator</a>* it = malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structIterator.html">Iterator</a>));</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_struct" href="structIterator.html">Iterator</a>* it = (<a class="code hl_struct" href="structIterator.html">Iterator</a>*) malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structIterator.html">Iterator</a>));</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    check_alloc(it);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    it-&gt;<a class="code hl_variable" href="structIterator.html#a400582476de5d198f97ae8f4a5016906">container</a> = <a class="code hl_variable" href="structIterator.html#a400582476de5d198f97ae8f4a5016906">container</a>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    it-&gt;<a class="code hl_variable" href="structIterator.html#a5d755ef25a8c4937a719b0e77a4cf1c0">begin</a> = <a class="code hl_variable" href="structIterator.html#a400582476de5d198f97ae8f4a5016906">container</a>;</div>
