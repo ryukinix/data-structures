@@ -137,4 +137,13 @@ docs-publish:
 tags: $(SOURCES)
 	ctags -Re -f TAGS src/
 
+wc:
+	@echo "LINES\tWORDS\tMAX-LINE"
+	@find src -regextype posix-extended -regex ".*\.(c|h)" \
+		| xargs wc --lines --words --max-line-length \
+        | sort -n
+
+lint:
+	cppcheck $(SRCDIR)
+
 .PHONY: clean docs
