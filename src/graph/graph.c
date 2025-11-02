@@ -8,8 +8,8 @@
 struct Graph {
     HashTableGen *adj;
     bool directed; // true by default
-    bool weighted;
-    bool tarjan; // false by default
+    bool weighted; // false by default
+    bool tarjan;   // false by default
 };
 
 Graph* graph_create() {
