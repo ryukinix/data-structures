@@ -34,7 +34,7 @@ typedef struct PQueueNode {
 } PQueueNode;
 
 
-#define HEAP_EMPTY_NODE (PQueueNode){-1, -1}
+#define HEAP_EMPTY_NODE {.key=-1, .value=-1}
 
 /**
  * @brief Enum for priority queue type (min or max).

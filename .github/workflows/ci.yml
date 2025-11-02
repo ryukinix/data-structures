@@ -7,11 +7,19 @@ on:
 jobs:
   make-check:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        compiler: [
+        {cc: gcc, std: c99},
+        {cc: clang, std: c23},
+        {cc: g++, std: c++23},
+        {cc: clang++, std: c++23}
+        ]
 
     steps:
     - uses: actions/checkout@v3
     - name: Run make check
-      run: make check
+      run: make check CC=${{ matrix.compiler.cc }} STD=${{ matrix.compiler.std }}
 
   make-check-valgrind:
     runs-on: ubuntu-latest

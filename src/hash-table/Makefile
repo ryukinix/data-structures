@@ -7,7 +7,8 @@ endif
 CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
-override CFLAGS += -fPIC $(DEBUG) -pedantic $(WARN) -std=c99
+STD = c99
+override CFLAGS += -fPIC $(DEBUG) -pedantic $(WARN) -std=$(STD)
 LDFLAGS := -llist -lm
 INCLUDE := -I../ -L../list/single
 

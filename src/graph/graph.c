@@ -13,7 +13,7 @@ struct Graph {
 };
 
 Graph* graph_create() {
-    Graph *g = malloc(sizeof(Graph));
+    Graph *g = (Graph*) malloc(sizeof(Graph));
     if (!g) {
         return NULL;
     }
@@ -43,7 +43,7 @@ Graph* graph_tarjan_create(bool directed) {
 }
 
 static void graph_nodes_iterator_free(Iterator *it) {
-    list_free(it->begin);
+    list_free((List*)it->begin);
     free(it);
 }
 
@@ -108,12 +108,12 @@ void graph_add_node(Graph *g, int node) {
 void graph_add_edge_with_weight(Graph *g, int u, int v, int weight) {
     graph_add_node(g, u);
     graph_add_node(g, v);
-    Set *set_u = hash_table_gen_get(g->adj, u, NULL);
+    Set *set_u = (Set*) hash_table_gen_get(g->adj, u, NULL);
     set_add_with_value(set_u, v, weight);
     g->weighted = true;
 
     if (!g->directed) {
-        Set *set_v = hash_table_gen_get(g->adj, v, NULL);
+        Set *set_v = (Set*) hash_table_gen_get(g->adj, v, NULL);
         set_add_with_value(set_v, u, weight);
     }
 }
@@ -121,18 +121,18 @@ void graph_add_edge_with_weight(Graph *g, int u, int v, int weight) {
 void graph_add_edge(Graph *g, int u, int v) {
     graph_add_node(g, u);
     graph_add_node(g, v);
-    Set *set_u = hash_table_gen_get(g->adj, u, NULL);
+    Set *set_u = (Set*) hash_table_gen_get(g->adj, u, NULL);
     set_add(set_u, v);
 
     if (!g->directed) {
-        Set *set_v = hash_table_gen_get(g->adj, v, NULL);
+        Set *set_v = (Set*) hash_table_gen_get(g->adj, v, NULL);
         set_add(set_v, u);
     }
 }
 
 void graph__remove_edge(Graph *g, int u, int v) {
     bool u_exists, v_exists;
-    Set *set_u = hash_table_gen_get(g->adj, u, &u_exists);
+    Set *set_u = (Set*) hash_table_gen_get(g->adj, u, &u_exists);
     hash_table_gen_get(g->adj, v, &v_exists);
 
     if (u_exists && v_exists) {
@@ -149,7 +149,7 @@ void graph_remove_edge(Graph *g, int u, int v) {
 
 void graph_remove_node(Graph *g, int node) {
     bool exists;
-    Set *adj_node = hash_table_gen_get(g->adj, node, &exists);
+    Set *adj_node = (Set*) hash_table_gen_get(g->adj, node, &exists);
     if (exists) {
         set_free(adj_node);
         hash_table_gen_remove(g->adj, node);
@@ -159,7 +159,7 @@ void graph_remove_node(Graph *g, int node) {
     Iterator *it = list_iterator_data(nodes);
     while(!iterator_done(it)) {
         int u = *(int*)iterator_next(it);
-        Set *s = hash_table_gen_get(g->adj, u, NULL);
+        Set *s = (Set*) hash_table_gen_get(g->adj, u, NULL);
         set_remove(s, node);
     }
     list_free(nodes);
@@ -168,7 +168,7 @@ void graph_remove_node(Graph *g, int node) {
 
 bool graph_has_edge(Graph *g, int u, int v) {
     bool exists;
-    Set *set_u = hash_table_gen_get(g->adj, u, &exists);
+    Set *set_u = (Set*) hash_table_gen_get(g->adj, u, &exists);
     if (!exists) {
         return false;
     }
@@ -177,7 +177,7 @@ bool graph_has_edge(Graph *g, int u, int v) {
 
 Set* graph_get_neighbors(Graph *g, int node) {
     bool exists;
-    Set *neighbors = hash_table_gen_get(g->adj, node, &exists);
+    Set *neighbors = (Set*) hash_table_gen_get(g->adj, node, &exists);
     if (!exists) {
         return set_create();
     }
@@ -186,7 +186,7 @@ Set* graph_get_neighbors(Graph *g, int node) {
 
 int graph_get_edge_weight(Graph *g, int u, int v) {
     bool exists;
-    Set *set_u = hash_table_gen_get(g->adj, u, &exists);
+    Set *set_u = (Set*) hash_table_gen_get(g->adj, u, &exists);
     if (!exists) {
         return -1;
     }
@@ -200,14 +200,13 @@ void graph_print(Graph *g) {
     Iterator *it = graph_nodes_iterator(g);
     while(!iterator_done(it)) {
         int u = *(int*)iterator_next(it);
-        printf("%d: ", u);
-        Set *neighbors = hash_table_gen_get(g->adj, u, NULL);
+        Set *neighbors = (Set*) hash_table_gen_get(g->adj, u, NULL);
         if (g->tarjan) {
             Iterator *it = set_iterator_items(neighbors);
             printf("{");
             while (!iterator_done(it)) {
                 List *list = (List*) iterator_next(it);
-                printf("%d:%s", list->key, graph_edge_type_name(list->data));
+                printf("%d:%s", list->key, graph_edge_type_name((EdgeType)list->data));
                 if (!iterator_done(it)) {
                     printf(", ");
                 }
@@ -252,7 +251,7 @@ void graph_export_to_dot(Graph *g, const char* filename) {
     current_node = nodes;
     while (current_node) {
         int u = (int)(long)current_node->data;
-        Set *neighbors = hash_table_gen_get(g->adj, u, NULL);
+        Set *neighbors = (Set*) hash_table_gen_get(g->adj, u, NULL);
         Iterator *it = set_iterator(neighbors);
         while (!iterator_done(it)) {
             int v = *(int*)iterator_next(it);
@@ -260,7 +259,7 @@ void graph_export_to_dot(Graph *g, const char* filename) {
                 fprintf(fp, "    %d %s %d", u, g->directed ? "->" : "--", v);
                 if (g->tarjan) {
                     int edge_type = set_get_value(neighbors, v);
-                    fprintf(fp, " [label=\"%s\"]", graph_edge_type_name(edge_type));
+                    fprintf(fp, " [label=\"%s\"]", graph_edge_type_name((EdgeType)edge_type));
                 } else if (g->weighted) {
                     int weight = set_get_value(neighbors, v);
                     fprintf(fp, " [label=\"%d\"]", weight);

@@ -1,5 +1,6 @@
 CC = gcc
-override CFLAGS += -fPIC -g -pedantic -Wall -Wextra -std=c99
+STD = c99
+override CFLAGS += -fPIC -g -pedantic -Wall -Wextra -std=$(STD)
 LDFLAGS = -lm
 TARGET = point
 OBJ = $(TARGET).o

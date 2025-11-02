@@ -15,7 +15,7 @@ struct Set {
 
 
 Set* set_create() {
-    Set *set = malloc(sizeof(Set));
+    Set *set = (Set*) malloc(sizeof(Set));
     check_alloc(set);
     set->memory = hash_table_create(SET_DEFAULT_HASH_MAP_SIZE);
     return set;

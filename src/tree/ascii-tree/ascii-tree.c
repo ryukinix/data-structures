@@ -63,7 +63,7 @@ ASCIITree *build_ascii_tree_recursive(BinaryTree *t) {
     if (t == NULL)
         return NULL;
 
-    node = malloc(sizeof(ASCIITree));
+    node = (ASCIITree*) malloc(sizeof(ASCIITree));
     node->left = build_ascii_tree_recursive(t->left);
     node->right = build_ascii_tree_recursive(t->right);
 

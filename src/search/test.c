@@ -16,9 +16,9 @@
 #include "search.h"
 
 struct test_case {
-    char *text;
-    char *pattern;
-    int expected;
+    const char *text;
+    const char *pattern;
+    const int expected;
 
 };
 
@@ -62,7 +62,7 @@ int answer, i;
     printf("== Testing for %s: ", #ALGORITHM);         \
     for (i = 0; i < n_tests; i++) { \
         printf("\n   Input: text='%s'; \t pattern='%s'\n", tests[i].text, tests[i].pattern); \
-        answer = ALGORITHM(tests[i].text, tests[i].pattern);                              \
+        answer = ALGORITHM((char*) tests[i].text, (char*)tests[i].pattern);   \
         printf("   Result: answer=%d; expected=%d\n", answer, tests[i].expected); \
         assert(answer == tests[i].expected); \
     };

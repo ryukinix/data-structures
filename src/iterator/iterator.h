@@ -33,7 +33,7 @@ static inline Iterator* iterator_create(
     void  (*free)(Iterator*),
     bool  (*done)(Iterator*)
 ) {
-    Iterator* it = malloc(sizeof(Iterator));
+    Iterator* it = (Iterator*) malloc(sizeof(Iterator));
     check_alloc(it);
     it->container = container;
     it->begin = container;

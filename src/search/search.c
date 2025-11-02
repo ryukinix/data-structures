@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
-#include <stdio.h>
+#include <stdlib.h>
 
 #include "search.h"
 #include "../utils/prime.h"
@@ -54,15 +54,16 @@ void kmp_init_failure_function(int *f, int m, const char *pattern) {
 int search_kmp(char *text, const char *pattern) {
     int n = strlen(text);
     int m = strlen(pattern);
-    int f[m];
+    int *f = (int*) malloc(sizeof(int) * m);
     kmp_init_failure_function(f, m, pattern);
 
     int i = 0, j = 0;
-
+    int search_index = -1;
     while (i < n) {
         if (text[i] == pattern[j]) {
             if (j == (m - 1)) {
-                return i - j;
+                search_index = i - j;
+                break;
             } else {
                 i++;
                 j++;
@@ -75,7 +76,8 @@ int search_kmp(char *text, const char *pattern) {
             }
         }
     }
-    return -1;
+    free(f);
+    return search_index;
 }
 
 void bm_init_l(int *l, int m, const char* pattern) {

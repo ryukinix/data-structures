@@ -5,13 +5,14 @@ else
 endif
 
 CC = gcc
+STD = c99
 WARN = -Wall -Wextra
 DEBUG ?= -g
 SRCDIR = src
 LIBNAME = libds-lerax
 LIBDIR = lib
 HEADER = ds-lerax.h
-override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99 -fPIC
+override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=$(STD) -fPIC
 SOURCES = $(shell find $(SRCDIR) -iname '*.c')
 COMPILED = $(shell find $(SRCDIR) -type f -iname '*.o' -or -iname "*.out" -or -iname "*.a")
 TEST_TRASH = $(shell find $(SRCDIR) -type f -iname 'test*.dot*')
@@ -106,6 +107,9 @@ test: all
 	done
 
 check: test
+
+check-cpp:
+	make check CC=g++ STD=c++23
 
 check/%:
 	make test -C src/$*

@@ -18,12 +18,12 @@ static unsigned int hash_int(int key, size_t n_buckets) {
 }
 
 HashTable* hash_table_create(size_t n_buckets) {
-    HashTable *ht = malloc(sizeof(HashTable));
+    HashTable *ht = (HashTable*) malloc(sizeof(HashTable));
     check_alloc(ht);
 
     ht->n_buckets = n_buckets;
     ht->size = 0;
-    ht->buckets = calloc(n_buckets, sizeof(List*));
+    ht->buckets = (List**) calloc(n_buckets, sizeof(List*));
     if (!ht->buckets) {
         free(ht);
         return NULL;
@@ -182,7 +182,7 @@ void hash_table_free(HashTable *ht) {
 }
 
 static void hash_table_iterator_free(Iterator *it) {
-    list_free(it->begin);
+    list_free((List*) it->begin);
     free(it);
 }
 

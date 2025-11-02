@@ -17,12 +17,12 @@ static unsigned int hash_int(int key, size_t n_buckets) {
 }
 
 HashTableGen* hash_table_gen_create(size_t n_buckets) {
-    HashTableGen *ht = malloc(sizeof(HashTableGen));
+    HashTableGen *ht = (HashTableGen*) malloc(sizeof(HashTableGen));
     if (!ht) return NULL;
 
     ht->n_buckets = n_buckets;
     ht->size = 0;
-    ht->buckets = calloc(n_buckets, sizeof(ListGen*));
+    ht->buckets = (ListGen**) calloc(n_buckets, sizeof(ListGen*));
     if (!ht->buckets) {
         free(ht);
         return NULL;
