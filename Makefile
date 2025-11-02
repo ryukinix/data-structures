@@ -108,6 +108,9 @@ test: all
 
 check: test
 
+check-cpp:
+	make check CC=g++ STD=c++23
+
 check/%:
 	make test -C src/$*
 
