@@ -11,6 +11,7 @@
  */
 
 #include "sort.h"
+#include <stdlib.h>
 
 /**
  * @description Merges two partitions in sorted way
@@ -29,7 +30,7 @@ void merge(Type v[], int l, int m, int r) {
     int k = m + 1;
     int n = r - l + 1;
 
-    Type aux[n];
+    Type *aux = (Type*) malloc(sizeof(Type) * n);
     // merge ordered elements
     while (j <= m && k <= r) {
         if (v[j] < v[k]) {
@@ -52,6 +53,7 @@ void merge(Type v[], int l, int m, int r) {
     for (int x = l; x <= r; x++) {
         v[x] = aux[x - l];
     }
+    free(aux);
 }
 
 

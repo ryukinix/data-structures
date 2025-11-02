@@ -115,7 +115,8 @@ void pqueue_insert(PQueue *pq, int key, int value) {
     }
     pq->size++;
     int i = pq->size - 1;
-    pq->heap[i] = (PQueueNode){key, value};
+    pq->heap[i].key = key;
+    pq->heap[i].value = value;
     hash_table_put(pq->index, key, i);
 
 
@@ -270,7 +271,7 @@ void pqueue_iterator_free(Iterator *it) {
 
 
 Iterator* pqueue_iterator(PQueue *pq) {
-    struct PQueueIterator *pq_it = malloc(sizeof(struct PQueueIterator));
+    struct PQueueIterator *pq_it = (struct PQueueIterator*) malloc(sizeof(struct PQueueIterator));
     check_alloc(pq_it);
     pq_it->pq = pq;
     pq_it->index = 0;
@@ -284,7 +285,7 @@ Iterator* pqueue_iterator(PQueue *pq) {
 
 
 Iterator* pqueue_iterator_keys(PQueue *pq) {
-    struct PQueueIterator *pq_it = malloc(sizeof(struct PQueueIterator));
+    struct PQueueIterator *pq_it = (struct PQueueIterator*) malloc(sizeof(struct PQueueIterator));
     check_alloc(pq_it);
     pq_it->pq = pq;
     pq_it->index = 0;

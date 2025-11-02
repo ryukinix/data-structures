@@ -77,7 +77,7 @@ Iterator* graph_bfs(Graph* g, int start_node) {
     queue_insert(q, start_node);
     set_add(visited, start_node);
 
-    GraphIteratorContext* it_context = malloc(sizeof(GraphIteratorContext));
+    GraphIteratorContext* it_context = (GraphIteratorContext*) malloc(sizeof(GraphIteratorContext));
     it_context->graph = g;
     it_context->nodes = graph_nodes_iterator(g);
     it_context->visited = visited;

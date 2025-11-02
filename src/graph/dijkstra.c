@@ -20,8 +20,8 @@
 
 Graph* graph_dijkstra(Graph* g, int source) {
     int n = graph_max_node_id(g) + 1;
-    int dist[n];
-    int prev[n];
+    int *dist = (int*) malloc(sizeof(int) * n);
+    int *prev = (int*) malloc(sizeof(int) * n);
 
     for (int i = 0; i < n; i++) {
         dist[i] = DIJKSTRA_INFINITY;
@@ -63,6 +63,8 @@ Graph* graph_dijkstra(Graph* g, int source) {
     }
 
     pqueue_free(pq);
+    free(dist);
+    free(prev);
 
     return g_new;
 }

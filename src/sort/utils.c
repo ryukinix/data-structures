@@ -32,7 +32,7 @@ void print_vector(Type *v, int n) {
 Type* random_vector(int n) {
     Type* v = (Type*) malloc(sizeof(Type) * n);
     check_alloc(v);
-    srand(time((void*) v));
+    srand(time(NULL));
     for (int i = 0; i < n; i++) {
         v[i] = rand() % n;
 

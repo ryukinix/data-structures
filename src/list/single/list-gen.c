@@ -11,24 +11,24 @@ bool list_gen_empty(ListGen *l) {
 }
 
 ListGen* list_gen_insert(ListGen *l, void *data) {
-    ListGen *new = (ListGen*) malloc(sizeof(ListGen));
-    if (new == NULL) {
+    ListGen *newNode = (ListGen*) malloc(sizeof(ListGen));
+    if (newNode == NULL) {
         exit(1);
     }
-    new->data = data;
-    new->next = l;
-    return new;
+    newNode->data = data;
+    newNode->next = l;
+    return newNode;
 }
 
 ListGen* list_gen_insert_with_key(ListGen *l, int key, void *data) {
-    ListGen *new = (ListGen*) malloc(sizeof(ListGen));
-    if (new == NULL) {
+    ListGen *newNode = (ListGen*) malloc(sizeof(ListGen));
+    if (newNode == NULL) {
         exit(1);
     }
-    new->key = key;
-    new->data = data;
-    new->next = l;
-    return new;
+    newNode->key = key;
+    newNode->data = data;
+    newNode->next = l;
+    return newNode;
 }
 
 ListGen* list_gen_remove(ListGen *l, void *data) {

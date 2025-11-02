@@ -30,7 +30,7 @@ static int height(AVLTree* node) {
 }
 
 AVLTree* avl_create_node(Type value) {
-    AVLTree* node = malloc(sizeof(AVLTree));
+    AVLTree* node = (AVLTree*) malloc(sizeof(AVLTree));
     node->value = value;
     node->left = NULL;
     node->right = NULL;
