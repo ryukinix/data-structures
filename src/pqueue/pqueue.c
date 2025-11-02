@@ -138,7 +138,8 @@ void pqueue_insert(PQueue *pq, int key, int value) {
 PQueueNode pqueue_top(PQueue *pq) {
     if (pq->size < 1) {
         printf("Heap underflow!\n");
-        return HEAP_EMPTY_NODE;
+        PQueueNode empty_node = HEAP_EMPTY_NODE;
+        return empty_node;
     }
     return pq->heap[0];
 }
@@ -146,7 +147,8 @@ PQueueNode pqueue_top(PQueue *pq) {
 PQueueNode pqueue_extract(PQueue *pq) {
     if (pq->size < 1) {
         printf("Heap underflow!\n");
-        return HEAP_EMPTY_NODE;
+        PQueueNode empty_node = HEAP_EMPTY_NODE;
+        return empty_node;
     }
     PQueueNode top_node = pq->heap[0];
     pq->heap[0] = pq->heap[pq->size - 1];
