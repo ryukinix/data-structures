@@ -25,3 +25,16 @@ jobs:
     - uses: actions/checkout@v3
     - name: Run make check-valgrind
       run: make check-valgrind
+
+  make-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install cppcheck
+        run: |
+          sudo apt install cppcheck -y
+          echo "cppcheck installed"
+
+      - uses: actions/checkout@v3
+      - name: Run make lint
+        run: make lint
