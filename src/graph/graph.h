@@ -274,6 +274,14 @@ List* graph_topological_sort(Graph *g);
 Graph* graph_dijkstra(Graph* g, int source);
 
 /**
+ * @brief Run kruskal algorithm to get the minimum-span tree.
+ * @param g The graph to traverse.
+ * @return a new graph with the minimum span tree.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_kruskal(Graph* g);
+
+/**
  * @brief Run dijkstra algorithm and calculate the minimum distance.
  * @param g The graph to traverse.
  * @param source The source node to start.

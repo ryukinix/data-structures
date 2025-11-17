@@ -16,11 +16,11 @@ typedef struct DisjointSet DisjointSet;
 DisjointSet *set_disjoint_create(int n);
 
 /**
- * @brief Destroys a disjoint-set data structure.
+ * @brief Free a disjoint-set data structure.
  *
  * @param[in,out] ds A pointer to a pointer to the disjoint-set.
  */
-void set_disjoint_destroy(DisjointSet **ds);
+void set_disjoint_free(DisjointSet *ds);
 
 /**
  * @brief Finds the representative of the set containing element i.

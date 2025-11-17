@@ -183,8 +183,7 @@ void test_set_disjoint() {
     assert(set_disjoint_find(ds, 8) == set_disjoint_find(ds, 9));
     assert(set_disjoint_find(ds, 0) != set_disjoint_find(ds, 8));
 
-    set_disjoint_destroy(&ds);
-    assert(ds == NULL);
+    set_disjoint_free(ds);
 }
 
 

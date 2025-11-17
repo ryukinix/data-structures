@@ -23,16 +23,10 @@ DisjointSet *set_disjoint_create(int n) {
     return ds;
 }
 
-void set_disjoint_destroy(DisjointSet **ds) {
-    if (ds == NULL || *ds == NULL) {
-        return;
-    }
-    free((*ds)->parent);
-    (*ds)->parent = NULL;
-    free((*ds)->rank);
-    (*ds)->rank = NULL;
-    free(*ds);
-    *ds = NULL;
+void set_disjoint_free(DisjointSet *ds) {
+    free(ds->parent);
+    free(ds->rank);
+    free(ds);
 }
 
 // Find with path compression
