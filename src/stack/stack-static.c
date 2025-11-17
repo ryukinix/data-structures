@@ -50,6 +50,15 @@ void stack_print(Stack* s) {
     printf("]>");
 }
 
+bool stack_has(Stack *s, int data) {
+    for (int i = 0; i < s->n; i++) {
+        if (s->v[i] == data) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void stack_println(Stack* s) {
     stack_print(s);
     printf("\n");

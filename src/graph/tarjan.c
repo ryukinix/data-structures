@@ -3,11 +3,21 @@
 
 struct TarjanContext {
     Graph* g_tarjan;
+    int *components;
+    Stack* path; // for strong connected components
     int counter_exploration;
     int counter_complete;
     int *exploration;
     int *complete;
 };
+
+void free_tarjan_context(struct TarjanContext *tc) {
+    // keep on memor: g_tarjan + componentes
+    free(tc->exploration);
+    free(tc->complete);
+    stack_free(tc->path);
+    free(tc);
+}
 
 EdgeType tarjan_classify_edge(struct TarjanContext *tc, int parent, int u) {
     if (tc->exploration[u] == 0) {
@@ -21,13 +31,28 @@ EdgeType tarjan_classify_edge(struct TarjanContext *tc, int parent, int u) {
     }
 }
 
+int update_components(struct TarjanContext *tc, EdgeType edge_type, int u, int v) {
+    if (edge_type == TREE) {
+        int tcu = tc->components[u];
+        int tcv = tc->components[v];
+        return tcu < tcv? tcu: tcv;
+    } else if (stack_has(tc->path, v)) {
+        int tcu = tc->components[u];
+        int exv = tc->exploration[v];
+        return tcu < exv? tcu: exv;
+    }
+    return tc->components[u];
+}
+
+
 static void graph_dfst(
     Graph *g,
     int node,
     struct TarjanContext *tc
 ) {
     tc->exploration[node] = ++tc->counter_exploration;
-
+    tc->components[node] = tc->exploration[node];
+    stack_push(tc->path, node);
     Set* neighbors_set = graph_get_neighbors(g, node);
     Iterator* set_it = set_iterator(neighbors_set);
 
@@ -41,6 +66,13 @@ static void graph_dfst(
         if (edge_type == TREE) {
             graph_dfst(g, neighbor, tc);
         }
+
+        tc->components[node] = update_components(tc, edge_type, node, neighbor);
+    }
+
+    // pop elements for components visited in a cycle
+    if (tc->components[node] == tc->exploration[node]) {
+        while (stack_pop(tc->path) != node);
     }
     set_free(neighbors_set);
     iterator_free(set_it);
@@ -48,36 +80,54 @@ static void graph_dfst(
     tc->complete[node] = ++tc->counter_complete;
 }
 
-
-Graph* graph_tarjan(Graph *g) {
-    struct TarjanContext tc;
+struct TarjanContext* graph_tarjan_explore(Graph *g) {
+    struct TarjanContext *tc = (struct TarjanContext*) malloc(sizeof(struct TarjanContext));
     int max_node_id = graph_max_node_id(g);
-    int *exploration = (int*) malloc(sizeof(int) * (max_node_id + 1));
-    for (int i = 0; i <= max_node_id; i++) {
+    int n = max_node_id + 1;
+    int *exploration = (int*) malloc(n * sizeof(int));
+    int *complete = (int*) malloc(n * sizeof(int));
+    int *components= (int*) malloc(n * sizeof(int));
+
+    // initialize arrays
+    for (int i = 0; i < n; i++) {
         exploration[i] = 0;
-    }
-    int *complete = (int*) malloc(sizeof(int) * (max_node_id + 1));
-    for (int i = 0; i <= max_node_id; i++) {
         complete[i] = 0;
+        components[i] = -1;
     }
 
-    tc.g_tarjan = graph_tarjan_create(graph_is_directed(g));
-    tc.counter_complete = 0;
-    tc.counter_exploration = 0;
-    tc.exploration = exploration;
-    tc.complete = complete;
+    tc->g_tarjan = graph_tarjan_create(graph_is_directed(g));
+    tc->counter_complete = 0;
+    tc->counter_exploration = 0;
+    tc->exploration = exploration;
+    tc->complete = complete;
+    tc->components = components;
+    tc->path = stack_create();
 
     // dfs over each node
     Iterator *nodes = graph_nodes_iterator(g);
     while (!iterator_done(nodes)) {
         int node = *(int*) iterator_next(nodes);
-        if (tc.exploration[node] == 0) {
-            graph_dfst(g, node, &tc);
+        if (tc->exploration[node] == 0) {
+            graph_dfst(g, node, tc);
         }
 
     }
     iterator_free(nodes);
-    free(exploration);
-    free(complete);
-    return tc.g_tarjan;
+    return tc;
+}
+
+Graph* graph_tarjan(Graph *g) {
+    struct TarjanContext *tc= graph_tarjan_explore(g);
+    Graph* g_tarjan = tc->g_tarjan;
+    free(tc->components);
+    free_tarjan_context(tc);
+    return g_tarjan;
+}
+
+int* graph_strong_components(Graph *g) {
+    struct TarjanContext *tc= graph_tarjan_explore(g);
+    int* components = tc->components;
+    graph_free(tc->g_tarjan);
+    free_tarjan_context(tc);
+    return components;
 }

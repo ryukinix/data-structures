@@ -202,17 +202,17 @@ void graph_print(Graph *g) {
         int u = *(int*)iterator_next(it);
         Set *neighbors = (Set*) hash_table_gen_get(g->adj, u, NULL);
         if (g->tarjan) {
-            Iterator *it = set_iterator_items(neighbors);
+            Iterator *neighbors_it = set_iterator_items(neighbors);
             printf("{");
-            while (!iterator_done(it)) {
-                List *list = (List*) iterator_next(it);
+            while (!iterator_done(neighbors_it)) {
+                List *list = (List*) iterator_next(neighbors_it);
                 printf("%d:%s", list->key, graph_edge_type_name((EdgeType)list->data));
-                if (!iterator_done(it)) {
+                if (!iterator_done(neighbors_it)) {
                     printf(", ");
                 }
             }
             printf("}\n");
-            iterator_free(it);
+            iterator_free(neighbors_it);
         } else if (g->weighted) {
             set_print_items(neighbors);
         } else {
@@ -231,8 +231,8 @@ void graph_free(Graph *g) {
 void graph_export_to_dot(Graph *g, const char* filename) {
     FILE *fp = fopen(filename, "w");
     if (fp == NULL) {
-        return;
         fprintf(stderr, "Could not open file %s for writing\n", filename);
+        return;
     }
 
     fprintf(fp, "%s G {\n", g->directed ? "digraph" : "graph");

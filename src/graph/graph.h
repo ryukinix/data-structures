@@ -240,6 +240,14 @@ bool graph_is_dag(Graph *g);
 Graph* graph_tarjan(Graph *g);
 
 /**
+ * @brief Create a array of strong components using tarjan algorithm.
+ * @param g The graph to traverse.
+ * @return array of componentes indexed by node id.
+ * @ingroup DataStructureMethods
+ */
+int* graph_strong_components(Graph *g);
+
+/**
  * This method is defined in acyclical.c because it inherits part of the acyclical code.
  *
  * @brief Creat a list with the nodes in topological sort.

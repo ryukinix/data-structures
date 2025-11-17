@@ -197,6 +197,42 @@ void test_graph_tarjan() {
     graph_free(g);
 }
 
+void test_graph_strong_components() {
+    puts("== Graph strong components ");
+
+    Graph *g = graph_create();
+
+    printf(":: input graph: \n");
+    graph_add_edge(g, 1, 2);
+    graph_add_edge(g, 1, 3);
+    graph_add_edge(g, 2, 3);
+    graph_add_edge(g, 3, 4);
+    graph_add_edge(g, 4, 1);
+    graph_add_edge(g, 5, 1);
+
+    graph_print(g);
+
+    printf(":: strong components: \n");
+
+    int *components = graph_strong_components(g);
+    int n = graph_max_node_id(g) + 1;
+    for (int u = 0; u < n; u++) {
+        if (components[u] >= 0) {
+            printf("%d -> %d\n", u, components[u]);
+        }
+    }
+
+    // expected: two components {1, 2, 3, 4} and {5}
+    assert(components[1] == components[2]);
+    assert(components[2] == components[3]);
+    assert(components[3] == components[4]);
+    assert(components[3] == components[4]);
+    assert(components[1] != components[5]);
+
+    free(components);
+    graph_free(g);
+}
+
 void test_graph_export() {
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
@@ -345,6 +381,7 @@ int main(int argc, char *argv[]) {
     test_dfs();
     test_graph_acyclical();
     test_graph_tarjan();
+    test_graph_strong_components();
     test_graph_topological_sort();
     test_graph_dijkstra(extra_tests);
     if (should_run_extra_tests(argc, argv)) {
