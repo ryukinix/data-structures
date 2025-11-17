@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "set.h"
+#include "set-disjoint.h"
 
 void test_set_contains() {
     printf("\n== test set_contains\n\n");
@@ -133,6 +134,60 @@ void test_set_iterator() {
 }
 
 
+void test_set_disjoint() {
+    printf("\n== test set_disjoint\n\n");
+    int n = 10;
+    DisjointSet *ds = set_disjoint_create(n);
+
+    // Initially, each element is in its own set
+    for (int i = 0; i < n; i++) {
+        assert(set_disjoint_find(ds, i) == i);
+    }
+
+    // Union some elements
+    set_disjoint_union(ds, 0, 1);
+    set_disjoint_union(ds, 2, 3);
+    set_disjoint_union(ds, 0, 2); // This should connect 0, 1, 2, 3
+
+    // Verify unions
+    assert(set_disjoint_find(ds, 0) == set_disjoint_find(ds, 1));
+    assert(set_disjoint_find(ds, 0) == set_disjoint_find(ds, 2));
+    assert(set_disjoint_find(ds, 0) == set_disjoint_find(ds, 3));
+    assert(set_disjoint_find(ds, 1) == set_disjoint_find(ds, 2));
+    assert(set_disjoint_find(ds, 1) == set_disjoint_find(ds, 3));
+    assert(set_disjoint_find(ds, 2) == set_disjoint_find(ds, 3));
+
+    // Elements not involved in unions should still be in their own sets
+    assert(set_disjoint_find(ds, 4) == 4);
+    assert(set_disjoint_find(ds, 5) == 5);
+
+    // Further unions
+    set_disjoint_union(ds, 4, 5);
+    set_disjoint_union(ds, 6, 7);
+    set_disjoint_union(ds, 8, 9);
+    set_disjoint_union(ds, 4, 6); // This should connect 4, 5, 6, 7
+
+    assert(set_disjoint_find(ds, 4) == set_disjoint_find(ds, 5));
+    assert(set_disjoint_find(ds, 4) == set_disjoint_find(ds, 6));
+    assert(set_disjoint_find(ds, 4) == set_disjoint_find(ds, 7));
+
+    // Union the two large sets
+    set_disjoint_union(ds, 0, 4); // Connects 0,1,2,3 with 4,5,6,7
+
+    assert(set_disjoint_find(ds, 0) == set_disjoint_find(ds, 4));
+    assert(set_disjoint_find(ds, 1) == set_disjoint_find(ds, 5));
+    assert(set_disjoint_find(ds, 2) == set_disjoint_find(ds, 6));
+    assert(set_disjoint_find(ds, 3) == set_disjoint_find(ds, 7));
+
+    // Check that 8 and 9 are still separate
+    assert(set_disjoint_find(ds, 8) == set_disjoint_find(ds, 9));
+    assert(set_disjoint_find(ds, 0) != set_disjoint_find(ds, 8));
+
+    set_disjoint_destroy(&ds);
+    assert(ds == NULL);
+}
+
+
 int main(void) {
     printf("== Tests over Set data stucture");
     test_set_contains();
@@ -143,5 +198,6 @@ int main(void) {
     test_set_union();
     test_set_difference();
     test_set_iterator();
+    test_set_disjoint();
     return 0;
 }

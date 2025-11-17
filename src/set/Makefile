@@ -14,7 +14,7 @@ INCLUDE := -I../ -L../list/single -L../hash-table/
 
 # targets to compile
 TEST_TARGET = test
-TARGETS = set.o
+TARGETS = set.o set-disjoint.o
 LIBRARY_OBJS = $(TARGETS)
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
@@ -25,7 +25,7 @@ LIBRARY_TARGET = libset.a
 all: compile
 	@echo > /dev/null
 
-compile: $(TARGETS) $(TEST_TARGET).o $(MAIN_TARGET).o
+compile: deps $(TARGETS) $(TEST_TARGET).o $(MAIN_TARGET).o
 
 deps:
 	make clean library -C ../list/single CFLAGS=-DLIST_PRINT_KEY
