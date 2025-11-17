@@ -209,6 +209,13 @@ Iterator* graph_nodes_iterator(Graph *g);
 List* graph_edges(Graph *g);
 
 /**
+ * @brief List with edges of the graph with (key,data) ordered ascending.
+ * @param g The graph to traverse.
+ * @ingroup DataStructureMethods
+ */
+List* graph_edges_ordered(Graph *g);
+
+/**
  * @brief Get the maximum node id on the graph.
  * @return maximum node id on the graph.
  * @ingroup DataStructureMethods

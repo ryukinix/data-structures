@@ -197,6 +197,34 @@ void test_graph_tarjan() {
     graph_free(g);
 }
 
+void test_graph_edges_ordered() {
+    Graph* g = graph_create();
+    graph_add_edge_with_weight(g, 2, 4, 15);
+    graph_add_edge_with_weight(g, 1, 6, 14);
+    graph_add_edge_with_weight(g, 2, 3, 10);
+    graph_add_edge_with_weight(g, 1, 2, 7);
+    graph_add_edge_with_weight(g, 1, 3, 9);
+    printf(":: graph");
+    graph_print(g);
+
+
+    List *expected = list_create();
+    expected = list_append_with_key(expected, 1, 2);
+    expected = list_append_with_key(expected, 1, 3);
+    expected = list_append_with_key(expected, 2, 3);
+    expected = list_append_with_key(expected, 1, 6);
+    expected = list_append_with_key(expected, 2, 4);
+
+    List *edges_ordered = graph_edges_ordered(g);
+    printf("Edges ordered: "); list_println(edges_ordered);
+    printf("Edges expected: "); list_println(expected);
+    assert(list_equal(edges_ordered, expected));
+
+    graph_free(g);
+    list_free(expected);
+    list_free(edges_ordered);
+}
+
 void test_graph_strong_components() {
     puts("== Graph strong components ");
 
@@ -384,6 +412,7 @@ int main(int argc, char *argv[]) {
     test_graph_strong_components();
     test_graph_topological_sort();
     test_graph_dijkstra(extra_tests);
+    test_graph_edges_ordered();
     if (should_run_extra_tests(argc, argv)) {
         test_graph_export();
     }

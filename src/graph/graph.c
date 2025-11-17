@@ -76,6 +76,63 @@ List* graph_edges(Graph *g) {
     return edges;
 }
 
+int graph_edges_count(Graph *g) {
+    Iterator *nodes = graph_nodes_iterator(g);
+    int n_edges = 0;
+    while (!iterator_done(nodes)) {
+        int node = *(int*) iterator_next(nodes);
+        Set* neighbors = graph_get_neighbors(g, node);
+        n_edges += set_size(neighbors);
+        set_free(neighbors);
+    }
+    iterator_free(nodes);
+    return n_edges;
+}
+
+// compare edges in descending order
+int _compare_edge_weight(const void *a, const void *b) {
+    int x = *((const int*)a + 2);
+    int y = *((const int*)b + 2);
+    if (x < y) {
+        return 1;
+    } else if (x > y) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+// return a list of edges ordered in ascending order
+List* graph_edges_ordered(Graph *g) {
+    int edges_count = graph_edges_count(g);
+    int edges_by_weight[edges_count][3];
+    List *edges = graph_edges(g);
+    Iterator *it = list_iterator(edges);
+    int rows = 0;
+    while (!iterator_done(it)) {
+        List *edge = (List*) iterator_next(it);
+        int u = edge->key;
+        int v = edge->data;
+        int w = graph_get_edge_weight(g, u, v);
+        edges_by_weight[rows][0] = u;
+        edges_by_weight[rows][1] = v;
+        edges_by_weight[rows][2] = w;
+        rows++;
+    }
+    iterator_free(it);
+    list_free(edges);
+
+    qsort(edges_by_weight, edges_count, sizeof(int) * 3, _compare_edge_weight);
+    List *edges_ordered = list_create();
+    for (int i = 0; i < edges_count; i++) {
+        int u = edges_by_weight[i][0];
+        int v = edges_by_weight[i][1];
+        edges_ordered = list_insert_with_key(edges_ordered, u, v);
+    }
+
+    return edges_ordered;
+
+}
 
 size_t graph_size(Graph *g) {
     return hash_table_gen_size(g->adj);
