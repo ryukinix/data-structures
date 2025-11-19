@@ -57,6 +57,16 @@ void stack_push(Stack* s, int data);
 int stack_pop(Stack* s);
 
 /**
+ * @brief Check if element is on the stack.
+ *
+ * @param s The stack to check.
+ * @param data The data to check on stack.
+ * @return true if element exists, false otherwise.
+ * @ingroup DataStructureMethods
+ */
+bool stack_has(Stack* s, int data);
+
+/**
  * @brief Prints the elements of a stack to the console.
  *
  * @param s The stack to print.

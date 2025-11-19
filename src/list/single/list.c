@@ -472,6 +472,8 @@ List* list_from_iterator(Iterator *it) {
     return l;
 }
 
+
+// O(n^2): insertion sort
 void list_sort(List **list) {
     List* list_sorted = list_create();
     Iterator* it = list_iterator_data(*list);

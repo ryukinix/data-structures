@@ -42,6 +42,14 @@ Set* set_create();
 Set* set_init(int set_size, ...);
 
 /**
+ * @brief Get a the size of the set
+ * @param set to count
+ * @return number of elements
+ * @ingroup DataStructureMethods
+ */
+int set_size(Set *set);
+
+/**
  * @brief Create a set as copy of another
  * @param set to copy
  * @return pointer to the newly created set

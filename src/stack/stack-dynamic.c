@@ -40,6 +40,10 @@ int stack_pop(Stack *s) {
     return list_pop_head(&s->list);
 }
 
+bool stack_has(Stack *s, int data) {
+    return list_search(s->list, data) != NULL;
+}
+
 void stack_print(Stack* s) {
     printf("<STACK: ");
     list_print(s->list);

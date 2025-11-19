@@ -209,6 +209,13 @@ Iterator* graph_nodes_iterator(Graph *g);
 List* graph_edges(Graph *g);
 
 /**
+ * @brief List with edges of the graph with (key,data) ordered ascending.
+ * @param g The graph to traverse.
+ * @ingroup DataStructureMethods
+ */
+List* graph_edges_ordered(Graph *g);
+
+/**
  * @brief Get the maximum node id on the graph.
  * @return maximum node id on the graph.
  * @ingroup DataStructureMethods
@@ -240,6 +247,14 @@ bool graph_is_dag(Graph *g);
 Graph* graph_tarjan(Graph *g);
 
 /**
+ * @brief Create a array of strong components using tarjan algorithm.
+ * @param g The graph to traverse.
+ * @return array of componentes indexed by node id.
+ * @ingroup DataStructureMethods
+ */
+int* graph_strong_components(Graph *g);
+
+/**
  * This method is defined in acyclical.c because it inherits part of the acyclical code.
  *
  * @brief Creat a list with the nodes in topological sort.
@@ -257,6 +272,14 @@ List* graph_topological_sort(Graph *g);
  * @ingroup DataStructureMethods
  */
 Graph* graph_dijkstra(Graph* g, int source);
+
+/**
+ * @brief Run kruskal algorithm to get the minimum-span tree.
+ * @param g The graph to traverse.
+ * @return a new graph with the minimum span tree.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_kruskal(Graph* g);
 
 /**
  * @brief Run dijkstra algorithm and calculate the minimum distance.

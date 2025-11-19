@@ -21,6 +21,10 @@ Set* set_create() {
     return set;
 }
 
+int set_size(Set *set) {
+    return hash_table_size(set->memory);
+}
+
 Set* set_copy(Set *set) {
     Set *set_new = set_create();
     hash_table_free(set_new->memory);

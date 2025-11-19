@@ -197,6 +197,70 @@ void test_graph_tarjan() {
     graph_free(g);
 }
 
+void test_graph_edges_ordered() {
+    Graph* g = graph_create();
+    graph_add_edge_with_weight(g, 2, 4, 15);
+    graph_add_edge_with_weight(g, 1, 6, 14);
+    graph_add_edge_with_weight(g, 2, 3, 10);
+    graph_add_edge_with_weight(g, 1, 2, 7);
+    graph_add_edge_with_weight(g, 1, 3, 9);
+    printf(":: graph");
+    graph_print(g);
+
+
+    List *expected = list_create();
+    expected = list_append_with_key(expected, 1, 2);
+    expected = list_append_with_key(expected, 1, 3);
+    expected = list_append_with_key(expected, 2, 3);
+    expected = list_append_with_key(expected, 1, 6);
+    expected = list_append_with_key(expected, 2, 4);
+
+    List *edges_ordered = graph_edges_ordered(g);
+    printf("Edges ordered: "); list_println(edges_ordered);
+    printf("Edges expected: "); list_println(expected);
+    assert(list_equal(edges_ordered, expected));
+
+    graph_free(g);
+    list_free(expected);
+    list_free(edges_ordered);
+}
+
+void test_graph_strong_components() {
+    puts("== Graph strong components ");
+
+    Graph *g = graph_create();
+
+    printf(":: input graph: \n");
+    graph_add_edge(g, 1, 2);
+    graph_add_edge(g, 1, 3);
+    graph_add_edge(g, 2, 3);
+    graph_add_edge(g, 3, 4);
+    graph_add_edge(g, 4, 1);
+    graph_add_edge(g, 5, 1);
+
+    graph_print(g);
+
+    printf(":: strong components: \n");
+
+    int *components = graph_strong_components(g);
+    int n = graph_max_node_id(g) + 1;
+    for (int u = 0; u < n; u++) {
+        if (components[u] >= 0) {
+            printf("%d -> %d\n", u, components[u]);
+        }
+    }
+
+    // expected: two components {1, 2, 3, 4} and {5}
+    assert(components[1] == components[2]);
+    assert(components[2] == components[3]);
+    assert(components[3] == components[4]);
+    assert(components[3] == components[4]);
+    assert(components[1] != components[5]);
+
+    free(components);
+    graph_free(g);
+}
+
 void test_graph_export() {
     char cwd[PATH_MAX];
     getcwd(cwd, sizeof(cwd));
@@ -325,6 +389,27 @@ void test_graph_dijkstra(bool extra_tests) {
     graph_free(dijkstra_result);
 }
 
+void test_graph_kruskal() {
+    puts("== Graph kruskal test");
+    Graph *g = graph_create();
+    graph_add_edge_with_weight(g, 1, 2, 10);
+    graph_add_edge_with_weight(g, 1, 3, 20);
+    graph_add_edge_with_weight(g, 2, 3, 5);
+    graph_add_edge_with_weight(g, 3, 4, 30);
+    graph_add_edge_with_weight(g, 4, 1, 9);
+    graph_add_edge_with_weight(g, 5, 1, 7);
+
+    printf(":: input graph\n");
+    graph_print(g);
+
+    printf(":: kruskal tree\n");
+    Graph *g_kruskal = graph_kruskal(g);
+    graph_print(g_kruskal);
+
+    graph_free(g);
+    graph_free(g_kruskal);
+}
+
 
 bool should_run_extra_tests(int argc, char *argv[]) {
     // Iterate through the command-line arguments starting from argv[1]
@@ -345,8 +430,11 @@ int main(int argc, char *argv[]) {
     test_dfs();
     test_graph_acyclical();
     test_graph_tarjan();
+    test_graph_strong_components();
     test_graph_topological_sort();
     test_graph_dijkstra(extra_tests);
+    test_graph_edges_ordered();
+    test_graph_kruskal();
     if (should_run_extra_tests(argc, argv)) {
         test_graph_export();
     }
