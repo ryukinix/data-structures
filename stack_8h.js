@@ -5,6 +5,7 @@ var stack_8h =
     [ "stack_create", "group__DataStructureMethods.html#gae5a3d0d7d18942221d081e0bffd143ff", null ],
     [ "stack_empty", "group__DataStructureMethods.html#gab3000bfe7241d1243628a3d006f5255d", null ],
     [ "stack_free", "group__DataStructureMethods.html#gaee3cc8432cd8515bded9248453539111", null ],
+    [ "stack_has", "group__DataStructureMethods.html#ga552ae246ce6de338fae86042d48d3ce1", null ],
     [ "stack_iterator", "group__DataStructureMethods.html#gac634d5b8ca9e12fd1c87f3d13116c112", null ],
     [ "stack_odds", "group__DataStructureMethods.html#ga008b11ebddbaaab50229ca415719069b", null ],
     [ "stack_pop", "group__DataStructureMethods.html#ga4685328778697aa19ac0584e3a93d881", null ],

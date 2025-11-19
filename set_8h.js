@@ -18,6 +18,7 @@ var set_8h =
     [ "set_print", "group__DataStructureMethods.html#gad5ca92546c83b1b0b9c26b137ad400ce", null ],
     [ "set_print_items", "group__DataStructureMethods.html#ga590547182465e3d7a44a3aba4eef409b", null ],
     [ "set_remove", "group__DataStructureMethods.html#ga24d81b0c848fb08a253bb75148f58ceb", null ],
+    [ "set_size", "group__DataStructureMethods.html#ga41ceaab7556d7cd548ae4d7c5599fce7", null ],
     [ "set_subset", "group__DataStructureMethods.html#gac96b0ee3a6d0e05bfd10f086afeff408", null ],
     [ "set_union", "group__DataStructureMethods.html#ga598cda2aee39cb4402cf951ebe2e5570", null ]
 ];

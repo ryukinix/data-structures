@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['graph_0',['Graph',['../graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc',1,'graph.h']]]
+  ['edgetype_0',['EdgeType',['../graph_8h.html#ab4eb730bba7533d744017f84530c63c1',1,'graph.h']]]
 ];

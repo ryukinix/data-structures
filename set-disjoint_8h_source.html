@@ -16,7 +16,7 @@
     <meta name="twitter:title" content="Data Structures Lerax" />
     <meta name="twitter:description" content="Opinionated Data Structures & Algorithms" />
     <!-- END twitter metadata -->
-    <title>Data Structures Lerax: Globals</title>
+    <title>Data Structures Lerax: src/set/set-disjoint.h Source File</title>
     <link href="tabs.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -87,7 +87,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('globals_func_r.html','',''); });
+$(function(){initNavTree('set-disjoint_8h_source.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -112,20 +112,37 @@ $(function(){initNavTree('globals_func_r.html','',''); });
 </div>
 </div>
 
+<div class="header">
+  <div class="headertitle"><div class="title">set-disjoint.h</div></div>
+</div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all functions with links to the files they belong to:</div>
-
-<h3 class="doxsection"><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>radixsort()&#160;:&#160;<a class="el" href="group__SortingAlgorithms.html#ga9baa6fe3189274063061cd3e28084418">sort.h</a></li>
-<li>random_vector()&#160;:&#160;<a class="el" href="sort_8h.html#a754375fbc6a60f29a33f8ac458e9bc8e">sort.h</a></li>
-</ul>
-</div><!-- contents -->
+<a href="set-disjoint_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SET_DISJOINT_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SET_DISJOINT_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="set-disjoint_8h.html#adcb1831acc0a299bb4e74933bacb2f08">    8</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_typedef" href="set-disjoint_8h.html#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> <a class="code hl_typedef" href="set-disjoint_8h.html#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="set-disjoint_8h.html#abe1e46bd735d0d24f571cf2b058c5005">   16</a></span><a class="code hl_typedef" href="set-disjoint_8h.html#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *<a class="code hl_function" href="set-disjoint_8h.html#abe1e46bd735d0d24f571cf2b058c5005">set_disjoint_create</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="set-disjoint_8h.html#ab34c0dd66c3d3c3100dc419fb463dddd">   23</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="set-disjoint_8h.html#ab34c0dd66c3d3c3100dc419fb463dddd">set_disjoint_free</a>(<a class="code hl_typedef" href="set-disjoint_8h.html#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *ds);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="set-disjoint_8h.html#a45dad947f2554ca016f43efaf07c8d2d">   32</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="set-disjoint_8h.html#a45dad947f2554ca016f43efaf07c8d2d">set_disjoint_find</a>(<a class="code hl_typedef" href="set-disjoint_8h.html#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *ds, <span class="keywordtype">int</span> i);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="set-disjoint_8h.html#ae4e0dcb50ca6d4cc90543a9a2650b2f0">   41</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="set-disjoint_8h.html#ae4e0dcb50ca6d4cc90543a9a2650b2f0">set_disjoint_union</a>(<a class="code hl_typedef" href="set-disjoint_8h.html#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *ds, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif </span><span class="comment">/* SET_DISJOINT_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aset-disjoint_8h_html_a45dad947f2554ca016f43efaf07c8d2d"><div class="ttname"><a href="set-disjoint_8h.html#a45dad947f2554ca016f43efaf07c8d2d">set_disjoint_find</a></div><div class="ttdeci">int set_disjoint_find(DisjointSet *ds, int i)</div><div class="ttdoc">Finds the representative of the set containing element i.</div></div>
+<div class="ttc" id="aset-disjoint_8h_html_ab34c0dd66c3d3c3100dc419fb463dddd"><div class="ttname"><a href="set-disjoint_8h.html#ab34c0dd66c3d3c3100dc419fb463dddd">set_disjoint_free</a></div><div class="ttdeci">void set_disjoint_free(DisjointSet *ds)</div><div class="ttdoc">Free a disjoint-set data structure.</div></div>
+<div class="ttc" id="aset-disjoint_8h_html_abe1e46bd735d0d24f571cf2b058c5005"><div class="ttname"><a href="set-disjoint_8h.html#abe1e46bd735d0d24f571cf2b058c5005">set_disjoint_create</a></div><div class="ttdeci">DisjointSet * set_disjoint_create(int n)</div><div class="ttdoc">Creates a new disjoint-set data structure with n elements.</div></div>
+<div class="ttc" id="aset-disjoint_8h_html_adcb1831acc0a299bb4e74933bacb2f08"><div class="ttname"><a href="set-disjoint_8h.html#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a></div><div class="ttdeci">struct DisjointSet DisjointSet</div><div class="ttdoc">A disjoint-set data structure.</div><div class="ttdef"><b>Definition</b> set-disjoint.h:8</div></div>
+<div class="ttc" id="aset-disjoint_8h_html_ae4e0dcb50ca6d4cc90543a9a2650b2f0"><div class="ttname"><a href="set-disjoint_8h.html#ae4e0dcb50ca6d4cc90543a9a2650b2f0">set_disjoint_union</a></div><div class="ttdeci">void set_disjoint_union(DisjointSet *ds, int i, int j)</div><div class="ttdoc">Merges the sets containing elements i and j.</div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_b9ded748b607eb3e6a7a9afdc4f54231.html">set</a></li><li class="navelem"><a href="set-disjoint_8h.html">set-disjoint.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

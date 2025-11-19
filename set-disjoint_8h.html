@@ -16,7 +16,7 @@
     <meta name="twitter:title" content="Data Structures Lerax" />
     <meta name="twitter:description" content="Opinionated Data Structures & Algorithms" />
     <!-- END twitter metadata -->
-    <title>Data Structures Lerax: Search Algorithms</title>
+    <title>Data Structures Lerax: src/set/set-disjoint.h File Reference</title>
     <link href="tabs.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -87,7 +87,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('group__SearchAlgorithms.html','',''); });
+$(function(){initNavTree('set-disjoint_8h.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -114,156 +114,164 @@ $(function(){initNavTree('group__SearchAlgorithms.html','',''); });
 
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Search Algorithms </div></div>
+  <div class="headertitle"><div class="title">set-disjoint.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions implementing various search algorithms.  
-<a href="#details">More...</a></p>
+<p><a href="set-disjoint_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:adcb1831acc0a299bb4e74933bacb2f08" id="r_adcb1831acc0a299bb4e74933bacb2f08"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a></td></tr>
+<tr class="memdesc:adcb1831acc0a299bb4e74933bacb2f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">A disjoint-set data structure.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gac2b40ddd9d9470bab83510b504d88fec" id="r_gac2b40ddd9d9470bab83510b504d88fec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac2b40ddd9d9470bab83510b504d88fec">search_naive</a> (char *text, const char *pattern)</td></tr>
-<tr class="memdesc:gac2b40ddd9d9470bab83510b504d88fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first occurrence of a pattern in a text using the naive string searching algorithm.  <br /></td></tr>
-<tr class="memitem:ga1dbcc340e1b6f319592d65c223f678c3" id="r_ga1dbcc340e1b6f319592d65c223f678c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1dbcc340e1b6f319592d65c223f678c3">search_kmp</a> (char *text, const char *pattern)</td></tr>
-<tr class="memdesc:ga1dbcc340e1b6f319592d65c223f678c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first occurrence of a pattern in a text using the Knuth-Morris-Pratt (KMP) algorithm.  <br /></td></tr>
-<tr class="memitem:ga87d615bddfa7c6ddd6913ee3769cef08" id="r_ga87d615bddfa7c6ddd6913ee3769cef08"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga87d615bddfa7c6ddd6913ee3769cef08">search_bm</a> (char *text, const char *pattern)</td></tr>
-<tr class="memdesc:ga87d615bddfa7c6ddd6913ee3769cef08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first occurrence of a pattern in a text using the Boyer-Moore string searching algorithm.  <br /></td></tr>
-<tr class="memitem:gaae6e8cb89acd2cd093d5106c50ce442c" id="r_gaae6e8cb89acd2cd093d5106c50ce442c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaae6e8cb89acd2cd093d5106c50ce442c">search_kr</a> (char *text, const char *pattern)</td></tr>
-<tr class="memdesc:gaae6e8cb89acd2cd093d5106c50ce442c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first occurrence of a pattern in a text using the Karp-Rabin algorithm.  <br /></td></tr>
+<tr class="memitem:abe1e46bd735d0d24f571cf2b058c5005" id="r_abe1e46bd735d0d24f571cf2b058c5005"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe1e46bd735d0d24f571cf2b058c5005">set_disjoint_create</a> (int n)</td></tr>
+<tr class="memdesc:abe1e46bd735d0d24f571cf2b058c5005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new disjoint-set data structure with n elements.  <br /></td></tr>
+<tr class="memitem:ab34c0dd66c3d3c3100dc419fb463dddd" id="r_ab34c0dd66c3d3c3100dc419fb463dddd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab34c0dd66c3d3c3100dc419fb463dddd">set_disjoint_free</a> (<a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *ds)</td></tr>
+<tr class="memdesc:ab34c0dd66c3d3c3100dc419fb463dddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free a disjoint-set data structure.  <br /></td></tr>
+<tr class="memitem:a45dad947f2554ca016f43efaf07c8d2d" id="r_a45dad947f2554ca016f43efaf07c8d2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45dad947f2554ca016f43efaf07c8d2d">set_disjoint_find</a> (<a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *ds, int i)</td></tr>
+<tr class="memdesc:a45dad947f2554ca016f43efaf07c8d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the representative of the set containing element i.  <br /></td></tr>
+<tr class="memitem:ae4e0dcb50ca6d4cc90543a9a2650b2f0" id="r_ae4e0dcb50ca6d4cc90543a9a2650b2f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4e0dcb50ca6d4cc90543a9a2650b2f0">set_disjoint_union</a> (<a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *ds, int i, int j)</td></tr>
+<tr class="memdesc:ae4e0dcb50ca6d4cc90543a9a2650b2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges the sets containing elements i and j.  <br /></td></tr>
 </table>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<p>Functions implementing various search algorithms. </p>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="adcb1831acc0a299bb4e74933bacb2f08" name="adcb1831acc0a299bb4e74933bacb2f08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcb1831acc0a299bb4e74933bacb2f08">&#9670;&#160;</a></span>DisjointSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> <a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A disjoint-set data structure. </p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure">https://en.wikipedia.org/wiki/Disjoint-set_data_structure</a> </dd></dl>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="ga87d615bddfa7c6ddd6913ee3769cef08" name="ga87d615bddfa7c6ddd6913ee3769cef08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga87d615bddfa7c6ddd6913ee3769cef08">&#9670;&#160;</a></span>search_bm()</h2>
+<a id="abe1e46bd735d0d24f571cf2b058c5005" name="abe1e46bd735d0d24f571cf2b058c5005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe1e46bd735d0d24f571cf2b058c5005">&#9670;&#160;</a></span>set_disjoint_create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int search_bm </td>
+          <td class="memname"><a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> * set_disjoint_create </td>
           <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pattern</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Finds the first occurrence of a pattern in a text using the Boyer-Moore string searching algorithm. </p>
+<p>Creates a new disjoint-set data structure with n elements. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">text</td><td>The text to search in. </td></tr>
-    <tr><td class="paramname">pattern</td><td>The pattern to search for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>The number of elements. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the first occurrence of the pattern in the text, or -1 if the pattern is not found. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new disjoint-set. </dd></dl>
 
 </div>
 </div>
-<a id="ga1dbcc340e1b6f319592d65c223f678c3" name="ga1dbcc340e1b6f319592d65c223f678c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1dbcc340e1b6f319592d65c223f678c3">&#9670;&#160;</a></span>search_kmp()</h2>
+<a id="a45dad947f2554ca016f43efaf07c8d2d" name="a45dad947f2554ca016f43efaf07c8d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45dad947f2554ca016f43efaf07c8d2d">&#9670;&#160;</a></span>set_disjoint_find()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int search_kmp </td>
+          <td class="memname">int set_disjoint_find </td>
           <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *</td>          <td class="paramname"><span class="paramname"><em>ds</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pattern</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Finds the first occurrence of a pattern in a text using the Knuth-Morris-Pratt (KMP) algorithm. </p>
+<p>Finds the representative of the set containing element i. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">text</td><td>The text to search in. </td></tr>
-    <tr><td class="paramname">pattern</td><td>The pattern to search for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ds</td><td>The disjoint-set. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>The element to find. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the first occurrence of the pattern in the text, or -1 if the pattern is not found. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The representative of the set containing i. </dd></dl>
 
 </div>
 </div>
-<a id="gaae6e8cb89acd2cd093d5106c50ce442c" name="gaae6e8cb89acd2cd093d5106c50ce442c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaae6e8cb89acd2cd093d5106c50ce442c">&#9670;&#160;</a></span>search_kr()</h2>
+<a id="ab34c0dd66c3d3c3100dc419fb463dddd" name="ab34c0dd66c3d3c3100dc419fb463dddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab34c0dd66c3d3c3100dc419fb463dddd">&#9670;&#160;</a></span>set_disjoint_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int search_kr </td>
+          <td class="memname">void set_disjoint_free </td>
           <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *</td>          <td class="paramname"><span class="paramname"><em>ds</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pattern</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Finds the first occurrence of a pattern in a text using the Karp-Rabin algorithm. </p>
+<p>Free a disjoint-set data structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">text</td><td>The text to search in. </td></tr>
-    <tr><td class="paramname">pattern</td><td>The pattern to search for. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ds</td><td>A pointer to a pointer to the disjoint-set. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the first occurrence of the pattern in the text, or -1 if the pattern is not found. </dd></dl>
 
 </div>
 </div>
-<a id="gac2b40ddd9d9470bab83510b504d88fec" name="gac2b40ddd9d9470bab83510b504d88fec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac2b40ddd9d9470bab83510b504d88fec">&#9670;&#160;</a></span>search_naive()</h2>
+<a id="ae4e0dcb50ca6d4cc90543a9a2650b2f0" name="ae4e0dcb50ca6d4cc90543a9a2650b2f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4e0dcb50ca6d4cc90543a9a2650b2f0">&#9670;&#160;</a></span>set_disjoint_union()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int search_naive </td>
+          <td class="memname">void set_disjoint_union </td>
           <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#adcb1831acc0a299bb4e74933bacb2f08">DisjointSet</a> *</td>          <td class="paramname"><span class="paramname"><em>ds</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pattern</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Finds the first occurrence of a pattern in a text using the naive string searching algorithm. </p>
-<hr  />
- <pre class="fragment">    Copyright 2025 Manoel Vilela
-
-    Author: Manoel Vilela
-   Contact: manoel_vilela@engineer.com
-</pre><p> Organization: ITA</p>
-<hr  />
- <dl class="params"><dt>Parameters</dt><dd>
+<p>Merges the sets containing elements i and j. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">text</td><td>The text to search in. </td></tr>
-    <tr><td class="paramname">pattern</td><td>The pattern to search for. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ds</td><td>The disjoint-set. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>The first element. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">j</td><td>The second element. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the first occurrence of the pattern in the text, or -1 if the pattern is not found. </dd></dl>
 
 </div>
 </div>
@@ -274,6 +282,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_b9ded748b607eb3e6a7a9afdc4f54231.html">set</a></li><li class="navelem"><a href="set-disjoint_8h.html">set-disjoint.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

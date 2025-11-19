@@ -50,7 +50,7 @@
             <tr style="height: 56px;">
               <td id="projectalign" style="padding-left: 0.5em;">
                 <div id="projectname">Data Structures Lerax
-                  &#160;<span id="projectnumber">1.0.0-11-g44f9</span>
+                  &#160;<span id="projectnumber">1.0.0-12-gb22d</span>
                 </div>
                 <div id="projectbrief">Opinionated Data Structures &amp; Algorithms</div>
               </td>
@@ -184,6 +184,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:gaf0ef46ec9b32dad0d083252109a230b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over nodes of the graph.  <br /></td></tr>
 <tr class="memitem:gaf94bc4c2adb6cbd5f12d6df444d937bb" id="r_gaf94bc4c2adb6cbd5f12d6df444d937bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf94bc4c2adb6cbd5f12d6df444d937bb">graph_edges</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
 <tr class="memdesc:gaf94bc4c2adb6cbd5f12d6df444d937bb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28" title="A singly linked list.">List</a> with edges of the graph with (key,data).  <br /></td></tr>
+<tr class="memitem:gac77020502bed522b2e313c71b46840de" id="r_gac77020502bed522b2e313c71b46840de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac77020502bed522b2e313c71b46840de">graph_edges_ordered</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
+<tr class="memdesc:gac77020502bed522b2e313c71b46840de"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28" title="A singly linked list.">List</a> with edges of the graph with (key,data) ordered ascending.  <br /></td></tr>
 <tr class="memitem:ga5e1d0bd734bb8de61179743d651183dc" id="r_ga5e1d0bd734bb8de61179743d651183dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5e1d0bd734bb8de61179743d651183dc">graph_max_node_id</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
 <tr class="memdesc:ga5e1d0bd734bb8de61179743d651183dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the maximum node id on the graph.  <br /></td></tr>
 <tr class="memitem:gab0000718355eb86d6ce169f91f982429" id="r_gab0000718355eb86d6ce169f91f982429"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab0000718355eb86d6ce169f91f982429">graph_acyclical</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
@@ -192,10 +194,14 @@ Functions</h2></td></tr>
 <tr class="memdesc:gaacbedc473176ef918dd287afdec286d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if graph can be classified as Directed Acyclical <a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a>.  <br /></td></tr>
 <tr class="memitem:ga1a1c95ff51077e29924a722f61e4b512" id="r_ga1a1c95ff51077e29924a722f61e4b512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1a1c95ff51077e29924a722f61e4b512">graph_tarjan</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
 <tr class="memdesc:ga1a1c95ff51077e29924a722f61e4b512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new graph with tarjan arc classification as weight of the edges.  <br /></td></tr>
+<tr class="memitem:ga101a0f856b9225c29f7b1af4aee8adf8" id="r_ga101a0f856b9225c29f7b1af4aee8adf8"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga101a0f856b9225c29f7b1af4aee8adf8">graph_strong_components</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
+<tr class="memdesc:ga101a0f856b9225c29f7b1af4aee8adf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a array of strong components using tarjan algorithm.  <br /></td></tr>
 <tr class="memitem:ga9574e5e4959e834b2b89f4a3dacaf541" id="r_ga9574e5e4959e834b2b89f4a3dacaf541"><td class="memItemLeft" align="right" valign="top"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9574e5e4959e834b2b89f4a3dacaf541">graph_topological_sort</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
 <tr class="memdesc:ga9574e5e4959e834b2b89f4a3dacaf541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creat a list with the nodes in topological sort.  <br /></td></tr>
 <tr class="memitem:ga5555aa16352d5b071b8dbad487f21427" id="r_ga5555aa16352d5b071b8dbad487f21427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5555aa16352d5b071b8dbad487f21427">graph_dijkstra</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, int source)</td></tr>
 <tr class="memdesc:ga5555aa16352d5b071b8dbad487f21427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run dijkstra algorithm on the graph.  <br /></td></tr>
+<tr class="memitem:ga45984361d5ffd4442215de841cd16168" id="r_ga45984361d5ffd4442215de841cd16168"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga45984361d5ffd4442215de841cd16168">graph_kruskal</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g)</td></tr>
+<tr class="memdesc:ga45984361d5ffd4442215de841cd16168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run kruskal algorithm to get the minimum-span tree.  <br /></td></tr>
 <tr class="memitem:gaee5ab8e1a695e435224f3a25a7975a6e" id="r_gaee5ab8e1a695e435224f3a25a7975a6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaee5ab8e1a695e435224f3a25a7975a6e">graph_minimum_distance</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, int source, int destination)</td></tr>
 <tr class="memdesc:gaee5ab8e1a695e435224f3a25a7975a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run dijkstra algorithm and calculate the minimum distance.  <br /></td></tr>
 <tr class="memitem:gae9c9e43cd6d29b61bdd45c9831ff5de3" id="r_gae9c9e43cd6d29b61bdd45c9831ff5de3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae9c9e43cd6d29b61bdd45c9831ff5de3">graph_shortest_path</a> (<a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *g, int source, int destination)</td></tr>
@@ -452,8 +458,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga3afa71b17ff6ddff8ad62f78c9414f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of even elements in a queue.  <br /></td></tr>
 <tr class="memitem:gaaad3bdcac9fbbfc38b4800b12bb17449" id="r_gaaad3bdcac9fbbfc38b4800b12bb17449"><td class="memItemLeft" align="right" valign="top"><a class="el" href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaaad3bdcac9fbbfc38b4800b12bb17449">set_create</a> ()</td></tr>
 <tr class="memdesc:gaaad3bdcac9fbbfc38b4800b12bb17449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new set instance.  <br /></td></tr>
-<tr class="memitem:gac5f722c6f5b1a460c363d9804eb9faca" id="r_gac5f722c6f5b1a460c363d9804eb9faca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac5f722c6f5b1a460c363d9804eb9faca">set_init</a> (int set_size,...)</td></tr>
+<tr class="memitem:gac5f722c6f5b1a460c363d9804eb9faca" id="r_gac5f722c6f5b1a460c363d9804eb9faca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac5f722c6f5b1a460c363d9804eb9faca">set_init</a> (int <a class="el" href="#ga41ceaab7556d7cd548ae4d7c5599fce7">set_size</a>,...)</td></tr>
 <tr class="memdesc:gac5f722c6f5b1a460c363d9804eb9faca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new set instance with elements.  <br /></td></tr>
+<tr class="memitem:ga41ceaab7556d7cd548ae4d7c5599fce7" id="r_ga41ceaab7556d7cd548ae4d7c5599fce7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga41ceaab7556d7cd548ae4d7c5599fce7">set_size</a> (<a class="el" href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a> *set)</td></tr>
+<tr class="memdesc:ga41ceaab7556d7cd548ae4d7c5599fce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a the size of the set.  <br /></td></tr>
 <tr class="memitem:gab01a3aec6160437c3d3dcfd0682bd3e0" id="r_gab01a3aec6160437c3d3dcfd0682bd3e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab01a3aec6160437c3d3dcfd0682bd3e0">set_copy</a> (<a class="el" href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a> *set)</td></tr>
 <tr class="memdesc:gab01a3aec6160437c3d3dcfd0682bd3e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a set as copy of another.  <br /></td></tr>
 <tr class="memitem:gaeb88ad5817223ab5f169f27cf181c5f4" id="r_gaeb88ad5817223ab5f169f27cf181c5f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaeb88ad5817223ab5f169f27cf181c5f4">set_add</a> (<a class="el" href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a> *set, int element)</td></tr>
@@ -490,6 +498,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga1f96f21f1f30bf535fd0577c1862724e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes an element onto the top of a stack.  <br /></td></tr>
 <tr class="memitem:ga4685328778697aa19ac0584e3a93d881" id="r_ga4685328778697aa19ac0584e3a93d881"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga4685328778697aa19ac0584e3a93d881">stack_pop</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *s)</td></tr>
 <tr class="memdesc:ga4685328778697aa19ac0584e3a93d881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops an element from the top of a stack.  <br /></td></tr>
+<tr class="memitem:ga552ae246ce6de338fae86042d48d3ce1" id="r_ga552ae246ce6de338fae86042d48d3ce1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga552ae246ce6de338fae86042d48d3ce1">stack_has</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *s, int data)</td></tr>
+<tr class="memdesc:ga552ae246ce6de338fae86042d48d3ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if element is on the stack.  <br /></td></tr>
 <tr class="memitem:ga91cfcb34ab64fcb797e1bc0f2b7bb44d" id="r_ga91cfcb34ab64fcb797e1bc0f2b7bb44d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga91cfcb34ab64fcb797e1bc0f2b7bb44d">stack_print</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *s)</td></tr>
 <tr class="memdesc:ga91cfcb34ab64fcb797e1bc0f2b7bb44d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the elements of a stack to the console.  <br /></td></tr>
 <tr class="memitem:ga9b97a736186fe62f48ab28fd0fbf0a47" id="r_ga9b97a736186fe62f48ab28fd0fbf0a47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9b97a736186fe62f48ab28fd0fbf0a47">stack_println</a> (<a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *s)</td></tr>
@@ -2068,6 +2078,31 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gac77020502bed522b2e313c71b46840de" name="gac77020502bed522b2e313c71b46840de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac77020502bed522b2e313c71b46840de">&#9670;&#160;</a></span>graph_edges_ordered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28">List</a> * graph_edges_ordered </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="list_8h.html#a99e20082d0eddef1840f9f37978efd28" title="A singly linked list.">List</a> with edges of the graph with (key,data) ordered ascending. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>The graph to traverse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga7f5ad15cd23d1317fa5b73ab1fb9eada" name="ga7f5ad15cd23d1317fa5b73ab1fb9eada"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga7f5ad15cd23d1317fa5b73ab1fb9eada">&#9670;&#160;</a></span>graph_export_to_dot()</h2>
 
@@ -2291,6 +2326,32 @@ Functions</h2></td></tr>
 
 <p>Check if graph is weighted. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if is weighted, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ga45984361d5ffd4442215de841cd16168" name="ga45984361d5ffd4442215de841cd16168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga45984361d5ffd4442215de841cd16168">&#9670;&#160;</a></span>graph_kruskal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> * graph_kruskal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run kruskal algorithm to get the minimum-span tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>The graph to traverse. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new graph with the minimum span tree. </dd></dl>
 
 </div>
 </div>
@@ -2521,6 +2582,32 @@ Functions</h2></td></tr>
 
 <p>Get the number of nodes. </p>
 <dl class="section return"><dt>Returns</dt><dd>number of nodes on the graph. </dd></dl>
+
+</div>
+</div>
+<a id="ga101a0f856b9225c29f7b1af4aee8adf8" name="ga101a0f856b9225c29f7b1af4aee8adf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga101a0f856b9225c29f7b1af4aee8adf8">&#9670;&#160;</a></span>graph_strong_components()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int * graph_strong_components </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc">Graph</a> *</td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a array of strong components using tarjan algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>The graph to traverse. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array of componentes indexed by node id. </dd></dl>
 
 </div>
 </div>
@@ -6381,6 +6468,32 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga41ceaab7556d7cd548ae4d7c5599fce7" name="ga41ceaab7556d7cd548ae4d7c5599fce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga41ceaab7556d7cd548ae4d7c5599fce7">&#9670;&#160;</a></span>set_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int set_size </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="set_8h.html#ae18711cd0f4e4e8356608ed79326276b">Set</a> *</td>          <td class="paramname"><span class="paramname"><em>set</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a the size of the set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">set</td><td>to count </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of elements </dd></dl>
+
+</div>
+</div>
 <a id="gac96b0ee3a6d0e05bfd10f086afeff408" name="gac96b0ee3a6d0e05bfd10f086afeff408"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac96b0ee3a6d0e05bfd10f086afeff408">&#9670;&#160;</a></span>set_subset()</h2>
 
@@ -6509,6 +6622,37 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga552ae246ce6de338fae86042d48d3ce1" name="ga552ae246ce6de338fae86042d48d3ce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga552ae246ce6de338fae86042d48d3ce1">&#9670;&#160;</a></span>stack_has()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stack_has </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0">Stack</a> *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if element is on the stack. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The stack to check. </td></tr>
+    <tr><td class="paramname">data</td><td>The data to check on stack. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if element exists, false otherwise. </dd></dl>
 
 </div>
 </div>
