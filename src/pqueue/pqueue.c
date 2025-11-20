@@ -104,7 +104,7 @@ PQueue* pqueue_create(PQueueType type) {
     return pq;
 }
 
-void pqueue_insert_node(PQueue *pq, PQueueNode heap_node) {
+void pqueue_insert(PQueue *pq, int key, int value) {
     if (pq->size == pq->capacity) {
         pq->capacity += PQUEUE_GROWTH_FACTOR;
         pq->heap = (PQueueNode*) realloc(pq->heap, pq->capacity * sizeof(PQueueNode));
