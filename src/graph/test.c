@@ -405,7 +405,9 @@ void test_graph_kruskal() {
     printf(":: kruskal minimum spanning tree\n");
     Graph *g_kruskal = graph_kruskal(g);
     graph_print(g_kruskal);
-
+    int s = graph_edges_sum(g_kruskal);
+    printf("Cost sum: %d\n", s);
+    assert(s == 31);
     graph_free(g);
     graph_free(g_kruskal);
 }
@@ -426,7 +428,9 @@ void test_graph_prim() {
     printf(":: prim minimum spanning tree\n");
     Graph *g_prim = graph_prim(g, 5);
     graph_print(g_prim);
-
+    int s = graph_edges_sum(g_prim);
+    printf("Cost sum: %d\n", s);
+    assert(s == 31);
     graph_free(g);
     graph_free(g_prim);
 }

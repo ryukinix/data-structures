@@ -225,6 +225,13 @@ List* graph_edges(Graph *g);
 List* graph_edges_ordered(Graph *g);
 
 /**
+ * @brief Sum of the edge weights. If undirected, calculate (u, v) == (v, u) only once.
+ * @param g The graph to traverse.
+ * @ingroup DataStructureMethods
+ */
+int graph_edges_sum(Graph *g);
+
+/**
  * @brief Get the maximum node id on the graph.
  * @return maximum node id on the graph.
  * @ingroup DataStructureMethods

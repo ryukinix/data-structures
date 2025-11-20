@@ -131,7 +131,36 @@ List* graph_edges_ordered(Graph *g) {
     }
 
     return edges_ordered;
+}
 
+List* graph_remove_duplicated_edges(List* edges) {
+    Iterator *it = list_iterator(edges);
+    while (!iterator_done(it)) {
+        List *node = (List*) iterator_next(it);
+        int u = node->key;
+        int v = node->data;
+        edges = list_remove_by_key_data(edges, v, u);
+    }
+
+    return edges;
+}
+
+int graph_edges_sum(Graph *g) {
+    int s = 0;
+    List *edges = graph_edges(g);
+
+    if (!g->directed) {
+        edges = graph_remove_duplicated_edges(edges);
+    }
+
+    Iterator *it = list_iterator(edges);
+    while (!iterator_done(it)) {
+        List *node = (List*) iterator_next(it);
+        int u = node->key;
+        int v = node->data;
+        s += graph_get_edge_weight(g, u, v);
+    }
+    return s;
 }
 
 size_t graph_size(Graph *g) {
