@@ -257,6 +257,7 @@ void graph_print(Graph *g) {
     Iterator *it = graph_nodes_iterator(g);
     while(!iterator_done(it)) {
         int u = *(int*)iterator_next(it);
+        printf("%d: ", u);
         Set *neighbors = (Set*) hash_table_gen_get(g->adj, u, NULL);
         if (g->tarjan) {
             Iterator *neighbors_it = set_iterator_items(neighbors);
