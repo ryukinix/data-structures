@@ -204,7 +204,7 @@ void test_graph_edges_ordered() {
     graph_add_edge_with_weight(g, 2, 3, 10);
     graph_add_edge_with_weight(g, 1, 2, 7);
     graph_add_edge_with_weight(g, 1, 3, 9);
-    printf(":: graph");
+    printf(":: graph\n");
     graph_print(g);
 
 
