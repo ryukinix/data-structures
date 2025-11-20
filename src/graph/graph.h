@@ -146,6 +146,15 @@ void graph_remove_node(Graph *g, int node);
 bool graph_has_edge(Graph *g, int u, int v);
 
 /**
+ * @brief Checks if a node exists in the graph.
+ * @param g The graph.
+ * @param u The node.
+ * @return True if the node exists, false otherwise.
+ * @ingroup DataStructureMethods
+ */
+bool graph_has_node(Graph *g, int u);
+
+/**
  * @brief Gets the neighbors of a node.
  * @param g The graph.
  * @param node The node.

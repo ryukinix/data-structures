@@ -232,6 +232,12 @@ bool graph_has_edge(Graph *g, int u, int v) {
     return set_contains(set_u, v);
 }
 
+bool graph_has_node(Graph *g, int u) {
+    bool exists;
+    hash_table_gen_get(g->adj, u, &exists);
+    return exists;
+}
+
 Set* graph_get_neighbors(Graph *g, int node) {
     bool exists;
     Set *neighbors = (Set*) hash_table_gen_get(g->adj, node, &exists);
