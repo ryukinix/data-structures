@@ -63,10 +63,11 @@ var searchData=
   ['list_5fprintln_5freverse_60',['list_println_reverse',['../group__DataStructureMethods.html#gae4dd7bb740f63a978474e1e53a0ac344',1,'list.h']]],
   ['list_5fremove_61',['list_remove',['../group__DataStructureMethods.html#ga9a2ed701e7f810f1bcda6f9a1c3609e8',1,'list.h']]],
   ['list_5fremove_5fby_5fkey_62',['list_remove_by_key',['../group__DataStructureMethods.html#ga8357293f38ea74cca885474eecc38ad7',1,'list.h']]],
-  ['list_5freverse_63',['list_reverse',['../group__DataStructureMethods.html#ga24b701bdb2568d6240b6f4e567048476',1,'list.h']]],
-  ['list_5fsearch_64',['list_search',['../group__DataStructureMethods.html#ga0c2292ad15fe513ed2963105505d7ecb',1,'list.h']]],
-  ['list_5fsearch_5fby_5fkey_65',['list_search_by_key',['../group__DataStructureMethods.html#gadd1c009ee8ca05d8ee39b1b6b2f550ad',1,'list.h']]],
-  ['list_5fsort_66',['list_sort',['../list_8h.html#a76c317c80ae90ada730a6ed2ba4e6c53',1,'list.h']]],
-  ['list_5fsum_67',['list_sum',['../group__DataStructureMethods.html#ga723facec42e6f5e8251d9c706b9b6871',1,'list.h']]],
-  ['list_5ftail_68',['list_tail',['../group__DataStructureMethods.html#ga44d0e65969310126a7517c9458bade9e',1,'list.h']]]
+  ['list_5fremove_5fby_5fkey_5fdata_63',['list_remove_by_key_data',['../group__DataStructureMethods.html#gac9ca00df1f664748864abe6f2c3a72fe',1,'list.h']]],
+  ['list_5freverse_64',['list_reverse',['../group__DataStructureMethods.html#ga24b701bdb2568d6240b6f4e567048476',1,'list.h']]],
+  ['list_5fsearch_65',['list_search',['../group__DataStructureMethods.html#ga0c2292ad15fe513ed2963105505d7ecb',1,'list.h']]],
+  ['list_5fsearch_5fby_5fkey_66',['list_search_by_key',['../group__DataStructureMethods.html#gadd1c009ee8ca05d8ee39b1b6b2f550ad',1,'list.h']]],
+  ['list_5fsort_67',['list_sort',['../list_8h.html#a76c317c80ae90ada730a6ed2ba4e6c53',1,'list.h']]],
+  ['list_5fsum_68',['list_sum',['../group__DataStructureMethods.html#ga723facec42e6f5e8251d9c706b9b6871',1,'list.h']]],
+  ['list_5ftail_69',['list_tail',['../group__DataStructureMethods.html#ga44d0e65969310126a7517c9458bade9e',1,'list.h']]]
 ];

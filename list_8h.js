@@ -35,6 +35,7 @@ var list_8h =
     [ "list_println_reverse", "group__DataStructureMethods.html#gae4dd7bb740f63a978474e1e53a0ac344", null ],
     [ "list_remove", "group__DataStructureMethods.html#ga9a2ed701e7f810f1bcda6f9a1c3609e8", null ],
     [ "list_remove_by_key", "group__DataStructureMethods.html#ga8357293f38ea74cca885474eecc38ad7", null ],
+    [ "list_remove_by_key_data", "group__DataStructureMethods.html#gac9ca00df1f664748864abe6f2c3a72fe", null ],
     [ "list_reverse", "group__DataStructureMethods.html#ga24b701bdb2568d6240b6f4e567048476", null ],
     [ "list_search", "group__DataStructureMethods.html#ga0c2292ad15fe513ed2963105505d7ecb", null ],
     [ "list_search_by_key", "group__DataStructureMethods.html#gadd1c009ee8ca05d8ee39b1b6b2f550ad", null ],
