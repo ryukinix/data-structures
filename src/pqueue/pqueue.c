@@ -87,11 +87,11 @@ void min_heapify(PQueue *pq, int i) {
 
 PQueue* pqueue_create(PQueueType type) {
     PQueue* pq = (PQueue*) malloc(sizeof(PQueue));
-    pq->index = hash_table_create(PQUEUE_SIZE * 10);
     if (pq == NULL) {
         perror("Failed to allocate memory for PQueue");
         exit(EXIT_FAILURE);
     }
+    pq->index = hash_table_create(PQUEUE_SIZE * 10);
     pq->heap = (PQueueNode*) malloc(PQUEUE_SIZE * sizeof(PQueueNode));
     if (pq->heap == NULL) {
         perror("Failed to allocate memory for PQueue heap");
@@ -104,7 +104,7 @@ PQueue* pqueue_create(PQueueType type) {
     return pq;
 }
 
-void pqueue_insert(PQueue *pq, int key, int value) {
+void pqueue_insert_node(PQueue *pq, PQueueNode heap_node) {
     if (pq->size == pq->capacity) {
         pq->capacity += PQUEUE_GROWTH_FACTOR;
         pq->heap = (PQueueNode*) realloc(pq->heap, pq->capacity * sizeof(PQueueNode));

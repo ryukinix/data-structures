@@ -12,7 +12,7 @@ struct TarjanContext {
 };
 
 void free_tarjan_context(struct TarjanContext *tc) {
-    // keep on memor: g_tarjan + componentes
+    // keep on memory: g_tarjan + components
     free(tc->exploration);
     free(tc->complete);
     stack_free(tc->path);
