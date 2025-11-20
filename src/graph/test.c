@@ -389,7 +389,9 @@ void test_graph_dijkstra(bool extra_tests) {
     graph_free(dijkstra_result);
 }
 
-void test_graph_kruskal() {
+void test_graph_kruskal(bool extra_tests) {
+    char cwd[PATH_MAX];
+    getcwd(cwd, sizeof(cwd));
     puts("== Graph kruskal test");
     Graph *g = graph_undirected_create();
     graph_add_edge_with_weight(g, 1, 2, 10);
@@ -405,6 +407,14 @@ void test_graph_kruskal() {
     printf(":: kruskal minimum spanning tree\n");
     Graph *g_kruskal = graph_kruskal(g);
     graph_print(g_kruskal);
+
+    if (extra_tests) {
+        graph_export_to_dot(g, "test_graph_kruskal_input.dot");
+        printf("saved input: %s/test_graph_kruskal_input.dot\n", cwd);
+        graph_export_to_dot(g_kruskal, "test_graph_kruskal_output.dot");
+        printf("saved output: %s/test_graph_kruskal_output.dot\n", cwd);
+    }
+
     int s = graph_edges_sum(g_kruskal);
     printf("Cost sum: %d\n", s);
     assert(s == 31);
@@ -412,7 +422,9 @@ void test_graph_kruskal() {
     graph_free(g_kruskal);
 }
 
-void test_graph_prim() {
+void test_graph_prim(bool extra_tests) {
+    char cwd[PATH_MAX];
+    getcwd(cwd, sizeof(cwd));
     puts("== Graph prim test");
     Graph *g = graph_undirected_create();
     graph_add_edge_with_weight(g, 1, 2, 10);
@@ -428,6 +440,14 @@ void test_graph_prim() {
     printf(":: prim minimum spanning tree\n");
     Graph *g_prim = graph_prim(g, 5);
     graph_print(g_prim);
+
+    if (extra_tests) {
+        graph_export_to_dot(g, "test_graph_prim_input.dot");
+        printf("saved input: %s/test_graph_prim_input.dot\n", cwd);
+        graph_export_to_dot(g_prim, "test_graph_prim_output.dot");
+        printf("saved output: %s/test_graph_prim_output.dot\n", cwd);
+    }
+
     int s = graph_edges_sum(g_prim);
     printf("Cost sum: %d\n", s);
     assert(s == 31);
@@ -459,8 +479,8 @@ int main(int argc, char *argv[]) {
     test_graph_topological_sort();
     test_graph_dijkstra(extra_tests);
     test_graph_edges_ordered();
-    test_graph_kruskal();
-    test_graph_prim();
+    test_graph_kruskal(extra_tests);
+    test_graph_prim(extra_tests);
     if (should_run_extra_tests(argc, argv)) {
         test_graph_export();
     }

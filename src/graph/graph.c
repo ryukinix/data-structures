@@ -141,7 +141,7 @@ List* graph_remove_duplicated_edges(List* edges) {
         int v = node->data;
         edges = list_remove_by_key_data(edges, v, u);
     }
-
+    iterator_free(it);
     return edges;
 }
 
@@ -160,6 +160,8 @@ int graph_edges_sum(Graph *g) {
         int v = node->data;
         s += graph_get_edge_weight(g, u, v);
     }
+    list_free(edges);
+    iterator_free(it);
     return s;
 }
 
