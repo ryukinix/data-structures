@@ -391,7 +391,7 @@ void test_graph_dijkstra(bool extra_tests) {
 
 void test_graph_kruskal() {
     puts("== Graph kruskal test");
-    Graph *g = graph_create();
+    Graph *g = graph_undirected_create();
     graph_add_edge_with_weight(g, 1, 2, 10);
     graph_add_edge_with_weight(g, 1, 3, 20);
     graph_add_edge_with_weight(g, 2, 3, 5);
@@ -412,7 +412,7 @@ void test_graph_kruskal() {
 
 void test_graph_prim() {
     puts("== Graph prim test");
-    Graph *g = graph_create();
+    Graph *g = graph_undirected_create();
     graph_add_edge_with_weight(g, 1, 2, 10);
     graph_add_edge_with_weight(g, 1, 3, 20);
     graph_add_edge_with_weight(g, 2, 3, 5);

@@ -2,7 +2,7 @@
 #include "../set/set-disjoint.h"
 
 Graph* graph_kruskal(Graph *g) {
-    Graph *g_kruskal = graph_create();
+    Graph *g_kruskal = graph_undirected_create();
     DisjointSet *components = set_disjoint_create(graph_max_node_id(g) + 1);
     List *edges = graph_edges_ordered(g);
     Iterator *it = list_iterator(edges);

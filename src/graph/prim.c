@@ -21,7 +21,7 @@ void update_heap(Graph* g, PQueue* pq, Set* visited, int start) {
 // of conected component from <start> node. If some node is
 // unreachable from <start> will be not included in the final tree.
 Graph* graph_prim(Graph *g, int start) {
-    Graph* g_prim = graph_create();
+    Graph* g_prim = graph_undirected_create();
     Set* visited = set_create();
     PQueue *pq = pqueue_create(MIN_PQUEUE);
     update_heap(g, pq, visited, start);
