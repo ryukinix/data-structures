@@ -39,6 +39,8 @@ Graph* graph_prim(Graph *g, int start) {
         set_add(visited, v);
         update_heap(g, pq, visited, v);
     }
+    pqueue_free(pq);
+    set_free(visited);
 
     return g_prim;
 }
