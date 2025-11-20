@@ -255,6 +255,19 @@ List* list_remove(List *l, int data) {
     return l;
 }
 
+List* list_remove_by_key_data(List *l, int key, int data) {
+    if (!list_empty(l)) {
+        if (l->key == key && l->data == data) {
+            List* next = l->next;
+            free(l);
+            l = next;
+        } else {
+            l->next = list_remove_by_key_data(l->next, key, data);
+        }
+    }
+    return l;
+}
+
 List* list_remove_by_key(List *l, int key){
     if (!list_empty(l)) {
         if (l->key == key) {

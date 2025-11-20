@@ -170,6 +170,17 @@ List* list_remove(List *l, int data);
  */
 List* list_remove_by_key(List *l, int key);
 
+
+/**
+ * @brief Remove specific element from List by a key equal data
+ * @param l List to remove with \p key
+ * @param key integer value to remove
+ * @param data integer value to remove
+ * @return new list without the node which contains \p key and \p data
+ * @ingroup DataStructureMethods
+ */
+List* list_remove_by_key_data(List *l, int key, int data);
+
 /**
  * @brief Free memory of List and its nodes
  * @ingroup DataStructureMethods

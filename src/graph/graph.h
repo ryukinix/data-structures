@@ -146,6 +146,15 @@ void graph_remove_node(Graph *g, int node);
 bool graph_has_edge(Graph *g, int u, int v);
 
 /**
+ * @brief Checks if a node exists in the graph.
+ * @param g The graph.
+ * @param u The node.
+ * @return True if the node exists, false otherwise.
+ * @ingroup DataStructureMethods
+ */
+bool graph_has_node(Graph *g, int u);
+
+/**
  * @brief Gets the neighbors of a node.
  * @param g The graph.
  * @param node The node.
@@ -216,6 +225,13 @@ List* graph_edges(Graph *g);
 List* graph_edges_ordered(Graph *g);
 
 /**
+ * @brief Sum of the edge weights. If undirected, calculate (u, v) == (v, u) only once.
+ * @param g The graph to traverse.
+ * @ingroup DataStructureMethods
+ */
+int graph_edges_sum(Graph *g);
+
+/**
  * @brief Get the maximum node id on the graph.
  * @return maximum node id on the graph.
  * @ingroup DataStructureMethods
@@ -274,12 +290,21 @@ List* graph_topological_sort(Graph *g);
 Graph* graph_dijkstra(Graph* g, int source);
 
 /**
- * @brief Run kruskal algorithm to get the minimum-span tree.
+ * @brief Run Kruskal algorithm to get the minimum-span tree.
  * @param g The graph to traverse.
  * @return a new graph with the minimum span tree.
  * @ingroup DataStructureMethods
  */
 Graph* graph_kruskal(Graph* g);
+
+/**
+ * @brief Run Prim algorithm to get the minimum-span tree.
+ * @param g The graph to traverse.
+ * @param start Initial node to start.
+ * @return a new graph with the minimum span tree.
+ * @ingroup DataStructureMethods
+ */
+Graph* graph_prim(Graph* g, int start);
 
 /**
  * @brief Run dijkstra algorithm and calculate the minimum distance.

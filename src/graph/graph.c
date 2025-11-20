@@ -131,7 +131,38 @@ List* graph_edges_ordered(Graph *g) {
     }
 
     return edges_ordered;
+}
 
+
+List* graph_remove_duplicated_edges(List* edges) {
+    List *node = edges;
+    while (node != NULL) {
+        int u = node->key;
+        int v = node->data;
+        edges = list_remove_by_key_data(edges, v, u);
+        node = node->next;
+    }
+    return edges;
+}
+
+int graph_edges_sum(Graph *g) {
+    int s = 0;
+    List *edges = graph_edges(g);
+
+    if (!g->directed) {
+        edges = graph_remove_duplicated_edges(edges);
+    }
+
+    Iterator *it = list_iterator(edges);
+    while (!iterator_done(it)) {
+        List *node = (List*) iterator_next(it);
+        int u = node->key;
+        int v = node->data;
+        s += graph_get_edge_weight(g, u, v);
+    }
+    list_free(edges);
+    iterator_free(it);
+    return s;
 }
 
 size_t graph_size(Graph *g) {
@@ -232,6 +263,12 @@ bool graph_has_edge(Graph *g, int u, int v) {
     return set_contains(set_u, v);
 }
 
+bool graph_has_node(Graph *g, int u) {
+    bool exists;
+    hash_table_gen_get(g->adj, u, &exists);
+    return exists;
+}
+
 Set* graph_get_neighbors(Graph *g, int node) {
     bool exists;
     Set *neighbors = (Set*) hash_table_gen_get(g->adj, node, &exists);
@@ -257,6 +294,7 @@ void graph_print(Graph *g) {
     Iterator *it = graph_nodes_iterator(g);
     while(!iterator_done(it)) {
         int u = *(int*)iterator_next(it);
+        printf("%d: ", u);
         Set *neighbors = (Set*) hash_table_gen_get(g->adj, u, NULL);
         if (g->tarjan) {
             Iterator *neighbors_it = set_iterator_items(neighbors);
