@@ -133,15 +133,15 @@ List* graph_edges_ordered(Graph *g) {
     return edges_ordered;
 }
 
+
 List* graph_remove_duplicated_edges(List* edges) {
-    Iterator *it = list_iterator(edges);
-    while (!iterator_done(it)) {
-        List *node = (List*) iterator_next(it);
+    List *node = edges;
+    while (node != NULL) {
         int u = node->key;
         int v = node->data;
         edges = list_remove_by_key_data(edges, v, u);
+        node = node->next;
     }
-    iterator_free(it);
     return edges;
 }
 
