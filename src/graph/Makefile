@@ -14,7 +14,7 @@ INCLUDE := -I../ -L../list/single  -L../hash-table -L../set -L../queue -L../stac
 
 # targets to compile
 TEST_TARGET = test
-TARGETS = graph.o bfs.o dfs.o acyclical.o tarjan.o dijkstra.o kruskal.o
+TARGETS = graph.o bfs.o dfs.o acyclical.o tarjan.o dijkstra.o kruskal.o prim.o
 LIBRARY_OBJS = $(TARGETS)
 
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)

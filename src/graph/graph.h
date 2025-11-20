@@ -293,10 +293,11 @@ Graph* graph_kruskal(Graph* g);
 /**
  * @brief Run Prim algorithm to get the minimum-span tree.
  * @param g The graph to traverse.
+ * @param start Initial node to start.
  * @return a new graph with the minimum span tree.
  * @ingroup DataStructureMethods
  */
-Graph* graph_prim(Graph* g);
+Graph* graph_prim(Graph* g, int start);
 
 /**
  * @brief Run dijkstra algorithm and calculate the minimum distance.

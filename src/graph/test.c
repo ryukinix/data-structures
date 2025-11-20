@@ -402,12 +402,33 @@ void test_graph_kruskal() {
     printf(":: input graph\n");
     graph_print(g);
 
-    printf(":: kruskal tree\n");
+    printf(":: kruskal minimum spanning tree\n");
     Graph *g_kruskal = graph_kruskal(g);
     graph_print(g_kruskal);
 
     graph_free(g);
     graph_free(g_kruskal);
+}
+
+void test_graph_prim() {
+    puts("== Graph prim test");
+    Graph *g = graph_create();
+    graph_add_edge_with_weight(g, 1, 2, 10);
+    graph_add_edge_with_weight(g, 1, 3, 20);
+    graph_add_edge_with_weight(g, 2, 3, 5);
+    graph_add_edge_with_weight(g, 3, 4, 30);
+    graph_add_edge_with_weight(g, 4, 1, 9);
+    graph_add_edge_with_weight(g, 5, 1, 7);
+
+    printf(":: input graph\n");
+    graph_print(g);
+
+    printf(":: prim minimum spanning tree\n");
+    Graph *g_prim = graph_prim(g, 5);
+    graph_print(g_prim);
+
+    graph_free(g);
+    graph_free(g_prim);
 }
 
 
@@ -435,6 +456,7 @@ int main(int argc, char *argv[]) {
     test_graph_dijkstra(extra_tests);
     test_graph_edges_ordered();
     test_graph_kruskal();
+    test_graph_prim();
     if (should_run_extra_tests(argc, argv)) {
         test_graph_export();
     }
